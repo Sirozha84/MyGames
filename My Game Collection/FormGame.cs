@@ -12,9 +12,16 @@ namespace My_Game_Collection
 {
     public partial class FormGame : Form
     {
-        public FormGame()
+        Game game;
+        public FormGame(Game game)
         {
+            this.game = game;
             InitializeComponent();
+        }
+
+        private void FormGame_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show(game.rate.ToString());
         }
     }
 }

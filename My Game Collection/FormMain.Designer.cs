@@ -32,19 +32,25 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.играToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.новаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabelFind = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonReset = new System.Windows.Forms.ToolStripButton();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeaderDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderGame = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderGenre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderRating = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderWin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderHourse = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderVersions = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.играToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.новаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +82,21 @@
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
+            // играToolStripMenuItem
+            // 
+            this.играToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.новаяToolStripMenuItem});
+            this.играToolStripMenuItem.Name = "играToolStripMenuItem";
+            this.играToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.играToolStripMenuItem.Text = "Игра";
+            // 
+            // новаяToolStripMenuItem
+            // 
+            this.новаяToolStripMenuItem.Name = "новаяToolStripMenuItem";
+            this.новаяToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.новаяToolStripMenuItem.Text = "Новая";
+            this.новаяToolStripMenuItem.Click += new System.EventHandler(this.новаяToolStripMenuItem_Click);
+            // 
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -104,6 +125,15 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(61, 22);
+            this.toolStripButton1.Text = "Новая";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // toolStripLabelFind
             // 
             this.toolStripLabelFind.Name = "toolStripLabelFind";
@@ -131,7 +161,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderDate,
-            this.columnHeaderGame});
+            this.columnHeaderGame,
+            this.columnHeaderGenre,
+            this.columnHeaderRating,
+            this.columnHeaderWin,
+            this.columnHeaderHourse,
+            this.columnHeaderVersions,
+            this.columnHeaderPrice});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(0, 52);
@@ -150,6 +186,30 @@
             this.columnHeaderGame.Text = "Игра";
             this.columnHeaderGame.Width = 180;
             // 
+            // columnHeaderGenre
+            // 
+            this.columnHeaderGenre.Text = "Жанр";
+            // 
+            // columnHeaderRating
+            // 
+            this.columnHeaderRating.Text = "Оценка";
+            // 
+            // columnHeaderWin
+            // 
+            this.columnHeaderWin.Text = "Пройдена";
+            // 
+            // columnHeaderHourse
+            // 
+            this.columnHeaderHourse.Text = "Часы";
+            // 
+            // columnHeaderVersions
+            // 
+            this.columnHeaderVersions.Text = "Версии";
+            // 
+            // columnHeaderPrice
+            // 
+            this.columnHeaderPrice.Text = "Потрачено";
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Location = new System.Drawing.Point(0, 482);
@@ -157,28 +217,6 @@
             this.statusStrip1.Size = new System.Drawing.Size(707, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(61, 22);
-            this.toolStripButton1.Text = "Новая";
-            // 
-            // играToolStripMenuItem
-            // 
-            this.играToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.новаяToolStripMenuItem});
-            this.играToolStripMenuItem.Name = "играToolStripMenuItem";
-            this.играToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.играToolStripMenuItem.Text = "Игра";
-            // 
-            // новаяToolStripMenuItem
-            // 
-            this.новаяToolStripMenuItem.Name = "новаяToolStripMenuItem";
-            this.новаяToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.новаяToolStripMenuItem.Text = "Новая";
             // 
             // FormMain
             // 
@@ -219,6 +257,12 @@
         private System.Windows.Forms.ToolStripMenuItem играToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem новаяToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ColumnHeader columnHeaderVersions;
+        private System.Windows.Forms.ColumnHeader columnHeaderHourse;
+        private System.Windows.Forms.ColumnHeader columnHeaderPrice;
+        private System.Windows.Forms.ColumnHeader columnHeaderGenre;
+        private System.Windows.Forms.ColumnHeader columnHeaderRating;
+        private System.Windows.Forms.ColumnHeader columnHeaderWin;
     }
 }
 

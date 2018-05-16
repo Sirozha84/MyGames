@@ -26,5 +26,14 @@ namespace My_Game_Collection
         {
             MessageBox.Show("My Game Collection\nВерсия 0.1");
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e) { новаяToolStripMenuItem_Click(null, null); }
+
+        private void новаяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Game game = new Game();
+            FormGame form = new FormGame(game);
+            form.ShowDialog();
+        }
     }
 }
