@@ -15,6 +15,8 @@ namespace My_Game_Collection
         public FormMain()
         {
             InitializeComponent();
+            Data.Load();
+            DrawList();
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
@@ -33,7 +35,38 @@ namespace My_Game_Collection
         {
             Game game = new Game();
             FormGame form = new FormGame(game);
-            form.ShowDialog();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                Data.games.Add(game);
+                Data.Save();
+                DrawList();
+            }
+        }
+
+        void DrawList()
+        {
+            listViewGames.BeginUpdate();
+            listViewGames.Items.Clear();
+            foreach (Game g in Data.games)
+                listViewGames.Items.Add(g.listItem());
+            listViewGames.EndUpdate();
+        }
+
+        private void listViewGames_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listViewGames.SelectedItems.Count == 1)
+            {
+                Game game = (Game)listViewGames.SelectedItems[0].Tag;
+                FormGame form = new FormGame(game);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    if (form.change)
+                    {
+                        Data.Save();
+                        DrawList();
+                    }
+                }
+            }
         }
     }
 }

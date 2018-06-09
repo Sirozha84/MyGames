@@ -41,7 +41,7 @@
             this.toolStripLabelFind = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonReset = new System.Windows.Forms.ToolStripButton();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewGames = new System.Windows.Forms.ListView();
             this.columnHeaderDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderGame = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderGenre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -132,13 +132,14 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(61, 22);
             this.toolStripButton1.Text = "Новая";
+            this.toolStripButton1.ToolTipText = "Новая игра";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripLabelFind
             // 
             this.toolStripLabelFind.Name = "toolStripLabelFind";
-            this.toolStripLabelFind.Size = new System.Drawing.Size(42, 22);
-            this.toolStripLabelFind.Text = "Поиск";
+            this.toolStripLabelFind.Size = new System.Drawing.Size(45, 22);
+            this.toolStripLabelFind.Text = "Поиск:";
             // 
             // toolStripTextBox1
             // 
@@ -154,12 +155,12 @@
             this.toolStripButtonReset.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonReset.Text = "Сброс";
             // 
-            // listView1
+            // listViewGames
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listViewGames.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewGames.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderDate,
             this.columnHeaderGame,
             this.columnHeaderGenre,
@@ -168,18 +169,20 @@
             this.columnHeaderHourse,
             this.columnHeaderVersions,
             this.columnHeaderPrice});
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(0, 52);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(707, 427);
-            this.listView1.TabIndex = 2;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listViewGames.FullRowSelect = true;
+            this.listViewGames.GridLines = true;
+            this.listViewGames.Location = new System.Drawing.Point(0, 52);
+            this.listViewGames.Name = "listViewGames";
+            this.listViewGames.Size = new System.Drawing.Size(707, 427);
+            this.listViewGames.TabIndex = 2;
+            this.listViewGames.UseCompatibleStateImageBehavior = false;
+            this.listViewGames.View = System.Windows.Forms.View.Details;
+            this.listViewGames.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewGames_MouseDoubleClick);
             // 
             // columnHeaderDate
             // 
             this.columnHeaderDate.Text = "Дата";
+            this.columnHeaderDate.Width = 70;
             // 
             // columnHeaderGame
             // 
@@ -224,7 +227,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 504);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listViewGames);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -243,7 +246,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewGames;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;

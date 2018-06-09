@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxGenre = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -91,12 +91,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Название игры:";
             // 
-            // textBox1
+            // textBoxName
             // 
-            this.textBox1.Location = new System.Drawing.Point(101, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBoxName.Location = new System.Drawing.Point(101, 33);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(207, 20);
+            this.textBoxName.TabIndex = 1;
+            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // label2
             // 
@@ -157,6 +158,7 @@
             this.buttonOK.TabIndex = 8;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // buttonCancel
             // 
@@ -168,6 +170,7 @@
             this.buttonCancel.TabIndex = 9;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // label5
             // 
@@ -348,7 +351,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textBoxName);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label2);
@@ -402,6 +405,7 @@
             this.buttonChangeVersion.TabIndex = 1;
             this.buttonChangeVersion.Text = "Изменить";
             this.buttonChangeVersion.UseVisualStyleBackColor = true;
+            this.buttonChangeVersion.Click += new System.EventHandler(this.buttonChangeVersion_Click);
             // 
             // buttonAddVersion
             // 
@@ -536,7 +540,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxGenre;
         private System.Windows.Forms.Label label3;

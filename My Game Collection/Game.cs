@@ -9,7 +9,7 @@ namespace My_Game_Collection
 {
     public class Game
     {
-        DateTime date;
+        DateTime date = DateTime.Now;
         public string name;
         public string publisher;
         public int year;
@@ -29,7 +29,9 @@ namespace My_Game_Collection
         {
             string[] labels = {date.ToString("dd.MM.yyyy"), name, genre, stars[rate - 1],
                 win, hours.ToString(), versions.Count().ToString(), price.ToString()};
-            return new ListViewItem(labels);
+            ListViewItem item = new ListViewItem(labels);
+            item.Tag = this;
+            return item;
         }
     }
 }
