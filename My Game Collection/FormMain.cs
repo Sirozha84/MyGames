@@ -49,6 +49,8 @@ namespace My_Game_Collection
 
         void DrawList()
         {
+            GameDateComparer dc = new GameDateComparer();
+            data.games.Sort(dc);
             listViewGames.BeginUpdate();
             listViewGames.Items.Clear();
             foreach (Game g in data.games)

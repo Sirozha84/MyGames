@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace My_Game_Collection
@@ -13,7 +10,7 @@ namespace My_Game_Collection
         public string platform;
         public string medium;
         public int price;
-
+        
         public Version()
         {
             date = DateTime.Now;
@@ -34,6 +31,14 @@ namespace My_Game_Collection
             ListViewItem item = new ListViewItem(labels);
             item.Tag = this;
             return item;
+        }
+    }
+    
+    class VersionDateComparer : IComparer<Version>
+    {
+        public int Compare(Version o1, Version o2)
+        {
+            return o1.date > o2.date ? 1 : -1;
         }
     }
 }

@@ -12,12 +12,12 @@ namespace My_Game_Collection
 {
     public partial class FormVersion : Form
     {
-        public Version version;
+        Version version;
 
         public FormVersion(Version version)
         {
-            this.version = version;
             InitializeComponent();
+            this.version = version;
             date.Value = version.date;
             comboBoxPlatform.Text = version.platform;
             comboBoxMedium.Text = version.medium;
