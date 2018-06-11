@@ -21,6 +21,7 @@ namespace My_Game_Collection
         public List<Version> versions = new List<Version>();
         public List<DLC> DLCs = new List<DLC>();
         public List<Event> History = new List<Event>();
+        public string comment;
 
         string[] stars = { "*", "* *", "* * *", "* * * *", "* * * * *" };
 

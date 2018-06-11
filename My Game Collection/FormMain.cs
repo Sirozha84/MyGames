@@ -7,15 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace My_Game_Collection
 {
     public partial class FormMain : Form
     {
+        Data data;
+
         public FormMain()
         {
             InitializeComponent();
-            Data.Load();
+            Load();
             DrawList();
         }
 
@@ -37,8 +41,8 @@ namespace My_Game_Collection
             FormGame form = new FormGame(game);
             if (form.ShowDialog() == DialogResult.OK)
             {
-                Data.games.Add(game);
-                Data.Save();
+                data.games.Add(game);
+                Save();
                 DrawList();
             }
         }
@@ -47,7 +51,7 @@ namespace My_Game_Collection
         {
             listViewGames.BeginUpdate();
             listViewGames.Items.Clear();
-            foreach (Game g in Data.games)
+            foreach (Game g in data.games)
                 listViewGames.Items.Add(g.listItem());
             listViewGames.EndUpdate();
         }
@@ -60,12 +64,37 @@ namespace My_Game_Collection
                 FormGame form = new FormGame(game);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    if (form.change)
-                    {
-                        Data.Save();
-                        DrawList();
-                    }
+                    Save();
+                    DrawList();
                 }
+            }
+        }
+
+        public void Load()
+        {
+            try
+            {
+                var serializer = new XmlSerializer(typeof(Data));
+                using (var reader = new StreamReader("Data.xml"))
+                    data = (Data)serializer.Deserialize(reader);
+            }
+            catch
+            {
+                data = new Data();
+            }
+        }
+
+        public void Save()
+        {
+            try
+            {
+                var serializer = new XmlSerializer(typeof(Data));
+                using (var writer = new StreamWriter("Data.xml"))
+                    serializer.Serialize(writer, data);
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка при сохранении данных");
             }
         }
     }

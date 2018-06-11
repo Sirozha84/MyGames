@@ -59,11 +59,11 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxComment = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.buttonDelVersion = new System.Windows.Forms.Button();
             this.buttonChangeVersion = new System.Windows.Forms.Button();
+            this.buttonDelVersion = new System.Windows.Forms.Button();
             this.buttonAddVersion = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -170,7 +170,6 @@
             this.buttonCancel.TabIndex = 9;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // label5
             // 
@@ -245,18 +244,23 @@
             this.listViewVersions.TabIndex = 16;
             this.listViewVersions.UseCompatibleStateImageBehavior = false;
             this.listViewVersions.View = System.Windows.Forms.View.Details;
+            this.listViewVersions.SelectedIndexChanged += new System.EventHandler(this.listViewVersions_SelectedIndexChanged);
+            this.listViewVersions.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewVersions_MouseDoubleClick);
             // 
             // columnHeaderDate
             // 
             this.columnHeaderDate.Text = "Дата";
+            this.columnHeaderDate.Width = 70;
             // 
             // columnHeaderPlatform
             // 
             this.columnHeaderPlatform.Text = "Платформа";
+            this.columnHeaderPlatform.Width = 100;
             // 
             // columnHeaderCarrier
             // 
             this.columnHeaderCarrier.Text = "Носитель";
+            this.columnHeaderCarrier.Width = 100;
             // 
             // columnHeaderPrice
             // 
@@ -338,16 +342,16 @@
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox2
+            // textBoxComment
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.textBoxComment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(6, 19);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(395, 166);
-            this.textBox2.TabIndex = 20;
+            this.textBoxComment.Location = new System.Drawing.Point(6, 19);
+            this.textBoxComment.Name = "textBoxComment";
+            this.textBoxComment.Size = new System.Drawing.Size(395, 20);
+            this.textBoxComment.TabIndex = 20;
+            this.textBoxComment.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // groupBox1
             // 
@@ -375,8 +379,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.buttonDelVersion);
             this.groupBox2.Controls.Add(this.buttonChangeVersion);
+            this.groupBox2.Controls.Add(this.buttonDelVersion);
             this.groupBox2.Controls.Add(this.buttonAddVersion);
             this.groupBox2.Controls.Add(this.listViewVersions);
             this.groupBox2.Location = new System.Drawing.Point(344, 18);
@@ -386,26 +390,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Версии";
             // 
-            // buttonDelVersion
-            // 
-            this.buttonDelVersion.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonDelVersion.Location = new System.Drawing.Point(168, 19);
-            this.buttonDelVersion.Name = "buttonDelVersion";
-            this.buttonDelVersion.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelVersion.TabIndex = 2;
-            this.buttonDelVersion.Text = "Удалить";
-            this.buttonDelVersion.UseVisualStyleBackColor = true;
-            // 
             // buttonChangeVersion
             // 
-            this.buttonChangeVersion.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonChangeVersion.Enabled = false;
             this.buttonChangeVersion.Location = new System.Drawing.Point(87, 19);
             this.buttonChangeVersion.Name = "buttonChangeVersion";
             this.buttonChangeVersion.Size = new System.Drawing.Size(75, 23);
-            this.buttonChangeVersion.TabIndex = 1;
+            this.buttonChangeVersion.TabIndex = 18;
             this.buttonChangeVersion.Text = "Изменить";
             this.buttonChangeVersion.UseVisualStyleBackColor = true;
             this.buttonChangeVersion.Click += new System.EventHandler(this.buttonChangeVersion_Click);
+            // 
+            // buttonDelVersion
+            // 
+            this.buttonDelVersion.Enabled = false;
+            this.buttonDelVersion.Location = new System.Drawing.Point(168, 19);
+            this.buttonDelVersion.Name = "buttonDelVersion";
+            this.buttonDelVersion.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelVersion.TabIndex = 17;
+            this.buttonDelVersion.Text = "Удалить";
+            this.buttonDelVersion.UseVisualStyleBackColor = true;
+            this.buttonDelVersion.Click += new System.EventHandler(this.buttonDelVersion_Click);
             // 
             // buttonAddVersion
             // 
@@ -415,6 +420,7 @@
             this.buttonAddVersion.TabIndex = 0;
             this.buttonAddVersion.Text = "Добавить";
             this.buttonAddVersion.UseVisualStyleBackColor = true;
+            this.buttonAddVersion.Click += new System.EventHandler(this.buttonAddVersion_Click);
             // 
             // groupBox3
             // 
@@ -498,10 +504,10 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.textBox2);
+            this.groupBox5.Controls.Add(this.textBoxComment);
             this.groupBox5.Location = new System.Drawing.Point(757, 215);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(407, 191);
+            this.groupBox5.Size = new System.Drawing.Size(407, 51);
             this.groupBox5.TabIndex = 24;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Комментарий";
@@ -524,7 +530,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Игра";
-            this.Load += new System.EventHandler(this.FormGame_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -570,11 +575,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxComment;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button buttonDelVersion;
-        private System.Windows.Forms.Button buttonChangeVersion;
         private System.Windows.Forms.Button buttonAddVersion;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button1;
@@ -585,5 +588,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button buttonChangeVersion;
+        private System.Windows.Forms.Button buttonDelVersion;
     }
 }

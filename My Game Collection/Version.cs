@@ -9,17 +9,31 @@ namespace My_Game_Collection
 {
     public class Version
     {
-        DateTime date;
-        string platform;
-        string carrier;
-        int price;
-        string comment;
+        public DateTime date;
+        public string platform;
+        public string medium;
+        public int price;
+
+        public Version()
+        {
+            date = DateTime.Now;
+        }
+
+        public Version(Version v)
+        {
+            date = v.date;
+            platform = v.platform;
+            medium = v.medium;
+            price = v.price;
+        }
 
         public ListViewItem listItem()
         {
             string[] labels = {date.ToString("dd.MM.yyyy"),
-                platform, carrier, price.ToString(), comment};
-            return new ListViewItem(labels);
+                platform, medium, price.ToString()};
+            ListViewItem item = new ListViewItem(labels);
+            item.Tag = this;
+            return item;
         }
     }
 }
