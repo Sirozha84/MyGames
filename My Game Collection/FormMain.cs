@@ -58,6 +58,11 @@ namespace My_Game_Collection
             listViewGames.EndUpdate();
         }
 
+        private void listViewGames_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) listViewGames_MouseDoubleClick(null, null);
+        }
+
         private void listViewGames_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (listViewGames.SelectedItems.Count == 1)
@@ -99,5 +104,6 @@ namespace My_Game_Collection
                 MessageBox.Show("Ошибка при сохранении данных");
             }
         }
+
     }
 }

@@ -9,13 +9,13 @@ namespace My_Game_Collection
 {
     public class Event
     {
+        public static string[] events = { "Не пройдена", "Пройдена", "Бесконечная" };
+
         public DateTime date;
         public string platform;
         public int even;
         public int hours;
         public string comment;
-
-        public static string[] events = { "Не пройдена", "Пройдена", "Бесконечная" };
 
         public Event()
         {

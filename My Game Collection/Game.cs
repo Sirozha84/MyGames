@@ -7,12 +7,14 @@ namespace My_Game_Collection
 {
     public class Game
     {
+        public static string[] stars = { "*", "* *", "* * *", "* * * *", "* * * * *" };
+
         public DateTime date = DateTime.Now;
         public string name;
         public string publisher;
-        public int year;
+        public string year;
         public string genre;
-        public byte rate = 3;
+        public int rate = 3;
         public int win;
         public int hours;
         public int price;
@@ -20,8 +22,6 @@ namespace My_Game_Collection
         public List<DLC> DLCs = new List<DLC>();
         public List<Event> history = new List<Event>();
         public string comment;
-
-        static string[] stars = { "*", "* *", "* * *", "* * * *", "* * * * *" };
 
         public ListViewItem listItem()
         {

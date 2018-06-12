@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace My_Game_Collection
@@ -19,9 +13,14 @@ namespace My_Game_Collection
 
         public FormGame(Game game)
         {
-            this.game = game;
             InitializeComponent();
+            comboBoxRate.DataSource = Game.stars;
+            this.game = game;
             textBoxName.Text = game.name;
+            comboBoxPublisher.Text = game.publisher;
+            textBoxYear.Text = game.year;
+            comboBoxGenre.Text = game.genre;
+            comboBoxRate.SelectedIndex = game.rate - 1;
             foreach (Version v in game.versions)
                 versions.Add(new Version(v));
             DrawVersions();
@@ -33,7 +32,42 @@ namespace My_Game_Collection
             DrawHistory();
             textBoxComment.Text = game.comment;
         }
-        
+
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+            game.name = textBoxName.Text;
+            if (versions.Count > 0) game.date = versions[0].date;
+            game.publisher = comboBoxPublisher.Text;
+            game.year = textBoxYear.Text;
+            game.genre = comboBoxGenre.Text;
+            game.rate = comboBoxRate.SelectedIndex + 1;
+            game.price = 0;
+            game.win = 0;
+            game.hours = 0;
+            game.versions.Clear();
+            foreach (Version v in versions)
+            {
+                game.versions.Add(new Version(v));
+                game.price += v.price;
+            }
+            game.DLCs.Clear();
+            foreach (DLC d in dlcs)
+            {
+                game.DLCs.Add(new DLC(d));
+                game.price += d.price;
+            }
+            game.history.Clear();
+            foreach (Event ev in history)
+            {
+                game.history.Add(new Event(ev));
+                game.hours += ev.hours;
+                if (game.win < ev.even) game.win = ev.even;
+            }
+            game.comment = textBoxComment.Text;
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
         #region Versions
         private void buttonAddVersion_Click(object sender, EventArgs e)
         {
@@ -142,6 +176,7 @@ namespace My_Game_Collection
             buttonDelDLC.Enabled = sel;
         }
         #endregion
+
         #region History
         private void buttonAddEvent_Click(object sender, EventArgs e)
         {
@@ -195,37 +230,6 @@ namespace My_Game_Collection
             buttonDelEvent.Enabled = sel;
         }
         #endregion
-
-        private void buttonOK_Click(object sender, EventArgs e)
-        {
-            game.name = textBoxName.Text;
-            if (versions.Count > 0) game.date = versions[0].date;
-            game.price = 0;
-            game.win = 0;
-            game.hours = 0;
-            game.versions.Clear();
-            foreach (Version v in versions)
-            {
-                game.versions.Add(new Version(v));
-                game.price += v.price;
-            }
-            game.DLCs.Clear();
-            foreach (DLC d in dlcs)
-            {
-                game.DLCs.Add(new DLC(d));
-                game.price += d.price;
-            }
-            game.history.Clear();
-            foreach (Event ev in history)
-            {
-                game.history.Add(new Event(ev));
-                game.hours += ev.hours;
-                if (game.win < ev.even) game.win = ev.even;
-            }
-            game.comment = textBoxComment.Text;
-            DialogResult = DialogResult.OK;
-            Close();
-        }
 
     }
 }
