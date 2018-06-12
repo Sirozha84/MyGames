@@ -15,6 +15,7 @@ namespace My_Game_Collection
         Game game;
         List<Version> versions = new List<Version>();
         List<DLC> dlcs = new List<DLC>();
+        List<Event> history = new List<Event>();
 
         public FormGame(Game game)
         {
@@ -27,6 +28,9 @@ namespace My_Game_Collection
             foreach (DLC d in game.DLCs)
                 dlcs.Add(new DLC(d));
             DrawDLCs();
+            foreach (Event e in game.history)
+                history.Add(new Event(e));
+            DrawHistory();
             textBoxComment.Text = game.comment;
         }
         
@@ -138,12 +142,67 @@ namespace My_Game_Collection
             buttonDelDLC.Enabled = sel;
         }
         #endregion
+        #region History
+        private void buttonAddEvent_Click(object sender, EventArgs e)
+        {
+            Event ev = new Event();
+            FormEvent form = new FormEvent(ev);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                history.Add(ev);
+                DrawHistory();
+            }
+        }
+
+        private void listViewHistory_DoubleClick(object sender, EventArgs e) { buttonChangeEvent_Click(null, null); }
+        private void buttonChangeEvent_Click(object sender, EventArgs e)
+        {
+            if (listViewHistory.SelectedIndices.Count == 1)
+            {
+                Event ev = (Event)listViewHistory.SelectedItems[0].Tag;
+                FormEvent form = new FormEvent(ev);
+                if (form.ShowDialog() == DialogResult.OK)
+                    DrawHistory();
+            }
+        }
+
+        private void buttonDelEvent_Click(object sender, EventArgs e)
+        {
+            if (listViewVersions.SelectedIndices.Count == 1)
+            {
+                Event ev = (Event)listViewHistory.SelectedItems[0].Tag;
+                history.Remove(ev);
+                DrawHistory();
+                listViewHistory_SelectedIndexChanged(null, null);
+            }
+        }
+
+        void DrawHistory()
+        {
+            EventDateComparer dc = new EventDateComparer();
+            history.Sort(dc);
+            listViewHistory.BeginUpdate();
+            listViewHistory.Items.Clear();
+            foreach (Event e in history)
+                listViewHistory.Items.Add(e.listItem());
+            listViewHistory.EndUpdate();
+        }
+
+        private void listViewHistory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool sel = listViewHistory.SelectedIndices.Count > 0;
+            buttonChangeEvent.Enabled = sel;
+            buttonDelEvent.Enabled = sel;
+        }
+        #endregion
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
             game.name = textBoxName.Text;
             if (versions.Count > 0) game.date = versions[0].date;
             game.price = 0;
+            game.win = 0;
+            game.hours = 0;
             game.versions.Clear();
             foreach (Version v in versions)
             {
@@ -155,6 +214,13 @@ namespace My_Game_Collection
             {
                 game.DLCs.Add(new DLC(d));
                 game.price += d.price;
+            }
+            game.history.Clear();
+            foreach (Event ev in history)
+            {
+                game.history.Add(new Event(ev));
+                game.hours += ev.hours;
+                if (game.win < ev.even) game.win = ev.even;
             }
             game.comment = textBoxComment.Text;
             DialogResult = DialogResult.OK;

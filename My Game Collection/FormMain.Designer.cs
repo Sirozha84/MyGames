@@ -200,6 +200,7 @@
             // columnHeaderWin
             // 
             this.columnHeaderWin.Text = "Пройдена";
+            this.columnHeaderWin.Width = 80;
             // 
             // columnHeaderHourse
             // 
