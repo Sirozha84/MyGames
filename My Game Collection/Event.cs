@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace My_Game_Collection
 {
     public class Event
     {
-        public static string[] events = { "Не пройдена", "Пройдена", "Бесконечная" };
+        public static string[] events = { "Не запускалась", "Начата", "Половина",
+                                          "Большая часть", "Пройдена", "На \"100%\"", "Бесконечная" };
 
         public DateTime date;
         public string platform;

@@ -57,6 +57,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBoxComment = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxRate = new System.Windows.Forms.ComboBox();
             this.textBoxYear = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonChangeVersion = new System.Windows.Forms.Button();
@@ -71,7 +72,6 @@
             this.buttonChangeEvent = new System.Windows.Forms.Button();
             this.buttonAddEvent = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.comboBoxRate = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -142,7 +142,7 @@
             // buttonOK
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Location = new System.Drawing.Point(1006, 464);
+            this.buttonOK.Location = new System.Drawing.Point(941, 498);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
             this.buttonOK.TabIndex = 8;
@@ -154,7 +154,7 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(1087, 464);
+            this.buttonCancel.Location = new System.Drawing.Point(1022, 498);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 9;
@@ -187,7 +187,7 @@
             this.listViewVersions.Location = new System.Drawing.Point(7, 48);
             this.listViewVersions.MultiSelect = false;
             this.listViewVersions.Name = "listViewVersions";
-            this.listViewVersions.Size = new System.Drawing.Size(394, 137);
+            this.listViewVersions.Size = new System.Drawing.Size(360, 137);
             this.listViewVersions.TabIndex = 16;
             this.listViewVersions.UseCompatibleStateImageBehavior = false;
             this.listViewVersions.View = System.Windows.Forms.View.Details;
@@ -230,7 +230,7 @@
             this.listViewDLCs.Location = new System.Drawing.Point(6, 48);
             this.listViewDLCs.MultiSelect = false;
             this.listViewDLCs.Name = "listViewDLCs";
-            this.listViewDLCs.Size = new System.Drawing.Size(395, 137);
+            this.listViewDLCs.Size = new System.Drawing.Size(361, 137);
             this.listViewDLCs.TabIndex = 17;
             this.listViewDLCs.UseCompatibleStateImageBehavior = false;
             this.listViewDLCs.View = System.Windows.Forms.View.Details;
@@ -274,7 +274,7 @@
             this.listViewHistory.Location = new System.Drawing.Point(7, 48);
             this.listViewHistory.MultiSelect = false;
             this.listViewHistory.Name = "listViewHistory";
-            this.listViewHistory.Size = new System.Drawing.Size(394, 137);
+            this.listViewHistory.Size = new System.Drawing.Size(739, 137);
             this.listViewHistory.TabIndex = 18;
             this.listViewHistory.UseCompatibleStateImageBehavior = false;
             this.listViewHistory.View = System.Windows.Forms.View.Details;
@@ -304,7 +304,7 @@
             // columnHeader7
             // 
             this.columnHeader7.Text = "Комментарий";
-            this.columnHeader7.Width = 120;
+            this.columnHeader7.Width = 394;
             // 
             // pictureBox1
             // 
@@ -323,7 +323,7 @@
             this.textBoxComment.Location = new System.Drawing.Point(6, 19);
             this.textBoxComment.Multiline = true;
             this.textBoxComment.Name = "textBoxComment";
-            this.textBoxComment.Size = new System.Drawing.Size(395, 166);
+            this.textBoxComment.Size = new System.Drawing.Size(740, 50);
             this.textBoxComment.TabIndex = 20;
             // 
             // groupBox1
@@ -346,6 +346,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Общие сведения";
             // 
+            // comboBoxRate
+            // 
+            this.comboBoxRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRate.FormattingEnabled = true;
+            this.comboBoxRate.Location = new System.Drawing.Point(100, 139);
+            this.comboBoxRate.Name = "comboBoxRate";
+            this.comboBoxRate.Size = new System.Drawing.Size(58, 21);
+            this.comboBoxRate.TabIndex = 21;
+            // 
             // textBoxYear
             // 
             this.textBoxYear.Location = new System.Drawing.Point(101, 85);
@@ -361,7 +370,7 @@
             this.groupBox2.Controls.Add(this.listViewVersions);
             this.groupBox2.Location = new System.Drawing.Point(344, 18);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(407, 191);
+            this.groupBox2.Size = new System.Drawing.Size(373, 191);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Версии";
@@ -404,9 +413,9 @@
             this.groupBox3.Controls.Add(this.buttonChangeDLC);
             this.groupBox3.Controls.Add(this.buttonAddDLC);
             this.groupBox3.Controls.Add(this.listViewDLCs);
-            this.groupBox3.Location = new System.Drawing.Point(344, 215);
+            this.groupBox3.Location = new System.Drawing.Point(723, 18);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(407, 191);
+            this.groupBox3.Size = new System.Drawing.Size(373, 191);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Дополнительные материалы";
@@ -449,9 +458,9 @@
             this.groupBox4.Controls.Add(this.buttonChangeEvent);
             this.groupBox4.Controls.Add(this.buttonAddEvent);
             this.groupBox4.Controls.Add(this.listViewHistory);
-            this.groupBox4.Location = new System.Drawing.Point(757, 18);
+            this.groupBox4.Location = new System.Drawing.Point(344, 215);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(407, 191);
+            this.groupBox4.Size = new System.Drawing.Size(752, 191);
             this.groupBox4.TabIndex = 23;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "История прохождения";
@@ -491,21 +500,12 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.textBoxComment);
-            this.groupBox5.Location = new System.Drawing.Point(757, 215);
+            this.groupBox5.Location = new System.Drawing.Point(344, 412);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(407, 191);
+            this.groupBox5.Size = new System.Drawing.Size(752, 75);
             this.groupBox5.TabIndex = 24;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Комментарий";
-            // 
-            // comboBoxRate
-            // 
-            this.comboBoxRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxRate.FormattingEnabled = true;
-            this.comboBoxRate.Location = new System.Drawing.Point(100, 139);
-            this.comboBoxRate.Name = "comboBoxRate";
-            this.comboBoxRate.Size = new System.Drawing.Size(58, 21);
-            this.comboBoxRate.TabIndex = 21;
             // 
             // FormGame
             // 
@@ -513,7 +513,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(1174, 499);
+            this.ClientSize = new System.Drawing.Size(1109, 533);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -521,6 +521,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormGame";
             this.ShowIcon = false;

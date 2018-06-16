@@ -63,7 +63,7 @@
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(707, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(728, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -121,7 +121,7 @@
             this.toolStripButtonReset});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(707, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(728, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -173,10 +173,11 @@
             this.listViewGames.GridLines = true;
             this.listViewGames.Location = new System.Drawing.Point(0, 52);
             this.listViewGames.Name = "listViewGames";
-            this.listViewGames.Size = new System.Drawing.Size(707, 427);
+            this.listViewGames.Size = new System.Drawing.Size(728, 427);
             this.listViewGames.TabIndex = 2;
             this.listViewGames.UseCompatibleStateImageBehavior = false;
             this.listViewGames.View = System.Windows.Forms.View.Details;
+            this.listViewGames.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewGames_ColumnClick);
             this.listViewGames.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listViewGames_KeyDown);
             this.listViewGames.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewGames_MouseDoubleClick);
             // 
@@ -193,6 +194,7 @@
             // columnHeaderGenre
             // 
             this.columnHeaderGenre.Text = "Жанр";
+            this.columnHeaderGenre.Width = 80;
             // 
             // columnHeaderRating
             // 
@@ -201,7 +203,7 @@
             // columnHeaderWin
             // 
             this.columnHeaderWin.Text = "Пройдена";
-            this.columnHeaderWin.Width = 80;
+            this.columnHeaderWin.Width = 100;
             // 
             // columnHeaderHourse
             // 
@@ -214,12 +216,13 @@
             // columnHeaderPrice
             // 
             this.columnHeaderPrice.Text = "Потрачено";
+            this.columnHeaderPrice.Width = 80;
             // 
             // statusStrip1
             // 
             this.statusStrip1.Location = new System.Drawing.Point(0, 482);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(707, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(728, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -227,7 +230,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 504);
+            this.ClientSize = new System.Drawing.Size(728, 504);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.listViewGames);
             this.Controls.Add(this.toolStrip1);

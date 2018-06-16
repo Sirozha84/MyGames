@@ -1,25 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Xml.Serialization;
+using System.Collections;
 
 namespace My_Game_Collection
 {
     public partial class FormMain : Form
     {
         Data data;
+        ItemComparer itemComparer = new ItemComparer();
 
         public FormMain()
         {
             InitializeComponent();
-            Load();
+            LoadData();
+            listViewGames.ListViewItemSorter = itemComparer;
             DrawList();
         }
 
@@ -42,7 +38,7 @@ namespace My_Game_Collection
             if (form.ShowDialog() == DialogResult.OK)
             {
                 data.games.Add(game);
-                Save();
+                SaveData();
                 DrawList();
             }
         }
@@ -71,13 +67,13 @@ namespace My_Game_Collection
                 FormGame form = new FormGame(game);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    Save();
+                    SaveData();
                     DrawList();
                 }
             }
         }
 
-        public void Load()
+        public void LoadData()
         {
             try
             {
@@ -91,7 +87,7 @@ namespace My_Game_Collection
             }
         }
 
-        public void Save()
+        public void SaveData()
         {
             try
             {
@@ -105,5 +101,62 @@ namespace My_Game_Collection
             }
         }
 
+        //Сортировка колонок
+        private void listViewGames_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            itemComparer.ColumnIndex = e.Column;
+            ((ListView)sender).Sort();
+            /*for (int i = 0; i < 8; i++)
+            {
+                //listViewGames.Columns[i].ImageKey;
+            }
+            listViewGames.Columns[e.Column].ImageIndex = 1 + (itemComparer.sortAscending ? 1 : 0);*/
+            //listViewGames
+        }
+    }
+
+    class ItemComparer : IComparer
+    {
+        int columnIndex = 0;
+        public bool sortAscending = true;
+        public int ColumnIndex
+        {
+            set
+            {
+                //предыдущий клик был на этой же колонке?
+                if (columnIndex == value)
+                    //да - меняем направление сортировки
+                    sortAscending = !sortAscending;
+                else
+                {
+                    columnIndex = value;
+                    sortAscending = true;
+                }
+            }
+        }
+
+        public int Compare(object g1, object g2)
+        {
+            Game game1 = (Game)((ListViewItem)g1).Tag;
+            Game game2 = (Game)((ListViewItem)g2).Tag;
+            int res = 0;
+            if (columnIndex == 0)
+                res = game1.date > game2.date ? 1 : -1;
+            if (columnIndex == 1)
+                res = String.Compare(game1.name, game2.name);
+            if (columnIndex == 2)
+                res = String.Compare(game1.genre, game2.genre);
+            if (columnIndex == 3)
+                res = game1.rate > game2.rate ? 1 : -1;
+            if (columnIndex == 4)
+                res = game1.win > game2.win ? 1 : -1;
+            if (columnIndex == 5)
+                res = game1.hours > game2.hours ? 1 : -1;
+            if (columnIndex == 6)
+                res = game1.versions.Count > game2.versions.Count ? 1 : -1;
+            if (columnIndex == 7)
+                res = game1.price > game2.price ? 1 : -1;
+            return res * (sortAscending ? 1 : -1);
+        }
     }
 }
