@@ -33,9 +33,7 @@ namespace My_Game_Collection
         {
             string[] labels = {date.ToString("dd.MM.yyyy"),
                 platform, events[even], hours.ToString(), comment};
-            ListViewItem item = new ListViewItem(labels);
-            item.Tag = this;
-            return item;
+            return new ListViewItem(labels) { Tag = this };
         }
     }
 

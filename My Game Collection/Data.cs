@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace My_Game_Collection
 {
@@ -12,6 +8,6 @@ namespace My_Game_Collection
         public List<string> publishers = new List<string>();
         public List<string> genres = new List<string>();
         public List<Platform> platforms = new List<Platform>();
-        public List<string> mediums = new List<string>();
+        public List<Medium> mediums = new List<Medium>();
     }
 }

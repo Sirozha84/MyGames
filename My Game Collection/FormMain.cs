@@ -106,12 +106,20 @@ namespace My_Game_Collection
         {
             itemComparer.ColumnIndex = e.Column;
             ((ListView)sender).Sort();
-            /*for (int i = 0; i < 8; i++)
-            {
-                //listViewGames.Columns[i].ImageKey;
-            }
-            listViewGames.Columns[e.Column].ImageIndex = 1 + (itemComparer.sortAscending ? 1 : 0);*/
-            //listViewGames
+        }
+
+        private void платформыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCats form = new FormCats(1, data.platforms);
+            form.ShowDialog();
+            SaveData();
+        }
+
+        private void носителиЭлектронныеМагазиныToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCats form = new FormCats(2, data.platforms);
+            form.ShowDialog();
+            SaveData();
         }
     }
 

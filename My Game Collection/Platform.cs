@@ -1,14 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace My_Game_Collection
 {
-    public class Platform
+    public class Platform : IComparable
     {
         public string name;
-        public bool phisic;
+        public string company;
+
+        public ListViewItem GetListViewItem()
+        {
+            string[] strings = { name, company };
+            return new ListViewItem(strings) { Tag = this };
+        }
+
+        public int CompareTo(object obj)
+        {
+            return String.Compare(name, ((Platform)obj).name);
+        }
     }
 }
