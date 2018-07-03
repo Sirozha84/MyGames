@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CatItem.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="DLC.cs" />
     <Compile Include="Event.cs" />

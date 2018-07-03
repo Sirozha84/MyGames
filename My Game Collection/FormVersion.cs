@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace My_Game_Collection
@@ -18,8 +11,17 @@ namespace My_Game_Collection
         {
             InitializeComponent();
             this.version = version;
+            RefreshData();
+        }
+
+        void RefreshData()
+        {
+            comboBoxPlatform.Items.Clear();
+            comboBoxPlatform.Items.Add("");
+            foreach (Platform p in Data.data.platforms)
+                comboBoxPlatform.Items.Add(p.name);
             date.Value = version.date;
-            comboBoxPlatform.Text = version.platform;
+            comboBoxPlatform.Text = Data.PlatformIDtoName(version.platform);
             comboBoxMedium.Text = version.medium;
             textBoxPrice.Text = version.price.ToString();
         }
@@ -27,11 +29,18 @@ namespace My_Game_Collection
         private void buttonOK_Click(object sender, EventArgs e)
         {
             version.date = date.Value;
-            version.platform = comboBoxPlatform.Text;
+            version.platform = Data.PlatformNametoID(comboBoxPlatform.Text);
             version.medium = comboBoxMedium.Text;
             version.price = Convert.ToInt32(textBoxPrice.Text);
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void linkLabelPlatform_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormCats form = new FormCats(1, Data.data.platforms);
+            form.ShowDialog();
+            RefreshData();
         }
     }
 }

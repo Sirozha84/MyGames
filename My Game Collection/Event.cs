@@ -10,7 +10,7 @@ namespace My_Game_Collection
                                           "Большая часть", "Пройдена", "На \"100%\"", "Бесконечная" };
 
         public DateTime date;
-        public string platform;
+        public int platform;
         public int even;
         public int hours;
         public string comment;
@@ -32,7 +32,7 @@ namespace My_Game_Collection
         public ListViewItem listItem()
         {
             string[] labels = {date.ToString("dd.MM.yyyy"),
-                platform, events[even], hours.ToString(), comment};
+                Data.PlatformIDtoName(platform), events[even], hours.ToString(), comment};
             return new ListViewItem(labels) { Tag = this };
         }
     }

@@ -38,7 +38,7 @@ namespace My_Game_Collection
         {
             if (type == 1)
             {
-                Platform item = new Platform();
+                Platform item = new Platform(++Data.data.platformLastID);
                 FormPlatform form = new FormPlatform(item);
                 if (form.ShowDialog() == DialogResult.OK) ((List<Platform>)list).Add(item);
             }

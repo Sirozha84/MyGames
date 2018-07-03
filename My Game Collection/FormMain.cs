@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.IO;
-using System.Xml.Serialization;
+
 using System.Collections;
 
 namespace My_Game_Collection
 {
     public partial class FormMain : Form
     {
-        Data data;
-        ItemComparer itemComparer = new ItemComparer();
+        ItemComparer itemComparer = new ItemComparer(); //Эту залупу тоже убрать...
 
         public FormMain()
         {
             InitializeComponent();
-            LoadData();
+            Data.Load();
             listViewGames.ListViewItemSorter = itemComparer;
             DrawList();
         }
@@ -37,8 +35,8 @@ namespace My_Game_Collection
             FormGame form = new FormGame(game);
             if (form.ShowDialog() == DialogResult.OK)
             {
-                data.games.Add(game);
-                SaveData();
+                Data.data.games.Add(game);
+                Data.Save();
                 DrawList();
             }
         }
@@ -46,10 +44,10 @@ namespace My_Game_Collection
         void DrawList()
         {
             GameDateComparer dc = new GameDateComparer();
-            data.games.Sort(dc);
+            Data.data.games.Sort(dc);
             listViewGames.BeginUpdate();
             listViewGames.Items.Clear();
-            foreach (Game g in data.games)
+            foreach (Game g in Data.data.games)
                 listViewGames.Items.Add(g.listItem());
             listViewGames.EndUpdate();
         }
@@ -67,37 +65,9 @@ namespace My_Game_Collection
                 FormGame form = new FormGame(game);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    SaveData();
+                    Data.Save();
                     DrawList();
                 }
-            }
-        }
-
-        public void LoadData()
-        {
-            try
-            {
-                var serializer = new XmlSerializer(typeof(Data));
-                using (var reader = new StreamReader("Data.xml"))
-                    data = (Data)serializer.Deserialize(reader);
-            }
-            catch
-            {
-                data = new Data();
-            }
-        }
-
-        public void SaveData()
-        {
-            try
-            {
-                var serializer = new XmlSerializer(typeof(Data));
-                using (var writer = new StreamWriter("Data.xml"))
-                    serializer.Serialize(writer, data);
-            }
-            catch
-            {
-                MessageBox.Show("Ошибка при сохранении данных");
             }
         }
 
@@ -110,16 +80,16 @@ namespace My_Game_Collection
 
         private void платформыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCats form = new FormCats(1, data.platforms);
+            FormCats form = new FormCats(1, Data.data.platforms);
             form.ShowDialog();
-            SaveData();
+            Data.Save();
         }
 
         private void носителиЭлектронныеМагазиныToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCats form = new FormCats(2, data.platforms);
+            FormCats form = new FormCats(2, Data.data.platforms);
             form.ShowDialog();
-            SaveData();
+            Data.Save();
         }
     }
 

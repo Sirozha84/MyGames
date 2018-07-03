@@ -3,10 +3,17 @@ using System.Windows.Forms;
 
 namespace My_Game_Collection
 {
-    public class Platform : IComparable
+    public class Platform : CatItem
     {
-        public string name;
+
         public string company;
+
+        public Platform() { }
+
+        public Platform(int lastID)
+        {
+            ID = lastID;
+        }
 
         public ListViewItem GetListViewItem()
         {
@@ -14,7 +21,7 @@ namespace My_Game_Collection
             return new ListViewItem(strings) { Tag = this };
         }
 
-        public int CompareTo(object obj)
+        public override int CompareTo(object obj)
         {
             return String.Compare(name, ((Platform)obj).name);
         }
