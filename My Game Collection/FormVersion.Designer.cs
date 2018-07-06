@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.date = new System.Windows.Forms.DateTimePicker();
             this.comboBoxPlatform = new System.Windows.Forms.ComboBox();
@@ -38,6 +37,7 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.linkLabelPlatform = new System.Windows.Forms.LinkLabel();
+            this.linkLabelMedium = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -48,15 +48,6 @@
             this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Дата";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(270, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Носитель (магазин)";
             // 
             // label4
             // 
@@ -85,6 +76,7 @@
             // 
             // comboBoxMedium
             // 
+            this.comboBoxMedium.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMedium.FormattingEnabled = true;
             this.comboBoxMedium.Location = new System.Drawing.Point(273, 25);
             this.comboBoxMedium.Name = "comboBoxMedium";
@@ -132,6 +124,17 @@
             this.linkLabelPlatform.Text = "Платформа";
             this.linkLabelPlatform.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelPlatform_LinkClicked);
             // 
+            // linkLabelMedium
+            // 
+            this.linkLabelMedium.AutoSize = true;
+            this.linkLabelMedium.Location = new System.Drawing.Point(270, 9);
+            this.linkLabelMedium.Name = "linkLabelMedium";
+            this.linkLabelMedium.Size = new System.Drawing.Size(56, 13);
+            this.linkLabelMedium.TabIndex = 7;
+            this.linkLabelMedium.TabStop = true;
+            this.linkLabelMedium.Text = "Носитель";
+            this.linkLabelMedium.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelMedium_LinkClicked);
+            // 
             // FormVersion
             // 
             this.AcceptButton = this.buttonOK;
@@ -139,6 +142,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(477, 89);
+            this.Controls.Add(this.linkLabelMedium);
             this.Controls.Add(this.linkLabelPlatform);
             this.Controls.Add(this.textBoxPrice);
             this.Controls.Add(this.buttonCancel);
@@ -147,7 +151,6 @@
             this.Controls.Add(this.comboBoxPlatform);
             this.Controls.Add(this.date);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -163,7 +166,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker date;
         private System.Windows.Forms.ComboBox comboBoxPlatform;
@@ -172,5 +174,6 @@
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.TextBox textBoxPrice;
         private System.Windows.Forms.LinkLabel linkLabelPlatform;
+        private System.Windows.Forms.LinkLabel linkLabelMedium;
     }
 }

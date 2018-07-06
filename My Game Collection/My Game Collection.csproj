@@ -79,6 +79,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMedium.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMedium.Designer.cs">
+      <DependentUpon>FormMedium.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPlatform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMedium.resx">
+      <DependentUpon>FormMedium.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPlatform.resx">
       <DependentUpon>FormPlatform.cs</DependentUpon>

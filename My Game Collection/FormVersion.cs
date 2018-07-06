@@ -16,21 +16,18 @@ namespace My_Game_Collection
 
         void RefreshData()
         {
-            comboBoxPlatform.Items.Clear();
-            comboBoxPlatform.Items.Add("");
-            foreach (Platform p in Data.data.platforms)
-                comboBoxPlatform.Items.Add(p.name);
             date.Value = version.date;
-            comboBoxPlatform.Text = Data.PlatformIDtoName(version.platform);
-            comboBoxMedium.Text = version.medium;
+            Platform.FillCombobox(ref comboBoxPlatform, version.platform);
+            Medium.FillCombobox(ref comboBoxMedium, version.medium);
+            comboBoxMedium.Text = Data.MediumIDToName(version.medium);
             textBoxPrice.Text = version.price.ToString();
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
             version.date = date.Value;
-            version.platform = Data.PlatformNametoID(comboBoxPlatform.Text);
-            version.medium = comboBoxMedium.Text;
+            version.platform = Data.PlatformNameToID(comboBoxPlatform.Text);
+            version.medium = Data.MediumNameToID(comboBoxMedium.Text);
             version.price = Convert.ToInt32(textBoxPrice.Text);
             DialogResult = DialogResult.OK;
             Close();
@@ -39,6 +36,13 @@ namespace My_Game_Collection
         private void linkLabelPlatform_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormCats form = new FormCats(1, Data.data.platforms);
+            form.ShowDialog();
+            RefreshData();
+        }
+
+        private void linkLabelMedium_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormCats form = new FormCats(2, Data.data.mediums);
             form.ShowDialog();
             RefreshData();
         }

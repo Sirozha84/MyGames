@@ -30,6 +30,12 @@ namespace My_Game_Collection
                 foreach (Platform item in (List<Platform>)list)
                     listViewCat.Items.Add(item.GetListViewItem());
             }
+            if (type == 2)
+            {
+                ((List<Medium>)list).Sort();
+                foreach (Medium item in (List<Medium>)list)
+                    listViewCat.Items.Add(item.GetListViewItem());
+            }
             listViewCat.EndUpdate();
             listViewCat_SelectedIndexChanged(null, null);
         }
@@ -41,6 +47,12 @@ namespace My_Game_Collection
                 Platform item = new Platform(++Data.data.platformLastID);
                 FormPlatform form = new FormPlatform(item);
                 if (form.ShowDialog() == DialogResult.OK) ((List<Platform>)list).Add(item);
+            }
+            if (type == 2)
+            {
+                Medium item = new Medium(++Data.data.mediumLastID);
+                FormMedium form = new FormMedium(item);
+                if (form.ShowDialog() == DialogResult.OK) ((List<Medium>)list).Add(item);
             }
             DrawList();
         }
@@ -57,6 +69,11 @@ namespace My_Game_Collection
             if (type == 1)
             {
                 FormPlatform form = new FormPlatform((Platform)listViewCat.SelectedItems[0].Tag);
+                form.ShowDialog();
+            }
+            if (type == 2)
+            {
+                FormMedium form = new FormMedium((Medium)listViewCat.SelectedItems[0].Tag);
                 form.ShowDialog();
             }
             DrawList();
@@ -78,6 +95,7 @@ namespace My_Game_Collection
             if (MessageBox.Show("Вы уверены что хотите удалить элемент справочника?", "Удаление", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 if (type == 1) ((List<Platform>)list).Remove((Platform)listViewCat.SelectedItems[0].Tag);
+                if (type == 2) ((List<Medium>)list).Remove((Medium)listViewCat.SelectedItems[0].Tag);
             }
             DrawList();
         }

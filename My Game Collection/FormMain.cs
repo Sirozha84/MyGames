@@ -87,7 +87,7 @@ namespace My_Game_Collection
 
         private void носителиЭлектронныеМагазиныToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCats form = new FormCats(2, Data.data.platforms);
+            FormCats form = new FormCats(2, Data.data.mediums);
             form.ShowDialog();
             Data.Save();
         }

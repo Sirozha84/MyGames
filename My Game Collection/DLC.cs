@@ -27,7 +27,7 @@ namespace My_Game_Collection
         public ListViewItem listItem()
         {
             string[] labels = {date.ToString("dd.MM.yyyy"),
-                Data.PlatformIDtoName(platform), name, price.ToString()};
+                Data.PlatformIDToName(platform), name, price.ToString()};
             return new ListViewItem(labels) { Tag = this };
         }
     }

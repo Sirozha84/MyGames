@@ -13,7 +13,7 @@ namespace My_Game_Collection
             comboBoxEvent.DataSource = Event.events;
             this.ev = ev;
             date.Value = ev.date;
-            comboBoxPlatform.Text = Data.PlatformIDtoName(ev.platform);
+            comboBoxPlatform.Text = Data.PlatformIDToName(ev.platform);
             comboBoxEvent.SelectedIndex = ev.even;
             textBoxHours.Text = ev.hours.ToString();
             textBoxComment.Text = ev.comment;
@@ -22,7 +22,7 @@ namespace My_Game_Collection
         private void buttonOK_Click(object sender, EventArgs e)
         {
             ev.date = date.Value;
-            ev.platform = Data.PlatformNametoID(comboBoxPlatform.Text);
+            ev.platform = Data.PlatformNameToID(comboBoxPlatform.Text);
             ev.even = comboBoxEvent.SelectedIndex;
             ev.hours= Convert.ToInt32(textBoxHours.Text);
             ev.comment = textBoxComment.Text;

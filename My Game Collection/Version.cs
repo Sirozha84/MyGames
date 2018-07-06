@@ -8,7 +8,7 @@ namespace My_Game_Collection
     {
         public DateTime date;
         public int platform;
-        public string medium;
+        public int medium;
         public int price;
         
         public Version()
@@ -27,8 +27,8 @@ namespace My_Game_Collection
         public ListViewItem listItem()
         {
             string[] labels = {date.ToString("dd.MM.yyyy"),
-                Data.PlatformIDtoName(platform),
-                medium, price.ToString()};
+                Data.PlatformIDToName(platform),
+                Data.MediumIDToName(medium), price.ToString()};
             return new ListViewItem(labels) { Tag = this };
         }
     }
