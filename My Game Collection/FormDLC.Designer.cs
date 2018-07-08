@@ -35,14 +35,14 @@
             this.date = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
+            this.linkLabelPlatform = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // textBoxPrice
             // 
-            this.textBoxPrice.Location = new System.Drawing.Point(400, 25);
+            this.textBoxPrice.Location = new System.Drawing.Point(203, 64);
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(64, 20);
             this.textBoxPrice.TabIndex = 3;
@@ -52,7 +52,7 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(390, 54);
+            this.buttonCancel.Location = new System.Drawing.Point(193, 92);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 5;
@@ -62,7 +62,7 @@
             // buttonOK
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Location = new System.Drawing.Point(309, 54);
+            this.buttonOK.Location = new System.Drawing.Point(112, 92);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
             this.buttonOK.TabIndex = 4;
@@ -72,6 +72,7 @@
             // 
             // comboBoxPlatform
             // 
+            this.comboBoxPlatform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPlatform.FormattingEnabled = true;
             this.comboBoxPlatform.Location = new System.Drawing.Point(146, 25);
             this.comboBoxPlatform.Name = "comboBoxPlatform";
@@ -88,7 +89,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(397, 9);
+            this.label4.Location = new System.Drawing.Point(200, 48);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 13);
             this.label4.TabIndex = 13;
@@ -97,20 +98,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(270, 9);
+            this.label3.Location = new System.Drawing.Point(12, 48);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 11;
             this.label3.Text = "Название";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(143, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Платформа";
             // 
             // label1
             // 
@@ -123,10 +115,21 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(274, 25);
+            this.textBoxName.Location = new System.Drawing.Point(16, 64);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(120, 20);
+            this.textBoxName.Size = new System.Drawing.Size(181, 20);
             this.textBoxName.TabIndex = 2;
+            // 
+            // linkLabelPlatform
+            // 
+            this.linkLabelPlatform.AutoSize = true;
+            this.linkLabelPlatform.Location = new System.Drawing.Point(143, 9);
+            this.linkLabelPlatform.Name = "linkLabelPlatform";
+            this.linkLabelPlatform.Size = new System.Drawing.Size(66, 13);
+            this.linkLabelPlatform.TabIndex = 14;
+            this.linkLabelPlatform.TabStop = true;
+            this.linkLabelPlatform.Text = "Платформа";
+            this.linkLabelPlatform.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelPlatform_LinkClicked);
             // 
             // FormDLC
             // 
@@ -134,7 +137,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(477, 89);
+            this.ClientSize = new System.Drawing.Size(280, 127);
+            this.Controls.Add(this.linkLabelPlatform);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.textBoxPrice);
             this.Controls.Add(this.buttonCancel);
@@ -143,7 +147,6 @@
             this.Controls.Add(this.date);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -167,8 +170,8 @@
         private System.Windows.Forms.DateTimePicker date;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.LinkLabel linkLabelPlatform;
     }
 }

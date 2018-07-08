@@ -12,8 +12,13 @@ namespace My_Game_Collection
             InitializeComponent();
             comboBoxEvent.DataSource = Event.events;
             this.ev = ev;
+            RefreshData();
+        }
+
+        void RefreshData()
+        {
             date.Value = ev.date;
-            comboBoxPlatform.Text = Data.PlatformIDToName(ev.platform);
+            Platform.FillCombobox(ref comboBoxPlatform, ev.platform);
             comboBoxEvent.SelectedIndex = ev.even;
             textBoxHours.Text = ev.hours.ToString();
             textBoxComment.Text = ev.comment;
@@ -28,6 +33,13 @@ namespace My_Game_Collection
             ev.comment = textBoxComment.Text;
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void linkLabelPlatform_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormCats form = new FormCats(1, Data.data.platforms);
+            form.ShowDialog();
+            RefreshData();
         }
     }
 }

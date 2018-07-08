@@ -11,8 +11,13 @@ namespace My_Game_Collection
         {
             InitializeComponent();
             this.dlc = dlc;
+            RefreshData();
+        }
+
+        void RefreshData()
+        {
             date.Value = dlc.date;
-            comboBoxPlatform.Text = Data.PlatformIDToName(dlc.platform);
+            Platform.FillCombobox(ref comboBoxPlatform, dlc.platform);
             textBoxName.Text = dlc.name;
             textBoxPrice.Text = dlc.price.ToString();
         }
@@ -25,6 +30,13 @@ namespace My_Game_Collection
             dlc.price = Convert.ToInt32(textBoxPrice.Text);
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void linkLabelPlatform_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormCats form = new FormCats(1, Data.data.platforms);
+            form.ShowDialog();
+            RefreshData();
         }
     }
 }
