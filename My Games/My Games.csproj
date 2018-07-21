@@ -103,6 +103,12 @@
     <Compile Include="FormMedium.Designer.cs">
       <DependentUpon>FormMedium.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGenre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGenre.Designer.cs">
+      <DependentUpon>FormGenre.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPlatform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,7 @@
       <DependentUpon>FormVersion.cs</DependentUpon>
     </Compile>
     <Compile Include="Game.cs" />
+    <Compile Include="Genre.cs" />
     <Compile Include="Medium.cs" />
     <Compile Include="Platform.cs" />
     <Compile Include="Program.cs" />
@@ -138,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMedium.resx">
       <DependentUpon>FormMedium.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGenre.resx">
+      <DependentUpon>FormGenre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPlatform.resx">
       <DependentUpon>FormPlatform.cs</DependentUpon>

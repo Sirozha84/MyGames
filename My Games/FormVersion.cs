@@ -19,7 +19,6 @@ namespace My_Games
             date.Value = version.date;
             Platform.FillCombobox(ref comboBoxPlatform, version.platform);
             Medium.FillCombobox(ref comboBoxMedium, version.medium);
-            comboBoxMedium.Text = Data.MediumIDToName(version.medium);
             textBoxPrice.Text = version.price.ToString();
         }
 

@@ -12,9 +12,10 @@ namespace My_Games
 
         public DateTime date = DateTime.Now;
         public string name;
+        public string developer;
         public string publisher;
         public string year;
-        public string genre;
+        public int genre;
         public int rate = 3;
         public int win;
         public int hours;
@@ -26,7 +27,7 @@ namespace My_Games
 
         public ListViewItem listItem()
         {
-            string[] labels = {date.ToString("dd.MM.yyyy"), name, genre, stars[rate - 1],
+            string[] labels = {date.ToString("dd.MM.yyyy"), name, Data.GenreIDToName(genre), stars[rate - 1],
                 Event.events[win], hours.ToString(), versions.Count().ToString(), price.ToString()};
             ListViewItem item = new ListViewItem(labels);
             item.Tag = this;

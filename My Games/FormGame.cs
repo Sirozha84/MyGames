@@ -14,19 +14,28 @@ namespace My_Games
         public FormGame(Game game)
         {
             InitializeComponent();
-            comboBoxRate.DataSource = Game.stars;
             this.game = game;
+            comboBoxRate.DataSource = Game.stars;
+            RefreshData();
+        }
+
+        void RefreshData()
+        {
             textBoxName.Text = game.name;
+            comboBoxDeveloper.Text = game.developer;
             comboBoxPublisher.Text = game.publisher;
             textBoxYear.Text = game.year;
-            comboBoxGenre.Text = game.genre;
+            Genre.FillCombobox(comboBoxGenre, game.genre);
             comboBoxRate.SelectedIndex = game.rate - 1;
+            versions.Clear();
             foreach (Version v in game.versions)
                 versions.Add(new Version(v));
             DrawVersions();
+            dlcs.Clear();
             foreach (DLC d in game.DLCs)
                 dlcs.Add(new DLC(d));
             DrawDLCs();
+            history.Clear();
             foreach (Event e in game.history)
                 history.Add(new Event(e));
             DrawHistory();
@@ -37,9 +46,10 @@ namespace My_Games
         {
             game.name = textBoxName.Text;
             if (versions.Count > 0) game.date = versions[0].date;
+            game.developer = comboBoxDeveloper.Text;
             game.publisher = comboBoxPublisher.Text;
             game.year = textBoxYear.Text;
-            game.genre = comboBoxGenre.Text;
+            game.genre = Data.GenreNameToID(comboBoxGenre.Text);
             game.rate = comboBoxRate.SelectedIndex + 1;
             game.price = 0;
             game.win = 0;
@@ -66,6 +76,13 @@ namespace My_Games
             game.comment = textBoxComment.Text;
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormCats form = new FormCats(3, Data.data.genres);
+            form.ShowDialog();
+            RefreshData();
         }
 
         #region Versions
@@ -203,7 +220,7 @@ namespace My_Games
 
         private void buttonDelEvent_Click(object sender, EventArgs e)
         {
-            if (listViewVersions.SelectedIndices.Count == 1)
+            if (listViewHistory.SelectedIndices.Count == 1)
             {
                 Event ev = (Event)listViewHistory.SelectedItems[0].Tag;
                 history.Remove(ev);
@@ -230,6 +247,5 @@ namespace My_Games
             buttonDelEvent.Enabled = sel;
         }
         #endregion
-
     }
 }

@@ -16,6 +16,7 @@ namespace My_Games
             this.type = type;
             if (type == 1) Text = "Справочник \"Платформы\"";
             if (type == 2) Text = "Справочник \"Носители / электронные магазины\"";
+            if (type == 3) Text = "Справочник \"Жанры\"";
             DrawList();
         }
 
@@ -36,6 +37,12 @@ namespace My_Games
                 foreach (Medium item in (List<Medium>)list)
                     listViewCat.Items.Add(item.GetListViewItem());
             }
+            if (type == 3)
+            {
+                ((List<Genre>)list).Sort();
+                foreach (Genre item in (List<Genre>)list)
+                    listViewCat.Items.Add(item.GetListViewItem());
+            }
             listViewCat.EndUpdate();
             listViewCat_SelectedIndexChanged(null, null);
         }
@@ -53,6 +60,12 @@ namespace My_Games
                 Medium item = new Medium(++Data.data.mediumLastID);
                 FormMedium form = new FormMedium(item);
                 if (form.ShowDialog() == DialogResult.OK) ((List<Medium>)list).Add(item);
+            }
+            if (type == 3)
+            {
+                Genre item = new Genre(++Data.data.genreLastID);
+                FormGenre form = new FormGenre(item);
+                if (form.ShowDialog() == DialogResult.OK) ((List<Genre>)list).Add(item);
             }
             DrawList();
         }
@@ -76,6 +89,11 @@ namespace My_Games
                 FormMedium form = new FormMedium((Medium)listViewCat.SelectedItems[0].Tag);
                 form.ShowDialog();
             }
+            if (type == 3)
+            {
+                FormGenre form = new FormGenre((Genre)listViewCat.SelectedItems[0].Tag);
+                form.ShowDialog();
+            }
             DrawList();
         }
 
@@ -96,6 +114,7 @@ namespace My_Games
             {
                 if (type == 1) ((List<Platform>)list).Remove((Platform)listViewCat.SelectedItems[0].Tag);
                 if (type == 2) ((List<Medium>)list).Remove((Medium)listViewCat.SelectedItems[0].Tag);
+                if (type == 3) ((List<Genre>)list).Remove((Genre)listViewCat.SelectedItems[0].Tag);
             }
             DrawList();
         }

@@ -14,7 +14,7 @@ namespace My_Games
             InitializeComponent();
             Data.Load();
             listViewGames.ListViewItemSorter = itemComparer;
-            DrawList();
+            RefreshData();
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
@@ -37,11 +37,11 @@ namespace My_Games
             {
                 Data.data.games.Add(game);
                 Data.Save();
-                DrawList();
+                RefreshData();
             }
         }
 
-        void DrawList()
+        void RefreshData()
         {
             GameDateComparer dc = new GameDateComparer();
             Data.data.games.Sort(dc);
@@ -66,7 +66,7 @@ namespace My_Games
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     Data.Save();
-                    DrawList();
+                    RefreshData();
                 }
             }
         }
@@ -90,6 +90,14 @@ namespace My_Games
             FormCats form = new FormCats(2, Data.data.mediums);
             form.ShowDialog();
             Data.Save();
+        }
+
+        private void жанрыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCats form = new FormCats(3, Data.data.genres);
+            form.ShowDialog();
+            Data.Save();
+            RefreshData();
         }
     }
 
@@ -122,8 +130,8 @@ namespace My_Games
                 res = game1.date > game2.date ? 1 : -1;
             if (columnIndex == 1)
                 res = String.Compare(game1.name, game2.name);
-            if (columnIndex == 2)
-                res = String.Compare(game1.genre, game2.genre);
+            if (columnIndex == 2) //и это будет невероятно тормозить с большой базой, пока оставлю это так, оптимизирую потом!
+                res = string.Compare(Data.GenreIDToName(game1.genre), Data.GenreIDToName(game2.genre));
             if (columnIndex == 3)
                 res = game1.rate > game2.rate ? 1 : -1;
             if (columnIndex == 4)
