@@ -25,7 +25,7 @@ namespace My_Games
             return String.Compare(name, ((Medium)obj).name);
         }
 
-        public static void FillCombobox(ref ComboBox box, int id)
+        public static void FillCombobox(ComboBox box, int id)
         {
             box.BeginUpdate();
             box.Items.Clear();

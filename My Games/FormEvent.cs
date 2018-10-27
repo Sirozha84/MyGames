@@ -18,7 +18,7 @@ namespace My_Games
         void RefreshData()
         {
             date.Value = ev.date;
-            Platform.FillCombobox(ref comboBoxPlatform, ev.platform);
+            Platform.FillCombobox(comboBoxPlatform, ev.platform);
             comboBoxEvent.SelectedIndex = ev.even;
             textBoxHours.Text = ev.hours.ToString();
             textBoxComment.Text = ev.comment;

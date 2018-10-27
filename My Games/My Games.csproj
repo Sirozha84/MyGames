@@ -85,6 +85,12 @@
     <Compile Include="FormEvent.Designer.cs">
       <DependentUpon>FormEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFastAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFastAdd.Designer.cs">
+      <DependentUpon>FormFastAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormEvent.resx">
       <DependentUpon>FormEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFastAdd.resx">
+      <DependentUpon>FormFastAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGame.resx">
       <DependentUpon>FormGame.cs</DependentUpon>

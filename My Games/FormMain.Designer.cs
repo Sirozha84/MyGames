@@ -34,9 +34,12 @@
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.играToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.новаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.быстроеДобавлениеToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.платформыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.носителиЭлектронныеМагазиныToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.жанрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -54,7 +57,6 @@
             this.columnHeaderVersions = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.жанрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -90,7 +92,9 @@
             // играToolStripMenuItem
             // 
             this.играToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.новаяToolStripMenuItem});
+            this.новаяToolStripMenuItem,
+            this.быстроеДобавлениеToolStripMenuItem1,
+            this.удалитьToolStripMenuItem});
             this.играToolStripMenuItem.Name = "играToolStripMenuItem";
             this.играToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.играToolStripMenuItem.Text = "Игра";
@@ -99,9 +103,27 @@
             // 
             this.новаяToolStripMenuItem.Image = global::My_Games.Properties.Resources._new;
             this.новаяToolStripMenuItem.Name = "новаяToolStripMenuItem";
-            this.новаяToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.новаяToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.новаяToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.новаяToolStripMenuItem.Text = "Новая";
             this.новаяToolStripMenuItem.Click += new System.EventHandler(this.новаяToolStripMenuItem_Click);
+            // 
+            // быстроеДобавлениеToolStripMenuItem1
+            // 
+            this.быстроеДобавлениеToolStripMenuItem1.Image = global::My_Games.Properties.Resources._new;
+            this.быстроеДобавлениеToolStripMenuItem1.Name = "быстроеДобавлениеToolStripMenuItem1";
+            this.быстроеДобавлениеToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.N)));
+            this.быстроеДобавлениеToolStripMenuItem1.Size = new System.Drawing.Size(235, 22);
+            this.быстроеДобавлениеToolStripMenuItem1.Text = "Новая (быстро)";
+            this.быстроеДобавлениеToolStripMenuItem1.Click += new System.EventHandler(this.быстроеДобавлениеToolStripMenuItem1_Click);
+            // 
+            // удалитьToolStripMenuItem
+            // 
+            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.удалитьToolStripMenuItem.Text = "Удалить";
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
             // справочникиToolStripMenuItem
             // 
@@ -126,6 +148,13 @@
             this.носителиЭлектронныеМагазиныToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
             this.носителиЭлектронныеМагазиныToolStripMenuItem.Text = "Носители / электронные магазины";
             this.носителиЭлектронныеМагазиныToolStripMenuItem.Click += new System.EventHandler(this.носителиЭлектронныеМагазиныToolStripMenuItem_Click);
+            // 
+            // жанрыToolStripMenuItem
+            // 
+            this.жанрыToolStripMenuItem.Name = "жанрыToolStripMenuItem";
+            this.жанрыToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
+            this.жанрыToolStripMenuItem.Text = "Жанры";
+            this.жанрыToolStripMenuItem.Click += new System.EventHandler(this.жанрыToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -256,13 +285,6 @@
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // жанрыToolStripMenuItem
-            // 
-            this.жанрыToolStripMenuItem.Name = "жанрыToolStripMenuItem";
-            this.жанрыToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
-            this.жанрыToolStripMenuItem.Text = "Жанры";
-            this.жанрыToolStripMenuItem.Click += new System.EventHandler(this.жанрыToolStripMenuItem_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,6 +335,8 @@
         private System.Windows.Forms.ToolStripMenuItem платформыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem носителиЭлектронныеМагазиныToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem жанрыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem быстроеДобавлениеToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
     }
 }
 

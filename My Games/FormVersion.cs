@@ -17,8 +17,8 @@ namespace My_Games
         void RefreshData()
         {
             date.Value = version.date;
-            Platform.FillCombobox(ref comboBoxPlatform, version.platform);
-            Medium.FillCombobox(ref comboBoxMedium, version.medium);
+            Platform.FillCombobox(comboBoxPlatform, version.platform);
+            Medium.FillCombobox(comboBoxMedium, version.medium);
             textBoxPrice.Text = version.price.ToString();
         }
 

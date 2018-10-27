@@ -41,6 +41,29 @@ namespace My_Games
             }
         }
 
+        private void быстроеДобавлениеToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Game game = new Game();
+            FormFastAdd form = new FormFastAdd(game);
+            DialogResult res = form.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                Data.data.games.Add(game);
+                Data.Save();
+                RefreshData();
+            }
+            if (res == DialogResult.Retry)
+            {
+                FormGame form2 = new FormGame(game);
+                if (form2.ShowDialog() == DialogResult.OK)
+                {
+                    Data.data.games.Add(game);
+                    Data.Save();
+                    RefreshData();
+                }
+            }
+        }
+
         void RefreshData()
         {
             GameDateComparer dc = new GameDateComparer();
@@ -98,6 +121,20 @@ namespace My_Games
             form.ShowDialog();
             Data.Save();
             RefreshData();
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int count = listViewGames.SelectedIndices.Count;
+            Game game = (Game)listViewGames.SelectedItems[0].Tag;
+            if (MessageBox.Show("Вы действительно хотите удалить " +
+                    (count == 1 ? "игру " + game.name : "выделенные игры (" + count + ")?") + "?",
+                    "Удаление", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                foreach (ListViewItem item in listViewGames.SelectedItems)
+                    Data.data.games.Remove((Game)item.Tag);
+                RefreshData();
+            }
         }
     }
 

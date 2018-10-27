@@ -17,7 +17,7 @@ namespace My_Games
         void RefreshData()
         {
             date.Value = dlc.date;
-            Platform.FillCombobox(ref comboBoxPlatform, dlc.platform);
+            Platform.FillCombobox(comboBoxPlatform, dlc.platform);
             textBoxName.Text = dlc.name;
             textBoxPrice.Text = dlc.price.ToString();
         }
