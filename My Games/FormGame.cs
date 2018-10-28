@@ -82,7 +82,7 @@ namespace My_Games
         {
             FormCats form = new FormCats(3, Data.data.genres);
             form.ShowDialog();
-            RefreshData();
+            Genre.FillCombobox(comboBoxGenre, game.genre);
         }
 
         #region Versions

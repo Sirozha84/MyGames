@@ -33,8 +33,6 @@
             this.buttonDel = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.listViewCat = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // buttonNew
@@ -88,9 +86,6 @@
             this.listViewCat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listViewCat.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
             this.listViewCat.FullRowSelect = true;
             this.listViewCat.GridLines = true;
             this.listViewCat.Location = new System.Drawing.Point(13, 13);
@@ -103,16 +98,6 @@
             this.listViewCat.SelectedIndexChanged += new System.EventHandler(this.listViewCat_SelectedIndexChanged);
             this.listViewCat.DoubleClick += new System.EventHandler(this.listViewCat_DoubleClick);
             this.listViewCat.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listViewCat_KeyDown);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Платформа";
-            this.columnHeader1.Width = 120;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Компания";
-            this.columnHeader2.Width = 120;
             // 
             // FormCats
             // 
@@ -144,7 +129,5 @@
         private System.Windows.Forms.Button buttonDel;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.ListView listViewCat;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

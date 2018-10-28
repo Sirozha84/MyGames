@@ -36,14 +36,14 @@ namespace My_Games
         {
             FormCats form = new FormCats(1, Data.data.platforms);
             form.ShowDialog();
-            RefreshData();
+            Platform.FillCombobox(comboBoxPlatform, version.platform);
         }
 
         private void linkLabelMedium_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormCats form = new FormCats(2, Data.data.mediums);
             form.ShowDialog();
-            RefreshData();
+            Medium.FillCombobox(comboBoxMedium, version.medium);
         }
     }
 }

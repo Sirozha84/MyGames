@@ -20,16 +20,16 @@ namespace My_Games
 
         public static void Load()
         {
-            //try
-            //{
+            try
+            {
                 var serializer = new XmlSerializer(typeof(Data));
                 using (var reader = new StreamReader("Data.xml"))
                     data = (Data)serializer.Deserialize(reader);
-            /*}
+            }
             catch
             {
                 data = new Data();
-            }*/
+            }
         }
 
         public static void Save()

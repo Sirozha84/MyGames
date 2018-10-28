@@ -16,8 +16,8 @@ namespace My_Games
 
         public ListViewItem GetListViewItem()
         {
-            string[] strings = { name, phisic ? "Физический" : "" };
-            return new ListViewItem(strings);
+            string[] strings = { name, phisic ? "Да" : "" };
+            return new ListViewItem(strings) { Tag = this };
         }
 
         public override int CompareTo(object obj)

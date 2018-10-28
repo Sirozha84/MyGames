@@ -22,23 +22,28 @@ namespace My_Games
 
         void DrawList()
         {
-            
+            listViewCat.Columns.Clear();
             listViewCat.Items.Clear();
             listViewCat.BeginUpdate();
             if (type == 1)
             {
+                listViewCat.Columns.Add("Платформа", 140);
+                listViewCat.Columns.Add("Компания", 80);
                 ((List<Platform>)list).Sort();
                 foreach (Platform item in (List<Platform>)list)
                     listViewCat.Items.Add(item.GetListViewItem());
             }
             if (type == 2)
             {
+                listViewCat.Columns.Add("Носитель", 140);
+                listViewCat.Columns.Add("Физический", 80);
                 ((List<Medium>)list).Sort();
                 foreach (Medium item in (List<Medium>)list)
                     listViewCat.Items.Add(item.GetListViewItem());
             }
             if (type == 3)
             {
+                listViewCat.Columns.Add("Жанр", 220);
                 ((List<Genre>)list).Sort();
                 foreach (Genre item in (List<Genre>)list)
                     listViewCat.Items.Add(item.GetListViewItem());

@@ -39,7 +39,7 @@ namespace My_Games
         {
             FormCats form = new FormCats(1, Data.data.platforms);
             form.ShowDialog();
-            RefreshData();
+            Platform.FillCombobox(comboBoxPlatform, ev.platform);
         }
     }
 }

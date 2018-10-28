@@ -54,5 +54,26 @@ namespace My_Games
             DialogResult = DialogResult.OK;
             Close();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormCats form = new FormCats(3, Data.data.genres);
+            form.ShowDialog();
+            Genre.FillCombobox(comboBoxGenre, game.genre);
+        }
+
+        private void linkLabelPlatform_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormCats form = new FormCats(1, Data.data.platforms);
+            form.ShowDialog();
+            Platform.FillCombobox(comboBoxPlatform, 0);
+        }
+
+        private void linkLabelMedia_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormCats form = new FormCats(2, Data.data.mediums);
+            form.ShowDialog();
+            Medium.FillCombobox(comboBoxMedium, 0);
+        }
     }
 }

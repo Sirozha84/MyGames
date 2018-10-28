@@ -78,6 +78,7 @@
             this.linkLabel1.TabIndex = 10;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Жанр:";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // comboBoxRate
             // 
@@ -164,6 +165,7 @@
             this.linkLabelPlatform.TabIndex = 11;
             this.linkLabelPlatform.TabStop = true;
             this.linkLabelPlatform.Text = "Платформа:";
+            this.linkLabelPlatform.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelPlatform_LinkClicked);
             // 
             // linkLabelMedia
             // 
@@ -174,6 +176,7 @@
             this.linkLabelMedia.TabIndex = 12;
             this.linkLabelMedia.TabStop = true;
             this.linkLabelMedia.Text = "Носитель:";
+            this.linkLabelMedia.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelMedia_LinkClicked);
             // 
             // label2
             // 

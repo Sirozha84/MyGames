@@ -17,17 +17,83 @@ namespace My_Games
             RefreshData();
         }
 
-        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("My Game Collection\nВерсия 0.1");
+            MessageBox.Show("My Games\nВерсия: " + Program.Version, "О программе");
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e) { новаяToolStripMenuItem_Click(null, null); }
+        void RefreshData()
+        {
+            GameDateComparer dc = new GameDateComparer();
+            Data.data.games.Sort(dc);
+            listViewGames.BeginUpdate();
+            listViewGames.Items.Clear();
+            foreach (Game g in Data.data.games)
+                if (g.name.ToLower().Contains(toolStripTextBoxFind.Text.ToLower())) listViewGames.Items.Add(g.listItem());
+            listViewGames.EndUpdate();
+        }
+
+        void Open()
+        {
+            if (listViewGames.SelectedItems.Count == 1)
+            {
+                Game game = (Game)listViewGames.SelectedItems[0].Tag;
+                FormGame form = new FormGame(game);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    Data.Save();
+                    RefreshData();
+                }
+            }
+        }
+
+        private void listViewGames_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) listViewGames_MouseDoubleClick(null, null);
+        }
+
+        private void listViewGames_MouseDoubleClick(object sender, MouseEventArgs e) { Open(); }
+
+        private void listViewGames_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool selected = listViewGames.SelectedIndices.Count > 0;
+            удалитьToolStripMenuItem.Enabled = selected;
+            открытьToolStripMenuItem.Enabled = selected;
+            удалитьToolStripMenuItem1.Enabled = selected;
+        }
+
+        #region Сортировка колонок
+        private void listViewGames_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            itemComparer.ColumnIndex = e.Column;
+            ((ListView)sender).Sort();
+        }
+
+        private void платформыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCats form = new FormCats(1, Data.data.platforms);
+            form.ShowDialog();
+            Data.Save();
+        }
+
+        private void носителиЭлектронныеМагазиныToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCats form = new FormCats(2, Data.data.mediums);
+            form.ShowDialog();
+            Data.Save();
+        }
+
+        private void жанрыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCats form = new FormCats(3, Data.data.genres);
+            form.ShowDialog();
+            Data.Save();
+            RefreshData();
+        }
+        #endregion
+
+        #region Главное меню
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e) { Close(); }
 
         private void новаяToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -64,68 +130,10 @@ namespace My_Games
             }
         }
 
-        void RefreshData()
-        {
-            GameDateComparer dc = new GameDateComparer();
-            Data.data.games.Sort(dc);
-            listViewGames.BeginUpdate();
-            listViewGames.Items.Clear();
-            foreach (Game g in Data.data.games)
-                listViewGames.Items.Add(g.listItem());
-            listViewGames.EndUpdate();
-        }
-
-        private void listViewGames_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter) listViewGames_MouseDoubleClick(null, null);
-        }
-
-        private void listViewGames_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if (listViewGames.SelectedItems.Count == 1)
-            {
-                Game game = (Game)listViewGames.SelectedItems[0].Tag;
-                FormGame form = new FormGame(game);
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-                    Data.Save();
-                    RefreshData();
-                }
-            }
-        }
-
-        //Сортировка колонок
-        private void listViewGames_ColumnClick(object sender, ColumnClickEventArgs e)
-        {
-            itemComparer.ColumnIndex = e.Column;
-            ((ListView)sender).Sort();
-        }
-
-        private void платформыToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormCats form = new FormCats(1, Data.data.platforms);
-            form.ShowDialog();
-            Data.Save();
-        }
-
-        private void носителиЭлектронныеМагазиныToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormCats form = new FormCats(2, Data.data.mediums);
-            form.ShowDialog();
-            Data.Save();
-        }
-
-        private void жанрыToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormCats form = new FormCats(3, Data.data.genres);
-            form.ShowDialog();
-            Data.Save();
-            RefreshData();
-        }
-
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int count = listViewGames.SelectedIndices.Count;
+            if (count < 1) return; //Хотя до этого и не должно дойти, но мало ли
             Game game = (Game)listViewGames.SelectedItems[0].Tag;
             if (MessageBox.Show("Вы действительно хотите удалить " +
                     (count == 1 ? "игру " + game.name : "выделенные игры (" + count + ")?") + "?",
@@ -133,9 +141,34 @@ namespace My_Games
             {
                 foreach (ListViewItem item in listViewGames.SelectedItems)
                     Data.data.games.Remove((Game)item.Tag);
+                Data.Save();
                 RefreshData();
             }
         }
+
+        //Панель с кнопками
+
+        private void toolStripButton1_Click(object sender, EventArgs e) { новаяToolStripMenuItem_Click(null, null); }
+        private void toolStripTextBoxFind_TextChanged(object sender, EventArgs e) { RefreshData(); }
+
+        private void toolStripButtonReset_Click(object sender, EventArgs e)
+        {
+            toolStripTextBoxFind.Text = "";
+            RefreshData();
+        }
+        #endregion
+
+        #region Контекстное меню
+        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Open();
+        }
+
+        private void удалитьToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            удалитьToolStripMenuItem_Click(null, null);
+        }
+        #endregion
     }
 
     class ItemComparer : IComparer
