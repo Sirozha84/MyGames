@@ -30,6 +30,8 @@ namespace My_Games
         /// </summary>
         void Create()
         {
+            game.date = date.Value;
+            game.change = DateTime.Now;
             game.name = textBoxName.Text;
             game.genre = Data.GenreNameToID(comboBoxGenre.Text);
             game.rate = comboBoxRate.SelectedIndex + 1;

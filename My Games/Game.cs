@@ -11,6 +11,8 @@ namespace My_Games
         public static string[] stars = { "*", "* *", "* * *", "* * * *", "* * * * *" };
 
         public DateTime date = DateTime.Now;
+        public DateTime create = DateTime.Now;
+        public DateTime change = DateTime.Now;
         public string name;
         public string developer;
         public string publisher;

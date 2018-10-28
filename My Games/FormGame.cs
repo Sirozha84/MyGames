@@ -44,6 +44,7 @@ namespace My_Games
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
+            game.change = DateTime.Now;
             game.name = textBoxName.Text;
             if (versions.Count > 0) game.date = versions[0].date;
             game.developer = comboBoxDeveloper.Text;
