@@ -173,7 +173,7 @@
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
@@ -239,6 +239,7 @@
             this.listViewGames.ContextMenuStrip = this.contextMenuStrip1;
             this.listViewGames.FullRowSelect = true;
             this.listViewGames.GridLines = true;
+            this.listViewGames.HideSelection = false;
             this.listViewGames.Location = new System.Drawing.Point(0, 52);
             this.listViewGames.Name = "listViewGames";
             this.listViewGames.Size = new System.Drawing.Size(728, 427);

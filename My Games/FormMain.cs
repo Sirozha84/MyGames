@@ -31,6 +31,9 @@ namespace My_Games
             foreach (Game g in Data.data.games)
                 if (g.name.ToLower().Contains(toolStripTextBoxFind.Text.ToLower())) listViewGames.Items.Add(g.listItem());
             listViewGames.EndUpdate();
+            //listViewGames.Items[30].Selected = true;
+            //listViewGames.Items[30].Focused = true;
+            //Подумать как после обновления списка оставить выделенным элемент который уже был выделен до обновления
         }
 
         void Open()

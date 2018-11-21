@@ -35,11 +35,12 @@ namespace My_Games
             game.name = textBoxName.Text;
             game.genre = Data.GenreNameToID(comboBoxGenre.Text);
             game.rate = comboBoxRate.SelectedIndex + 1;
+            game.price = Convert.ToInt32(textBoxPrice.Text);
             Version version = new Version();
             version.date = date.Value;
             version.platform = Data.PlatformNameToID(comboBoxPlatform.Text);
             version.medium = Data.MediumNameToID(comboBoxMedium.Text);
-            version.price = Convert.ToInt32(textBoxPrice.Text);
+            version.price = game.price;
             game.versions.Add(version);
         }
 

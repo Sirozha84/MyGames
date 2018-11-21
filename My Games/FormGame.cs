@@ -17,6 +17,8 @@ namespace My_Games
             this.game = game;
             comboBoxRate.DataSource = Game.stars;
             RefreshData();
+            labelDates.Text = "Дата создания: " + game.create + 
+                "     Дата последнего изменения: " + game.change;
         }
 
         void RefreshData()

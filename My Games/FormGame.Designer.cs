@@ -55,6 +55,7 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBoxComment = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxDeveloper = new System.Windows.Forms.ComboBox();
@@ -74,7 +75,7 @@
             this.buttonChangeEvent = new System.Windows.Forms.Button();
             this.buttonAddEvent = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelDates = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -335,6 +336,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Общие сведения";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Silver;
+            this.label2.Location = new System.Drawing.Point(45, 162);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(214, 13);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Здесь когда-нибудь будет обложка игры";
+            // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
@@ -533,15 +544,15 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Комментарий";
             // 
-            // label2
+            // labelDates
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(45, 162);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(214, 13);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Здесь когда-нибудь будет обложка игры";
+            this.labelDates.AutoSize = true;
+            this.labelDates.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelDates.Location = new System.Drawing.Point(12, 519);
+            this.labelDates.Name = "labelDates";
+            this.labelDates.Size = new System.Drawing.Size(33, 13);
+            this.labelDates.TabIndex = 25;
+            this.labelDates.Text = "Дата";
             // 
             // FormGame
             // 
@@ -550,6 +561,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(1100, 549);
+            this.Controls.Add(this.labelDates);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -574,6 +586,7 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -626,5 +639,6 @@
         private System.Windows.Forms.ComboBox comboBoxDeveloper;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelDates;
     }
 }
