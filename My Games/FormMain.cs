@@ -22,20 +22,6 @@ namespace My_Games
             MessageBox.Show("My Games\nВерсия: " + Program.Version, "О программе");
         }
 
-        void RefreshData()
-        {
-            GameDateComparer dc = new GameDateComparer();
-            Data.data.games.Sort(dc);
-            listViewGames.BeginUpdate();
-            listViewGames.Items.Clear();
-            foreach (Game g in Data.data.games)
-                if (g.name.ToLower().Contains(toolStripTextBoxFind.Text.ToLower())) listViewGames.Items.Add(g.listItem());
-            listViewGames.EndUpdate();
-            //listViewGames.Items[30].Selected = true;
-            //listViewGames.Items[30].Focused = true;
-            //Подумать как после обновления списка оставить выделенным элемент который уже был выделен до обновления
-        }
-
         void Open()
         {
             if (listViewGames.SelectedItems.Count == 1)
@@ -65,7 +51,43 @@ namespace My_Games
             удалитьToolStripMenuItem1.Enabled = selected;
         }
 
-        #region Сортировка колонок
+        #region Вид приложения, обновление
+        void RefreshData()
+        {
+            GameDateComparer dc = new GameDateComparer();
+            Data.data.games.Sort(dc);
+            listViewGames.BeginUpdate();
+            listViewGames.Items.Clear();
+            foreach (Game g in Data.data.games)
+                if (g.name.ToLower().Contains(toolStripTextBoxFind.Text.ToLower())) listViewGames.Items.Add(g.listItem());
+            listViewGames.EndUpdate();
+            //listViewGames.Items[30].Selected = true;
+            //listViewGames.Items[30].Focused = true;
+            //Подумать как после обновления списка оставить выделенным элемент который уже был выделен до обновления
+        }
+
+        /// <summary>
+        /// Показ или скрытие панели информации
+        /// </summary>
+        /// <param name="resize"></param>
+        void ShowHideInfoView(bool resize)
+        {
+            //Порядок не нарушаем - иначе моргает из-за перерисовок.
+            if (infoViewMenu.Checked)
+            {
+                if (resize) Width += infoView.Width;
+                listViewGames.Width = menuStrip1.Width - infoView.Width;
+                infoView.Left = menuStrip1.Width - infoView.Width;
+            }
+            else
+            {
+                listViewGames.Width = menuStrip1.Width;
+                infoView.Left = menuStrip1.Width;
+                if (resize) Width -= infoView.Width;
+            }
+        }
+
+        //Сортировка колонок
         private void listViewGames_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             itemComparer.ColumnIndex = e.Column;
@@ -159,6 +181,12 @@ namespace My_Games
             toolStripTextBoxFind.Text = "";
             RefreshData();
         }
+
+        private void infoViewMenu_Click(object sender, EventArgs e)
+        {
+            infoViewMenu.Checked = !infoViewMenu.Checked;
+            ShowHideInfoView(true);
+        }
         #endregion
 
         #region Контекстное меню
@@ -172,6 +200,29 @@ namespace My_Games
             удалитьToolStripMenuItem_Click(null, null);
         }
         #endregion
+
+        #region Параметры программы
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            Left = Properties.Settings.Default.Left;
+            Top = Properties.Settings.Default.Top;
+            Width = Properties.Settings.Default.Width;
+            Height = Properties.Settings.Default.Height;
+            infoViewMenu.Checked = Properties.Settings.Default.InfoView;
+            ShowHideInfoView(false);
+        }
+
+        private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Properties.Settings.Default.Left = Left;
+            Properties.Settings.Default.Top = Top;
+            Properties.Settings.Default.Width = Width;
+            Properties.Settings.Default.Height = Height;
+            Properties.Settings.Default.InfoView = infoViewMenu.Checked;
+            Properties.Settings.Default.Save();
+        }
+        #endregion
+
     }
 
     class ItemComparer : IComparer
