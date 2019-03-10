@@ -7,7 +7,9 @@ namespace My_Games
 {
     public partial class FormMain : Form
     {
-        ItemComparer itemComparer = new ItemComparer(); //Эту залупу тоже убрать...
+        ItemComparer itemComparer = new ItemComparer();
+        int lastColumn = -1;
+        bool lastSort = false;
 
         public FormMain()
         {
@@ -51,7 +53,7 @@ namespace My_Games
             удалитьToolStripMenuItem1.Enabled = selected;
         }
 
-        #region Вид приложения, обновление
+        #region Вид приложения, обновление, сортировка
         void RefreshData()
         {
             GameDateComparer dc = new GameDateComparer();
@@ -92,6 +94,16 @@ namespace My_Games
         {
             itemComparer.ColumnIndex = e.Column;
             ((ListView)sender).Sort();
+            //Просто ужасный костыль, может потом сделаю хорошо если научусь
+            //Таким образом мы рисуем треугольник на имени столбца, показывающий направление сортировки
+            if (lastColumn >= 0)
+                listViewGames.Columns[lastColumn].Text =
+                    listViewGames.Columns[lastColumn].Text.Substring(0, listViewGames.Columns[lastColumn].Text.Length - 2);
+            if (lastColumn != e.Column)
+                lastSort = true;
+            lastSort = !lastSort;
+            listViewGames.Columns[e.Column].Text += lastSort ? " ▼" : " ▲";
+            lastColumn = e.Column;
         }
 
         private void платформыToolStripMenuItem_Click(object sender, EventArgs e)
