@@ -124,6 +124,12 @@
     <Compile Include="FormPlatform.Designer.cs">
       <DependentUpon>FormPlatform.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormStatistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStatistic.Designer.cs">
+      <DependentUpon>FormStatistic.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormVersion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     <EmbeddedResource Include="FormPlatform.resx">
       <DependentUpon>FormPlatform.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormStatistic.resx">
+      <DependentUpon>FormStatistic.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormVersion.resx">
       <DependentUpon>FormVersion.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +207,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="My Game Collectiom.ico" />
+    <None Include="Resources\stat.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

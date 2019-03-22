@@ -8,7 +8,7 @@ namespace My_Games
     public partial class FormMain : Form
     {
         ItemComparer itemComparer = new ItemComparer();
-        int lastColumn = -1;
+        int lastColumn = 0;
         bool lastSort = false;
 
         public FormMain()
@@ -17,6 +17,7 @@ namespace My_Games
             Data.Load();
             listViewGames.ListViewItemSorter = itemComparer;
             RefreshData();
+            listViewGames.Columns[lastColumn].Text += " ▲";
         }
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,9 +97,8 @@ namespace My_Games
             ((ListView)sender).Sort();
             //Просто ужасный костыль, может потом сделаю хорошо если научусь
             //Таким образом мы рисуем треугольник на имени столбца, показывающий направление сортировки
-            if (lastColumn >= 0)
-                listViewGames.Columns[lastColumn].Text =
-                    listViewGames.Columns[lastColumn].Text.Substring(0, listViewGames.Columns[lastColumn].Text.Length - 2);
+            listViewGames.Columns[lastColumn].Text =
+                listViewGames.Columns[lastColumn].Text.Substring(0, listViewGames.Columns[lastColumn].Text.Length - 2);
             if (lastColumn != e.Column)
                 lastSort = true;
             lastSort = !lastSort;
@@ -183,22 +183,25 @@ namespace My_Games
             }
         }
 
-        //Панель с кнопками
-
-        private void toolStripButton1_Click(object sender, EventArgs e) { новаяToolStripMenuItem_Click(null, null); }
-        private void toolStripTextBoxFind_TextChanged(object sender, EventArgs e) { RefreshData(); }
-
-        private void toolStripButtonReset_Click(object sender, EventArgs e)
-        {
-            toolStripTextBoxFind.Text = "";
-            RefreshData();
-        }
-
         private void infoViewMenu_Click(object sender, EventArgs e)
         {
             infoViewMenu.Checked = !infoViewMenu.Checked;
             ShowHideInfoView(true);
         }
+
+        private void статистикаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormStatistic form = new FormStatistic();
+            form.ShowDialog();
+        }
+
+        //Панель с кнопками
+
+        private void toolStripButtonNew_Click(object sender, EventArgs e) { новаяToolStripMenuItem_Click(null, null); }
+        private void toolStripTextBoxFind_TextChanged(object sender, EventArgs e) { RefreshData(); }
+        private void toolStripButtonReset_Click(object sender, EventArgs e) { toolStripTextBoxFind.Text = ""; RefreshData(); }
+        private void toolStripButtonStat_Click(object sender, EventArgs e) { статистикаToolStripMenuItem_Click(null, null); }
+
         #endregion
 
         #region Контекстное меню
