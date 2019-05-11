@@ -34,20 +34,17 @@
             this.radioButtonMounts = new System.Windows.Forms.RadioButton();
             this.radioButtonEverytime = new System.Windows.Forms.RadioButton();
             this.radioButtonYears = new System.Windows.Forms.RadioButton();
-            this.pictureBoxGraph = new System.Windows.Forms.PictureBox();
-            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.scrollBar = new System.Windows.Forms.HScrollBar();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.pictureBoxLegend = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGraph)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLegend)).BeginInit();
             this.SuspendLayout();
             // 
             // radioButtonGames
@@ -63,6 +60,7 @@
             this.radioButtonGames.Text = "Игр куплено";
             this.radioButtonGames.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonGames.UseVisualStyleBackColor = true;
+            this.radioButtonGames.Click += new System.EventHandler(this.RadioButtonGames_Click);
             // 
             // radioButtonMoney
             // 
@@ -75,6 +73,7 @@
             this.radioButtonMoney.Text = "Денег потрачено";
             this.radioButtonMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonMoney.UseVisualStyleBackColor = true;
+            this.radioButtonMoney.CheckedChanged += new System.EventHandler(this.RadioButtonMoney_CheckedChanged);
             // 
             // radioButtonTime
             // 
@@ -87,20 +86,20 @@
             this.radioButtonTime.Text = "Времени наиграно";
             this.radioButtonTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonTime.UseVisualStyleBackColor = true;
+            this.radioButtonTime.CheckedChanged += new System.EventHandler(this.RadioButtonTime_CheckedChanged);
             // 
             // radioButtonMounts
             // 
             this.radioButtonMounts.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonMounts.Checked = true;
             this.radioButtonMounts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radioButtonMounts.Location = new System.Drawing.Point(3, 3);
             this.radioButtonMounts.Name = "radioButtonMounts";
             this.radioButtonMounts.Size = new System.Drawing.Size(253, 26);
             this.radioButtonMounts.TabIndex = 0;
-            this.radioButtonMounts.TabStop = true;
             this.radioButtonMounts.Text = "Месяцы";
             this.radioButtonMounts.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonMounts.UseVisualStyleBackColor = true;
+            this.radioButtonMounts.CheckedChanged += new System.EventHandler(this.RadioButtonMounts_CheckedChanged);
             // 
             // radioButtonEverytime
             // 
@@ -113,39 +112,44 @@
             this.radioButtonEverytime.Text = "За всё время";
             this.radioButtonEverytime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonEverytime.UseVisualStyleBackColor = true;
+            this.radioButtonEverytime.CheckedChanged += new System.EventHandler(this.RadioButtonEverytime_CheckedChanged);
             // 
             // radioButtonYears
             // 
             this.radioButtonYears.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonYears.Checked = true;
             this.radioButtonYears.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radioButtonYears.Location = new System.Drawing.Point(262, 3);
             this.radioButtonYears.Name = "radioButtonYears";
             this.radioButtonYears.Size = new System.Drawing.Size(253, 26);
             this.radioButtonYears.TabIndex = 1;
+            this.radioButtonYears.TabStop = true;
             this.radioButtonYears.Text = "Годы";
             this.radioButtonYears.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonYears.UseVisualStyleBackColor = true;
+            this.radioButtonYears.CheckedChanged += new System.EventHandler(this.RadioButtonYears_CheckedChanged);
             // 
-            // pictureBoxGraph
+            // pictureBox
             // 
-            this.pictureBoxGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxGraph.BackColor = System.Drawing.Color.White;
-            this.pictureBoxGraph.Location = new System.Drawing.Point(3, 38);
-            this.pictureBoxGraph.Name = "pictureBoxGraph";
-            this.pictureBoxGraph.Size = new System.Drawing.Size(778, 287);
-            this.pictureBoxGraph.TabIndex = 5;
-            this.pictureBoxGraph.TabStop = false;
+            this.pictureBox.BackColor = System.Drawing.Color.White;
+            this.pictureBox.Location = new System.Drawing.Point(3, 38);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(778, 287);
+            this.pictureBox.TabIndex = 5;
+            this.pictureBox.TabStop = false;
             // 
-            // hScrollBar1
+            // scrollBar
             // 
-            this.hScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.scrollBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.hScrollBar1.Location = new System.Drawing.Point(3, 328);
-            this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(778, 17);
-            this.hScrollBar1.TabIndex = 6;
+            this.scrollBar.Location = new System.Drawing.Point(3, 328);
+            this.scrollBar.Name = "scrollBar";
+            this.scrollBar.Size = new System.Drawing.Size(778, 17);
+            this.scrollBar.TabIndex = 6;
+            this.scrollBar.ValueChanged += new System.EventHandler(this.ScrollBar_ValueChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -193,30 +197,13 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer1.Panel1.Controls.Add(this.hScrollBar1);
+            this.splitContainer1.Panel1.Controls.Add(this.scrollBar);
             this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel2);
-            this.splitContainer1.Panel1.Controls.Add(this.pictureBoxGraph);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.pictureBoxLegend);
+            this.splitContainer1.Panel1.Controls.Add(this.pictureBox);
             this.splitContainer1.Size = new System.Drawing.Size(784, 561);
             this.splitContainer1.SplitterDistance = 383;
             this.splitContainer1.SplitterWidth = 8;
             this.splitContainer1.TabIndex = 9;
-            this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
-            // 
-            // pictureBoxLegend
-            // 
-            this.pictureBoxLegend.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxLegend.BackColor = System.Drawing.Color.White;
-            this.pictureBoxLegend.Location = new System.Drawing.Point(3, 3);
-            this.pictureBoxLegend.Name = "pictureBoxLegend";
-            this.pictureBoxLegend.Size = new System.Drawing.Size(778, 164);
-            this.pictureBoxLegend.TabIndex = 6;
-            this.pictureBoxLegend.TabStop = false;
             // 
             // FormStatistic
             // 
@@ -232,14 +219,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Статистика по коллекции";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormStatistic_Paint);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGraph)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLegend)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -252,11 +237,10 @@
         private System.Windows.Forms.RadioButton radioButtonMounts;
         private System.Windows.Forms.RadioButton radioButtonEverytime;
         private System.Windows.Forms.RadioButton radioButtonYears;
-        private System.Windows.Forms.PictureBox pictureBoxGraph;
-        private System.Windows.Forms.HScrollBar hScrollBar1;
+        private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.HScrollBar scrollBar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.PictureBox pictureBoxLegend;
     }
 }
