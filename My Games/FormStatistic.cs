@@ -12,15 +12,15 @@ namespace My_Games
 {
     public partial class FormStatistic : Form
     {
-        Graphics graph, graphl;
-        Bitmap bmp, bmpl;
-        int fullWidth, fullHeight, lWidth, lHeight;
+        Bitmap bmp;
+        Graphics graph;
         Brush[] plBrushes;
 
         DateTime last;
-        int plCount, yearCount, scrollVal, yearsInColumn;
-        int[,] mounts, years, all;
-        int heightMounts, heightYears, heightAll;
+        int plCount, yearCount, scrollVal, yearsInColumn; //Количество платыорм, лет, скролл, лет в колонке
+        int[,] mounts, years, all; //Таблицы с данными
+        //int mK, yK, aK; //Коэффициенты уменьшения таблиц (для правильной отрисовки)
+        int heightMounts, heightYears, heightAll; //Максимальные высоты
 
         string[] mount = { "Янв.", "Фев.", "Март", "Апр.", "Май", "Июнь", "Июль", "Авг.", "Сен.", "Окт.", "Ноя.", "Дек." };
 
@@ -109,12 +109,16 @@ namespace My_Games
             //Сканируем базу и узнаём крайние даты (минимум и максимум)
             DateTime old = DateTime.Now;
             foreach (Game g in Data.data.games)
-                foreach (Version v in g.versions)
-                    if (old > v.date) old = v.date;
+            {
+                foreach (Version v in g.versions) if (old > v.date) old = v.date;
+                foreach (DLC d in g.DLCs) if (old > d.date) old = d.date;
+            }
             last = old;
             foreach (Game g in Data.data.games)
-                foreach (Version v in g.versions)
-                    if (last < v.date) last = v.date;
+            {
+                foreach (Version v in g.versions) if (last < v.date) last = v.date;
+                foreach (DLC d in g.DLCs) if (last < d.date) last = d.date;
+            }
             //Считаем количество лет
             yearCount = last.Year - old.Year + 1;
             if (yearCount < 10) yearCount = 10;
@@ -124,6 +128,7 @@ namespace My_Games
             plCount = Data.data.platforms.Count;
             int[,] platforms = new int[plCount, 2];
             foreach (Game g in Data.data.games)
+            {
                 foreach (Version v in g.versions)
                 {
                     for (int i = 0; i < plCount; i++)
@@ -131,11 +136,24 @@ namespace My_Games
                         if (platforms[i, 0] == 0) platforms[i, 0] = v.platform;
                         if (platforms[i, 0] == v.platform)
                         {
-                            platforms[i, 1]++;
+                            platforms[i, 1] += v.price;
                             i = plCount;
                         }
                     }
                 }
+                foreach (DLC d in g.DLCs)
+                {
+                    for (int i = 0; i < plCount; i++)
+                    {
+                        if (platforms[i, 0] == 0) platforms[i, 0] = d.platform;
+                        if (platforms[i, 0] == d.platform)
+                        {
+                            platforms[i, 1] += d.price;
+                            i = plCount;
+                        }
+                    }
+                }
+            }
             //Сортируем её
             for (int i = 0; i < plCount - 1; i++)
                 for (int j = i + 1; j < plCount; j++)
@@ -155,6 +173,7 @@ namespace My_Games
             all = new int[10, plCount];
             //И заполняем их
             foreach (Game g in Data.data.games)
+            {
                 foreach (Version v in g.versions)
                 {
                     int p = 0;
@@ -164,11 +183,24 @@ namespace My_Games
                             p = i;
                             break;
                         }
-                    years[last.Year - v.date.Year, p]++;
-                    mounts[last.Year * 12 - v.date.Year * 12 + 12 - v.date.Month, p]++;
-                    all[(last.Year - v.date.Year) / yearsInColumn, p]++;
+                    years[last.Year - v.date.Year, p] += v.price;
+                    mounts[last.Year * 12 - v.date.Year * 12 + 12 - v.date.Month, p] += v.price;
+                    all[(last.Year - v.date.Year) / yearsInColumn, p] += v.price;
                 }
-
+                foreach (DLC d in g.DLCs)
+                {
+                    int p = 0;
+                    for (int i = 0; i < plCount; i++)
+                        if (platforms[i, 0] == d.platform)
+                        {
+                            p = i;
+                            break;
+                        }
+                    years[last.Year - d.date.Year, p] += d.price;
+                    mounts[last.Year * 12 - d.date.Year * 12 + 12 - d.date.Month, p] += d.price;
+                    all[(last.Year - d.date.Year) / yearsInColumn, p] += d.price;
+                }
+            }
             FindMaximumHeight();
             ScrollCalc();
             DrawGraph();
@@ -275,6 +307,8 @@ namespace My_Games
                     height += mounts[i, j];
                 if (heightMounts < height) heightMounts = height;
             }
+            //heightMounts = CalcK(heightMounts);
+
             heightYears = 0;
             for (int i = 0; i < yearCount; i++)
             {
@@ -283,6 +317,8 @@ namespace My_Games
                     height += years[i, j];
                 if (heightYears < height) heightYears = height;
             }
+            //heightYears = CalcK(heightYears);
+
             heightAll = 0;
             for (int i = 0; i < 10; i++)
             {
@@ -291,6 +327,7 @@ namespace My_Games
                     height += all[i, j];
                 if (heightAll < height) heightAll = height;
             }
+            //heightAll = CalcK(heightAll);
         }
 
         /// <summary>
@@ -332,6 +369,7 @@ namespace My_Games
 
         void DrawGraph()
         {
+            int fullWidth, fullHeight;
             fullWidth = pictureBox.Width;
             fullHeight = pictureBox.Height;
             bmp = new Bitmap(fullWidth, fullHeight);
@@ -362,11 +400,12 @@ namespace My_Games
             {
                 if (radioButtonMounts.Checked)
                 {
-                    int k = height / heightMounts;
-                    for (int i = 0; i < heightMounts; i += heightMounts / 4)
+                    int g = calcG(heightMounts);
+                    int k = height / (heightMounts / g);
+                    for (int i = 0; i <= heightMounts; i += heightMounts / 4 / g)
                     {
                         graph.DrawLine(Pens.Gray, left, height - i * k, fullWidth - 5, height - i * k);
-                        graph.DrawString(i.ToString(), title, Brushes.Black, new Rectangle(0, height - i * k - 10, left - 10, 20), formatR);
+                        graph.DrawString((i * g).ToString(), title, Brushes.Black, new Rectangle(0, height - i * k - 10, left - 10, 20), formatR);
                     }
                     for (int i = 0; i < 12; i++)
                     {
@@ -374,8 +413,8 @@ namespace My_Games
                         int s = 0;
                         for (int j = 0; j < plCount; j++)
                         {
-                            graph.FillRectangle(plBrushes[j % plBrushes.Count()], left + space + width12 * i, height - (s + mounts[c, j]) * k, width12s, mounts[c, j] * k);
-                            s += mounts[c, j];
+                            graph.FillRectangle(plBrushes[j % plBrushes.Count()], left + space + width12 * i, height - (s + mounts[c, j]) / g * k, width12s, mounts[c, j] / g * k);
+                            s += mounts[c, j] / g;
                         }
                         if (i == 0 | c % 12 == 11)
                         graph.DrawString((last.Year - c / 12).ToString(),title, Brushes.Black, new Rectangle(left + width12 * i, height, width12, bottom / 2), formatC);
@@ -384,11 +423,12 @@ namespace My_Games
                 }
                 if (radioButtonYears.Checked)
                 {
-                    int k = height / heightYears;
-                    for (int i = 0; i < heightYears; i += heightYears / 4)
+                    int g = calcG(heightYears);
+                    int k = height / (heightYears / g);
+                    for (int i = 0; i <= heightYears; i += heightYears / 4 / g)
                     {
-                        graph.DrawLine(Pens.Gray, left, (int)(height - i * k), fullWidth, height - i * k);
-                        graph.DrawString(i.ToString(), title, Brushes.Black, new Rectangle(0, height - i * k - 10, left - 10, 20), formatR);
+                        graph.DrawLine(Pens.Gray, left, height - i * k, fullWidth, height - i * k);
+                        graph.DrawString((i * g).ToString(), title, Brushes.Black, new Rectangle(0, height - i * k - 10, left - 10, 20), formatR);
                     }
                     for (int i = 0; i < 10; i++)
                     {
@@ -396,19 +436,20 @@ namespace My_Games
                         int s = 0;
                         for (int j = 0; j < plCount; j++)
                         {
-                            graph.FillRectangle(plBrushes[j % plBrushes.Count()], left + space + width10 * i, height - (s + years[c, j]) * k, width10s, years[c, j] * k);
-                            s += years[c, j];
+                            graph.FillRectangle(plBrushes[j % plBrushes.Count()], left + space + width10 * i, height - (s + years[c, j] / g) * k, width10s, years[c, j] / g * k);
+                            s += years[c, j] / g;
                         }
                         graph.DrawString((last.Year - c).ToString(), title, Brushes.Black, new Rectangle(left + width10 * i, height, width10, bottom), formatC);
                     }
                 }
                 if (radioButtonEverytime.Checked)
                 {
-                    int k = height / heightAll;
-                    for (int i = 0; i < heightAll; i += heightAll / 4)
+                    int g = calcG(heightAll);
+                    int k = height / (heightAll / g);
+                    for (int i = 0; i <= heightAll; i += heightAll / 4 / g)
                     {
                         graph.DrawLine(Pens.Gray, left, height - i * k, fullWidth, height - i * k);
-                        graph.DrawString(i.ToString(), title, Brushes.Black, new Rectangle(0, height - i * k - 10, left - 10, 20), formatR);
+                        graph.DrawString((i * g).ToString(), title, Brushes.Black, new Rectangle(0, height - i * k - 10, left - 10, 20), formatR);
                     }
                     for (int i = 0; i < 10; i++)
                     {
@@ -416,8 +457,8 @@ namespace My_Games
                         int s = 0;
                         for (int j = 0; j < plCount; j++)
                         {
-                            graph.FillRectangle(plBrushes[j % plBrushes.Count()], left + space + width10 * i, height - (s + all[c, j]) * k, width10s, all[c, j] * k);
-                            s += all[c, j];
+                            graph.FillRectangle(plBrushes[j % plBrushes.Count()], left + space + width10 * i, height - (s + all[c, j] / g) * k, width10s, all[c, j] / g * k);
+                            s += all[c, j] / g;
                         }
                         graph.DrawString((last.Year - c * yearsInColumn - yearsInColumn + 1).ToString(), title, Brushes.Black, new Rectangle(left + width10 * i, height, width10, bottom / 2), formatC);
                         graph.DrawString((last.Year - c * yearsInColumn).ToString(), title, Brushes.Black, new Rectangle(left + width10 * i, height + bottom / 2, width10, bottom / 2), formatC);
@@ -429,6 +470,19 @@ namespace My_Games
             pictureBox.Image = bmp;
         }
 
+        /// <summary>
+        /// Значение размера градации
+        /// </summary>
+        /// <param name="height"></param>
+        /// <returns></returns>
+        int calcG(int height)
+        {
+            if (height < 100) return 1;
+            if (height < 1000) return 5;
+            if (height < 10000) return 50;
+            if (height < 100000) return 500;
+            return 5000;
+        }
 
         private void FormStatistic_Paint(object sender, PaintEventArgs e) { DrawGraph(); }
     }
