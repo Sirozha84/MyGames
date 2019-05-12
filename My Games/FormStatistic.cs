@@ -14,15 +14,16 @@ namespace My_Games
     {
         Bitmap bmp;
         Graphics graph;
-        Brush[] plBrushes;
-
         DateTime last;
+        int[,] platforms;
         int plCount, yearCount, scrollVal, yearsInColumn; //Количество платыорм, лет, скролл, лет в колонке
         int[,] mounts, years, all; //Таблицы с данными
         //int mK, yK, aK; //Коэффициенты уменьшения таблиц (для правильной отрисовки)
         int heightMounts, heightYears, heightAll; //Максимальные высоты
-
         string[] mount = { "Янв.", "Фев.", "Март", "Апр.", "Май", "Июнь", "Июль", "Авг.", "Сен.", "Окт.", "Ноя.", "Дек." };
+
+        Brush[] plBrushes;
+        Color[] plColors;
 
         /// <summary>
         /// Игр куплено
@@ -47,7 +48,7 @@ namespace My_Games
             
             //Создадим табличку с рейтингом по платформам
             plCount = Data.data.platforms.Count;
-            int[,] platforms = new int[plCount, 2];
+            platforms = new int[plCount, 2];
             foreach (Game g in Data.data.games)
                 foreach (Version v in g.versions)
                 {
@@ -61,18 +62,7 @@ namespace My_Games
                         }
                     }
                 }
-            //Сортируем её
-            for (int i = 0; i < plCount - 1; i++)
-                for (int j = i + 1; j < plCount; j++)
-                    if (platforms[i, 1] < platforms[j, 1])
-                    {
-                        int t0 = platforms[i, 0];
-                        int t1 = platforms[i, 1];
-                        platforms[i, 0] = platforms[j, 0];
-                        platforms[i, 1] = platforms[j, 1];
-                        platforms[j, 0] = t0;
-                        platforms[j, 1] = t1;
-                    }
+            DrawPlatformList();
 
             //Создаём массивы данных
             mounts = new int[yearCount * 12, plCount];
@@ -126,7 +116,7 @@ namespace My_Games
 
             //Создадим табличку с рейтингом по платформам
             plCount = Data.data.platforms.Count;
-            int[,] platforms = new int[plCount, 2];
+            platforms = new int[plCount, 2];
             foreach (Game g in Data.data.games)
             {
                 foreach (Version v in g.versions)
@@ -154,18 +144,7 @@ namespace My_Games
                     }
                 }
             }
-            //Сортируем её
-            for (int i = 0; i < plCount - 1; i++)
-                for (int j = i + 1; j < plCount; j++)
-                    if (platforms[i, 1] < platforms[j, 1])
-                    {
-                        int t0 = platforms[i, 0];
-                        int t1 = platforms[i, 1];
-                        platforms[i, 0] = platforms[j, 0];
-                        platforms[i, 1] = platforms[j, 1];
-                        platforms[j, 0] = t0;
-                        platforms[j, 1] = t1;
-                    }
+            DrawPlatformList();
 
             //Создаём массивы данных
             mounts = new int[yearCount * 12, plCount];
@@ -229,7 +208,7 @@ namespace My_Games
 
             //Создадим табличку с рейтингом по платформам
             plCount = Data.data.platforms.Count;
-            int[,] platforms = new int[plCount, 2];
+            platforms = new int[plCount, 2];
             foreach (Game g in Data.data.games)
                 foreach (Event ev in g.history)
                 {
@@ -243,18 +222,7 @@ namespace My_Games
                         }
                     }
                 }
-            //Сортируем её
-            for (int i = 0; i < plCount - 1; i++)
-                for (int j = i + 1; j < plCount; j++)
-                    if (platforms[i, 1] < platforms[j, 1])
-                    {
-                        int t0 = platforms[i, 0];
-                        int t1 = platforms[i, 1];
-                        platforms[i, 0] = platforms[j, 0];
-                        platforms[i, 1] = platforms[j, 1];
-                        platforms[j, 0] = t0;
-                        platforms[j, 1] = t1;
-                    }
+            DrawPlatformList();
 
             //Создаём массивы данных
             mounts = new int[yearCount * 12, plCount];
@@ -295,6 +263,40 @@ namespace My_Games
         }
 
         /// <summary>
+        /// Сортировка списка платформ и вывод его на форму
+        /// </summary>
+        void DrawPlatformList()
+        {
+            for (int i = 0; i < plCount - 1; i++)
+            {
+                for (int j = i + 1; j < plCount; j++)
+                    if (platforms[i, 1] < platforms[j, 1])
+                    {
+                        int t0 = platforms[i, 0];
+                        int t1 = platforms[i, 1];
+                        platforms[i, 0] = platforms[j, 0];
+                        platforms[i, 1] = platforms[j, 1];
+                        platforms[j, 0] = t0;
+                        platforms[j, 1] = t1;
+                    }
+            }
+            listView.BeginUpdate();
+            listView.Items.Clear();
+            for (int i = 0; i < plCount; i++)
+            {
+                string s = Data.PlatformIDToName(platforms[i, 0]);
+                if (s != "" && platforms[i, 1] != 0)
+                {
+                    ListViewItem item = new ListViewItem(s);
+                    item.SubItems.Add(platforms[i, 1].ToString());
+                    item.BackColor = plColors[i % plColors.Count()];
+                    listView.Items.Add(item);
+                }
+            }
+            listView.EndUpdate();
+        }
+
+        /// <summary>
         /// Поиск максимальных высот столбиков
         /// </summary>
         void FindMaximumHeight()
@@ -307,8 +309,6 @@ namespace My_Games
                     height += mounts[i, j];
                 if (heightMounts < height) heightMounts = height;
             }
-            //heightMounts = CalcK(heightMounts);
-
             heightYears = 0;
             for (int i = 0; i < yearCount; i++)
             {
@@ -317,8 +317,6 @@ namespace My_Games
                     height += years[i, j];
                 if (heightYears < height) heightYears = height;
             }
-            //heightYears = CalcK(heightYears);
-
             heightAll = 0;
             for (int i = 0; i < 10; i++)
             {
@@ -327,7 +325,6 @@ namespace My_Games
                     height += all[i, j];
                 if (heightAll < height) heightAll = height;
             }
-            //heightAll = CalcK(heightAll);
         }
 
         /// <summary>
@@ -365,6 +362,10 @@ namespace My_Games
             plBrushes = new Brush[]{ Brushes.Red, Brushes.Green, Brushes.Blue,
                                      Brushes.Pink, Brushes.LightBlue, Brushes.LightGreen,
                                      Brushes.IndianRed, Brushes.RoyalBlue, Brushes.YellowGreen };
+            plColors = new Color[]{ Color.Red, Color.Green, Color.Blue,
+                                    Color.Pink, Color.LightBlue, Color.LightGreen,
+                                    Color.IndianRed, Color.RoyalBlue, Color.YellowGreen };
+            RadioButtonGames_Click(null, null);
         }
 
         void DrawGraph()
@@ -375,8 +376,8 @@ namespace My_Games
             bmp = new Bitmap(fullWidth, fullHeight);
             graph = Graphics.FromImage(bmp);
 
-            int left = 100;
-            int bottom = 36;
+            int left = 60;
+            int bottom = 40;
             int width = fullWidth - left;
             int width10 = width / 10;
             int width12 = width / 12;

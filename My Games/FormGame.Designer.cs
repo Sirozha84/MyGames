@@ -87,7 +87,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 328);
+            this.label1.Location = new System.Drawing.Point(10, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 13);
             this.label1.TabIndex = 0;
@@ -95,24 +95,24 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(99, 325);
+            this.textBoxName.Location = new System.Drawing.Point(104, 21);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(207, 20);
-            this.textBoxName.TabIndex = 1;
+            this.textBoxName.TabIndex = 0;
             // 
             // comboBoxGenre
             // 
             this.comboBoxGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGenre.FormattingEnabled = true;
-            this.comboBoxGenre.Location = new System.Drawing.Point(99, 432);
+            this.comboBoxGenre.Location = new System.Drawing.Point(104, 128);
             this.comboBoxGenre.Name = "comboBoxGenre";
             this.comboBoxGenre.Size = new System.Drawing.Size(207, 21);
-            this.comboBoxGenre.TabIndex = 3;
+            this.comboBoxGenre.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 381);
+            this.label3.Location = new System.Drawing.Point(39, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 4;
@@ -120,16 +120,17 @@
             // 
             // comboBoxPublisher
             // 
+            this.comboBoxPublisher.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.comboBoxPublisher.FormattingEnabled = true;
-            this.comboBoxPublisher.Location = new System.Drawing.Point(98, 378);
+            this.comboBoxPublisher.Location = new System.Drawing.Point(103, 74);
             this.comboBoxPublisher.Name = "comboBoxPublisher";
             this.comboBoxPublisher.Size = new System.Drawing.Size(207, 21);
-            this.comboBoxPublisher.TabIndex = 5;
+            this.comboBoxPublisher.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 408);
+            this.label4.Location = new System.Drawing.Point(30, 104);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 13);
             this.label4.TabIndex = 6;
@@ -138,10 +139,10 @@
             // buttonOK
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Location = new System.Drawing.Point(932, 514);
+            this.buttonOK.Location = new System.Drawing.Point(932, 413);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
-            this.buttonOK.TabIndex = 8;
+            this.buttonOK.TabIndex = 19;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
@@ -150,17 +151,17 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(1013, 514);
+            this.buttonCancel.Location = new System.Drawing.Point(1013, 413);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 9;
+            this.buttonCancel.TabIndex = 20;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(45, 462);
+            this.label5.Location = new System.Drawing.Point(50, 158);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 10;
@@ -184,7 +185,7 @@
             this.listViewVersions.MultiSelect = false;
             this.listViewVersions.Name = "listViewVersions";
             this.listViewVersions.Size = new System.Drawing.Size(360, 137);
-            this.listViewVersions.TabIndex = 16;
+            this.listViewVersions.TabIndex = 10;
             this.listViewVersions.UseCompatibleStateImageBehavior = false;
             this.listViewVersions.View = System.Windows.Forms.View.Details;
             this.listViewVersions.SelectedIndexChanged += new System.EventHandler(this.listViewVersions_SelectedIndexChanged);
@@ -227,7 +228,7 @@
             this.listViewDLCs.MultiSelect = false;
             this.listViewDLCs.Name = "listViewDLCs";
             this.listViewDLCs.Size = new System.Drawing.Size(361, 137);
-            this.listViewDLCs.TabIndex = 17;
+            this.listViewDLCs.TabIndex = 14;
             this.listViewDLCs.UseCompatibleStateImageBehavior = false;
             this.listViewDLCs.View = System.Windows.Forms.View.Details;
             this.listViewDLCs.SelectedIndexChanged += new System.EventHandler(this.listViewDLCs_SelectedIndexChanged);
@@ -310,18 +311,16 @@
             this.textBoxComment.Location = new System.Drawing.Point(6, 19);
             this.textBoxComment.Multiline = true;
             this.textBoxComment.Name = "textBoxComment";
-            this.textBoxComment.Size = new System.Drawing.Size(740, 70);
-            this.textBoxComment.TabIndex = 20;
+            this.textBoxComment.Size = new System.Drawing.Size(305, 166);
+            this.textBoxComment.TabIndex = 6;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.linkLabel1);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.comboBoxDeveloper);
             this.groupBox1.Controls.Add(this.comboBoxRate);
             this.groupBox1.Controls.Add(this.textBoxYear);
-            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.textBoxName);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.comboBoxGenre);
@@ -331,7 +330,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(317, 489);
+            this.groupBox1.Size = new System.Drawing.Size(317, 191);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Общие сведения";
@@ -340,27 +339,27 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(45, 162);
+            this.label2.Location = new System.Drawing.Point(515, 418);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(214, 13);
             this.label2.TabIndex = 25;
             this.label2.Text = "Здесь когда-нибудь будет обложка игры";
+            this.label2.Visible = false;
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(54, 435);
+            this.linkLabel1.Location = new System.Drawing.Point(59, 131);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(39, 13);
             this.linkLabel1.TabIndex = 24;
-            this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Жанр:";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 354);
+            this.label6.Location = new System.Drawing.Point(23, 50);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 13);
             this.label6.TabIndex = 22;
@@ -368,36 +367,38 @@
             // 
             // comboBoxDeveloper
             // 
+            this.comboBoxDeveloper.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.comboBoxDeveloper.FormattingEnabled = true;
-            this.comboBoxDeveloper.Location = new System.Drawing.Point(98, 351);
+            this.comboBoxDeveloper.Location = new System.Drawing.Point(103, 47);
             this.comboBoxDeveloper.Name = "comboBoxDeveloper";
             this.comboBoxDeveloper.Size = new System.Drawing.Size(207, 21);
-            this.comboBoxDeveloper.TabIndex = 23;
+            this.comboBoxDeveloper.TabIndex = 1;
             // 
             // comboBoxRate
             // 
             this.comboBoxRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRate.FormattingEnabled = true;
-            this.comboBoxRate.Location = new System.Drawing.Point(98, 459);
+            this.comboBoxRate.Location = new System.Drawing.Point(103, 155);
             this.comboBoxRate.Name = "comboBoxRate";
             this.comboBoxRate.Size = new System.Drawing.Size(58, 21);
-            this.comboBoxRate.TabIndex = 21;
+            this.comboBoxRate.TabIndex = 5;
             // 
             // textBoxYear
             // 
-            this.textBoxYear.Location = new System.Drawing.Point(99, 405);
+            this.textBoxYear.Location = new System.Drawing.Point(104, 101);
             this.textBoxYear.Name = "textBoxYear";
             this.textBoxYear.Size = new System.Drawing.Size(57, 20);
-            this.textBoxYear.TabIndex = 20;
+            this.textBoxYear.TabIndex = 3;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Silver;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox1.Location = new System.Drawing.Point(470, 406);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(300, 300);
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
             // groupBox2
             // 
@@ -418,7 +419,7 @@
             this.buttonChangeVersion.Location = new System.Drawing.Point(87, 19);
             this.buttonChangeVersion.Name = "buttonChangeVersion";
             this.buttonChangeVersion.Size = new System.Drawing.Size(75, 23);
-            this.buttonChangeVersion.TabIndex = 18;
+            this.buttonChangeVersion.TabIndex = 8;
             this.buttonChangeVersion.Text = "Изменить";
             this.buttonChangeVersion.UseVisualStyleBackColor = true;
             this.buttonChangeVersion.Click += new System.EventHandler(this.buttonChangeVersion_Click);
@@ -429,7 +430,7 @@
             this.buttonDelVersion.Location = new System.Drawing.Point(168, 19);
             this.buttonDelVersion.Name = "buttonDelVersion";
             this.buttonDelVersion.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelVersion.TabIndex = 17;
+            this.buttonDelVersion.TabIndex = 9;
             this.buttonDelVersion.Text = "Удалить";
             this.buttonDelVersion.UseVisualStyleBackColor = true;
             this.buttonDelVersion.Click += new System.EventHandler(this.buttonDelVersion_Click);
@@ -439,7 +440,7 @@
             this.buttonAddVersion.Location = new System.Drawing.Point(6, 19);
             this.buttonAddVersion.Name = "buttonAddVersion";
             this.buttonAddVersion.Size = new System.Drawing.Size(75, 23);
-            this.buttonAddVersion.TabIndex = 0;
+            this.buttonAddVersion.TabIndex = 7;
             this.buttonAddVersion.Text = "Добавить";
             this.buttonAddVersion.UseVisualStyleBackColor = true;
             this.buttonAddVersion.Click += new System.EventHandler(this.buttonAddVersion_Click);
@@ -463,7 +464,7 @@
             this.buttonDelDLC.Location = new System.Drawing.Point(168, 19);
             this.buttonDelDLC.Name = "buttonDelDLC";
             this.buttonDelDLC.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelDLC.TabIndex = 2;
+            this.buttonDelDLC.TabIndex = 13;
             this.buttonDelDLC.Text = "Удалить";
             this.buttonDelDLC.UseVisualStyleBackColor = true;
             this.buttonDelDLC.Click += new System.EventHandler(this.buttonDelDLC_Click);
@@ -474,7 +475,7 @@
             this.buttonChangeDLC.Location = new System.Drawing.Point(87, 19);
             this.buttonChangeDLC.Name = "buttonChangeDLC";
             this.buttonChangeDLC.Size = new System.Drawing.Size(75, 23);
-            this.buttonChangeDLC.TabIndex = 1;
+            this.buttonChangeDLC.TabIndex = 12;
             this.buttonChangeDLC.Text = "Изменить";
             this.buttonChangeDLC.UseVisualStyleBackColor = true;
             this.buttonChangeDLC.Click += new System.EventHandler(this.buttonChangeDLC_Click);
@@ -484,7 +485,7 @@
             this.buttonAddDLC.Location = new System.Drawing.Point(6, 19);
             this.buttonAddDLC.Name = "buttonAddDLC";
             this.buttonAddDLC.Size = new System.Drawing.Size(75, 23);
-            this.buttonAddDLC.TabIndex = 0;
+            this.buttonAddDLC.TabIndex = 11;
             this.buttonAddDLC.Text = "Добавить";
             this.buttonAddDLC.UseVisualStyleBackColor = true;
             this.buttonAddDLC.Click += new System.EventHandler(this.buttonAddDLC_Click);
@@ -508,7 +509,7 @@
             this.buttonDelEvent.Location = new System.Drawing.Point(168, 19);
             this.buttonDelEvent.Name = "buttonDelEvent";
             this.buttonDelEvent.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelEvent.TabIndex = 2;
+            this.buttonDelEvent.TabIndex = 17;
             this.buttonDelEvent.Text = "Удалить";
             this.buttonDelEvent.UseVisualStyleBackColor = true;
             this.buttonDelEvent.Click += new System.EventHandler(this.buttonDelEvent_Click);
@@ -519,7 +520,7 @@
             this.buttonChangeEvent.Location = new System.Drawing.Point(87, 19);
             this.buttonChangeEvent.Name = "buttonChangeEvent";
             this.buttonChangeEvent.Size = new System.Drawing.Size(75, 23);
-            this.buttonChangeEvent.TabIndex = 1;
+            this.buttonChangeEvent.TabIndex = 16;
             this.buttonChangeEvent.Text = "Изменить";
             this.buttonChangeEvent.UseVisualStyleBackColor = true;
             this.buttonChangeEvent.Click += new System.EventHandler(this.buttonChangeEvent_Click);
@@ -529,7 +530,7 @@
             this.buttonAddEvent.Location = new System.Drawing.Point(6, 19);
             this.buttonAddEvent.Name = "buttonAddEvent";
             this.buttonAddEvent.Size = new System.Drawing.Size(75, 23);
-            this.buttonAddEvent.TabIndex = 0;
+            this.buttonAddEvent.TabIndex = 15;
             this.buttonAddEvent.Text = "Добавить";
             this.buttonAddEvent.UseVisualStyleBackColor = true;
             this.buttonAddEvent.Click += new System.EventHandler(this.buttonAddEvent_Click);
@@ -537,18 +538,19 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.textBoxComment);
-            this.groupBox5.Location = new System.Drawing.Point(335, 406);
+            this.groupBox5.Location = new System.Drawing.Point(12, 209);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(752, 95);
+            this.groupBox5.Size = new System.Drawing.Size(317, 191);
             this.groupBox5.TabIndex = 24;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Комментарий";
             // 
             // labelDates
             // 
+            this.labelDates.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelDates.AutoSize = true;
             this.labelDates.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.labelDates.Location = new System.Drawing.Point(12, 519);
+            this.labelDates.Location = new System.Drawing.Point(12, 418);
             this.labelDates.Name = "labelDates";
             this.labelDates.Size = new System.Drawing.Size(33, 13);
             this.labelDates.TabIndex = 25;
@@ -560,13 +562,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(1100, 549);
+            this.ClientSize = new System.Drawing.Size(1100, 448);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.labelDates);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

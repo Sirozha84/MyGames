@@ -52,6 +52,17 @@ namespace My_Games
             удалитьToolStripMenuItem.Enabled = selected;
             открытьToolStripMenuItem.Enabled = selected;
             удалитьToolStripMenuItem1.Enabled = selected;
+            //Инфопанель
+            const string ns = "Игра не выбрана";
+            Game game = selected? (Game)listViewGames.SelectedItems[0].Tag : new Game();
+            label2.Enabled = selected;
+            label2.Text = selected ? game.name : ns;
+            label4.Enabled = selected;
+            label4.Text = selected ? game.developer : ns;
+            label6.Enabled = selected;
+            label6.Text = selected ? game.publisher : ns;
+            label8.Enabled = selected;
+            label8.Text = selected ? game.year : ns;
         }
 
         #region Вид приложения, обновление, сортировка
@@ -67,6 +78,12 @@ namespace My_Games
             //listViewGames.Items[30].Selected = true;
             //listViewGames.Items[30].Focused = true;
             //Подумать как после обновления списка оставить выделенным элемент который уже был выделен до обновления
+            StatusBas();
+        }
+
+        void StatusBas()
+        {
+            toolStripStatusLabel1.Text = "Всего игр в коллекции: " + Data.data.games.Count;
         }
 
         /// <summary>
