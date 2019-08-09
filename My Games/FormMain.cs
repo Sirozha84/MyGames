@@ -208,8 +208,12 @@ namespace My_Games
 
         private void статистикаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormStatistic form = new FormStatistic();
-            form.ShowDialog();
+            using (FormStatistic form = new FormStatistic()) form.ShowDialog();
+        }
+
+        private void MenuHistory_Click(object sender, EventArgs e)
+        {
+            using (FormHistory form = new FormHistory()) form.ShowDialog();
         }
 
         //Панель с кнопками
