@@ -7,18 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace My_Games
 {
     public partial class FormHistory : Form
     {
+        List<HistoryString> list = new List<HistoryString>();
+        bool isUser = false;
         public FormHistory()
         {
             InitializeComponent();
 
             //Заполняем выпадающме списки и выбираем первый пункт
             comboBoxType.Items.Add("Все");
-            comboBoxType.Items.Add("Игры");
+            comboBoxType.Items.Add("Игра");
             comboBoxType.Items.Add("DLC");
             comboBoxType.SelectedIndex = 0;
 
@@ -37,58 +40,84 @@ namespace My_Games
                 comboBoxGenre.Items.Add(gr.name);
             comboBoxGenre.SelectedIndex = 0;
 
+            foreach (Game game in Data.data.games)
+            {
+                foreach (Version ver in game.versions)
+                    list.Add(new HistoryString(ver.date, game.name, "Игра", ver.platform, ver.medium, game.genre, ver.price));
+                foreach (DLC dlc in game.DLCs)
+                    list.Add(new HistoryString(dlc.date, game.name, "DLC", dlc.platform, 0, game.genre, dlc.price));
+            }
+            list.Sort((o1, o2) => o1.time.CompareTo(o2.time));
+
             Refresh();
         }
 
         void Refresh()
         {
+            int count = 0;
+            int price = 0;
             listViewHistory.BeginUpdate();
             listViewHistory.Items.Clear();
-            foreach (Game game in Data.data.games)
+            foreach (HistoryString str in list)
             {
-                if (comboBoxType.SelectedIndex == 0 | comboBoxType.SelectedIndex == 1)
+                bool ok = true;
+                if (comboBoxType.SelectedIndex > 0 && comboBoxType.SelectedItem.ToString() != str.type) ok = false;
+                if (comboBoxPlatform.SelectedIndex > 0 && comboBoxPlatform.SelectedItem.ToString() != str.platform) ok = false;
+                if (comboBoxMedium.SelectedIndex > 0 && comboBoxMedium.SelectedItem.ToString() != str.medium) ok = false;
+                if (comboBoxGenre.SelectedIndex > 0 && comboBoxGenre.SelectedItem.ToString() != str.genre) ok = false;
+                if (ok)
                 {
-                    foreach (Version ver in game.versions)
-                    {
-                        string[] str = { ver.date.ToString("dd.MM.yyyy"),
-                        "Игра",
-                        game.name,
-                        Data.PlatformIDToName(ver.platform),
-                        Data.MediumIDToName(ver.medium),
-                        Data.GenreIDToName(game.genre),
-                        ver.price.ToString()};
-                        listViewHistory.Items.Add(new ListViewItem(str));
-                    }
-                }
-                if (comboBoxType.SelectedIndex == 0 | comboBoxType.SelectedIndex == 2)
-                {
-                    foreach (DLC dlc in game.DLCs)
-                    {
-                        string[] str = { dlc.date.ToString("dd.MM.yyyy"),
-                        "DLC",
-                        game.name,
-                        Data.PlatformIDToName(dlc.platform),
-                        "",
-                        Data.GenreIDToName(game.genre),
-                        dlc.price.ToString()};
-                        listViewHistory.Items.Add(new ListViewItem(str));
-                    }
+                    listViewHistory.Items.Add(str.GetListViewItem());
+                    count++;
+                    price += str.price;
                 }
             }
             listViewHistory.EndUpdate();
+            toolStripStatusLabel1.Text = "Количество: " + count.ToString();
+            toolStripStatusLabel2.Text = "Потрачено: " + price.ToString();
+            isUser = true;
         }
 
-        private void ComboBoxType_SelectedIndexChanged(object sender, EventArgs e) { Refresh(); }
-        private void ComboBoxPlatform_SelectedIndexChanged(object sender, EventArgs e) { Refresh(); }
-        private void ComboBoxMedium_SelectedIndexChanged(object sender, EventArgs e) { Refresh(); }
-        private void ComboBoxGenre_SelectedIndexChanged(object sender, EventArgs e) { Refresh(); }
+        private void ComboBoxType_SelectedIndexChanged(object sender, EventArgs e) { if (isUser) Refresh(); }
+        private void ComboBoxPlatform_SelectedIndexChanged(object sender, EventArgs e) { if (isUser) Refresh(); }
+        private void ComboBoxMedium_SelectedIndexChanged(object sender, EventArgs e) { if (isUser) Refresh(); }
+        private void ComboBoxGenre_SelectedIndexChanged(object sender, EventArgs e) { if (isUser) Refresh(); }
         private void ButtonReset_Click(object sender, EventArgs e)
         {
+            isUser = false;
             comboBoxType.SelectedIndex = 0;
             comboBoxPlatform.SelectedIndex = 0;
             comboBoxMedium.SelectedIndex = 0;
             comboBoxGenre.SelectedIndex = 0;
             Refresh();
+        }
+    }
+
+    class HistoryString
+    {
+        public DateTime time;
+        string name;
+        public string type;
+        public string platform;
+        public string medium;
+        public string genre;
+        public int price;
+
+        public HistoryString(DateTime time, string name, string type, int platform, int medium, int genre, int price)
+        {
+            this.time = time;
+            this.name = name;
+            this.type = type;
+            this.platform = Data.PlatformIDToName(platform);
+            this.medium = Data.MediumIDToName(medium);
+            this.genre = Data.GenreIDToName(genre);
+            this.price = price;
+        }
+
+        public ListViewItem GetListViewItem()
+        {
+            string[] item = { time.ToString("dd.MM.yyyy"), name, type, platform, medium, genre, price.ToString() };
+            return new ListViewItem(item);
         }
     }
 }

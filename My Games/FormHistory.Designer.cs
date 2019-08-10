@@ -36,15 +36,19 @@
             this.comboBoxGenre = new System.Windows.Forms.ComboBox();
             this.listViewHistory = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxMedium = new System.Windows.Forms.ComboBox();
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonReset = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBoxType
@@ -111,8 +115,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewHistory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2,
             this.columnHeader3,
+            this.columnHeader2,
             this.columnHeader4,
             this.columnHeader7,
             this.columnHeader5,
@@ -121,7 +125,7 @@
             this.listViewHistory.HideSelection = false;
             this.listViewHistory.Location = new System.Drawing.Point(12, 39);
             this.listViewHistory.Name = "listViewHistory";
-            this.listViewHistory.Size = new System.Drawing.Size(920, 510);
+            this.listViewHistory.Size = new System.Drawing.Size(920, 497);
             this.listViewHistory.TabIndex = 6;
             this.listViewHistory.UseCompatibleStateImageBehavior = false;
             this.listViewHistory.View = System.Windows.Forms.View.Details;
@@ -131,19 +135,24 @@
             this.columnHeader1.Text = "Дата";
             this.columnHeader1.Width = 80;
             // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Покупка";
-            // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Игра";
             this.columnHeader3.Width = 200;
             // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Покупка";
+            // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Платформа";
             this.columnHeader4.Width = 160;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Носитель";
+            this.columnHeader7.Width = 160;
             // 
             // columnHeader5
             // 
@@ -174,11 +183,6 @@
             this.comboBoxMedium.TabIndex = 7;
             this.comboBoxMedium.SelectedIndexChanged += new System.EventHandler(this.ComboBoxMedium_SelectedIndexChanged);
             // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Носитель";
-            this.columnHeader7.Width = 160;
-            // 
             // buttonReset
             // 
             this.buttonReset.Location = new System.Drawing.Point(859, 12);
@@ -189,11 +193,39 @@
             this.buttonReset.UseVisualStyleBackColor = true;
             this.buttonReset.Click += new System.EventHandler(this.ButtonReset_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(944, 22);
+            this.statusStrip1.TabIndex = 10;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.AutoSize = false;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(200, 17);
+            this.toolStripStatusLabel1.Text = "Количество";
+            this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.AutoSize = false;
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(200, 17);
+            this.toolStripStatusLabel2.Text = "Потрачено";
+            this.toolStripStatusLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // FormHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 561);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBoxMedium);
@@ -211,6 +243,8 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "История покупок";
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,5 +269,8 @@
         private System.Windows.Forms.ComboBox comboBoxMedium;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
     }
 }
