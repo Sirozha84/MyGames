@@ -37,11 +37,12 @@ namespace My_Games
             box.BeginUpdate();
             box.Items.Clear();
             box.Items.Add("");
-            if (forPlatform == "")
+            Platform pl = Data.data.platforms.Find(o => o.name == forPlatform);
+            if (forPlatform == "" | pl == null | (pl != null && pl.mediums.Count == 0))
                 foreach (Medium p in Data.data.mediums)
                     box.Items.Add(p.name);
             else
-                foreach (int m in Data.data.platforms.Find(o => o.name == forPlatform).mediums)
+                foreach (int m in pl.mediums)
                     box.Items.Add(Data.MediumIDToName(m));
             box.Text = Data.MediumIDToName(id);
             if (box.Items.Count == 2)
