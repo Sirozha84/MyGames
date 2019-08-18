@@ -1,17 +1,24 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Drawing;
+using System.Collections.Generic;
 
 namespace My_Games
 {
     public class Platform : CatItem
     {
         public string company;
+        public int colR = -1;
+        public int colG;
+        public int colB;
+        public List<int> mediums = new List<int>();
 
         public Platform() { }
-
+        
         public Platform(int lastID)
         {
             ID = lastID;
+            Data.RandomColor(ref colR, ref colG, ref colB);
         }
 
         public ListViewItem GetListViewItem()
@@ -34,6 +41,11 @@ namespace My_Games
                 box.Items.Add(p.name);
             box.Text = Data.PlatformIDToName(id);
             box.EndUpdate();
+        }
+
+        public Color color()
+        {
+            return Color.FromArgb(colR, colG, colB);
         }
     }
 }
