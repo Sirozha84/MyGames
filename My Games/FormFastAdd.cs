@@ -15,7 +15,7 @@ namespace My_Games
             comboBoxRate.SelectedIndex = game.rate - 1;
             Genre.FillCombobox(comboBoxGenre, game.genre);
             Platform.FillCombobox(comboBoxPlatform, game.genre);
-            Medium.FillCombobox(comboBoxMedium, game.genre);
+            Medium.FillCombobox(comboBoxMedium, game.genre, "");
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace My_Games
         {
             FormCats form = new FormCats(2, Data.data.mediums);
             form.ShowDialog();
-            Medium.FillCombobox(comboBoxMedium, 0);
+            Medium.FillCombobox(comboBoxMedium, 0, comboBoxPlatform.Text);
         }
     }
 }

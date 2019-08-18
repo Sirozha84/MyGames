@@ -25,14 +25,30 @@ namespace My_Games
             return String.Compare(name, ((Medium)obj).name);
         }
 
-        public static void FillCombobox(ComboBox box, int id)
+        /// <summary>
+        /// Заполнение выпадающего списка носителей
+        /// </summary>
+        /// <param name="box">"Комбобокс</param>
+        /// <param name="id">Выбранный носитель</param>
+        /// <param name="forPlatform">Платформа, для которой список будет подбираться индивидуально.
+        /// Для вывода полного списка вводить ""</param>
+        public static void FillCombobox(ComboBox box, int id, string forPlatform)
         {
             box.BeginUpdate();
             box.Items.Clear();
             box.Items.Add("");
-            foreach (Medium p in Data.data.mediums)
-                box.Items.Add(p.name);
+            if (forPlatform == "")
+                foreach (Medium p in Data.data.mediums)
+                    box.Items.Add(p.name);
+            else
+                foreach (int m in Data.data.platforms.Find(o => o.name == forPlatform).mediums)
+                    box.Items.Add(Data.MediumIDToName(m));
             box.Text = Data.MediumIDToName(id);
+            if (box.Items.Count == 2)
+            {
+                box.Items.RemoveAt(0);
+                box.SelectedIndex = 0;
+            }
             box.EndUpdate();
         }
     }

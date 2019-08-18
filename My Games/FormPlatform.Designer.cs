@@ -121,17 +121,18 @@
             // 
             // buttonCol
             // 
-            this.buttonCol.Location = new System.Drawing.Point(106, 65);
+            this.buttonCol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCol.Location = new System.Drawing.Point(106, 63);
             this.buttonCol.Name = "buttonCol";
-            this.buttonCol.Size = new System.Drawing.Size(75, 23);
+            this.buttonCol.Size = new System.Drawing.Size(20, 20);
             this.buttonCol.TabIndex = 102;
-            this.buttonCol.Text = "Выбрать";
             this.buttonCol.UseVisualStyleBackColor = true;
+            this.buttonCol.Click += new System.EventHandler(this.ButtonCol_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(65, 70);
+            this.label3.Location = new System.Drawing.Point(65, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 103;

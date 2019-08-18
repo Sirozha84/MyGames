@@ -18,7 +18,7 @@ namespace My_Games
         {
             date.Value = version.date;
             Platform.FillCombobox(comboBoxPlatform, version.platform);
-            Medium.FillCombobox(comboBoxMedium, version.medium);
+            Medium.FillCombobox(comboBoxMedium, version.medium, "");
             textBoxPrice.Text = version.price.ToString();
         }
 
@@ -43,7 +43,12 @@ namespace My_Games
         {
             FormCats form = new FormCats(2, Data.data.mediums);
             form.ShowDialog();
-            Medium.FillCombobox(comboBoxMedium, version.medium);
+            Medium.FillCombobox(comboBoxMedium, version.medium, comboBoxPlatform.Text);
+        }
+
+        private void ComboBoxPlatform_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Medium.FillCombobox(comboBoxMedium, version.medium, comboBoxPlatform.Text);
         }
     }
 }
