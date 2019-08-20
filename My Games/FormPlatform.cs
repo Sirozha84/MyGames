@@ -15,7 +15,7 @@ namespace My_Games
             this.p = p;
             textBoxName.Text = p.name;
             textBoxCompany.Text = p.company;
-            buttonCol.BackColor = p.color();
+            buttonCol.BackColor = p.color;
             foreach (int m in p.mediums)
                 checkedListBox.SetItemChecked(checkedListBox.FindString(Data.MediumIDToName(m)), true);
         }
@@ -25,9 +25,7 @@ namespace My_Games
             DialogResult = DialogResult.OK;
             p.name = textBoxName.Text;
             p.company = textBoxCompany.Text;
-            p.colR = buttonCol.BackColor.R;
-            p.colG = buttonCol.BackColor.G;
-            p.colB = buttonCol.BackColor.B;
+            p.color = buttonCol.BackColor;
             p.mediums.Clear();
             foreach (object o in checkedListBox.CheckedItems)
                 p.mediums.Add(Data.MediumNameToID(o.ToString()));

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace My_Games
 {
@@ -20,8 +19,6 @@ namespace My_Games
         public List<Genre> genres = new List<Genre>();
         public int genreLastID;
 
-        static Random rnd = new Random();
-
         public static void Load()
         {
             try
@@ -34,15 +31,6 @@ namespace My_Games
             {
                 data = new Data();
             }
-            //Типа совместимость с прошлыми версиями...
-            bool ch = false;
-            foreach (Platform pl in data.platforms)
-                if (pl.colR < 0)
-                {
-                    RandomColor(ref pl.colR, ref pl.colG, ref pl.colB);
-                    ch = true;
-                }
-            if (ch) Save();
         }
 
         public static void Save()
@@ -93,13 +81,6 @@ namespace My_Games
         {
             Genre p = data.genres.Find(o => o.name == name);
             return p != null ? p.ID : 0;
-        }
-
-        public static void RandomColor(ref int r, ref int g, ref int b)
-        {
-            r = rnd.Next(128, 255);
-            g = rnd.Next(128, 255);
-            b = rnd.Next(128, 255);
         }
     }
 }

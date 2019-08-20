@@ -8,9 +8,6 @@ namespace My_Games
     public class Platform : CatItem
     {
         public string company;
-        public int colR = -1;
-        public int colG;
-        public int colB;
         public List<int> mediums = new List<int>();
 
         public Platform() { }
@@ -18,7 +15,6 @@ namespace My_Games
         public Platform(int lastID)
         {
             ID = lastID;
-            Data.RandomColor(ref colR, ref colG, ref colB);
         }
 
         public ListViewItem GetListViewItem()
@@ -43,9 +39,5 @@ namespace My_Games
             box.EndUpdate();
         }
 
-        public Color color()
-        {
-            return Color.FromArgb(colR, colG, colB);
-        }
     }
 }
