@@ -22,8 +22,7 @@ namespace My_Games
         int heightMounts, heightYears, heightAll; //Максимальные высоты
         string[] mount = { "Янв.", "Фев.", "Март", "Апр.", "Май", "Июнь", "Июль", "Авг.", "Сен.", "Окт.", "Ноя.", "Дек." };
 
-        Brush[] plBrushes;
-        Color[] plColors;
+        SolidBrush[] plBrushes;
 
         /// <summary>
         /// Игр куплено
@@ -259,7 +258,6 @@ namespace My_Games
             if (radioButtonMounts.Checked) scrollVal = scrollBar.Maximum - scrollBar.Value - 11;
             if (radioButtonYears.Checked) scrollVal = scrollBar.Maximum - scrollBar.Value - 9;
             DrawGraph();
-            //Text = scrollVal.ToString();
         }
 
         /// <summary>
@@ -282,6 +280,7 @@ namespace My_Games
             }
             listView.BeginUpdate();
             listView.Items.Clear();
+            plBrushes = new SolidBrush[plCount];
             for (int i = 0; i < plCount; i++)
             {
                 string s = Data.PlatformIDToName(platforms[i, 0]);
@@ -289,9 +288,12 @@ namespace My_Games
                 {
                     ListViewItem item = new ListViewItem(s);
                     item.SubItems.Add(platforms[i, 1].ToString());
-                    item.BackColor = plColors[i % plColors.Count()];
+                    item.BackColor = Data.data.platforms.Find(o => o.name == s).color;
+                    plBrushes[i] = new SolidBrush(item.BackColor);
                     listView.Items.Add(item);
                 }
+                else
+                    plBrushes[i] = new SolidBrush(Color.Black);
             }
             listView.EndUpdate();
         }
@@ -359,12 +361,6 @@ namespace My_Games
             InitializeComponent();
             graph = pictureBox.CreateGraphics();
             //Временно раставлю цвета так, потом хочу сделать настройку цвета каждой платформы
-            plBrushes = new Brush[]{ Brushes.Red, Brushes.Green, Brushes.Blue,
-                                     Brushes.Pink, Brushes.LightBlue, Brushes.LightGreen,
-                                     Brushes.IndianRed, Brushes.RoyalBlue, Brushes.YellowGreen };
-            plColors = new Color[]{ Color.Red, Color.Green, Color.Blue,
-                                    Color.Pink, Color.LightBlue, Color.LightGreen,
-                                    Color.IndianRed, Color.RoyalBlue, Color.YellowGreen };
             RadioButtonGames_Click(null, null);
         }
 
@@ -414,7 +410,7 @@ namespace My_Games
                         int s = 0;
                         for (int j = 0; j < plCount; j++)
                         {
-                            graph.FillRectangle(plBrushes[j % plBrushes.Count()], left + space + width12 * i, height - (s + mounts[c, j]) / g * k, width12s, mounts[c, j] / g * k);
+                            graph.FillRectangle(plBrushes[j], left + space + width12 * i, height - (s + mounts[c, j]) / g * k, width12s, mounts[c, j] / g * k);
                             s += mounts[c, j] / g;
                         }
                         if (i == 0 | c % 12 == 11)
@@ -437,7 +433,7 @@ namespace My_Games
                         int s = 0;
                         for (int j = 0; j < plCount; j++)
                         {
-                            graph.FillRectangle(plBrushes[j % plBrushes.Count()], left + space + width10 * i, height - (s + years[c, j] / g) * k, width10s, years[c, j] / g * k);
+                            graph.FillRectangle(plBrushes[j], left + space + width10 * i, height - (s + years[c, j] / g) * k, width10s, years[c, j] / g * k);
                             s += years[c, j] / g;
                         }
                         graph.DrawString((last.Year - c).ToString(), title, Brushes.Black, new Rectangle(left + width10 * i, height, width10, bottom), formatC);
@@ -458,7 +454,7 @@ namespace My_Games
                         int s = 0;
                         for (int j = 0; j < plCount; j++)
                         {
-                            graph.FillRectangle(plBrushes[j % plBrushes.Count()], left + space + width10 * i, height - (s + all[c, j] / g) * k, width10s, all[c, j] / g * k);
+                            graph.FillRectangle(plBrushes[j], left + space + width10 * i, height - (s + all[c, j] / g) * k, width10s, all[c, j] / g * k);
                             s += all[c, j] / g;
                         }
                         graph.DrawString((last.Year - c * yearsInColumn - yearsInColumn + 1).ToString(), title, Brushes.Black, new Rectangle(left + width10 * i, height, width10, bottom / 2), formatC);
