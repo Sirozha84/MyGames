@@ -10,7 +10,7 @@ namespace My_Games
         public int platform;
         public int medium;
         public int price;
-        
+        public string comment;
         public Version()
         {
             date = DateTime.Now;
@@ -22,13 +22,16 @@ namespace My_Games
             platform = v.platform;
             medium = v.medium;
             price = v.price;
+            comment = v.comment;
         }
 
         public ListViewItem listItem()
         {
             string[] labels = {date.ToString("dd.MM.yyyy"),
                 Data.PlatformIDToName(platform),
-                Data.MediumIDToName(medium), price.ToString()};
+                Data.MediumIDToName(medium),
+                price.ToString(),
+                comment};
             return new ListViewItem(labels) { Tag = this };
         }
     }

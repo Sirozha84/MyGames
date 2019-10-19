@@ -20,6 +20,7 @@ namespace My_Games
             Platform.FillCombobox(comboBoxPlatform, dlc.platform);
             textBoxName.Text = dlc.name;
             textBoxPrice.Text = dlc.price.ToString();
+            textBoxComment.Text = dlc.comment;
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
@@ -28,6 +29,7 @@ namespace My_Games
             dlc.platform = Data.PlatformNameToID(comboBoxPlatform.Text);
             dlc.name = textBoxName.Text;
             dlc.price = Convert.ToInt32(textBoxPrice.Text);
+            dlc.comment = textBoxComment.Text;
             DialogResult = DialogResult.OK;
             Close();
         }

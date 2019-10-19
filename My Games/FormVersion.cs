@@ -20,6 +20,7 @@ namespace My_Games
             Platform.FillCombobox(comboBoxPlatform, version.platform);
             Medium.FillCombobox(comboBoxMedium, version.medium, "");
             textBoxPrice.Text = version.price.ToString();
+            textBoxComment.Text = version.comment;
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
@@ -28,6 +29,7 @@ namespace My_Games
             version.platform = Data.PlatformNameToID(comboBoxPlatform.Text);
             version.medium = Data.MediumNameToID(comboBoxMedium.Text);
             version.price = Convert.ToInt32(textBoxPrice.Text);
+            version.comment = textBoxComment.Text;
             DialogResult = DialogResult.OK;
             Close();
         }

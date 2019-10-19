@@ -10,7 +10,7 @@ namespace My_Games
         public int platform;
         public string name;
         public int price;
-
+        public string comment;
         public DLC()
         {
             date = DateTime.Now;
@@ -22,12 +22,16 @@ namespace My_Games
             platform = dlc.platform;
             name = dlc.name;
             price = dlc.price;
+            comment = dlc.comment;
         }
 
         public ListViewItem listItem()
         {
             string[] labels = {date.ToString("dd.MM.yyyy"),
-                Data.PlatformIDToName(platform), name, price.ToString()};
+                Data.PlatformIDToName(platform),
+                name,
+                price.ToString(),
+                comment};
             return new ListViewItem(labels) { Tag = this };
         }
     }
