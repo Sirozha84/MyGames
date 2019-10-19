@@ -43,7 +43,7 @@ namespace My_Games
             foreach (Event e in game.history)
                 history.Add(new Event(e));
             DrawHistory();
-            textBoxComment.Text = game.comment;
+            textBoxComment.Text = game.comment.Replace("☺", "\r\n");
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
@@ -79,7 +79,7 @@ namespace My_Games
                 game.hours += ev.hours;
                 if (game.win < ev.even) game.win = ev.even;
             }
-            game.comment = textBoxComment.Text;
+            game.comment = textBoxComment.Text.Replace("\r\n", "☺");
             DialogResult = DialogResult.OK;
             Close();
         }

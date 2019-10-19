@@ -216,6 +216,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="My Game Collectiom.ico" />
+    <None Include="Resources\list.png" />
     <None Include="Resources\stat.png" />
   </ItemGroup>
   <ItemGroup>

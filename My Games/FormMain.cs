@@ -20,11 +20,6 @@ namespace My_Games
             listViewGames.Columns[lastColumn].Text += " ▲";
         }
 
-        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("My Games\nВерсия: " + Program.Version, "О программе");
-        }
-
         void Open()
         {
             if (listViewGames.SelectedItems.Count == 1)
@@ -37,6 +32,12 @@ namespace My_Games
                     RefreshData();
                 }
             }
+        }
+
+        void GoToSite()
+        {
+            Game game = (Game)listViewGames.SelectedItems[0].Tag;
+            System.Diagnostics.Process.Start("http:" + game.website);
         }
 
         private void listViewGames_KeyDown(object sender, KeyEventArgs e)
@@ -63,6 +64,10 @@ namespace My_Games
             label6.Text = selected ? game.publisher : ns;
             label8.Enabled = selected;
             label8.Text = selected ? game.year : ns;
+            bool enableSite = false;
+            if (listViewGames.SelectedIndices.Count == 1)
+                enableSite = game.website != null & game.website != "";
+            перейтиНаСайтToolStripMenuItem.Enabled = enableSite;
         }
 
         #region Вид приложения, обновление, сортировка
@@ -147,7 +152,6 @@ namespace My_Games
         #endregion
 
         #region Главное меню
-        private void выходToolStripMenuItem_Click(object sender, EventArgs e) { Close(); }
 
         private void новаяToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -200,6 +204,11 @@ namespace My_Games
             }
         }
 
+        private void ВыходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void infoViewMenu_Click(object sender, EventArgs e)
         {
             infoViewMenu.Checked = !infoViewMenu.Checked;
@@ -216,12 +225,23 @@ namespace My_Games
             using (FormHistory form = new FormHistory()) form.ShowDialog();
         }
 
+        private void СтраницаПрограммыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.sg-software.ru/windows/programs/mygames");
+        }
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("My Games\nВерсия: " + Program.Version, "О программе");
+        }
+
         //Панель с кнопками
 
         private void toolStripButtonNew_Click(object sender, EventArgs e) { новаяToolStripMenuItem_Click(null, null); }
         private void toolStripTextBoxFind_TextChanged(object sender, EventArgs e) { RefreshData(); }
         private void toolStripButtonReset_Click(object sender, EventArgs e) { toolStripTextBoxFind.Text = ""; RefreshData(); }
         private void toolStripButtonStat_Click(object sender, EventArgs e) { статистикаToolStripMenuItem_Click(null, null); }
+        private void ToolStripButtonList_Click(object sender, EventArgs e) { MenuHistory_Click(null, null); }
 
         #endregion
 
@@ -234,6 +254,11 @@ namespace My_Games
         private void удалитьToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             удалитьToolStripMenuItem_Click(null, null);
+        }
+
+        private void ПерейтиНаСайтToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoToSite();
         }
         #endregion
 
@@ -259,6 +284,7 @@ namespace My_Games
         }
         #endregion
 
+            
     }
 
     class ItemComparer : IComparer

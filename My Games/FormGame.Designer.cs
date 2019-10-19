@@ -42,11 +42,13 @@
             this.columnVerPlatform = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnVerCarrier = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnVerPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnVerComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listViewDLCs = new System.Windows.Forms.ListView();
             this.columnDLCDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDLCPlatform = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDLCName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDLCPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnDLCComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listViewHistory = new System.Windows.Forms.ListView();
             this.columnEventDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnEventPlatform = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -55,6 +57,8 @@
             this.columnEventComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBoxComment = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.linkLabelSite = new System.Windows.Forms.LinkLabel();
+            this.textBoxSite = new System.Windows.Forms.TextBox();
             this.linkLabelGenre = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxDeveloper = new System.Windows.Forms.ComboBox();
@@ -76,10 +80,6 @@
             this.buttonAddEvent = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.labelDates = new System.Windows.Forms.Label();
-            this.textBoxSite = new System.Windows.Forms.TextBox();
-            this.linkLabelSite = new System.Windows.Forms.LinkLabel();
-            this.columnDLCComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnVerComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -222,6 +222,11 @@
             this.columnVerPrice.Text = "Цена";
             this.columnVerPrice.Width = 45;
             // 
+            // columnVerComment
+            // 
+            this.columnVerComment.Text = "Комментарий";
+            this.columnVerComment.Width = 400;
+            // 
             // listViewDLCs
             // 
             this.listViewDLCs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -266,6 +271,11 @@
             // 
             this.columnDLCPrice.Text = "Цена";
             this.columnDLCPrice.Width = 45;
+            // 
+            // columnDLCComment
+            // 
+            this.columnDLCComment.Text = "Комментарий";
+            this.columnDLCComment.Width = 400;
             // 
             // listViewHistory
             // 
@@ -351,6 +361,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Общие сведения";
             // 
+            // linkLabelSite
+            // 
+            this.linkLabelSite.AutoSize = true;
+            this.linkLabelSite.Location = new System.Drawing.Point(64, 184);
+            this.linkLabelSite.Name = "linkLabelSite";
+            this.linkLabelSite.Size = new System.Drawing.Size(34, 13);
+            this.linkLabelSite.TabIndex = 7;
+            this.linkLabelSite.TabStop = true;
+            this.linkLabelSite.Text = "Сайт:";
+            // 
+            // textBoxSite
+            // 
+            this.textBoxSite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSite.Location = new System.Drawing.Point(104, 181);
+            this.textBoxSite.Name = "textBoxSite";
+            this.textBoxSite.Size = new System.Drawing.Size(307, 20);
+            this.textBoxSite.TabIndex = 8;
+            // 
             // linkLabelGenre
             // 
             this.linkLabelGenre.AutoSize = true;
@@ -358,6 +387,7 @@
             this.linkLabelGenre.Name = "linkLabelGenre";
             this.linkLabelGenre.Size = new System.Drawing.Size(39, 13);
             this.linkLabelGenre.TabIndex = 4;
+            this.linkLabelGenre.TabStop = true;
             this.linkLabelGenre.Text = "Жанр:";
             this.linkLabelGenre.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
@@ -574,37 +604,8 @@
             this.labelDates.TabIndex = 25;
             this.labelDates.Text = "Дата";
             // 
-            // textBoxSite
-            // 
-            this.textBoxSite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSite.Location = new System.Drawing.Point(104, 181);
-            this.textBoxSite.Name = "textBoxSite";
-            this.textBoxSite.Size = new System.Drawing.Size(307, 20);
-            this.textBoxSite.TabIndex = 8;
-            // 
-            // linkLabelSite
-            // 
-            this.linkLabelSite.AutoSize = true;
-            this.linkLabelSite.Location = new System.Drawing.Point(64, 184);
-            this.linkLabelSite.Name = "linkLabelSite";
-            this.linkLabelSite.Size = new System.Drawing.Size(34, 13);
-            this.linkLabelSite.TabIndex = 7;
-            this.linkLabelSite.Text = "Сайт:";
-            // 
-            // columnDLCComment
-            // 
-            this.columnDLCComment.Text = "Комментарий";
-            this.columnDLCComment.Width = 400;
-            // 
-            // columnVerComment
-            // 
-            this.columnVerComment.Text = "Комментарий";
-            this.columnVerComment.Width = 400;
-            // 
             // FormGame
             // 
-            this.AcceptButton = this.buttonOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
