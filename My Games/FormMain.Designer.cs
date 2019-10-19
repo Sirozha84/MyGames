@@ -212,14 +212,14 @@
             this.статистикаToolStripMenuItem.Image = global::My_Games.Properties.Resources.stat;
             this.статистикаToolStripMenuItem.Name = "статистикаToolStripMenuItem";
             this.статистикаToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.статистикаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.статистикаToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.статистикаToolStripMenuItem.Text = "Статистика";
             this.статистикаToolStripMenuItem.Click += new System.EventHandler(this.статистикаToolStripMenuItem_Click);
             // 
             // MenuHistory
             // 
             this.MenuHistory.Name = "MenuHistory";
-            this.MenuHistory.Size = new System.Drawing.Size(180, 22);
+            this.MenuHistory.Size = new System.Drawing.Size(170, 22);
             this.MenuHistory.Text = "История покупок";
             this.MenuHistory.Click += new System.EventHandler(this.MenuHistory_Click);
             // 
@@ -234,7 +234,7 @@
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 

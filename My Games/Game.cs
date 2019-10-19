@@ -19,6 +19,7 @@ namespace My_Games
         public string year;
         public int genre;
         public int rate = 3;
+        public string website;
         public int win;
         public int hours;
         public int price;

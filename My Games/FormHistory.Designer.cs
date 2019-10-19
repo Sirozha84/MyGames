@@ -122,6 +122,7 @@
             this.columnHeader5,
             this.columnHeader6});
             this.listViewHistory.FullRowSelect = true;
+            this.listViewHistory.GridLines = true;
             this.listViewHistory.HideSelection = false;
             this.listViewHistory.Location = new System.Drawing.Point(12, 39);
             this.listViewHistory.Name = "listViewHistory";

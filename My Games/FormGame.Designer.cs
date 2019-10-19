@@ -38,29 +38,29 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.listViewVersions = new System.Windows.Forms.ListView();
-            this.columnHeaderDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderPlatform = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderCarrier = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnVerDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnVerPlatform = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnVerCarrier = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnVerPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listViewDLCs = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnDLCDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnDLCPlatform = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnDLCName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnDLCPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listViewHistory = new System.Windows.Forms.ListView();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnEventDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnEventPlatform = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnEvent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnEventHours = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnEventComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBoxComment = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabelGenre = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxDeveloper = new System.Windows.Forms.ComboBox();
             this.comboBoxRate = new System.Windows.Forms.ComboBox();
             this.textBoxYear = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonChangeVersion = new System.Windows.Forms.Button();
@@ -76,6 +76,10 @@
             this.buttonAddEvent = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.labelDates = new System.Windows.Forms.Label();
+            this.textBoxSite = new System.Windows.Forms.TextBox();
+            this.linkLabelSite = new System.Windows.Forms.LinkLabel();
+            this.columnDLCComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnVerComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -95,19 +99,23 @@
             // 
             // textBoxName
             // 
+            this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxName.Location = new System.Drawing.Point(104, 21);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(207, 20);
+            this.textBoxName.Size = new System.Drawing.Size(307, 20);
             this.textBoxName.TabIndex = 0;
             // 
             // comboBoxGenre
             // 
+            this.comboBoxGenre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGenre.FormattingEnabled = true;
-            this.comboBoxGenre.Location = new System.Drawing.Point(104, 128);
+            this.comboBoxGenre.Location = new System.Drawing.Point(104, 127);
             this.comboBoxGenre.Name = "comboBoxGenre";
-            this.comboBoxGenre.Size = new System.Drawing.Size(207, 21);
-            this.comboBoxGenre.TabIndex = 4;
+            this.comboBoxGenre.Size = new System.Drawing.Size(307, 21);
+            this.comboBoxGenre.TabIndex = 5;
             // 
             // label3
             // 
@@ -120,11 +128,13 @@
             // 
             // comboBoxPublisher
             // 
+            this.comboBoxPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxPublisher.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.comboBoxPublisher.FormattingEnabled = true;
-            this.comboBoxPublisher.Location = new System.Drawing.Point(103, 74);
+            this.comboBoxPublisher.Location = new System.Drawing.Point(104, 74);
             this.comboBoxPublisher.Name = "comboBoxPublisher";
-            this.comboBoxPublisher.Size = new System.Drawing.Size(207, 21);
+            this.comboBoxPublisher.Size = new System.Drawing.Size(307, 21);
             this.comboBoxPublisher.TabIndex = 2;
             // 
             // label4
@@ -139,10 +149,10 @@
             // buttonOK
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Location = new System.Drawing.Point(932, 413);
+            this.buttonOK.Location = new System.Drawing.Point(1042, 662);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
-            this.buttonOK.TabIndex = 19;
+            this.buttonOK.TabIndex = 5;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
@@ -151,17 +161,17 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(1013, 413);
+            this.buttonCancel.Location = new System.Drawing.Point(1123, 662);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 20;
+            this.buttonCancel.TabIndex = 6;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(50, 158);
+            this.label5.Location = new System.Drawing.Point(50, 157);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 10;
@@ -173,10 +183,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewVersions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeaderDate,
-            this.columnHeaderPlatform,
-            this.columnHeaderCarrier,
-            this.columnHeaderPrice});
+            this.columnVerDate,
+            this.columnVerPlatform,
+            this.columnVerCarrier,
+            this.columnVerPrice,
+            this.columnVerComment});
             this.listViewVersions.FullRowSelect = true;
             this.listViewVersions.GridLines = true;
             this.listViewVersions.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
@@ -184,31 +195,32 @@
             this.listViewVersions.Location = new System.Drawing.Point(7, 48);
             this.listViewVersions.MultiSelect = false;
             this.listViewVersions.Name = "listViewVersions";
-            this.listViewVersions.Size = new System.Drawing.Size(360, 137);
-            this.listViewVersions.TabIndex = 10;
+            this.listViewVersions.Size = new System.Drawing.Size(749, 156);
+            this.listViewVersions.TabIndex = 3;
             this.listViewVersions.UseCompatibleStateImageBehavior = false;
             this.listViewVersions.View = System.Windows.Forms.View.Details;
             this.listViewVersions.SelectedIndexChanged += new System.EventHandler(this.listViewVersions_SelectedIndexChanged);
             this.listViewVersions.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewVersions_MouseDoubleClick);
             // 
-            // columnHeaderDate
+            // columnVerDate
             // 
-            this.columnHeaderDate.Text = "Дата";
-            this.columnHeaderDate.Width = 70;
+            this.columnVerDate.Text = "Дата";
+            this.columnVerDate.Width = 70;
             // 
-            // columnHeaderPlatform
+            // columnVerPlatform
             // 
-            this.columnHeaderPlatform.Text = "Платформа";
-            this.columnHeaderPlatform.Width = 100;
+            this.columnVerPlatform.Text = "Платформа";
+            this.columnVerPlatform.Width = 100;
             // 
-            // columnHeaderCarrier
+            // columnVerCarrier
             // 
-            this.columnHeaderCarrier.Text = "Носитель";
-            this.columnHeaderCarrier.Width = 100;
+            this.columnVerCarrier.Text = "Носитель";
+            this.columnVerCarrier.Width = 100;
             // 
-            // columnHeaderPrice
+            // columnVerPrice
             // 
-            this.columnHeaderPrice.Text = "Цена";
+            this.columnVerPrice.Text = "Цена";
+            this.columnVerPrice.Width = 45;
             // 
             // listViewDLCs
             // 
@@ -216,10 +228,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewDLCs.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
+            this.columnDLCDate,
+            this.columnDLCPlatform,
+            this.columnDLCName,
+            this.columnDLCPrice,
+            this.columnDLCComment});
             this.listViewDLCs.FullRowSelect = true;
             this.listViewDLCs.GridLines = true;
             this.listViewDLCs.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
@@ -227,31 +240,32 @@
             this.listViewDLCs.Location = new System.Drawing.Point(6, 48);
             this.listViewDLCs.MultiSelect = false;
             this.listViewDLCs.Name = "listViewDLCs";
-            this.listViewDLCs.Size = new System.Drawing.Size(361, 137);
-            this.listViewDLCs.TabIndex = 14;
+            this.listViewDLCs.Size = new System.Drawing.Size(750, 156);
+            this.listViewDLCs.TabIndex = 3;
             this.listViewDLCs.UseCompatibleStateImageBehavior = false;
             this.listViewDLCs.View = System.Windows.Forms.View.Details;
             this.listViewDLCs.SelectedIndexChanged += new System.EventHandler(this.listViewDLCs_SelectedIndexChanged);
             this.listViewDLCs.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewDLCs_MouseDoubleClick);
             // 
-            // columnHeader1
+            // columnDLCDate
             // 
-            this.columnHeader1.Text = "Дата";
-            this.columnHeader1.Width = 70;
+            this.columnDLCDate.Text = "Дата";
+            this.columnDLCDate.Width = 70;
             // 
-            // columnHeader2
+            // columnDLCPlatform
             // 
-            this.columnHeader2.Text = "Платформа";
-            this.columnHeader2.Width = 100;
+            this.columnDLCPlatform.Text = "Платформа";
+            this.columnDLCPlatform.Width = 100;
             // 
-            // columnHeader3
+            // columnDLCName
             // 
-            this.columnHeader3.Text = "Название";
-            this.columnHeader3.Width = 100;
+            this.columnDLCName.Text = "Название";
+            this.columnDLCName.Width = 100;
             // 
-            // columnHeader4
+            // columnDLCPrice
             // 
-            this.columnHeader4.Text = "Цена";
+            this.columnDLCPrice.Text = "Цена";
+            this.columnDLCPrice.Width = 45;
             // 
             // listViewHistory
             // 
@@ -259,11 +273,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewHistory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader9,
-            this.columnHeader6,
-            this.columnHeader8,
-            this.columnHeader7});
+            this.columnEventDate,
+            this.columnEventPlatform,
+            this.columnEvent,
+            this.columnEventHours,
+            this.columnEventComment});
             this.listViewHistory.FullRowSelect = true;
             this.listViewHistory.GridLines = true;
             this.listViewHistory.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
@@ -271,37 +285,37 @@
             this.listViewHistory.Location = new System.Drawing.Point(7, 48);
             this.listViewHistory.MultiSelect = false;
             this.listViewHistory.Name = "listViewHistory";
-            this.listViewHistory.Size = new System.Drawing.Size(739, 137);
-            this.listViewHistory.TabIndex = 18;
+            this.listViewHistory.Size = new System.Drawing.Size(749, 156);
+            this.listViewHistory.TabIndex = 3;
             this.listViewHistory.UseCompatibleStateImageBehavior = false;
             this.listViewHistory.View = System.Windows.Forms.View.Details;
             this.listViewHistory.SelectedIndexChanged += new System.EventHandler(this.listViewHistory_SelectedIndexChanged);
             this.listViewHistory.DoubleClick += new System.EventHandler(this.listViewHistory_DoubleClick);
             // 
-            // columnHeader5
+            // columnEventDate
             // 
-            this.columnHeader5.Text = "Дата";
-            this.columnHeader5.Width = 70;
+            this.columnEventDate.Text = "Дата";
+            this.columnEventDate.Width = 70;
             // 
-            // columnHeader9
+            // columnEventPlatform
             // 
-            this.columnHeader9.Text = "Платформа";
-            this.columnHeader9.Width = 100;
+            this.columnEventPlatform.Text = "Платформа";
+            this.columnEventPlatform.Width = 100;
             // 
-            // columnHeader6
+            // columnEvent
             // 
-            this.columnHeader6.Text = "Событие";
-            this.columnHeader6.Width = 100;
+            this.columnEvent.Text = "Событие";
+            this.columnEvent.Width = 100;
             // 
-            // columnHeader8
+            // columnEventHours
             // 
-            this.columnHeader8.Text = "Часы";
-            this.columnHeader8.Width = 45;
+            this.columnEventHours.Text = "Часы";
+            this.columnEventHours.Width = 45;
             // 
-            // columnHeader7
+            // columnEventComment
             // 
-            this.columnHeader7.Text = "Комментарий";
-            this.columnHeader7.Width = 394;
+            this.columnEventComment.Text = "Комментарий";
+            this.columnEventComment.Width = 400;
             // 
             // textBoxComment
             // 
@@ -311,12 +325,14 @@
             this.textBoxComment.Location = new System.Drawing.Point(6, 19);
             this.textBoxComment.Multiline = true;
             this.textBoxComment.Name = "textBoxComment";
-            this.textBoxComment.Size = new System.Drawing.Size(305, 166);
-            this.textBoxComment.TabIndex = 6;
+            this.textBoxComment.Size = new System.Drawing.Size(405, 401);
+            this.textBoxComment.TabIndex = 0;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.linkLabel1);
+            this.groupBox1.Controls.Add(this.linkLabelSite);
+            this.groupBox1.Controls.Add(this.textBoxSite);
+            this.groupBox1.Controls.Add(this.linkLabelGenre);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.comboBoxDeveloper);
             this.groupBox1.Controls.Add(this.comboBoxRate);
@@ -330,31 +346,20 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(317, 191);
-            this.groupBox1.TabIndex = 21;
+            this.groupBox1.Size = new System.Drawing.Size(417, 210);
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Общие сведения";
             // 
-            // label2
+            // linkLabelGenre
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(515, 418);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(214, 13);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Здесь когда-нибудь будет обложка игры";
-            this.label2.Visible = false;
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(59, 131);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(39, 13);
-            this.linkLabel1.TabIndex = 24;
-            this.linkLabel1.Text = "Жанр:";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linkLabelGenre.AutoSize = true;
+            this.linkLabelGenre.Location = new System.Drawing.Point(59, 131);
+            this.linkLabelGenre.Name = "linkLabelGenre";
+            this.linkLabelGenre.Size = new System.Drawing.Size(39, 13);
+            this.linkLabelGenre.TabIndex = 4;
+            this.linkLabelGenre.Text = "Жанр:";
+            this.linkLabelGenre.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // label6
             // 
@@ -367,21 +372,23 @@
             // 
             // comboBoxDeveloper
             // 
+            this.comboBoxDeveloper.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxDeveloper.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.comboBoxDeveloper.FormattingEnabled = true;
-            this.comboBoxDeveloper.Location = new System.Drawing.Point(103, 47);
+            this.comboBoxDeveloper.Location = new System.Drawing.Point(104, 48);
             this.comboBoxDeveloper.Name = "comboBoxDeveloper";
-            this.comboBoxDeveloper.Size = new System.Drawing.Size(207, 21);
+            this.comboBoxDeveloper.Size = new System.Drawing.Size(307, 21);
             this.comboBoxDeveloper.TabIndex = 1;
             // 
             // comboBoxRate
             // 
             this.comboBoxRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRate.FormattingEnabled = true;
-            this.comboBoxRate.Location = new System.Drawing.Point(103, 155);
+            this.comboBoxRate.Location = new System.Drawing.Point(104, 154);
             this.comboBoxRate.Name = "comboBoxRate";
             this.comboBoxRate.Size = new System.Drawing.Size(58, 21);
-            this.comboBoxRate.TabIndex = 5;
+            this.comboBoxRate.TabIndex = 6;
             // 
             // textBoxYear
             // 
@@ -390,12 +397,23 @@
             this.textBoxYear.Size = new System.Drawing.Size(57, 20);
             this.textBoxYear.TabIndex = 3;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Silver;
+            this.label2.Location = new System.Drawing.Point(422, 689);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(214, 13);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Здесь когда-нибудь будет обложка игры";
+            this.label2.Visible = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Silver;
-            this.pictureBox1.Location = new System.Drawing.Point(470, 406);
+            this.pictureBox1.Location = new System.Drawing.Point(375, 684);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(300, 300);
+            this.pictureBox1.Size = new System.Drawing.Size(300, 255);
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
@@ -406,10 +424,10 @@
             this.groupBox2.Controls.Add(this.buttonDelVersion);
             this.groupBox2.Controls.Add(this.buttonAddVersion);
             this.groupBox2.Controls.Add(this.listViewVersions);
-            this.groupBox2.Location = new System.Drawing.Point(335, 12);
+            this.groupBox2.Location = new System.Drawing.Point(435, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(373, 191);
-            this.groupBox2.TabIndex = 22;
+            this.groupBox2.Size = new System.Drawing.Size(762, 210);
+            this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Версии";
             // 
@@ -419,7 +437,7 @@
             this.buttonChangeVersion.Location = new System.Drawing.Point(87, 19);
             this.buttonChangeVersion.Name = "buttonChangeVersion";
             this.buttonChangeVersion.Size = new System.Drawing.Size(75, 23);
-            this.buttonChangeVersion.TabIndex = 8;
+            this.buttonChangeVersion.TabIndex = 1;
             this.buttonChangeVersion.Text = "Изменить";
             this.buttonChangeVersion.UseVisualStyleBackColor = true;
             this.buttonChangeVersion.Click += new System.EventHandler(this.buttonChangeVersion_Click);
@@ -430,7 +448,7 @@
             this.buttonDelVersion.Location = new System.Drawing.Point(168, 19);
             this.buttonDelVersion.Name = "buttonDelVersion";
             this.buttonDelVersion.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelVersion.TabIndex = 9;
+            this.buttonDelVersion.TabIndex = 2;
             this.buttonDelVersion.Text = "Удалить";
             this.buttonDelVersion.UseVisualStyleBackColor = true;
             this.buttonDelVersion.Click += new System.EventHandler(this.buttonDelVersion_Click);
@@ -440,7 +458,7 @@
             this.buttonAddVersion.Location = new System.Drawing.Point(6, 19);
             this.buttonAddVersion.Name = "buttonAddVersion";
             this.buttonAddVersion.Size = new System.Drawing.Size(75, 23);
-            this.buttonAddVersion.TabIndex = 7;
+            this.buttonAddVersion.TabIndex = 0;
             this.buttonAddVersion.Text = "Добавить";
             this.buttonAddVersion.UseVisualStyleBackColor = true;
             this.buttonAddVersion.Click += new System.EventHandler(this.buttonAddVersion_Click);
@@ -451,10 +469,10 @@
             this.groupBox3.Controls.Add(this.buttonChangeDLC);
             this.groupBox3.Controls.Add(this.buttonAddDLC);
             this.groupBox3.Controls.Add(this.listViewDLCs);
-            this.groupBox3.Location = new System.Drawing.Point(717, 12);
+            this.groupBox3.Location = new System.Drawing.Point(435, 228);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(373, 191);
-            this.groupBox3.TabIndex = 23;
+            this.groupBox3.Size = new System.Drawing.Size(762, 210);
+            this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Дополнительные материалы";
             // 
@@ -464,7 +482,7 @@
             this.buttonDelDLC.Location = new System.Drawing.Point(168, 19);
             this.buttonDelDLC.Name = "buttonDelDLC";
             this.buttonDelDLC.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelDLC.TabIndex = 13;
+            this.buttonDelDLC.TabIndex = 2;
             this.buttonDelDLC.Text = "Удалить";
             this.buttonDelDLC.UseVisualStyleBackColor = true;
             this.buttonDelDLC.Click += new System.EventHandler(this.buttonDelDLC_Click);
@@ -475,7 +493,7 @@
             this.buttonChangeDLC.Location = new System.Drawing.Point(87, 19);
             this.buttonChangeDLC.Name = "buttonChangeDLC";
             this.buttonChangeDLC.Size = new System.Drawing.Size(75, 23);
-            this.buttonChangeDLC.TabIndex = 12;
+            this.buttonChangeDLC.TabIndex = 1;
             this.buttonChangeDLC.Text = "Изменить";
             this.buttonChangeDLC.UseVisualStyleBackColor = true;
             this.buttonChangeDLC.Click += new System.EventHandler(this.buttonChangeDLC_Click);
@@ -485,7 +503,7 @@
             this.buttonAddDLC.Location = new System.Drawing.Point(6, 19);
             this.buttonAddDLC.Name = "buttonAddDLC";
             this.buttonAddDLC.Size = new System.Drawing.Size(75, 23);
-            this.buttonAddDLC.TabIndex = 11;
+            this.buttonAddDLC.TabIndex = 0;
             this.buttonAddDLC.Text = "Добавить";
             this.buttonAddDLC.UseVisualStyleBackColor = true;
             this.buttonAddDLC.Click += new System.EventHandler(this.buttonAddDLC_Click);
@@ -496,10 +514,10 @@
             this.groupBox4.Controls.Add(this.buttonChangeEvent);
             this.groupBox4.Controls.Add(this.buttonAddEvent);
             this.groupBox4.Controls.Add(this.listViewHistory);
-            this.groupBox4.Location = new System.Drawing.Point(335, 209);
+            this.groupBox4.Location = new System.Drawing.Point(435, 444);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(752, 191);
-            this.groupBox4.TabIndex = 23;
+            this.groupBox4.Size = new System.Drawing.Size(762, 210);
+            this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "История прохождения";
             // 
@@ -509,7 +527,7 @@
             this.buttonDelEvent.Location = new System.Drawing.Point(168, 19);
             this.buttonDelEvent.Name = "buttonDelEvent";
             this.buttonDelEvent.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelEvent.TabIndex = 17;
+            this.buttonDelEvent.TabIndex = 2;
             this.buttonDelEvent.Text = "Удалить";
             this.buttonDelEvent.UseVisualStyleBackColor = true;
             this.buttonDelEvent.Click += new System.EventHandler(this.buttonDelEvent_Click);
@@ -520,7 +538,7 @@
             this.buttonChangeEvent.Location = new System.Drawing.Point(87, 19);
             this.buttonChangeEvent.Name = "buttonChangeEvent";
             this.buttonChangeEvent.Size = new System.Drawing.Size(75, 23);
-            this.buttonChangeEvent.TabIndex = 16;
+            this.buttonChangeEvent.TabIndex = 1;
             this.buttonChangeEvent.Text = "Изменить";
             this.buttonChangeEvent.UseVisualStyleBackColor = true;
             this.buttonChangeEvent.Click += new System.EventHandler(this.buttonChangeEvent_Click);
@@ -530,7 +548,7 @@
             this.buttonAddEvent.Location = new System.Drawing.Point(6, 19);
             this.buttonAddEvent.Name = "buttonAddEvent";
             this.buttonAddEvent.Size = new System.Drawing.Size(75, 23);
-            this.buttonAddEvent.TabIndex = 15;
+            this.buttonAddEvent.TabIndex = 0;
             this.buttonAddEvent.Text = "Добавить";
             this.buttonAddEvent.UseVisualStyleBackColor = true;
             this.buttonAddEvent.Click += new System.EventHandler(this.buttonAddEvent_Click);
@@ -538,10 +556,10 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.textBoxComment);
-            this.groupBox5.Location = new System.Drawing.Point(12, 209);
+            this.groupBox5.Location = new System.Drawing.Point(12, 228);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(317, 191);
-            this.groupBox5.TabIndex = 24;
+            this.groupBox5.Size = new System.Drawing.Size(417, 426);
+            this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Комментарий";
             // 
@@ -550,11 +568,39 @@
             this.labelDates.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelDates.AutoSize = true;
             this.labelDates.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.labelDates.Location = new System.Drawing.Point(12, 418);
+            this.labelDates.Location = new System.Drawing.Point(12, 667);
             this.labelDates.Name = "labelDates";
             this.labelDates.Size = new System.Drawing.Size(33, 13);
             this.labelDates.TabIndex = 25;
             this.labelDates.Text = "Дата";
+            // 
+            // textBoxSite
+            // 
+            this.textBoxSite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSite.Location = new System.Drawing.Point(104, 181);
+            this.textBoxSite.Name = "textBoxSite";
+            this.textBoxSite.Size = new System.Drawing.Size(307, 20);
+            this.textBoxSite.TabIndex = 8;
+            // 
+            // linkLabelSite
+            // 
+            this.linkLabelSite.AutoSize = true;
+            this.linkLabelSite.Location = new System.Drawing.Point(64, 184);
+            this.linkLabelSite.Name = "linkLabelSite";
+            this.linkLabelSite.Size = new System.Drawing.Size(34, 13);
+            this.linkLabelSite.TabIndex = 7;
+            this.linkLabelSite.Text = "Сайт:";
+            // 
+            // columnDLCComment
+            // 
+            this.columnDLCComment.Text = "Комментарий";
+            this.columnDLCComment.Width = 400;
+            // 
+            // columnVerComment
+            // 
+            this.columnVerComment.Text = "Комментарий";
+            this.columnVerComment.Width = 400;
             // 
             // FormGame
             // 
@@ -562,7 +608,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(1100, 448);
+            this.ClientSize = new System.Drawing.Size(1210, 697);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelDates);
             this.Controls.Add(this.groupBox5);
@@ -580,7 +626,6 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Игра";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -606,19 +651,19 @@
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListView listViewVersions;
-        private System.Windows.Forms.ColumnHeader columnHeaderDate;
-        private System.Windows.Forms.ColumnHeader columnHeaderPlatform;
-        private System.Windows.Forms.ColumnHeader columnHeaderCarrier;
-        private System.Windows.Forms.ColumnHeader columnHeaderPrice;
+        private System.Windows.Forms.ColumnHeader columnVerDate;
+        private System.Windows.Forms.ColumnHeader columnVerPlatform;
+        private System.Windows.Forms.ColumnHeader columnVerCarrier;
+        private System.Windows.Forms.ColumnHeader columnVerPrice;
         private System.Windows.Forms.ListView listViewDLCs;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnDLCDate;
+        private System.Windows.Forms.ColumnHeader columnDLCPlatform;
+        private System.Windows.Forms.ColumnHeader columnDLCName;
+        private System.Windows.Forms.ColumnHeader columnDLCPrice;
         private System.Windows.Forms.ListView listViewHistory;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnEventDate;
+        private System.Windows.Forms.ColumnHeader columnEvent;
+        private System.Windows.Forms.ColumnHeader columnEventComment;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBoxComment;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -635,14 +680,18 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button buttonChangeVersion;
         private System.Windows.Forms.Button buttonDelVersion;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnEventHours;
+        private System.Windows.Forms.ColumnHeader columnEventPlatform;
         private System.Windows.Forms.TextBox textBoxYear;
         private System.Windows.Forms.ComboBox comboBoxRate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBoxDeveloper;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabelGenre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelDates;
+        private System.Windows.Forms.TextBox textBoxSite;
+        private System.Windows.Forms.LinkLabel linkLabelSite;
+        private System.Windows.Forms.ColumnHeader columnVerComment;
+        private System.Windows.Forms.ColumnHeader columnDLCComment;
     }
 }

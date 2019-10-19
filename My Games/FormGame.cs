@@ -23,12 +23,14 @@ namespace My_Games
 
         void RefreshData()
         {
+            Text = game.name;
             textBoxName.Text = game.name;
             comboBoxDeveloper.Text = game.developer;
             comboBoxPublisher.Text = game.publisher;
             textBoxYear.Text = game.year;
             Genre.FillCombobox(comboBoxGenre, game.genre);
             comboBoxRate.SelectedIndex = game.rate - 1;
+            textBoxSite.Text = game.website;
             versions.Clear();
             foreach (Version v in game.versions)
                 versions.Add(new Version(v));
@@ -54,6 +56,7 @@ namespace My_Games
             game.year = textBoxYear.Text;
             game.genre = Data.GenreNameToID(comboBoxGenre.Text);
             game.rate = comboBoxRate.SelectedIndex + 1;
+            game.website = textBoxSite.Text;
             game.price = 0;
             game.win = 0;
             game.hours = 0;
