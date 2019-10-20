@@ -148,6 +148,7 @@
             this.comboBoxPlatform.Name = "comboBoxPlatform";
             this.comboBoxPlatform.Size = new System.Drawing.Size(125, 21);
             this.comboBoxPlatform.TabIndex = 4;
+            this.comboBoxPlatform.SelectedIndexChanged += new System.EventHandler(this.ComboBoxPlatform_SelectedIndexChanged);
             // 
             // date
             // 

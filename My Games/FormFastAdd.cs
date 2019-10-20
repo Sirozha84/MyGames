@@ -71,5 +71,10 @@ namespace My_Games
             form.ShowDialog();
             Medium.FillCombobox(comboBoxMedium, 0, comboBoxPlatform.Text);
         }
+
+        private void ComboBoxPlatform_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Medium.FillCombobox(comboBoxMedium, 0, comboBoxPlatform.Text);
+        }
     }
 }

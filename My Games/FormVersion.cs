@@ -18,7 +18,7 @@ namespace My_Games
         {
             date.Value = version.date;
             Platform.FillCombobox(comboBoxPlatform, version.platform);
-            Medium.FillCombobox(comboBoxMedium, version.medium, "");
+            Medium.FillCombobox(comboBoxMedium, version.medium, comboBoxPlatform.Text);
             textBoxPrice.Text = version.price.ToString();
             textBoxComment.Text = version.comment;
         }

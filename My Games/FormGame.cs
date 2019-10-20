@@ -43,7 +43,7 @@ namespace My_Games
             foreach (Event e in game.history)
                 history.Add(new Event(e));
             DrawHistory();
-            textBoxComment.Text = game.comment.Replace("☺", "\r\n");
+            textBoxComment.Text = game.comment != null? game.comment.Replace("☺", "\r\n") : "";
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
@@ -56,6 +56,8 @@ namespace My_Games
             game.year = textBoxYear.Text;
             game.genre = Data.GenreNameToID(comboBoxGenre.Text);
             game.rate = comboBoxRate.SelectedIndex + 1;
+            textBoxSite.Text = textBoxSite.Text.Replace("http://", "");
+            textBoxSite.Text = textBoxSite.Text.Replace("https://", "");
             game.website = textBoxSite.Text;
             game.price = 0;
             game.win = 0;
