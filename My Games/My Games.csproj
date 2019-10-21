@@ -70,6 +70,12 @@
     <Compile Include="Data.cs" />
     <Compile Include="DLC.cs" />
     <Compile Include="Event.cs" />
+    <Compile Include="FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAbout.Designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCats.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Version.cs" />
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCats.resx">
       <DependentUpon>FormCats.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,6 +234,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="My Game Collectiom.ico" />
+    <None Include="Resources\history.png" />
+    <None Include="Resources\My Games.png" />
     <None Include="Resources\list.png" />
     <None Include="Resources\stat.png" />
   </ItemGroup>

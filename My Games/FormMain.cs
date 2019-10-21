@@ -237,7 +237,7 @@ namespace My_Games
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("My Games\nВерсия: " + Program.Version, "О программе");
+            using (FormAbout form = new FormAbout()) form.ShowDialog();
         }
 
         //Панель с кнопками
@@ -247,8 +247,10 @@ namespace My_Games
         private void toolStripButtonReset_Click(object sender, EventArgs e) { toolStripTextBoxFind.Text = ""; RefreshData(); }
         private void toolStripButtonStat_Click(object sender, EventArgs e) { статистикаToolStripMenuItem_Click(null, null); }
         private void ToolStripButtonList_Click(object sender, EventArgs e) { MenuHistory_Click(null, null); }
+        private void ToolStripButtonPlay_Click(object sender, EventArgs e) { ИсторияПрохожденияToolStripMenuIte_Click(null, null); }
 
         #endregion
+
         #region Контекстное меню
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -287,8 +289,8 @@ namespace My_Games
             Properties.Settings.Default.Save();
         }
 
-        #endregion
 
+        #endregion
 
     }
 
