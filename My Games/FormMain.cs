@@ -225,6 +225,11 @@ namespace My_Games
             using (FormHistory form = new FormHistory()) form.ShowDialog();
         }
 
+        private void ИсторияПрохожденияToolStripMenuIte_Click(object sender, EventArgs e)
+        {
+            using (FormPlayHistory form = new FormPlayHistory()) form.ShowDialog();
+        }
+
         private void СтраницаПрограммыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.sg-software.ru/windows/programs/mygames");
@@ -244,7 +249,6 @@ namespace My_Games
         private void ToolStripButtonList_Click(object sender, EventArgs e) { MenuHistory_Click(null, null); }
 
         #endregion
-
         #region Контекстное меню
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -282,9 +286,10 @@ namespace My_Games
             Properties.Settings.Default.InfoView = infoViewMenu.Checked;
             Properties.Settings.Default.Save();
         }
+
         #endregion
 
-            
+
     }
 
     class ItemComparer : IComparer

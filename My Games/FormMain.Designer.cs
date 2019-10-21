@@ -80,6 +80,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.историяПрохожденияToolStripMenuIte = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -204,7 +205,8 @@
             // 
             this.сервисToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.статистикаToolStripMenuItem,
-            this.MenuHistory});
+            this.MenuHistory,
+            this.историяПрохожденияToolStripMenuIte});
             this.сервисToolStripMenuItem.Name = "сервисToolStripMenuItem";
             this.сервисToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.сервисToolStripMenuItem.Text = "Сервис";
@@ -214,7 +216,7 @@
             this.статистикаToolStripMenuItem.Image = global::My_Games.Properties.Resources.stat;
             this.статистикаToolStripMenuItem.Name = "статистикаToolStripMenuItem";
             this.статистикаToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.статистикаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.статистикаToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.статистикаToolStripMenuItem.Text = "Статистика";
             this.статистикаToolStripMenuItem.Click += new System.EventHandler(this.статистикаToolStripMenuItem_Click);
             // 
@@ -222,7 +224,8 @@
             // 
             this.MenuHistory.Image = global::My_Games.Properties.Resources.list;
             this.MenuHistory.Name = "MenuHistory";
-            this.MenuHistory.Size = new System.Drawing.Size(180, 22);
+            this.MenuHistory.ShortcutKeys = System.Windows.Forms.Keys.F6;
+            this.MenuHistory.Size = new System.Drawing.Size(219, 22);
             this.MenuHistory.Text = "История покупок";
             this.MenuHistory.Click += new System.EventHandler(this.MenuHistory_Click);
             // 
@@ -528,6 +531,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Игра";
             // 
+            // историяПрохожденияToolStripMenuIte
+            // 
+            this.историяПрохожденияToolStripMenuIte.Name = "историяПрохожденияToolStripMenuIte";
+            this.историяПрохожденияToolStripMenuIte.ShortcutKeys = System.Windows.Forms.Keys.F7;
+            this.историяПрохожденияToolStripMenuIte.Size = new System.Drawing.Size(219, 22);
+            this.историяПрохожденияToolStripMenuIte.Text = "История прохождений";
+            this.историяПрохожденияToolStripMenuIte.Click += new System.EventHandler(this.ИсторияПрохожденияToolStripMenuIte_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -610,6 +621,7 @@
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem страницаПрограммыToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButtonList;
+        private System.Windows.Forms.ToolStripMenuItem историяПрохожденияToolStripMenuIte;
     }
 }
 
