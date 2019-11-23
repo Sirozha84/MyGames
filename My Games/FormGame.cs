@@ -14,10 +14,20 @@ namespace My_Games
         public FormGame(Game game)
         {
             InitializeComponent();
+            
             this.game = game;
+
+            //Если у игры нет ID, создадим его здесь
+            if (game.ID == 0)
+            {
+                game.ID = ++Data.data.gameLastID;
+                Data.Save();
+            }
+
             comboBoxRate.DataSource = Game.stars;
             RefreshData();
-            labelDates.Text = "Дата создания: " + game.create + 
+            labelDates.Text = "ID: " + game.ID +
+                "     Дата создания: " + game.create + 
                 "     Дата последнего изменения: " + game.change;
         }
 

@@ -9,7 +9,7 @@ namespace My_Games
     public class Game
     {
         public static string[] stars = { "*", "* *", "* * *", "* * * *", "* * * * *" };
-
+        public int ID;
         public DateTime date = DateTime.Now;
         public DateTime create = DateTime.Now;
         public DateTime change = DateTime.Now;

@@ -10,7 +10,7 @@ namespace My_Games
     {
         public static Data data;
         public List<Game> games = new List<Game>();
-        
+        public int gameLastID;
         public List<string> publishers = new List<string>();
         public List<Platform> platforms = new List<Platform>();
         public int platformLastID;
