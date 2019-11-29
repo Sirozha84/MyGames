@@ -144,8 +144,15 @@ namespace My_Games
             versions.Sort(dc);
             listViewVersions.BeginUpdate();
             listViewVersions.Items.Clear();
+            string text = "";
             foreach (Version v in versions)
+            {
                 listViewVersions.Items.Add(v.listItem());
+                if (text != "") text += ", ";
+                text += Data.PlatformIDToName(v.platform);
+            }
+            if (text == "") text += "Нет";
+            labelVers.Text = text;
             listViewVersions.EndUpdate();
         }
 
@@ -199,8 +206,15 @@ namespace My_Games
             dlcs.Sort(dc);
             listViewDLCs.BeginUpdate();
             listViewDLCs.Items.Clear();
+            string text = "";
             foreach (DLC d in dlcs)
+            {
                 listViewDLCs.Items.Add(d.listItem());
+                if (text != "") text += ", ";
+                text += d.name;
+            }
+            if (text == "") text += "Нет";
+            labelDLCs.Text = text;
             listViewDLCs.EndUpdate();
         }
 
@@ -253,8 +267,15 @@ namespace My_Games
             history.Sort(dc);
             listViewHistory.BeginUpdate();
             listViewHistory.Items.Clear();
+            int max = 0;
+            int hours = 0;
             foreach (Event e in history)
+            {
                 listViewHistory.Items.Add(e.listItem());
+                if (max < e.even) max = e.even;
+                hours += e.hours;
+            }
+            labelHis.Text = Event.events[max] + ", общее время в игре: " + hours.ToString() + " ч.";
             listViewHistory.EndUpdate();
         }
 
