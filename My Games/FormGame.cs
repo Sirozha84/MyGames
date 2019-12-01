@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace My_Games
 {
@@ -11,10 +12,13 @@ namespace My_Games
         List<DLC> dlcs = new List<DLC>();
         List<Event> history = new List<Event>();
 
+        bool changePicture = false;
+        string ext;
+
         public FormGame(Game game)
         {
             InitializeComponent();
-            
+
             this.game = game;
 
             //Если у игры нет ID, создадим его здесь
@@ -26,14 +30,13 @@ namespace My_Games
 
             comboBoxRate.DataSource = Game.stars;
             RefreshData();
-            labelDates.Text = "ID: " + game.ID +
-                "     Дата создания: " + game.create + 
-                "     Дата последнего изменения: " + game.change;
         }
 
         void RefreshData()
         {
             Text = game.name;
+
+            //Вкладка общих сведений
             textBoxName.Text = game.name;
             comboBoxDeveloper.Text = game.developer;
             comboBoxPublisher.Text = game.publisher;
@@ -41,19 +44,35 @@ namespace My_Games
             Genre.FillCombobox(comboBoxGenre, game.genre);
             comboBoxRate.SelectedIndex = game.rate - 1;
             textBoxSite.Text = game.website;
+            textBoxComment.Text = game.comment != null ? game.comment.Replace("☺", "\r\n") : "";
+            if (game.cover != null)
+                OpenCover("Covers\\" + game.cover);
+
+            //Вкладка версий
             versions.Clear();
             foreach (Version v in game.versions)
                 versions.Add(new Version(v));
             DrawVersions();
+
+            //Вкладка дополнительных материалов
             dlcs.Clear();
             foreach (DLC d in game.DLCs)
                 dlcs.Add(new DLC(d));
             DrawDLCs();
+
+            //Вкладка истории прохождений
             history.Clear();
             foreach (Event e in game.history)
                 history.Add(new Event(e));
             DrawHistory();
-            textBoxComment.Text = game.comment != null? game.comment.Replace("☺", "\r\n") : "";
+
+            //Вкладка заметок
+
+
+            //Вкладка прочего
+            labelDates.Text = "ID: " + game.ID +
+                "\nДата создания: " + game.create +
+                "\nДата последнего изменения: " + game.change;
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
@@ -92,6 +111,17 @@ namespace My_Games
                 if (game.win < ev.even) game.win = ev.even;
             }
             game.comment = textBoxComment.Text.Replace("\r\n", "☺");
+            if (changePicture)
+            {
+                try
+                {
+                    System.IO.Directory.CreateDirectory("Covers");
+                    string file = game.ID + ext;
+                    pictureBoxCover.Image.Save("Covers\\" + file);
+                    game.cover = file;
+                }
+                catch { }
+            }
             DialogResult = DialogResult.OK;
             Close();
         }
@@ -286,5 +316,45 @@ namespace My_Games
             buttonDelEvent.Enabled = sel;
         }
         #endregion
+
+        private void TabPageMain_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop, false))
+            {
+                e.Effect = DragDropEffects.All;
+            }
+        }
+
+        private void TabPageMain_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            string file = files[0];
+            ext = System.IO.Path.GetExtension(file).ToLower();
+            changePicture = OpenCover(file);
+        }
+
+        private void PictureBoxCover_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Изображения (*.jpg; *.jpeg; *.png; *.gif; *.bmp)|" +
+                "*.jpg; *.jpeg; *.png; *.gif; *.bmp|Все файлы|*.*";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                changePicture = true;
+                OpenCover(dialog.FileName);
+            }
+        }
+
+        bool OpenCover(string file)
+        {
+            try
+            {
+                pictureBoxCover.Image = Image.FromFile(file);
+                labelCover.Visible = false;
+                pictureBoxCover.BackColor = tabPageMain.BackColor;
+                return true;
+            }
+            catch { return false; }
+        }
     }
 }

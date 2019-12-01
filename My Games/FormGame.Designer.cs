@@ -64,8 +64,8 @@
             this.comboBoxDeveloper = new System.Windows.Forms.ComboBox();
             this.comboBoxRate = new System.Windows.Forms.ComboBox();
             this.textBoxYear = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelCover = new System.Windows.Forms.Label();
+            this.pictureBoxCover = new System.Windows.Forms.PictureBox();
             this.buttonChangeVersion = new System.Windows.Forms.Button();
             this.buttonDelVersion = new System.Windows.Forms.Button();
             this.buttonAddVersion = new System.Windows.Forms.Button();
@@ -79,27 +79,27 @@
             this.labelDates = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageMain = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelHis = new System.Windows.Forms.Label();
+            this.labelDLCs = new System.Windows.Forms.Label();
+            this.labelVers = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabPageVersions = new System.Windows.Forms.TabPage();
             this.tabPageDLC = new System.Windows.Forms.TabPage();
             this.tabPageHystory = new System.Windows.Forms.TabPage();
             this.tabPageNotes = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.labelVers = new System.Windows.Forms.Label();
-            this.labelDLCs = new System.Windows.Forms.Label();
-            this.labelHis = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageMain.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.tabPageVersions.SuspendLayout();
             this.tabPageDLC.SuspendLayout();
             this.tabPageHystory.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -444,26 +444,28 @@
             this.textBoxYear.Size = new System.Drawing.Size(57, 20);
             this.textBoxYear.TabIndex = 3;
             // 
-            // label2
+            // labelCover
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(50, 151);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(214, 13);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Здесь когда-нибудь будет обложка игры";
-            this.label2.Visible = false;
+            this.labelCover.AutoSize = true;
+            this.labelCover.BackColor = System.Drawing.Color.LightGray;
+            this.labelCover.Location = new System.Drawing.Point(60, 150);
+            this.labelCover.Name = "labelCover";
+            this.labelCover.Size = new System.Drawing.Size(192, 26);
+            this.labelCover.TabIndex = 25;
+            this.labelCover.Text = "Нажмите сюда для выбора обложки\r\nили перетащите изображение сюда";
+            this.labelCover.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
+            // pictureBoxCover
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Silver;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(300, 300);
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
+            this.pictureBoxCover.BackColor = System.Drawing.Color.LightGray;
+            this.pictureBoxCover.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxCover.Location = new System.Drawing.Point(6, 6);
+            this.pictureBoxCover.Name = "pictureBoxCover";
+            this.pictureBoxCover.Size = new System.Drawing.Size(300, 300);
+            this.pictureBoxCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxCover.TabIndex = 19;
+            this.pictureBoxCover.TabStop = false;
+            this.pictureBoxCover.Click += new System.EventHandler(this.PictureBoxCover_Click);
             // 
             // buttonChangeVersion
             // 
@@ -579,7 +581,7 @@
             this.labelDates.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelDates.AutoSize = true;
             this.labelDates.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelDates.Location = new System.Drawing.Point(6, 3);
+            this.labelDates.Location = new System.Drawing.Point(20, 18);
             this.labelDates.Name = "labelDates";
             this.labelDates.Size = new System.Drawing.Size(33, 13);
             this.labelDates.TabIndex = 25;
@@ -605,11 +607,12 @@
             // 
             // tabPageMain
             // 
+            this.tabPageMain.AllowDrop = true;
             this.tabPageMain.Controls.Add(this.groupBox2);
             this.tabPageMain.Controls.Add(this.groupBox1);
-            this.tabPageMain.Controls.Add(this.label2);
+            this.tabPageMain.Controls.Add(this.labelCover);
             this.tabPageMain.Controls.Add(this.groupBox5);
-            this.tabPageMain.Controls.Add(this.pictureBox1);
+            this.tabPageMain.Controls.Add(this.pictureBoxCover);
             this.tabPageMain.Location = new System.Drawing.Point(4, 22);
             this.tabPageMain.Name = "tabPageMain";
             this.tabPageMain.Padding = new System.Windows.Forms.Padding(3);
@@ -617,6 +620,79 @@
             this.tabPageMain.TabIndex = 0;
             this.tabPageMain.Text = "Общие сведения";
             this.tabPageMain.UseVisualStyleBackColor = true;
+            this.tabPageMain.DragDrop += new System.Windows.Forms.DragEventHandler(this.TabPageMain_DragDrop);
+            this.tabPageMain.DragEnter += new System.Windows.Forms.DragEventHandler(this.TabPageMain_DragEnter);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.labelHis);
+            this.groupBox2.Controls.Add(this.labelDLCs);
+            this.groupBox2.Controls.Add(this.labelVers);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Location = new System.Drawing.Point(312, 222);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(434, 84);
+            this.groupBox2.TabIndex = 26;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Информация о коллекции";
+            // 
+            // labelHis
+            // 
+            this.labelHis.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelHis.Location = new System.Drawing.Point(106, 56);
+            this.labelHis.Name = "labelHis";
+            this.labelHis.Size = new System.Drawing.Size(322, 13);
+            this.labelHis.TabIndex = 5;
+            // 
+            // labelDLCs
+            // 
+            this.labelDLCs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelDLCs.Location = new System.Drawing.Point(106, 38);
+            this.labelDLCs.Name = "labelDLCs";
+            this.labelDLCs.Size = new System.Drawing.Size(322, 13);
+            this.labelDLCs.TabIndex = 4;
+            // 
+            // labelVers
+            // 
+            this.labelVers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelVers.Location = new System.Drawing.Point(106, 20);
+            this.labelVers.Name = "labelVers";
+            this.labelVers.Size = new System.Drawing.Size(322, 13);
+            this.labelVers.TabIndex = 3;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(40, 56);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Пройдена:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 38);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(94, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Доп. материалы:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(53, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Версии:";
             // 
             // tabPageVersions
             // 
@@ -670,23 +746,6 @@
             this.tabPageNotes.Text = "Заметки";
             this.tabPageNotes.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.labelHis);
-            this.groupBox2.Controls.Add(this.labelDLCs);
-            this.groupBox2.Controls.Add(this.labelVers);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Location = new System.Drawing.Point(312, 222);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(434, 84);
-            this.groupBox2.TabIndex = 26;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Информация о коллекции";
-            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.labelDates);
@@ -698,62 +757,9 @@
             this.tabPage1.Text = "Разное";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(53, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Версии:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 38);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(94, 13);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Доп. материалы:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(40, 56);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 13);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Пройдена:";
-            // 
-            // labelVers
-            // 
-            this.labelVers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelVers.Location = new System.Drawing.Point(106, 20);
-            this.labelVers.Name = "labelVers";
-            this.labelVers.Size = new System.Drawing.Size(322, 13);
-            this.labelVers.TabIndex = 3;
-            // 
-            // labelDLCs
-            // 
-            this.labelDLCs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelDLCs.Location = new System.Drawing.Point(106, 38);
-            this.labelDLCs.Name = "labelDLCs";
-            this.labelDLCs.Size = new System.Drawing.Size(322, 13);
-            this.labelDLCs.TabIndex = 4;
-            // 
-            // labelHis
-            // 
-            this.labelHis.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelHis.Location = new System.Drawing.Point(106, 56);
-            this.labelHis.Name = "labelHis";
-            this.labelHis.Size = new System.Drawing.Size(322, 13);
-            this.labelHis.TabIndex = 5;
-            // 
             // FormGame
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
@@ -768,17 +774,17 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tabPageMain.ResumeLayout(false);
             this.tabPageMain.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.tabPageVersions.ResumeLayout(false);
             this.tabPageDLC.ResumeLayout(false);
             this.tabPageHystory.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
@@ -810,7 +816,7 @@
         private System.Windows.Forms.ColumnHeader columnEventDate;
         private System.Windows.Forms.ColumnHeader columnEvent;
         private System.Windows.Forms.ColumnHeader columnEventComment;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxCover;
         private System.Windows.Forms.TextBox textBoxComment;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonAddVersion;
@@ -830,7 +836,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBoxDeveloper;
         private System.Windows.Forms.LinkLabel linkLabelGenre;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelCover;
         private System.Windows.Forms.Label labelDates;
         private System.Windows.Forms.TextBox textBoxSite;
         private System.Windows.Forms.LinkLabel linkLabelSite;

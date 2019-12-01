@@ -9,10 +9,9 @@ namespace My_Games
     public class Game
     {
         public static string[] stars = { "*", "* *", "* * *", "* * * *", "* * * * *" };
+
+        //Данные игры
         public int ID;
-        public DateTime date = DateTime.Now;
-        public DateTime create = DateTime.Now;
-        public DateTime change = DateTime.Now;
         public string name;
         public string developer;
         public string publisher;
@@ -20,13 +19,21 @@ namespace My_Games
         public int genre;
         public int rate = 3;
         public string website;
-        public int win;
-        public int hours;
-        public int price;
+        public string cover;
+        public string comment;
         public List<Version> versions = new List<Version>();
         public List<DLC> DLCs = new List<DLC>();
         public List<Event> history = new List<Event>();
-        public string comment;
+
+        //Итоговые данные для быстрого доступа
+        public DateTime date = DateTime.Now;
+        public int win;
+        public int hours;
+        public int price;
+        
+        //Данные документа, не относящиеся к игре
+        public DateTime create = DateTime.Now;
+        public DateTime change = DateTime.Now;
 
         public ListViewItem listItem()
         {
