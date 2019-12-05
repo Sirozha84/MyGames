@@ -157,6 +157,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="Medium.cs" />
+    <Compile Include="Note.cs" />
     <Compile Include="Platform.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

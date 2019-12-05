@@ -90,6 +90,14 @@
             this.tabPageDLC = new System.Windows.Forms.TabPage();
             this.tabPageHystory = new System.Windows.Forms.TabPage();
             this.tabPageNotes = new System.Windows.Forms.TabPage();
+            this.textBoxNoteName = new System.Windows.Forms.TextBox();
+            this.dateTimeNote = new System.Windows.Forms.DateTimePicker();
+            this.textBoxNote = new System.Windows.Forms.TextBox();
+            this.buttonNoteDel = new System.Windows.Forms.Button();
+            this.buttonNoteAdd = new System.Windows.Forms.Button();
+            this.listViewNotes = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
@@ -100,6 +108,7 @@
             this.tabPageVersions.SuspendLayout();
             this.tabPageDLC.SuspendLayout();
             this.tabPageHystory.SuspendLayout();
+            this.tabPageNotes.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -738,6 +747,12 @@
             // 
             // tabPageNotes
             // 
+            this.tabPageNotes.Controls.Add(this.textBoxNoteName);
+            this.tabPageNotes.Controls.Add(this.dateTimeNote);
+            this.tabPageNotes.Controls.Add(this.textBoxNote);
+            this.tabPageNotes.Controls.Add(this.buttonNoteDel);
+            this.tabPageNotes.Controls.Add(this.buttonNoteAdd);
+            this.tabPageNotes.Controls.Add(this.listViewNotes);
             this.tabPageNotes.Location = new System.Drawing.Point(4, 22);
             this.tabPageNotes.Name = "tabPageNotes";
             this.tabPageNotes.Padding = new System.Windows.Forms.Padding(3);
@@ -745,6 +760,90 @@
             this.tabPageNotes.TabIndex = 4;
             this.tabPageNotes.Text = "Заметки";
             this.tabPageNotes.UseVisualStyleBackColor = true;
+            // 
+            // textBoxNoteName
+            // 
+            this.textBoxNoteName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxNoteName.Enabled = false;
+            this.textBoxNoteName.Location = new System.Drawing.Point(418, 8);
+            this.textBoxNoteName.Name = "textBoxNoteName";
+            this.textBoxNoteName.Size = new System.Drawing.Size(327, 20);
+            this.textBoxNoteName.TabIndex = 10;
+            this.textBoxNoteName.TextChanged += new System.EventHandler(this.TextBoxNoteName_TextChanged);
+            // 
+            // dateTimeNote
+            // 
+            this.dateTimeNote.Enabled = false;
+            this.dateTimeNote.Location = new System.Drawing.Point(272, 8);
+            this.dateTimeNote.Name = "dateTimeNote";
+            this.dateTimeNote.Size = new System.Drawing.Size(140, 20);
+            this.dateTimeNote.TabIndex = 9;
+            this.dateTimeNote.ValueChanged += new System.EventHandler(this.DateTimeNote_ValueChanged);
+            // 
+            // textBoxNote
+            // 
+            this.textBoxNote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxNote.Enabled = false;
+            this.textBoxNote.Location = new System.Drawing.Point(272, 35);
+            this.textBoxNote.Multiline = true;
+            this.textBoxNote.Name = "textBoxNote";
+            this.textBoxNote.Size = new System.Drawing.Size(474, 441);
+            this.textBoxNote.TabIndex = 8;
+            this.textBoxNote.TextChanged += new System.EventHandler(this.TextBoxNote_TextChanged);
+            // 
+            // buttonNoteDel
+            // 
+            this.buttonNoteDel.Enabled = false;
+            this.buttonNoteDel.Location = new System.Drawing.Point(87, 6);
+            this.buttonNoteDel.Name = "buttonNoteDel";
+            this.buttonNoteDel.Size = new System.Drawing.Size(75, 23);
+            this.buttonNoteDel.TabIndex = 6;
+            this.buttonNoteDel.Text = "Удалить";
+            this.buttonNoteDel.UseVisualStyleBackColor = true;
+            this.buttonNoteDel.Click += new System.EventHandler(this.ButtonNoteDel_Click);
+            // 
+            // buttonNoteAdd
+            // 
+            this.buttonNoteAdd.Location = new System.Drawing.Point(6, 6);
+            this.buttonNoteAdd.Name = "buttonNoteAdd";
+            this.buttonNoteAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonNoteAdd.TabIndex = 4;
+            this.buttonNoteAdd.Text = "Добавить";
+            this.buttonNoteAdd.UseVisualStyleBackColor = true;
+            this.buttonNoteAdd.Click += new System.EventHandler(this.ButtonNoteAdd_Click);
+            // 
+            // listViewNotes
+            // 
+            this.listViewNotes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.listViewNotes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.listViewNotes.FullRowSelect = true;
+            this.listViewNotes.GridLines = true;
+            this.listViewNotes.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listViewNotes.HideSelection = false;
+            this.listViewNotes.Location = new System.Drawing.Point(6, 35);
+            this.listViewNotes.MultiSelect = false;
+            this.listViewNotes.Name = "listViewNotes";
+            this.listViewNotes.Size = new System.Drawing.Size(260, 441);
+            this.listViewNotes.TabIndex = 7;
+            this.listViewNotes.UseCompatibleStateImageBehavior = false;
+            this.listViewNotes.View = System.Windows.Forms.View.Details;
+            this.listViewNotes.SelectedIndexChanged += new System.EventHandler(this.ListViewNotes_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Дата";
+            this.columnHeader1.Width = 70;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Заметка";
+            this.columnHeader2.Width = 160;
             // 
             // tabPage1
             // 
@@ -785,6 +884,8 @@
             this.tabPageVersions.ResumeLayout(false);
             this.tabPageDLC.ResumeLayout(false);
             this.tabPageHystory.ResumeLayout(false);
+            this.tabPageNotes.ResumeLayout(false);
+            this.tabPageNotes.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
@@ -856,5 +957,13 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxNote;
+        private System.Windows.Forms.Button buttonNoteDel;
+        private System.Windows.Forms.Button buttonNoteAdd;
+        private System.Windows.Forms.ListView listViewNotes;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.TextBox textBoxNoteName;
+        private System.Windows.Forms.DateTimePicker dateTimeNote;
     }
 }

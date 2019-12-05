@@ -24,6 +24,7 @@ namespace My_Games
         public List<Version> versions = new List<Version>();
         public List<DLC> DLCs = new List<DLC>();
         public List<Event> history = new List<Event>();
+        public List<Note> notes = new List<Note>();
 
         //Итоговые данные для быстрого доступа
         public DateTime date = DateTime.Now;
