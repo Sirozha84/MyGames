@@ -457,5 +457,10 @@ namespace My_Games
             DrawNotes(false);
         }
         #endregion
+
+        private void TabPageVersions_SizeChanged(object sender, EventArgs e)
+        {
+            panelVersion.Height = (tabPagePurchases.Height - 10) / 2;
+        }
     }
 }
