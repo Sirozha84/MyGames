@@ -77,9 +77,10 @@ namespace My_Games
             DrawNotes(false);
 
             //Вкладка прочего
-            labelDates.Text = "ID: " + game.ID +
-                "\nДата создания: " + game.create +
-                "\nДата последнего изменения: " + game.change;
+            labelInfo.Text = "Игра: " + game.name +
+                "\n\nID: " + game.ID +
+                "\n\nДата создания: " + game.create +
+                "\n\nДата последнего изменения: " + game.change;
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
@@ -108,6 +109,10 @@ namespace My_Games
                 }
                 catch { }
             }
+            //Итоговые данные
+            game.price = 0;
+            game.win = 0;
+            game.hours = 0;
 
             //Вкладка версий
             game.versions.Clear();
@@ -143,10 +148,6 @@ namespace My_Games
                 nn.note = nn.note.Replace("\r\n", "☺");
                 game.notes.Add(nn);
             }
-            //Итоговые данные
-            game.price = 0;
-            game.win = 0;
-            game.hours = 0;
 
             DialogResult = DialogResult.OK;
             Close();
@@ -274,7 +275,8 @@ namespace My_Games
             }
         }
 
-        private void listViewDLCs_MouseDoubleClick(object sender, MouseEventArgs e) { buttonChangeDLC_Click(null, null); }
+        private void ListViewDLCs_DoubleClick(object sender, EventArgs e) { buttonChangeDLC_Click(null, null); }
+
         private void buttonChangeDLC_Click(object sender, EventArgs e)
         {
             if (listViewDLCs.SelectedIndices.Count == 1)
@@ -293,7 +295,7 @@ namespace My_Games
                 DLC dlc = (DLC)listViewDLCs.SelectedItems[0].Tag;
                 dlcs.Remove(dlc);
                 DrawDLCs();
-                listViewDLCs_SelectedIndexChanged(null, null);
+                ListViewDLCs_SelectedIndexChanged(null, null);
             }
         }
 
@@ -314,8 +316,7 @@ namespace My_Games
             labelDLCs.Text = text;
             listViewDLCs.EndUpdate();
         }
-
-        private void listViewDLCs_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListViewDLCs_SelectedIndexChanged(object sender, EventArgs e)
         {
             bool sel = listViewDLCs.SelectedIndices.Count > 0;
             buttonChangeDLC.Enabled = sel;
