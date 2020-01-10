@@ -12,14 +12,14 @@ namespace My_Games
             InitializeComponent();
             this.m = m;
             textBoxName.Text = m.name;
-            checkBoxPhis.Checked = m.phisic;
+            //checkBoxPhis.Checked = m.phisic;
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
             m.name = textBoxName.Text;
-            m.phisic = checkBoxPhis.Checked;
+            //m.phisic = checkBoxPhis.Checked;
         }
     }
 }

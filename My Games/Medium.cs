@@ -5,7 +5,11 @@ namespace My_Games
 {
     public class Medium : CatItem
     {
-        public bool phisic;
+        
+        /// <summary>
+        /// Тип носителя: 0 - Физический, 1 - Электронный, 2 - Подписка
+        /// </summary>
+        public byte mediumType;
 
         public Medium() { }
 
@@ -16,7 +20,10 @@ namespace My_Games
 
         public ListViewItem GetListViewItem()
         {
-            string[] strings = { name, phisic ? "Да" : "" };
+            string mt = "Физический носитель";
+            if (mediumType == 2) mt = "Электронный магазин";
+            if (mediumType == 3) mt = "Игра по подписке";
+            string[] strings = { name, mt };
             return new ListViewItem(strings) { Tag = this };
         }
 
