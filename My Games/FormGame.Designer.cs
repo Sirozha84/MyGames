@@ -32,7 +32,6 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.comboBoxGenre = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBoxPublisher = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
@@ -55,7 +54,6 @@
             this.textBoxSite = new System.Windows.Forms.TextBox();
             this.linkLabelGenre = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBoxDeveloper = new System.Windows.Forms.ComboBox();
             this.comboBoxRate = new System.Windows.Forms.ComboBox();
             this.textBoxYear = new System.Windows.Forms.TextBox();
             this.labelCover = new System.Windows.Forms.Label();
@@ -105,6 +103,8 @@
             this.buttonNoteDel = new System.Windows.Forms.Button();
             this.textBoxNote = new System.Windows.Forms.TextBox();
             this.tabPageOthers = new System.Windows.Forms.TabPage();
+            this.textBoxDeveloper = new System.Windows.Forms.TextBox();
+            this.textBoxPublisher = new System.Windows.Forms.TextBox();
             this.groupBoxMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             this.groupBoxComment.SuspendLayout();
@@ -150,7 +150,7 @@
             this.comboBoxGenre.Location = new System.Drawing.Point(104, 127);
             this.comboBoxGenre.Name = "comboBoxGenre";
             this.comboBoxGenre.Size = new System.Drawing.Size(324, 21);
-            this.comboBoxGenre.TabIndex = 5;
+            this.comboBoxGenre.TabIndex = 4;
             // 
             // label3
             // 
@@ -160,17 +160,6 @@
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Издатель:";
-            // 
-            // comboBoxPublisher
-            // 
-            this.comboBoxPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxPublisher.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.comboBoxPublisher.FormattingEnabled = true;
-            this.comboBoxPublisher.Location = new System.Drawing.Point(104, 74);
-            this.comboBoxPublisher.Name = "comboBoxPublisher";
-            this.comboBoxPublisher.Size = new System.Drawing.Size(324, 21);
-            this.comboBoxPublisher.TabIndex = 2;
             // 
             // label4
             // 
@@ -187,7 +176,7 @@
             this.buttonOK.Location = new System.Drawing.Point(616, 526);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
-            this.buttonOK.TabIndex = 5;
+            this.buttonOK.TabIndex = 0;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
@@ -199,7 +188,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(697, 526);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 6;
+            this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
@@ -327,18 +316,18 @@
             // 
             this.groupBoxMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxMain.Controls.Add(this.textBoxPublisher);
+            this.groupBoxMain.Controls.Add(this.textBoxDeveloper);
             this.groupBoxMain.Controls.Add(this.linkLabelSite);
             this.groupBoxMain.Controls.Add(this.textBoxSite);
             this.groupBoxMain.Controls.Add(this.linkLabelGenre);
             this.groupBoxMain.Controls.Add(this.label6);
-            this.groupBoxMain.Controls.Add(this.comboBoxDeveloper);
             this.groupBoxMain.Controls.Add(this.comboBoxRate);
             this.groupBoxMain.Controls.Add(this.textBoxYear);
             this.groupBoxMain.Controls.Add(this.textBoxName);
             this.groupBoxMain.Controls.Add(this.label1);
             this.groupBoxMain.Controls.Add(this.comboBoxGenre);
             this.groupBoxMain.Controls.Add(this.label3);
-            this.groupBoxMain.Controls.Add(this.comboBoxPublisher);
             this.groupBoxMain.Controls.Add(this.label4);
             this.groupBoxMain.Controls.Add(this.label5);
             this.groupBoxMain.Location = new System.Drawing.Point(312, 6);
@@ -354,7 +343,7 @@
             this.linkLabelSite.Location = new System.Drawing.Point(64, 184);
             this.linkLabelSite.Name = "linkLabelSite";
             this.linkLabelSite.Size = new System.Drawing.Size(34, 13);
-            this.linkLabelSite.TabIndex = 7;
+            this.linkLabelSite.TabIndex = 8;
             this.linkLabelSite.TabStop = true;
             this.linkLabelSite.Text = "Сайт:";
             // 
@@ -365,7 +354,7 @@
             this.textBoxSite.Location = new System.Drawing.Point(104, 181);
             this.textBoxSite.Name = "textBoxSite";
             this.textBoxSite.Size = new System.Drawing.Size(324, 20);
-            this.textBoxSite.TabIndex = 8;
+            this.textBoxSite.TabIndex = 6;
             // 
             // linkLabelGenre
             // 
@@ -373,7 +362,7 @@
             this.linkLabelGenre.Location = new System.Drawing.Point(59, 131);
             this.linkLabelGenre.Name = "linkLabelGenre";
             this.linkLabelGenre.Size = new System.Drawing.Size(39, 13);
-            this.linkLabelGenre.TabIndex = 4;
+            this.linkLabelGenre.TabIndex = 7;
             this.linkLabelGenre.TabStop = true;
             this.linkLabelGenre.Text = "Жанр:";
             this.linkLabelGenre.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
@@ -387,17 +376,6 @@
             this.label6.TabIndex = 22;
             this.label6.Text = "Разработчик:";
             // 
-            // comboBoxDeveloper
-            // 
-            this.comboBoxDeveloper.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxDeveloper.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.comboBoxDeveloper.FormattingEnabled = true;
-            this.comboBoxDeveloper.Location = new System.Drawing.Point(104, 48);
-            this.comboBoxDeveloper.Name = "comboBoxDeveloper";
-            this.comboBoxDeveloper.Size = new System.Drawing.Size(324, 21);
-            this.comboBoxDeveloper.TabIndex = 1;
-            // 
             // comboBoxRate
             // 
             this.comboBoxRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -405,7 +383,7 @@
             this.comboBoxRate.Location = new System.Drawing.Point(104, 154);
             this.comboBoxRate.Name = "comboBoxRate";
             this.comboBoxRate.Size = new System.Drawing.Size(58, 21);
-            this.comboBoxRate.TabIndex = 6;
+            this.comboBoxRate.TabIndex = 5;
             // 
             // textBoxYear
             // 
@@ -540,7 +518,7 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(760, 508);
             this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabControl.TabIndex = 26;
+            this.tabControl.TabIndex = 0;
             // 
             // tabPageMain
             // 
@@ -602,7 +580,7 @@
             this.labelVers.Location = new System.Drawing.Point(106, 20);
             this.labelVers.Name = "labelVers";
             this.labelVers.Size = new System.Drawing.Size(322, 13);
-            this.labelVers.TabIndex = 3;
+            this.labelVers.TabIndex = 0;
             // 
             // label9
             // 
@@ -847,7 +825,7 @@
             this.buttonNoteAdd.Location = new System.Drawing.Point(6, 19);
             this.buttonNoteAdd.Name = "buttonNoteAdd";
             this.buttonNoteAdd.Size = new System.Drawing.Size(75, 23);
-            this.buttonNoteAdd.TabIndex = 4;
+            this.buttonNoteAdd.TabIndex = 0;
             this.buttonNoteAdd.Text = "Добавить";
             this.buttonNoteAdd.UseVisualStyleBackColor = true;
             this.buttonNoteAdd.Click += new System.EventHandler(this.ButtonNoteAdd_Click);
@@ -860,7 +838,7 @@
             this.textBoxNoteName.Location = new System.Drawing.Point(418, 21);
             this.textBoxNoteName.Name = "textBoxNoteName";
             this.textBoxNoteName.Size = new System.Drawing.Size(316, 20);
-            this.textBoxNoteName.TabIndex = 10;
+            this.textBoxNoteName.TabIndex = 4;
             this.textBoxNoteName.TextChanged += new System.EventHandler(this.TextBoxNoteName_TextChanged);
             // 
             // listViewNotes
@@ -878,7 +856,7 @@
             this.listViewNotes.MultiSelect = false;
             this.listViewNotes.Name = "listViewNotes";
             this.listViewNotes.Size = new System.Drawing.Size(260, 410);
-            this.listViewNotes.TabIndex = 7;
+            this.listViewNotes.TabIndex = 2;
             this.listViewNotes.UseCompatibleStateImageBehavior = false;
             this.listViewNotes.View = System.Windows.Forms.View.Details;
             this.listViewNotes.SelectedIndexChanged += new System.EventHandler(this.ListViewNotes_SelectedIndexChanged);
@@ -899,7 +877,7 @@
             this.dateTimeNote.Location = new System.Drawing.Point(272, 21);
             this.dateTimeNote.Name = "dateTimeNote";
             this.dateTimeNote.Size = new System.Drawing.Size(140, 20);
-            this.dateTimeNote.TabIndex = 9;
+            this.dateTimeNote.TabIndex = 3;
             this.dateTimeNote.ValueChanged += new System.EventHandler(this.DateTimeNote_ValueChanged);
             // 
             // buttonNoteDel
@@ -908,7 +886,7 @@
             this.buttonNoteDel.Location = new System.Drawing.Point(87, 19);
             this.buttonNoteDel.Name = "buttonNoteDel";
             this.buttonNoteDel.Size = new System.Drawing.Size(75, 23);
-            this.buttonNoteDel.TabIndex = 6;
+            this.buttonNoteDel.TabIndex = 1;
             this.buttonNoteDel.Text = "Удалить";
             this.buttonNoteDel.UseVisualStyleBackColor = true;
             this.buttonNoteDel.Click += new System.EventHandler(this.ButtonNoteDel_Click);
@@ -923,7 +901,7 @@
             this.textBoxNote.Multiline = true;
             this.textBoxNote.Name = "textBoxNote";
             this.textBoxNote.Size = new System.Drawing.Size(462, 410);
-            this.textBoxNote.TabIndex = 8;
+            this.textBoxNote.TabIndex = 5;
             this.textBoxNote.TextChanged += new System.EventHandler(this.TextBoxNote_TextChanged);
             // 
             // tabPageOthers
@@ -936,6 +914,24 @@
             this.tabPageOthers.TabIndex = 5;
             this.tabPageOthers.Text = "Прочее";
             this.tabPageOthers.UseVisualStyleBackColor = true;
+            // 
+            // textBoxDeveloper
+            // 
+            this.textBoxDeveloper.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxDeveloper.Location = new System.Drawing.Point(104, 47);
+            this.textBoxDeveloper.Name = "textBoxDeveloper";
+            this.textBoxDeveloper.Size = new System.Drawing.Size(324, 20);
+            this.textBoxDeveloper.TabIndex = 1;
+            // 
+            // textBoxPublisher
+            // 
+            this.textBoxPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxPublisher.Location = new System.Drawing.Point(104, 74);
+            this.textBoxPublisher.Name = "textBoxPublisher";
+            this.textBoxPublisher.Size = new System.Drawing.Size(324, 20);
+            this.textBoxPublisher.TabIndex = 2;
             // 
             // FormGame
             // 
@@ -984,7 +980,6 @@
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.ComboBox comboBoxGenre;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBoxPublisher;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCancel;
@@ -1013,7 +1008,6 @@
         private System.Windows.Forms.TextBox textBoxYear;
         private System.Windows.Forms.ComboBox comboBoxRate;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBoxDeveloper;
         private System.Windows.Forms.LinkLabel linkLabelGenre;
         private System.Windows.Forms.Label labelCover;
         private System.Windows.Forms.Label labelInfo;
@@ -1057,5 +1051,7 @@
         private System.Windows.Forms.GroupBox groupBoxVersion;
         private System.Windows.Forms.GroupBox groupBoxHistory;
         private System.Windows.Forms.GroupBox groupBoxNotes;
+        private System.Windows.Forms.TextBox textBoxPublisher;
+        private System.Windows.Forms.TextBox textBoxDeveloper;
     }
 }

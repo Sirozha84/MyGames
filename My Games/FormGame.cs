@@ -38,8 +38,8 @@ namespace My_Games
             //Вкладка общих сведений
             Text = game.name;
             textBoxName.Text = game.name;
-            comboBoxDeveloper.Text = game.developer;
-            comboBoxPublisher.Text = game.publisher;
+            textBoxDeveloper.Text = game.developer;
+            textBoxPublisher.Text = game.publisher;
             textBoxYear.Text = game.year;
             Genre.FillCombobox(comboBoxGenre, game.genre);
             comboBoxRate.SelectedIndex = game.rate - 1;
@@ -89,8 +89,8 @@ namespace My_Games
             game.change = DateTime.Now;
             game.name = textBoxName.Text;
             if (versions.Count > 0) game.date = versions[0].date;
-            game.developer = comboBoxDeveloper.Text;
-            game.publisher = comboBoxPublisher.Text;
+            game.developer = textBoxDeveloper.Text;
+            game.publisher = textBoxPublisher.Text;
             game.year = textBoxYear.Text;
             game.genre = Data.GenreNameToID(comboBoxGenre.Text);
             game.rate = comboBoxRate.SelectedIndex + 1;
