@@ -287,7 +287,7 @@ namespace My_Games
                 if (s != "" && platforms[i, 1] != 0)
                 {
                     ListViewItem item = new ListViewItem(s);
-                    item.SubItems.Add(platforms[i, 1].ToString());
+                    item.SubItems.Add(platforms[i, 1].ToString("### ### ### ### ###"));
                     item.BackColor = Data.data.platforms.Find(o => o.name == s).color;
                     plBrushes[i] = new SolidBrush(item.BackColor);
                     listView.Items.Add(item);

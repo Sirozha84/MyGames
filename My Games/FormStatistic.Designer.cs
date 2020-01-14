@@ -210,6 +210,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Значение";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // FormStatistic
             // 
