@@ -260,6 +260,8 @@ namespace My_Games
             DrawGraph();
         }
 
+        private void listView_SelectedIndexChanged(object sender, EventArgs e) { DrawGraph(); }
+
         /// <summary>
         /// Сортировка списка платформ и вывод его на форму
         /// </summary>
@@ -413,6 +415,15 @@ namespace My_Games
                             graph.FillRectangle(plBrushes[j], left + space + width12 * i, height - (s + mounts[c, j]) / g * k, width12s, mounts[c, j] / g * k);
                             s += mounts[c, j] / g;
                         }
+                        s = 0;
+                        if (listView.SelectedItems.Count > 0)
+                            for (int j = 0; j < plCount; j++)
+                            {
+                                if (j == listView.SelectedItems[0].Index && mounts[c, j] != 0)
+                                    graph.DrawRectangle(Pens.Black, left + space + width12 * i - 3, height - (s + mounts[c, j] / g) * k - 3, width12s + 5, mounts[c, j] / g * k + 5);
+                                s += mounts[c, j] / g;
+                            }
+                            
                         if (i == 0 | c % 12 == 11)
                         graph.DrawString((last.Year - c / 12).ToString(),title, Brushes.Black, new Rectangle(left + width12 * i, height, width12, bottom / 2), formatC);
                         graph.DrawString(mount[11 - c % 12], title, Brushes.Black, new Rectangle(left + width12 * i, height + bottom / 2, width12, bottom / 2), formatC);
@@ -436,6 +447,14 @@ namespace My_Games
                             graph.FillRectangle(plBrushes[j], left + space + width10 * i, height - (s + years[c, j] / g) * k, width10s, years[c, j] / g * k);
                             s += years[c, j] / g;
                         }
+                        s = 0;
+                        if (listView.SelectedItems.Count > 0)
+                            for (int j = 0; j < plCount; j++)
+                            {
+                                if (j == listView.SelectedItems[0].Index && years[c, j] != 0)
+                                    graph.DrawRectangle(Pens.Black, left + space + width10 * i - 3, height - (s + years[c, j] / g) * k - 3, width10s + 5, years[c, j] / g * k + 5);
+                                s += years[c, j] / g;
+                            }
                         graph.DrawString((last.Year - c).ToString(), title, Brushes.Black, new Rectangle(left + width10 * i, height, width10, bottom), formatC);
                     }
                 }
@@ -457,6 +476,15 @@ namespace My_Games
                             graph.FillRectangle(plBrushes[j], left + space + width10 * i, height - (s + all[c, j] / g) * k, width10s, all[c, j] / g * k);
                             s += all[c, j] / g;
                         }
+                        s = 0;
+                        if (listView.SelectedItems.Count > 0)
+                            for (int j = 0; j < plCount; j++)
+                            {
+                                if (j == listView.SelectedItems[0].Index && all[c, j] != 0)
+                                    graph.DrawRectangle(Pens.Black, left + space + width10 * i - 3, height - (s + all[c, j] / g) * k - 3, width10s + 5, all[c, j] / g * k + 5);
+                                s += all[c, j] / g;
+                            }
+
                         graph.DrawString((last.Year - c * yearsInColumn - yearsInColumn + 1).ToString(), title, Brushes.Black, new Rectangle(left + width10 * i, height, width10, bottom / 2), formatC);
                         graph.DrawString((last.Year - c * yearsInColumn).ToString(), title, Brushes.Black, new Rectangle(left + width10 * i, height + bottom / 2, width10, bottom / 2), formatC);
                     }
