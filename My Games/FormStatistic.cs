@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace My_Games
@@ -40,6 +34,7 @@ namespace My_Games
             foreach (Game g in Data.data.games)
                 foreach (Version v in g.versions)
                     if (last < v.date) last = v.date;
+            
             //Считаем количество лет
             yearCount = last.Year - old.Year + 1;
             if (yearCount < 10) yearCount = 10;
@@ -149,6 +144,7 @@ namespace My_Games
             mounts = new int[yearCount * 12, plCount];
             years = new int[yearCount, plCount];
             all = new int[10, plCount];
+            
             //И заполняем их
             foreach (Game g in Data.data.games)
             {
@@ -227,6 +223,7 @@ namespace My_Games
             mounts = new int[yearCount * 12, plCount];
             years = new int[yearCount, plCount];
             all = new int[10, plCount];
+            
             //И заполняем их
             foreach (Game g in Data.data.games)
                 foreach (Event ev in g.history)
@@ -362,7 +359,6 @@ namespace My_Games
         {
             InitializeComponent();
             graph = pictureBox.CreateGraphics();
-            //Временно раставлю цвета так, потом хочу сделать настройку цвета каждой платформы
             RadioButtonGames_Click(null, null);
         }
 
@@ -373,125 +369,80 @@ namespace My_Games
             fullHeight = pictureBox.Height;
             bmp = new Bitmap(fullWidth, fullHeight);
             graph = Graphics.FromImage(bmp);
-
             int left = 60;
             int bottom = 40;
             int width = fullWidth - left;
-            int width10 = width / 10;
-            int width12 = width / 12;
             int space = width / 50;
-            int width10s = width / 10 - space * 2;
-            int width12s = width / 12 - space * 2;
             int height = fullHeight - bottom;
-
             Font title = new Font(new FontFamily("Arial"), 12, FontStyle.Regular, GraphicsUnit.Pixel);
-            //SolidBrush titleB = new SolidBrush(Color.Black);
             StringFormat formatR = new StringFormat();
             formatR.Alignment = StringAlignment.Far;
             formatR.LineAlignment = StringAlignment.Center;
             StringFormat formatC = new StringFormat();
             formatC.Alignment = StringAlignment.Center;
             formatC.LineAlignment = StringAlignment.Center;
-
             graph.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-
-            try
+            int[,] m = mounts;
+            int c1 = 0;
+            int columns = 0;
+            int heightColumns = 0;
+            if (radioButtonMounts.Checked) { m = mounts; c1 = scrollVal + 11; columns = 12; heightColumns = heightMounts; }
+            if (radioButtonYears.Checked) { m = years; c1 = scrollVal + 9; columns = 10; heightColumns = heightYears; }
+            if (radioButtonEverytime.Checked) { m = all; c1 = 9; columns = 10; heightColumns = heightAll; }
+            int cWidth = width / columns;
+            int cWidthS = width / columns - space * 2;
+            int grad = calcG(heightColumns);
+            int k = height / (heightColumns / grad);
+            
+            //Горизонтальные полоски
+            for (int i = 0; i <= heightColumns; i += heightColumns / 4 / grad)
             {
+                graph.DrawLine(Pens.Gray, left, height - i * k, fullWidth - 5, height - i * k);
+                graph.DrawString((i * grad).ToString(), title, Brushes.Black, new Rectangle(0, height - i * k - 10, left - 10, 20), formatR);
+            }
+            
+            //Рисование столбиков
+            for (int i = 0; i < columns; i++)
+            {
+                int c = c1 - i;
+                int s = 0;
+                try //Когданибудь я разбирусь почему индекс вылазит за пределы массива... но не сегодня
+                {
+                    for (int j = 0; j < plCount; j++)
+                    {
+                        graph.FillRectangle(plBrushes[j], left + space + cWidth * i, height - (s + m[c, j] / grad) * k, cWidthS, m[c, j] / grad * k);
+                        s += m[c, j] / grad;
+                    }
+                    s = 0;
+                    if (listView.SelectedItems.Count > 0)
+                        for (int j = 0; j < plCount; j++)
+                        {
+                            if (j == listView.SelectedItems[0].Index && m[c, j] != 0)
+                            {
+                                graph.DrawRectangle(Pens.Black, left + space + cWidth * i - 3, height - (s + m[c, j] / grad) * k - 3, cWidthS + 5, m[c, j] / grad * k + 5);
+                                graph.DrawString(m[c, j].ToString("### ### ###"), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, height - (s + m[c, j] / grad) * k - 20, cWidth, 15), formatC);
+                                //graph.DrawString("[ test ]", title, Brushes.Black, new Rectangle(left + cWidth * i, height - (s + m[c, j] / grad) * k - 00, cWidth, 15), formatC);
+                                //graph.DrawRectangle(Pens.Black, left + cWidth * i, height - (s + m[c, j] / grad) * k - 20, cWidth, 15);
+                            }
+                            s += m[c, j] / grad;
+                        }
+                } catch { }
+                
+                //Подписи столбиков
                 if (radioButtonMounts.Checked)
                 {
-                    int g = calcG(heightMounts);
-                    int k = height / (heightMounts / g);
-                    for (int i = 0; i <= heightMounts; i += heightMounts / 4 / g)
-                    {
-                        graph.DrawLine(Pens.Gray, left, height - i * k, fullWidth - 5, height - i * k);
-                        graph.DrawString((i * g).ToString(), title, Brushes.Black, new Rectangle(0, height - i * k - 10, left - 10, 20), formatR);
-                    }
-                    for (int i = 0; i < 12; i++)
-                    {
-                        int c = scrollVal + 11 - i;
-                        int s = 0;
-                        for (int j = 0; j < plCount; j++)
-                        {
-                            graph.FillRectangle(plBrushes[j], left + space + width12 * i, height - (s + mounts[c, j]) / g * k, width12s, mounts[c, j] / g * k);
-                            s += mounts[c, j] / g;
-                        }
-                        s = 0;
-                        if (listView.SelectedItems.Count > 0)
-                            for (int j = 0; j < plCount; j++)
-                            {
-                                if (j == listView.SelectedItems[0].Index && mounts[c, j] != 0)
-                                    graph.DrawRectangle(Pens.Black, left + space + width12 * i - 3, height - (s + mounts[c, j] / g) * k - 3, width12s + 5, mounts[c, j] / g * k + 5);
-                                s += mounts[c, j] / g;
-                            }
-                            
-                        if (i == 0 | c % 12 == 11)
-                        graph.DrawString((last.Year - c / 12).ToString(),title, Brushes.Black, new Rectangle(left + width12 * i, height, width12, bottom / 2), formatC);
-                        graph.DrawString(mount[11 - c % 12], title, Brushes.Black, new Rectangle(left + width12 * i, height + bottom / 2, width12, bottom / 2), formatC);
-                    }
+                    if (i == 0 | c % 12 == 11)
+                        graph.DrawString((last.Year - c / 12).ToString(), title, Brushes.Black, new Rectangle(left + cWidth * i, height, cWidth, bottom / 2), formatC);
+                    graph.DrawString(mount[11 - c % 12], title, Brushes.Black, new Rectangle(left + cWidth * i, height + bottom / 2, cWidth, bottom / 2), formatC);
                 }
                 if (radioButtonYears.Checked)
-                {
-                    int g = calcG(heightYears);
-                    int k = height / (heightYears / g);
-                    for (int i = 0; i <= heightYears; i += heightYears / 4 / g)
-                    {
-                        graph.DrawLine(Pens.Gray, left, height - i * k, fullWidth, height - i * k);
-                        graph.DrawString((i * g).ToString(), title, Brushes.Black, new Rectangle(0, height - i * k - 10, left - 10, 20), formatR);
-                    }
-                    for (int i = 0; i < 10; i++)
-                    {
-                        int c = scrollVal + 9 - i;
-                        int s = 0;
-                        for (int j = 0; j < plCount; j++)
-                        {
-                            graph.FillRectangle(plBrushes[j], left + space + width10 * i, height - (s + years[c, j] / g) * k, width10s, years[c, j] / g * k);
-                            s += years[c, j] / g;
-                        }
-                        s = 0;
-                        if (listView.SelectedItems.Count > 0)
-                            for (int j = 0; j < plCount; j++)
-                            {
-                                if (j == listView.SelectedItems[0].Index && years[c, j] != 0)
-                                    graph.DrawRectangle(Pens.Black, left + space + width10 * i - 3, height - (s + years[c, j] / g) * k - 3, width10s + 5, years[c, j] / g * k + 5);
-                                s += years[c, j] / g;
-                            }
-                        graph.DrawString((last.Year - c).ToString(), title, Brushes.Black, new Rectangle(left + width10 * i, height, width10, bottom), formatC);
-                    }
-                }
+                    graph.DrawString((last.Year - c).ToString(), title, Brushes.Black, new Rectangle(left + cWidth * i, height, cWidth, bottom), formatC);
                 if (radioButtonEverytime.Checked)
                 {
-                    int g = calcG(heightAll);
-                    int k = height / (heightAll / g);
-                    for (int i = 0; i <= heightAll; i += heightAll / 4 / g)
-                    {
-                        graph.DrawLine(Pens.Gray, left, height - i * k, fullWidth, height - i * k);
-                        graph.DrawString((i * g).ToString(), title, Brushes.Black, new Rectangle(0, height - i * k - 10, left - 10, 20), formatR);
-                    }
-                    for (int i = 0; i < 10; i++)
-                    {
-                        int c = 9 - i;
-                        int s = 0;
-                        for (int j = 0; j < plCount; j++)
-                        {
-                            graph.FillRectangle(plBrushes[j], left + space + width10 * i, height - (s + all[c, j] / g) * k, width10s, all[c, j] / g * k);
-                            s += all[c, j] / g;
-                        }
-                        s = 0;
-                        if (listView.SelectedItems.Count > 0)
-                            for (int j = 0; j < plCount; j++)
-                            {
-                                if (j == listView.SelectedItems[0].Index && all[c, j] != 0)
-                                    graph.DrawRectangle(Pens.Black, left + space + width10 * i - 3, height - (s + all[c, j] / g) * k - 3, width10s + 5, all[c, j] / g * k + 5);
-                                s += all[c, j] / g;
-                            }
-
-                        graph.DrawString((last.Year - c * yearsInColumn - yearsInColumn + 1).ToString(), title, Brushes.Black, new Rectangle(left + width10 * i, height, width10, bottom / 2), formatC);
-                        graph.DrawString((last.Year - c * yearsInColumn).ToString(), title, Brushes.Black, new Rectangle(left + width10 * i, height + bottom / 2, width10, bottom / 2), formatC);
-                    }
+                    graph.DrawString((last.Year - c * yearsInColumn - yearsInColumn + 1).ToString(), title, Brushes.Black, new Rectangle(left + cWidth * i, height, cWidth, bottom / 2), formatC);
+                    graph.DrawString((last.Year - c * yearsInColumn).ToString(), title, Brushes.Black, new Rectangle(left + cWidth * i, height + bottom / 2, cWidth, bottom / 2), formatC);
                 }
             }
-            catch { }
-
             pictureBox.Image = bmp;
         }
 
