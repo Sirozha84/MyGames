@@ -38,7 +38,7 @@
             // buttonNew
             // 
             this.buttonNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonNew.Location = new System.Drawing.Point(297, 12);
+            this.buttonNew.Location = new System.Drawing.Point(347, 12);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(75, 23);
             this.buttonNew.TabIndex = 1;
@@ -50,7 +50,7 @@
             // 
             this.buttonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonEdit.Enabled = false;
-            this.buttonEdit.Location = new System.Drawing.Point(297, 41);
+            this.buttonEdit.Location = new System.Drawing.Point(347, 41);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(75, 23);
             this.buttonEdit.TabIndex = 2;
@@ -62,7 +62,7 @@
             // 
             this.buttonDel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDel.Enabled = false;
-            this.buttonDel.Location = new System.Drawing.Point(297, 70);
+            this.buttonDel.Location = new System.Drawing.Point(347, 70);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(75, 23);
             this.buttonDel.TabIndex = 3;
@@ -74,7 +74,7 @@
             // 
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonClose.Location = new System.Drawing.Point(297, 276);
+            this.buttonClose.Location = new System.Drawing.Point(347, 276);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(75, 23);
             this.buttonClose.TabIndex = 4;
@@ -91,7 +91,7 @@
             this.listViewCat.Location = new System.Drawing.Point(13, 13);
             this.listViewCat.MultiSelect = false;
             this.listViewCat.Name = "listViewCat";
-            this.listViewCat.Size = new System.Drawing.Size(278, 286);
+            this.listViewCat.Size = new System.Drawing.Size(328, 286);
             this.listViewCat.TabIndex = 0;
             this.listViewCat.UseCompatibleStateImageBehavior = false;
             this.listViewCat.View = System.Windows.Forms.View.Details;
@@ -104,16 +104,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonClose;
-            this.ClientSize = new System.Drawing.Size(384, 311);
+            this.ClientSize = new System.Drawing.Size(434, 311);
             this.Controls.Add(this.listViewCat);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonNew);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(400, 1000);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(400, 350);
+            this.MinimumSize = new System.Drawing.Size(450, 350);
             this.Name = "FormCats";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

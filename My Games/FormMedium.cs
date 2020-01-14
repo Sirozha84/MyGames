@@ -12,14 +12,18 @@ namespace My_Games
             InitializeComponent();
             this.m = m;
             textBoxName.Text = m.name;
-            //checkBoxPhis.Checked = m.phisic;
+            radioButtonPh.Checked = m.mediumType == 0;
+            radioButtonEl.Checked = m.mediumType == 1;
+            radioButtonSb.Checked = m.mediumType == 2;
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
             m.name = textBoxName.Text;
-            //m.phisic = checkBoxPhis.Checked;
+            if (radioButtonPh.Checked) m.mediumType = 0;
+            if (radioButtonEl.Checked) m.mediumType = 1;
+            if (radioButtonSb.Checked) m.mediumType = 2;
         }
     }
 }

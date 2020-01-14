@@ -21,8 +21,8 @@ namespace My_Games
         public ListViewItem GetListViewItem()
         {
             string mt = "Физический носитель";
-            if (mediumType == 2) mt = "Электронный магазин";
-            if (mediumType == 3) mt = "Игра по подписке";
+            if (mediumType == 1) mt = "Электронный магазин";
+            if (mediumType == 2) mt = "Подписка";
             string[] strings = { name, mt };
             return new ListViewItem(strings) { Tag = this };
         }

@@ -27,8 +27,8 @@ namespace My_Games
             listViewCat.BeginUpdate();
             if (type == 1)
             {
-                listViewCat.Columns.Add("Платформа", 140);
-                listViewCat.Columns.Add("Компания", 80);
+                listViewCat.Columns.Add("Платформа", 170);
+                listViewCat.Columns.Add("Компания", 110);
                 ((List<Platform>)list).Sort();
                 foreach (Platform item in (List<Platform>)list)
                     listViewCat.Items.Add(item.GetListViewItem());
@@ -36,14 +36,14 @@ namespace My_Games
             if (type == 2)
             {
                 listViewCat.Columns.Add("Носитель", 140);
-                listViewCat.Columns.Add("Физический", 80);
+                listViewCat.Columns.Add("Тип носителя", 140);
                 ((List<Medium>)list).Sort();
                 foreach (Medium item in (List<Medium>)list)
                     listViewCat.Items.Add(item.GetListViewItem());
             }
             if (type == 3)
             {
-                listViewCat.Columns.Add("Жанр", 220);
+                listViewCat.Columns.Add("Жанр", 280);
                 ((List<Genre>)list).Sort();
                 foreach (Genre item in (List<Genre>)list)
                     listViewCat.Items.Add(item.GetListViewItem());
