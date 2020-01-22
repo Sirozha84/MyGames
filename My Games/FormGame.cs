@@ -48,17 +48,17 @@ namespace My_Games
             if (game.cover != null)
                 OpenCover("Covers\\" + game.cover);
 
-            //Вкладка версий
+            //Вкладка покупок
             versions.Clear();
             foreach (Version v in game.versions)
                 versions.Add(new Version(v));
             DrawVersions();
-
-            //Вкладка дополнительных материалов
             dlcs.Clear();
             foreach (DLC d in game.DLCs)
                 dlcs.Add(new DLC(d));
             DrawDLCs();
+            tabPagePurchases.Text = "Покупки: " + (game.versions.Count + game.DLCs.Count).ToString();
+            tabPagePurchases.Font = Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
 
             //Вкладка истории прохождений
             history.Clear();
@@ -114,15 +114,13 @@ namespace My_Games
             game.win = 0;
             game.hours = 0;
 
-            //Вкладка версий
+            //Вкладка покупок
             game.versions.Clear();
             foreach (Version v in versions)
             {
                 game.versions.Add(new Version(v));
                 game.price += v.price;
             }
-
-            //Вкладка дополнительных материалов
             game.DLCs.Clear();
             foreach (DLC d in dlcs)
             {
@@ -154,6 +152,7 @@ namespace My_Games
         }
 
         #region Main
+        private void textBoxName_TextChanged(object sender, EventArgs e) { Text = textBoxName.Text; }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormCats form = new FormCats(3, Data.data.genres);
@@ -463,5 +462,6 @@ namespace My_Games
         {
             panelVersion.Height = (tabPagePurchases.Height - 10) / 2;
         }
+
     }
 }

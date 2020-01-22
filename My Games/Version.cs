@@ -30,7 +30,7 @@ namespace My_Games
             string[] labels = {date.ToString("dd.MM.yyyy"),
                 Data.PlatformIDToName(platform),
                 Data.MediumIDToName(medium),
-                price.ToString(),
+                price.ToString("### ###"),
                 comment};
             return new ListViewItem(labels) { Tag = this };
         }

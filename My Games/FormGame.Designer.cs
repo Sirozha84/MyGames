@@ -50,6 +50,8 @@
             this.columnEventComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBoxComment = new System.Windows.Forms.TextBox();
             this.groupBoxMain = new System.Windows.Forms.GroupBox();
+            this.textBoxPublisher = new System.Windows.Forms.TextBox();
+            this.textBoxDeveloper = new System.Windows.Forms.TextBox();
             this.linkLabelSite = new System.Windows.Forms.LinkLabel();
             this.textBoxSite = new System.Windows.Forms.TextBox();
             this.linkLabelGenre = new System.Windows.Forms.LinkLabel();
@@ -103,8 +105,6 @@
             this.buttonNoteDel = new System.Windows.Forms.Button();
             this.textBoxNote = new System.Windows.Forms.TextBox();
             this.tabPageOthers = new System.Windows.Forms.TabPage();
-            this.textBoxDeveloper = new System.Windows.Forms.TextBox();
-            this.textBoxPublisher = new System.Windows.Forms.TextBox();
             this.groupBoxMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             this.groupBoxComment.SuspendLayout();
@@ -140,6 +140,7 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(324, 20);
             this.textBoxName.TabIndex = 0;
+            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // comboBoxGenre
             // 
@@ -244,6 +245,7 @@
             // columnVerPrice
             // 
             this.columnVerPrice.Text = "Цена";
+            this.columnVerPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnVerPrice.Width = 45;
             // 
             // columnVerComment
@@ -294,6 +296,7 @@
             // columnEventHours
             // 
             this.columnEventHours.Text = "Часы";
+            this.columnEventHours.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnEventHours.Width = 45;
             // 
             // columnEventComment
@@ -336,6 +339,24 @@
             this.groupBoxMain.TabIndex = 0;
             this.groupBoxMain.TabStop = false;
             this.groupBoxMain.Text = "Общие сведения";
+            // 
+            // textBoxPublisher
+            // 
+            this.textBoxPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxPublisher.Location = new System.Drawing.Point(104, 74);
+            this.textBoxPublisher.Name = "textBoxPublisher";
+            this.textBoxPublisher.Size = new System.Drawing.Size(324, 20);
+            this.textBoxPublisher.TabIndex = 2;
+            // 
+            // textBoxDeveloper
+            // 
+            this.textBoxDeveloper.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxDeveloper.Location = new System.Drawing.Point(104, 47);
+            this.textBoxDeveloper.Name = "textBoxDeveloper";
+            this.textBoxDeveloper.Size = new System.Drawing.Size(324, 20);
+            this.textBoxDeveloper.TabIndex = 1;
             // 
             // linkLabelSite
             // 
@@ -723,6 +744,7 @@
             // columnDLCPrice
             // 
             this.columnDLCPrice.Text = "Цена";
+            this.columnDLCPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnDLCPrice.Width = 45;
             // 
             // columnDLCComment
@@ -914,24 +936,6 @@
             this.tabPageOthers.TabIndex = 5;
             this.tabPageOthers.Text = "Прочее";
             this.tabPageOthers.UseVisualStyleBackColor = true;
-            // 
-            // textBoxDeveloper
-            // 
-            this.textBoxDeveloper.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDeveloper.Location = new System.Drawing.Point(104, 47);
-            this.textBoxDeveloper.Name = "textBoxDeveloper";
-            this.textBoxDeveloper.Size = new System.Drawing.Size(324, 20);
-            this.textBoxDeveloper.TabIndex = 1;
-            // 
-            // textBoxPublisher
-            // 
-            this.textBoxPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPublisher.Location = new System.Drawing.Point(104, 74);
-            this.textBoxPublisher.Name = "textBoxPublisher";
-            this.textBoxPublisher.Size = new System.Drawing.Size(324, 20);
-            this.textBoxPublisher.TabIndex = 2;
             // 
             // FormGame
             // 

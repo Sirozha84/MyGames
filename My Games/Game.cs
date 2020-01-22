@@ -39,7 +39,7 @@ namespace My_Games
         public ListViewItem listItem()
         {
             string[] labels = {date.ToString("dd.MM.yyyy"), name, Data.GenreIDToName(genre), stars[rate - 1],
-                Event.events[win], hours.ToString(), versions.Count().ToString(), price.ToString()};
+                Event.events[win], hours.ToString("### ###"), versions.Count().ToString(), price.ToString("### ### ###")};
             ListViewItem item = new ListViewItem(labels);
             item.Tag = this;
             if (win == 0) item.BackColor = Color.FromArgb(255, 192, 192);
