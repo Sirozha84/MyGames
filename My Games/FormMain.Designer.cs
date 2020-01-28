@@ -39,6 +39,9 @@
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoViewMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.colorMode0 = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorMode1 = new System.Windows.Forms.ToolStripMenuItem();
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.платформыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.носителиЭлектронныеМагазиныToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -158,7 +161,10 @@
             // видToolStripMenuItem
             // 
             this.видToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.infoViewMenu});
+            this.infoViewMenu,
+            this.toolStripMenuItem2,
+            this.colorMode0,
+            this.colorMode1});
             this.видToolStripMenuItem.Name = "видToolStripMenuItem";
             this.видToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.видToolStripMenuItem.Text = "Вид";
@@ -167,9 +173,28 @@
             // 
             this.infoViewMenu.Name = "infoViewMenu";
             this.infoViewMenu.ShortcutKeys = System.Windows.Forms.Keys.F7;
-            this.infoViewMenu.Size = new System.Drawing.Size(167, 22);
+            this.infoViewMenu.Size = new System.Drawing.Size(228, 22);
             this.infoViewMenu.Text = "Информация";
             this.infoViewMenu.Click += new System.EventHandler(this.infoViewMenu_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(225, 6);
+            // 
+            // colorMode0
+            // 
+            this.colorMode0.Name = "colorMode0";
+            this.colorMode0.Size = new System.Drawing.Size(228, 22);
+            this.colorMode0.Text = "Раскраска отключена";
+            this.colorMode0.Click += new System.EventHandler(this.colorMode0_Click);
+            // 
+            // colorMode1
+            // 
+            this.colorMode1.Name = "colorMode1";
+            this.colorMode1.Size = new System.Drawing.Size(228, 22);
+            this.colorMode1.Text = "Раскраска по прохождению";
+            this.colorMode1.Click += new System.EventHandler(this.colorMode1_Click);
             // 
             // справочникиToolStripMenuItem
             // 
@@ -639,6 +664,9 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonList;
         private System.Windows.Forms.ToolStripMenuItem историяПрохожденияToolStripMenuIte;
         private System.Windows.Forms.ToolStripButton toolStripButtonPlay;
+        private System.Windows.Forms.ToolStripMenuItem colorMode0;
+        private System.Windows.Forms.ToolStripMenuItem colorMode1;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
     }
 }
 

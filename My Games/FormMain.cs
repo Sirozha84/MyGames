@@ -276,6 +276,8 @@ namespace My_Games
             Width = Properties.Settings.Default.Width;
             Height = Properties.Settings.Default.Height;
             infoViewMenu.Checked = Properties.Settings.Default.InfoView;
+            colorMode0.Checked = Properties.Settings.Default.colorMode == 0;
+            colorMode1.Checked = Properties.Settings.Default.colorMode == 1;
             ShowHideInfoView(false);
         }
 
@@ -292,6 +294,21 @@ namespace My_Games
 
         #endregion
 
+        private void colorMode0_Click(object sender, EventArgs e)
+        {
+            colorMode0.Checked = true;
+            colorMode1.Checked = false;
+            Properties.Settings.Default.colorMode = 0;
+            RefreshData();
+        }
+
+        private void colorMode1_Click(object sender, EventArgs e)
+        {
+            colorMode0.Checked = false;
+            colorMode1.Checked = true;
+            Properties.Settings.Default.colorMode = 1;
+            RefreshData();
+        }
     }
 
     class ItemComparer : IComparer

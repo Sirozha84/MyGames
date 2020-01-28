@@ -92,7 +92,7 @@
             this.splitter = new System.Windows.Forms.Splitter();
             this.panelVersion = new System.Windows.Forms.Panel();
             this.groupBoxVersion = new System.Windows.Forms.GroupBox();
-            this.tabPageHystory = new System.Windows.Forms.TabPage();
+            this.tabPageHistory = new System.Windows.Forms.TabPage();
             this.groupBoxHistory = new System.Windows.Forms.GroupBox();
             this.tabPageNotes = new System.Windows.Forms.TabPage();
             this.groupBoxNotes = new System.Windows.Forms.GroupBox();
@@ -116,7 +116,7 @@
             this.groupBoxDLCs.SuspendLayout();
             this.panelVersion.SuspendLayout();
             this.groupBoxVersion.SuspendLayout();
-            this.tabPageHystory.SuspendLayout();
+            this.tabPageHistory.SuspendLayout();
             this.groupBoxHistory.SuspendLayout();
             this.tabPageNotes.SuspendLayout();
             this.groupBoxNotes.SuspendLayout();
@@ -530,7 +530,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl.Controls.Add(this.tabPageMain);
             this.tabControl.Controls.Add(this.tabPagePurchases);
-            this.tabControl.Controls.Add(this.tabPageHystory);
+            this.tabControl.Controls.Add(this.tabPageHistory);
             this.tabControl.Controls.Add(this.tabPageNotes);
             this.tabControl.Controls.Add(this.tabPageOthers);
             this.tabControl.ItemSize = new System.Drawing.Size(120, 24);
@@ -632,9 +632,11 @@
             // 
             // tabPagePurchases
             // 
+            this.tabPagePurchases.BackColor = System.Drawing.Color.Transparent;
             this.tabPagePurchases.Controls.Add(this.panelDLCs);
             this.tabPagePurchases.Controls.Add(this.splitter);
             this.tabPagePurchases.Controls.Add(this.panelVersion);
+            this.tabPagePurchases.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabPagePurchases.Location = new System.Drawing.Point(4, 28);
             this.tabPagePurchases.Name = "tabPagePurchases";
             this.tabPagePurchases.Padding = new System.Windows.Forms.Padding(3);
@@ -786,16 +788,16 @@
             this.groupBoxVersion.TabStop = false;
             this.groupBoxVersion.Text = "Версии";
             // 
-            // tabPageHystory
+            // tabPageHistory
             // 
-            this.tabPageHystory.Controls.Add(this.groupBoxHistory);
-            this.tabPageHystory.Location = new System.Drawing.Point(4, 28);
-            this.tabPageHystory.Name = "tabPageHystory";
-            this.tabPageHystory.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageHystory.Size = new System.Drawing.Size(752, 476);
-            this.tabPageHystory.TabIndex = 3;
-            this.tabPageHystory.Text = "История";
-            this.tabPageHystory.UseVisualStyleBackColor = true;
+            this.tabPageHistory.Controls.Add(this.groupBoxHistory);
+            this.tabPageHistory.Location = new System.Drawing.Point(4, 28);
+            this.tabPageHistory.Name = "tabPageHistory";
+            this.tabPageHistory.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageHistory.Size = new System.Drawing.Size(752, 476);
+            this.tabPageHistory.TabIndex = 3;
+            this.tabPageHistory.Text = "История";
+            this.tabPageHistory.UseVisualStyleBackColor = true;
             // 
             // groupBoxHistory
             // 
@@ -967,7 +969,7 @@
             this.groupBoxDLCs.ResumeLayout(false);
             this.panelVersion.ResumeLayout(false);
             this.groupBoxVersion.ResumeLayout(false);
-            this.tabPageHystory.ResumeLayout(false);
+            this.tabPageHistory.ResumeLayout(false);
             this.groupBoxHistory.ResumeLayout(false);
             this.tabPageNotes.ResumeLayout(false);
             this.groupBoxNotes.ResumeLayout(false);
@@ -1021,7 +1023,7 @@
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPageMain;
         private System.Windows.Forms.TabPage tabPagePurchases;
-        private System.Windows.Forms.TabPage tabPageHystory;
+        private System.Windows.Forms.TabPage tabPageHistory;
         private System.Windows.Forms.TabPage tabPageNotes;
         private System.Windows.Forms.GroupBox groupBoxInfo;
         private System.Windows.Forms.TabPage tabPageOthers;

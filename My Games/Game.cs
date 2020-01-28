@@ -36,19 +36,25 @@ namespace My_Games
         public DateTime create = DateTime.Now;
         public DateTime change = DateTime.Now;
 
+        /// <summary>
+        /// Получает элемент списка раскрашенный в заданном режиме
+        /// </summary>
         public ListViewItem listItem()
         {
             string[] labels = {date.ToString("dd.MM.yyyy"), name, Data.GenreIDToName(genre), stars[rate - 1],
                 Event.events[win], hours.ToString("### ###"), versions.Count().ToString(), price.ToString("### ### ###")};
             ListViewItem item = new ListViewItem(labels);
             item.Tag = this;
-            if (win == 0) item.BackColor = Color.FromArgb(255, 192, 192);
-            if (win == 1) item.BackColor = Color.FromArgb(255, 224, 192);
-            if (win == 2) item.BackColor = Color.FromArgb(255, 255, 192);
-            if (win == 3) item.BackColor = Color.FromArgb(224, 255, 192);
-            if (win == 4) item.BackColor = Color.FromArgb(192, 255, 192);
-            if (win == 5) item.BackColor = Color.FromArgb(160, 255, 160);
-            if (win == 6) item.BackColor = Color.FromArgb(192, 255, 255);
+            if (Properties.Settings.Default.colorMode == 1)
+            {
+                if (win == 0) item.BackColor = Color.FromArgb(255, 192, 192);
+                if (win == 1) item.BackColor = Color.FromArgb(255, 224, 192);
+                if (win == 2) item.BackColor = Color.FromArgb(255, 255, 192);
+                if (win == 3) item.BackColor = Color.FromArgb(224, 255, 192);
+                if (win == 4) item.BackColor = Color.FromArgb(192, 255, 192);
+                if (win == 5) item.BackColor = Color.FromArgb(160, 255, 160);
+                if (win == 6) item.BackColor = Color.FromArgb(192, 255, 255);
+            }
             return item;
         }
     }

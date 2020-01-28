@@ -58,13 +58,13 @@ namespace My_Games
                 dlcs.Add(new DLC(d));
             DrawDLCs();
             tabPagePurchases.Text = "Покупки: " + (game.versions.Count + game.DLCs.Count).ToString();
-            tabPagePurchases.Font = Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
 
             //Вкладка истории прохождений
             history.Clear();
             foreach (Event e in game.history)
                 history.Add(new Event(e));
             DrawHistory();
+            tabPageHistory.Text = "История: " + (game.history.Count).ToString();
 
             //Вкладка заметок
             notes.Clear();
@@ -75,6 +75,7 @@ namespace My_Games
                 notes.Add(nn);
             }
             DrawNotes(false);
+            tabPageNotes.Text = "Заметки: " + (game.notes.Count).ToString();
 
             //Вкладка прочего
             labelInfo.Text = "Игра: " + game.name +
