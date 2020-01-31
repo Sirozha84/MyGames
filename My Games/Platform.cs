@@ -20,7 +20,7 @@ namespace My_Games
         public ListViewItem GetListViewItem()
         {
             string[] strings = { name, company };
-            return new ListViewItem(strings) { Tag = this };
+            return new ListViewItem(strings) { Tag = this, BackColor = color };
         }
 
         public override int CompareTo(object obj)

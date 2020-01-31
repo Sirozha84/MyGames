@@ -36,6 +36,8 @@
             this.radioButtonEl = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.radioButtonSb = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.buttonCol = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxName
@@ -49,7 +51,7 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(197, 116);
+            this.buttonCancel.Location = new System.Drawing.Point(197, 143);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 99;
@@ -59,7 +61,7 @@
             // buttonOK
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Location = new System.Drawing.Point(116, 116);
+            this.buttonOK.Location = new System.Drawing.Point(116, 143);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
             this.buttonOK.TabIndex = 98;
@@ -118,13 +120,34 @@
             this.radioButtonSb.Text = "Подписка";
             this.radioButtonSb.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(65, 111);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 105;
+            this.label3.Text = "Цвет:";
+            // 
+            // buttonCol
+            // 
+            this.buttonCol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCol.Location = new System.Drawing.Point(106, 107);
+            this.buttonCol.Name = "buttonCol";
+            this.buttonCol.Size = new System.Drawing.Size(20, 20);
+            this.buttonCol.TabIndex = 104;
+            this.buttonCol.UseVisualStyleBackColor = true;
+            this.buttonCol.Click += new System.EventHandler(this.buttonCol_Click);
+            // 
             // FormMedium
             // 
             this.AcceptButton = this.buttonOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(284, 151);
+            this.ClientSize = new System.Drawing.Size(284, 178);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.buttonCol);
             this.Controls.Add(this.radioButtonSb);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.radioButtonEl);
@@ -157,5 +180,7 @@
         private System.Windows.Forms.RadioButton radioButtonEl;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton radioButtonSb;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button buttonCol;
     }
 }

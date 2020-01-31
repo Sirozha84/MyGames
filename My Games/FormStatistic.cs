@@ -398,7 +398,7 @@ namespace My_Games
             for (int i = 0; i <= heightColumns; i += heightColumns / 4 / grad)
             {
                 graph.DrawLine(Pens.Gray, left, height - i * k, fullWidth - 5, height - i * k);
-                graph.DrawString((i * grad).ToString(), title, Brushes.Black, new Rectangle(0, height - i * k - 10, left - 10, 20), formatR);
+                graph.DrawString((i * grad).ToString("### ### ###"), title, Brushes.Black, new Rectangle(0, height - i * k - 10, left - 10, 20), formatR);
             }
             
             //Рисование столбиков
@@ -421,8 +421,6 @@ namespace My_Games
                             {
                                 graph.DrawRectangle(Pens.Black, left + space + cWidth * i - 3, height - (s + m[c, j] / grad) * k - 3, cWidthS + 5, m[c, j] / grad * k + 5);
                                 graph.DrawString(m[c, j].ToString("### ### ###"), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, height - (s + m[c, j] / grad) * k - 20, cWidth, 15), formatC);
-                                //graph.DrawString("[ test ]", title, Brushes.Black, new Rectangle(left + cWidth * i, height - (s + m[c, j] / grad) * k - 00, cWidth, 15), formatC);
-                                //graph.DrawRectangle(Pens.Black, left + cWidth * i, height - (s + m[c, j] / grad) * k - 20, cWidth, 15);
                             }
                             s += m[c, j] / grad;
                         }

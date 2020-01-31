@@ -24,7 +24,7 @@ namespace My_Games
             if (mediumType == 1) mt = "Электронный магазин";
             if (mediumType == 2) mt = "Подписка";
             string[] strings = { name, mt };
-            return new ListViewItem(strings) { Tag = this };
+            return new ListViewItem(strings) { Tag = this, BackColor = color };
         }
 
         public override int CompareTo(object obj)

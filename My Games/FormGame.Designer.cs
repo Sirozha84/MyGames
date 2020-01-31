@@ -515,7 +515,6 @@
             // 
             // labelInfo
             // 
-            this.labelInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelInfo.AutoSize = true;
             this.labelInfo.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelInfo.Location = new System.Drawing.Point(41, 43);

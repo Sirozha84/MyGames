@@ -28,7 +28,7 @@ namespace My_Games
             }
         }
 
-        public void NewColor()
+        void NewColor()
         {
             colR = rnd.Next(128, 255);
             colG = rnd.Next(128, 255);
