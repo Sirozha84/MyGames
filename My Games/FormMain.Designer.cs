@@ -38,6 +38,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoViewMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.colorMode0 = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,9 +56,13 @@
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonNew = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabelFind = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBoxFind = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonReset = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonFilter = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonStat = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonList = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonPlay = new System.Windows.Forms.ToolStripButton();
@@ -161,6 +166,7 @@
             // видToolStripMenuItem
             // 
             this.видToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.filterToolStripMenuItem,
             this.infoViewMenu,
             this.toolStripMenuItem2,
             this.colorMode0,
@@ -169,12 +175,19 @@
             this.видToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.видToolStripMenuItem.Text = "Вид";
             // 
+            // filterToolStripMenuItem
+            // 
+            this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
+            this.filterToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.filterToolStripMenuItem.Text = "Фильтр";
+            this.filterToolStripMenuItem.Click += new System.EventHandler(this.filterToolStripMenuItem_Click);
+            // 
             // infoViewMenu
             // 
             this.infoViewMenu.Name = "infoViewMenu";
             this.infoViewMenu.ShortcutKeys = System.Windows.Forms.Keys.F7;
             this.infoViewMenu.Size = new System.Drawing.Size(228, 22);
-            this.infoViewMenu.Text = "Информация";
+            this.infoViewMenu.Text = "Панель информации";
             this.infoViewMenu.Click += new System.EventHandler(this.infoViewMenu_Click);
             // 
             // toolStripMenuItem2
@@ -291,9 +304,13 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonNew,
+            this.toolStripSeparator3,
             this.toolStripLabelFind,
             this.toolStripTextBoxFind,
             this.toolStripButtonReset,
+            this.toolStripSeparator2,
+            this.toolStripButtonFilter,
+            this.toolStripSeparator1,
             this.toolStripButtonStat,
             this.toolStripButtonList,
             this.toolStripButtonPlay});
@@ -313,6 +330,11 @@
             this.toolStripButtonNew.ToolTipText = "Новая игра";
             this.toolStripButtonNew.Click += new System.EventHandler(this.toolStripButtonNew_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
             // toolStripLabelFind
             // 
             this.toolStripLabelFind.Name = "toolStripLabelFind";
@@ -322,7 +344,7 @@
             // toolStripTextBoxFind
             // 
             this.toolStripTextBoxFind.Name = "toolStripTextBoxFind";
-            this.toolStripTextBoxFind.Size = new System.Drawing.Size(200, 25);
+            this.toolStripTextBoxFind.Size = new System.Drawing.Size(160, 25);
             this.toolStripTextBoxFind.TextChanged += new System.EventHandler(this.toolStripTextBoxFind_TextChanged);
             // 
             // toolStripButtonReset
@@ -334,6 +356,26 @@
             this.toolStripButtonReset.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonReset.Text = "Сброс";
             this.toolStripButtonReset.Click += new System.EventHandler(this.toolStripButtonReset_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonFilter
+            // 
+            this.toolStripButtonFilter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonFilter.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonFilter.Image")));
+            this.toolStripButtonFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonFilter.Name = "toolStripButtonFilter";
+            this.toolStripButtonFilter.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonFilter.Text = "Фильтр";
+            this.toolStripButtonFilter.Click += new System.EventHandler(this.toolStripButtonFilter_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripButtonStat
             // 
@@ -667,6 +709,11 @@
         private System.Windows.Forms.ToolStripMenuItem colorMode0;
         private System.Windows.Forms.ToolStripMenuItem colorMode1;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem filterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButtonFilter;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

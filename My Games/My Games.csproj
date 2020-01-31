@@ -70,6 +70,7 @@
     <Compile Include="Data.cs" />
     <Compile Include="DLC.cs" />
     <Compile Include="Event.cs" />
+    <Compile Include="Filter.cs" />
     <Compile Include="FormAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +100,12 @@
     </Compile>
     <Compile Include="FormFastAdd.Designer.cs">
       <DependentUpon>FormFastAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFilter.Designer.cs">
+      <DependentUpon>FormFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="FormGame.cs">
       <SubType>Form</SubType>
@@ -176,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormFastAdd.resx">
       <DependentUpon>FormFastAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFilter.resx">
+      <DependentUpon>FormFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGame.resx">
       <DependentUpon>FormGame.cs</DependentUpon>

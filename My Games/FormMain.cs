@@ -208,6 +208,16 @@ namespace My_Games
         {
             Close();
         }
+        private void filterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Filter.enable)
+                Filter.enable = false;
+            else
+                using (FormFilter form = new FormFilter())
+                    form.ShowDialog();
+            filterToolStripMenuItem.Checked = Filter.enable;
+            toolStripButtonFilter.Checked = Filter.enable;
+        }
 
         private void infoViewMenu_Click(object sender, EventArgs e)
         {
@@ -245,6 +255,7 @@ namespace My_Games
         private void toolStripButtonNew_Click(object sender, EventArgs e) { новаяToolStripMenuItem_Click(null, null); }
         private void toolStripTextBoxFind_TextChanged(object sender, EventArgs e) { RefreshData(); }
         private void toolStripButtonReset_Click(object sender, EventArgs e) { toolStripTextBoxFind.Text = ""; RefreshData(); }
+        private void toolStripButtonFilter_Click(object sender, EventArgs e) { filterToolStripMenuItem_Click(null, null); }
         private void toolStripButtonStat_Click(object sender, EventArgs e) { статистикаToolStripMenuItem_Click(null, null); }
         private void ToolStripButtonList_Click(object sender, EventArgs e) { MenuHistory_Click(null, null); }
         private void ToolStripButtonPlay_Click(object sender, EventArgs e) { ИсторияПрохожденияToolStripMenuIte_Click(null, null); }
@@ -309,6 +320,8 @@ namespace My_Games
             Properties.Settings.Default.colorMode = 1;
             RefreshData();
         }
+
+
     }
 
     class ItemComparer : IComparer

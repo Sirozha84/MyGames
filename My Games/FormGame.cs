@@ -57,14 +57,14 @@ namespace My_Games
             foreach (DLC d in game.DLCs)
                 dlcs.Add(new DLC(d));
             DrawDLCs();
-            tabPagePurchases.Text = "Покупки: " + (game.versions.Count + game.DLCs.Count).ToString();
+            tabPagePurchases.Text = game.versions.Count + game.DLCs.Count > 0 ? "Покупки: " + (game.versions.Count + game.DLCs.Count).ToString() : "Покупки";
 
             //Вкладка истории прохождений
             history.Clear();
             foreach (Event e in game.history)
                 history.Add(new Event(e));
             DrawHistory();
-            tabPageHistory.Text = "История: " + (game.history.Count).ToString();
+            tabPageHistory.Text = game.history.Count > 0 ? "История: " + (game.history.Count).ToString() : "История";
 
             //Вкладка заметок
             notes.Clear();
@@ -75,7 +75,7 @@ namespace My_Games
                 notes.Add(nn);
             }
             DrawNotes(false);
-            tabPageNotes.Text = "Заметки: " + (game.notes.Count).ToString();
+            tabPageNotes.Text = game.notes.Count > 0 ? "Заметки: " + (game.notes.Count).ToString() : "Заметки";
 
             //Вкладка прочего
             labelInfo.Text = "Игра: " + game.name +
