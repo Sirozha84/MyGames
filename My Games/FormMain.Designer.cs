@@ -83,6 +83,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelAll = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelShowed = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelSelected = new System.Windows.Forms.ToolStripStatusLabel();
             this.infoView = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -92,7 +93,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.toolStripStatusLabelSelected = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -544,15 +544,25 @@
             // 
             // toolStripStatusLabelAll
             // 
+            this.toolStripStatusLabelAll.AutoSize = false;
             this.toolStripStatusLabelAll.Name = "toolStripStatusLabelAll";
-            this.toolStripStatusLabelAll.Size = new System.Drawing.Size(126, 17);
+            this.toolStripStatusLabelAll.Size = new System.Drawing.Size(200, 17);
             this.toolStripStatusLabelAll.Text = "toolStripStatusLabelAll";
+            this.toolStripStatusLabelAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // toolStripStatusLabelShowed
             // 
+            this.toolStripStatusLabelShowed.AutoSize = false;
             this.toolStripStatusLabelShowed.Name = "toolStripStatusLabelShowed";
-            this.toolStripStatusLabelShowed.Size = new System.Drawing.Size(154, 17);
+            this.toolStripStatusLabelShowed.Size = new System.Drawing.Size(200, 17);
             this.toolStripStatusLabelShowed.Text = "toolStripStatusLabelShowed";
+            // 
+            // toolStripStatusLabelSelected
+            // 
+            this.toolStripStatusLabelSelected.AutoSize = false;
+            this.toolStripStatusLabelSelected.Name = "toolStripStatusLabelSelected";
+            this.toolStripStatusLabelSelected.Size = new System.Drawing.Size(200, 17);
+            this.toolStripStatusLabelSelected.Text = "toolStripStatusLabelSelected";
             // 
             // infoView
             // 
@@ -574,7 +584,6 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Enabled = false;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.Location = new System.Drawing.Point(2, 112);
             this.label8.Name = "label8";
@@ -594,7 +603,6 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Enabled = false;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.Location = new System.Drawing.Point(2, 79);
             this.label6.Name = "label6";
@@ -614,7 +622,6 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Enabled = false;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.Location = new System.Drawing.Point(2, 46);
             this.label4.Name = "label4";
@@ -634,7 +641,6 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Enabled = false;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(2, 13);
             this.label2.Name = "label2";
@@ -650,12 +656,6 @@
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Игра";
-            // 
-            // toolStripStatusLabelSelected
-            // 
-            this.toolStripStatusLabelSelected.Name = "toolStripStatusLabelSelected";
-            this.toolStripStatusLabelSelected.Size = new System.Drawing.Size(156, 17);
-            this.toolStripStatusLabelSelected.Text = "toolStripStatusLabelSelected";
             // 
             // FormMain
             // 

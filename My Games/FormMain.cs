@@ -50,21 +50,17 @@ namespace My_Games
         private void listViewGames_SelectedIndexChanged(object sender, EventArgs e)
         {
             bool selected = listViewGames.SelectedIndices.Count > 0;
+            bool enableSite = false;
             удалитьToolStripMenuItem.Enabled = selected;
             открытьToolStripMenuItem.Enabled = selected;
             удалитьToolStripMenuItem1.Enabled = selected;
             //Инфопанель
-            const string ns = "Игра не выбрана";
+            const string ns = "";
             Game game = selected? (Game)listViewGames.SelectedItems[0].Tag : new Game();
-            label2.Enabled = selected;
             label2.Text = selected ? game.name : ns;
-            label4.Enabled = selected;
             label4.Text = selected ? game.developer : ns;
-            label6.Enabled = selected;
             label6.Text = selected ? game.publisher : ns;
-            label8.Enabled = selected;
             label8.Text = selected ? game.year : ns;
-            bool enableSite = false;
             int selectC = listViewGames.SelectedIndices.Count;
             if (selectC == 1)
                 enableSite = game.website != null & game.website != "";

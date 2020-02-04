@@ -67,8 +67,8 @@ namespace My_Games
                 }
             }
             listViewHistory.EndUpdate();
-            toolStripStatusLabel1.Text = "Количество: " + count.ToString();
-            toolStripStatusLabel2.Text = "Потрачено: " + price.ToString();
+            toolStripStatusLabelCount.Text = "Количество: " + count.ToString();
+            toolStripStatusLabelSpent.Text = "Потрачено: " + price.ToString();
             isUser = true;
         }
 

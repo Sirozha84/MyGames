@@ -46,8 +46,8 @@
             this.comboBoxMedium = new System.Windows.Forms.ComboBox();
             this.buttonReset = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelSpent = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -197,29 +197,29 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2});
+            this.toolStripStatusLabelCount,
+            this.toolStripStatusLabelSpent});
             this.statusStrip1.Location = new System.Drawing.Point(0, 539);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(944, 22);
             this.statusStrip1.TabIndex = 10;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // toolStripStatusLabelCount
             // 
-            this.toolStripStatusLabel1.AutoSize = false;
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(200, 17);
-            this.toolStripStatusLabel1.Text = "Количество";
-            this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripStatusLabelCount.AutoSize = false;
+            this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
+            this.toolStripStatusLabelCount.Size = new System.Drawing.Size(200, 17);
+            this.toolStripStatusLabelCount.Text = "Количество";
+            this.toolStripStatusLabelCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // toolStripStatusLabel2
+            // toolStripStatusLabelSpent
             // 
-            this.toolStripStatusLabel2.AutoSize = false;
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(200, 17);
-            this.toolStripStatusLabel2.Text = "Потрачено";
-            this.toolStripStatusLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripStatusLabelSpent.AutoSize = false;
+            this.toolStripStatusLabelSpent.Name = "toolStripStatusLabelSpent";
+            this.toolStripStatusLabelSpent.Size = new System.Drawing.Size(200, 17);
+            this.toolStripStatusLabelSpent.Text = "Потрачено";
+            this.toolStripStatusLabelSpent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FormHistory
             // 
@@ -271,7 +271,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCount;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelSpent;
     }
 }
