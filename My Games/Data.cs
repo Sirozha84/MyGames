@@ -18,7 +18,7 @@ namespace My_Games
         public int mediumLastID;
         public List<Genre> genres = new List<Genre>();
         public int genreLastID;
-
+        public Filter filter = new Filter();
         public static void Load()
         {
             try

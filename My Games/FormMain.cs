@@ -78,7 +78,43 @@ namespace My_Games
             listViewGames.BeginUpdate();
             listViewGames.Items.Clear();
             foreach (Game g in Data.data.games)
-                if (g.name.ToLower().Contains(toolStripTextBoxFind.Text.ToLower())) listViewGames.Items.Add(g.listItem());
+            {
+                bool draw = true;
+                bool match;
+                Filter fl = Data.data.filter;
+                if (!g.name.ToLower().Contains(toolStripTextBoxFind.Text.ToLower())) draw = false;
+                if (fl.enable)
+                {
+                    if (fl.startEnable | fl.endEnable)
+                    {
+                        match = false;
+                        foreach (Version ver in g.versions)
+                        {
+                            bool min = fl.startEnable? ver.date >= fl.start : true;
+                            bool max = fl.endEnable ? ver.date <= fl.end : true;
+                            match = min & max;
+                        }
+
+                        if (!match) draw = false;
+                    }
+                    if (fl.platformEnable)
+                    {
+                        match = false;
+                        foreach (Version ver in g.versions)
+                            if (ver.platform == fl.platform) match = true;
+                        if (!match) draw = false;
+                    }
+                    if (fl.mediumEnable)
+                    {
+                        match = false;
+                        foreach (Version ver in g.versions)
+                            if (ver.medium == fl.medium) match = true;
+                        if (!match) draw = false;
+                    }
+                    if (fl.genreEnable && g.genre != fl.genre) draw = false;
+                }
+                if (draw) listViewGames.Items.Add(g.listItem());
+            }
             listViewGames.EndUpdate();
             //listViewGames.Items[30].Selected = true;
             //listViewGames.Items[30].Focused = true;
@@ -210,13 +246,15 @@ namespace My_Games
         }
         private void filterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Filter.enable)
-                Filter.enable = false;
+            Filter fl = Data.data.filter;
+            if (fl.enable)
+                fl.enable = false;
             else
                 using (FormFilter form = new FormFilter())
                     form.ShowDialog();
-            filterToolStripMenuItem.Checked = Filter.enable;
-            toolStripButtonFilter.Checked = Filter.enable;
+            filterToolStripMenuItem.Checked = fl.enable;
+            toolStripButtonFilter.Checked = fl.enable;
+            RefreshData();
         }
 
         private void infoViewMenu_Click(object sender, EventArgs e)
@@ -286,6 +324,8 @@ namespace My_Games
             Top = Properties.Settings.Default.Top;
             Width = Properties.Settings.Default.Width;
             Height = Properties.Settings.Default.Height;
+            filterToolStripMenuItem.Checked = Data.data.filter.enable;
+            toolStripButtonFilter.Checked = Data.data.filter.enable;
             infoViewMenu.Checked = Properties.Settings.Default.InfoView;
             colorMode0.Checked = Properties.Settings.Default.colorMode == 0;
             colorMode1.Checked = Properties.Settings.Default.colorMode == 1;
@@ -300,6 +340,7 @@ namespace My_Games
             Properties.Settings.Default.Height = Height;
             Properties.Settings.Default.InfoView = infoViewMenu.Checked;
             Properties.Settings.Default.Save();
+            Data.Save();
         }
 
 

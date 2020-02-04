@@ -1,13 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace My_Games
 {
-    static class Filter
+    public class Filter
     {
-        public static bool enable;
+        public bool enable;
+        
+        public bool startEnable;
+        public DateTime start = DateTime.Now;
+        
+        public bool endEnable;
+        public DateTime end = DateTime.Now;
+        
+        public bool platformEnable;
+        public int platform;
+        
+        public bool mediumEnable;
+        public int medium;
+        
+        public bool genreEnable;
+        public int genre;
     }
 }
