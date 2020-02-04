@@ -65,9 +65,14 @@ namespace My_Games
             label8.Enabled = selected;
             label8.Text = selected ? game.year : ns;
             bool enableSite = false;
-            if (listViewGames.SelectedIndices.Count == 1)
+            int selectC = listViewGames.SelectedIndices.Count;
+            if (selectC == 1)
                 enableSite = game.website != null & game.website != "";
             перейтиНаСайтToolStripMenuItem.Enabled = enableSite;
+            if (selectC == 0)
+                toolStripStatusLabelSelected.Text = "";
+            else
+                toolStripStatusLabelSelected.Text = "Выделено: " + selectC.ToString();
         }
 
         #region Вид приложения, обновление, сортировка
@@ -77,6 +82,7 @@ namespace My_Games
             Data.data.games.Sort(dc);
             listViewGames.BeginUpdate();
             listViewGames.Items.Clear();
+            int showed = 0;
             foreach (Game g in Data.data.games)
             {
                 bool draw = true;
@@ -113,18 +119,27 @@ namespace My_Games
                     }
                     if (fl.genreEnable && g.genre != fl.genre) draw = false;
                 }
-                if (draw) listViewGames.Items.Add(g.listItem());
+                if (draw)
+                {
+                    listViewGames.Items.Add(g.listItem());
+                    showed++;
+                }
             }
             listViewGames.EndUpdate();
             //listViewGames.Items[30].Selected = true;
             //listViewGames.Items[30].Focused = true;
             //Подумать как после обновления списка оставить выделенным элемент который уже был выделен до обновления
-            StatusBas();
+            StatusBas(showed);
         }
 
-        void StatusBas()
+        void StatusBas(int showed)
         {
-            toolStripStatusLabel1.Text = "Всего игр в коллекции: " + Data.data.games.Count;
+            toolStripStatusLabelAll.Text = "Всего игр в коллекции: " + Data.data.games.Count;
+            if (showed == Data.data.games.Count)
+                toolStripStatusLabelShowed.Text = "";
+            else
+                toolStripStatusLabelShowed.Text = "Показано: " + showed.ToString();
+            toolStripStatusLabelSelected.Text = "";
         }
 
         /// <summary>

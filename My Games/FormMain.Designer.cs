@@ -81,7 +81,8 @@
             this.перейтиНаСайтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelAll = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelShowed = new System.Windows.Forms.ToolStripStatusLabel();
             this.infoView = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -91,6 +92,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.toolStripStatusLabelSelected = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -327,11 +329,12 @@
             // 
             // toolStripButtonNew
             // 
+            this.toolStripButtonNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonNew.Image = global::My_Games.Properties.Resources._new;
             this.toolStripButtonNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonNew.Name = "toolStripButtonNew";
-            this.toolStripButtonNew.Size = new System.Drawing.Size(61, 22);
-            this.toolStripButtonNew.Text = "Новая";
+            this.toolStripButtonNew.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonNew.Text = "Новая игра";
             this.toolStripButtonNew.ToolTipText = "Новая игра";
             this.toolStripButtonNew.Click += new System.EventHandler(this.toolStripButtonNew_Click);
             // 
@@ -530,18 +533,26 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
+            this.toolStripStatusLabelAll,
+            this.toolStripStatusLabelShowed,
+            this.toolStripStatusLabelSelected});
             this.statusStrip1.Location = new System.Drawing.Point(0, 539);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(784, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // toolStripStatusLabelAll
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            this.toolStripStatusLabelAll.Name = "toolStripStatusLabelAll";
+            this.toolStripStatusLabelAll.Size = new System.Drawing.Size(126, 17);
+            this.toolStripStatusLabelAll.Text = "toolStripStatusLabelAll";
+            // 
+            // toolStripStatusLabelShowed
+            // 
+            this.toolStripStatusLabelShowed.Name = "toolStripStatusLabelShowed";
+            this.toolStripStatusLabelShowed.Size = new System.Drawing.Size(154, 17);
+            this.toolStripStatusLabelShowed.Text = "toolStripStatusLabelShowed";
             // 
             // infoView
             // 
@@ -640,6 +651,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Игра";
             // 
+            // toolStripStatusLabelSelected
+            // 
+            this.toolStripStatusLabelSelected.Name = "toolStripStatusLabelSelected";
+            this.toolStripStatusLabelSelected.Size = new System.Drawing.Size(156, 17);
+            this.toolStripStatusLabelSelected.Text = "toolStripStatusLabelSelected";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -715,7 +732,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelAll;
         private System.Windows.Forms.ToolStripMenuItem MenuHistory;
         private System.Windows.Forms.ToolStripMenuItem перейтиНаСайтToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
@@ -733,6 +750,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButtonInfo;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelShowed;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelSelected;
     }
 }
 
