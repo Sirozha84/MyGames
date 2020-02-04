@@ -189,6 +189,8 @@ namespace My_Games
 
         #region Главное меню
 
+        //Файл
+
         private void новаяToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game game = new Game();
@@ -244,6 +246,9 @@ namespace My_Games
         {
             Close();
         }
+
+        //Вид
+
         private void filterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Filter fl = Data.data.filter;
@@ -260,8 +265,12 @@ namespace My_Games
         private void infoViewMenu_Click(object sender, EventArgs e)
         {
             infoViewMenu.Checked = !infoViewMenu.Checked;
+            toolStripButtonInfo.Checked = infoViewMenu.Checked;
             ShowHideInfoView(true);
         }
+
+
+        //Сервис
 
         private void статистикаToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -277,6 +286,24 @@ namespace My_Games
         {
             using (FormPlayHistory form = new FormPlayHistory()) form.ShowDialog();
         }
+
+        private void colorMode0_Click(object sender, EventArgs e)
+        {
+            colorMode0.Checked = true;
+            colorMode1.Checked = false;
+            Properties.Settings.Default.colorMode = 0;
+            RefreshData();
+        }
+
+        private void colorMode1_Click(object sender, EventArgs e)
+        {
+            colorMode0.Checked = false;
+            colorMode1.Checked = true;
+            Properties.Settings.Default.colorMode = 1;
+            RefreshData();
+        }
+
+        //Справка
 
         private void СтраницаПрограммыToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -294,6 +321,7 @@ namespace My_Games
         private void toolStripTextBoxFind_TextChanged(object sender, EventArgs e) { RefreshData(); }
         private void toolStripButtonReset_Click(object sender, EventArgs e) { toolStripTextBoxFind.Text = ""; RefreshData(); }
         private void toolStripButtonFilter_Click(object sender, EventArgs e) { filterToolStripMenuItem_Click(null, null); }
+        private void toolStripButtonInfo_Click(object sender, EventArgs e) { infoViewMenu_Click(null, null); }
         private void toolStripButtonStat_Click(object sender, EventArgs e) { статистикаToolStripMenuItem_Click(null, null); }
         private void ToolStripButtonList_Click(object sender, EventArgs e) { MenuHistory_Click(null, null); }
         private void ToolStripButtonPlay_Click(object sender, EventArgs e) { ИсторияПрохожденияToolStripMenuIte_Click(null, null); }
@@ -327,6 +355,7 @@ namespace My_Games
             filterToolStripMenuItem.Checked = Data.data.filter.enable;
             toolStripButtonFilter.Checked = Data.data.filter.enable;
             infoViewMenu.Checked = Properties.Settings.Default.InfoView;
+            toolStripButtonInfo.Checked = Properties.Settings.Default.InfoView;
             colorMode0.Checked = Properties.Settings.Default.colorMode == 0;
             colorMode1.Checked = Properties.Settings.Default.colorMode == 1;
             ShowHideInfoView(false);
@@ -345,24 +374,6 @@ namespace My_Games
 
 
         #endregion
-
-        private void colorMode0_Click(object sender, EventArgs e)
-        {
-            colorMode0.Checked = true;
-            colorMode1.Checked = false;
-            Properties.Settings.Default.colorMode = 0;
-            RefreshData();
-        }
-
-        private void colorMode1_Click(object sender, EventArgs e)
-        {
-            colorMode0.Checked = false;
-            colorMode1.Checked = true;
-            Properties.Settings.Default.colorMode = 1;
-            RefreshData();
-        }
-
-
     }
 
     class ItemComparer : IComparer

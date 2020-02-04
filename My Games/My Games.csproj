@@ -245,9 +245,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="My Game Collectiom.ico" />
-    <None Include="Resources\history.png" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\filter.png" />
+    <None Include="Resources\winner.png" />
+    <None Include="Resources\purchase.png" />
     <None Include="Resources\My Games.png" />
-    <None Include="Resources\list.png" />
     <None Include="Resources\stat.png" />
   </ItemGroup>
   <ItemGroup>

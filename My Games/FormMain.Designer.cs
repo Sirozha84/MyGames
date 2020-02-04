@@ -62,6 +62,7 @@
             this.toolStripButtonReset = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonFilter = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonInfo = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonStat = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonList = new System.Windows.Forms.ToolStripButton();
@@ -177,6 +178,7 @@
             // 
             // filterToolStripMenuItem
             // 
+            this.filterToolStripMenuItem.Image = global::My_Games.Properties.Resources.filter;
             this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
             this.filterToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.filterToolStripMenuItem.Text = "Фильтр";
@@ -184,8 +186,9 @@
             // 
             // infoViewMenu
             // 
+            this.infoViewMenu.Image = global::My_Games.Properties.Resources.info;
             this.infoViewMenu.Name = "infoViewMenu";
-            this.infoViewMenu.ShortcutKeys = System.Windows.Forms.Keys.F7;
+            this.infoViewMenu.ShortcutKeys = System.Windows.Forms.Keys.F8;
             this.infoViewMenu.Size = new System.Drawing.Size(228, 22);
             this.infoViewMenu.Text = "Панель информации";
             this.infoViewMenu.Click += new System.EventHandler(this.infoViewMenu_Click);
@@ -222,21 +225,22 @@
             // платформыToolStripMenuItem
             // 
             this.платформыToolStripMenuItem.Name = "платформыToolStripMenuItem";
-            this.платформыToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
+            this.платформыToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.платформыToolStripMenuItem.Text = "Платформы";
             this.платформыToolStripMenuItem.Click += new System.EventHandler(this.платформыToolStripMenuItem_Click);
             // 
             // носителиЭлектронныеМагазиныToolStripMenuItem
             // 
             this.носителиЭлектронныеМагазиныToolStripMenuItem.Name = "носителиЭлектронныеМагазиныToolStripMenuItem";
-            this.носителиЭлектронныеМагазиныToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
-            this.носителиЭлектронныеМагазиныToolStripMenuItem.Text = "Носители / электронные магазины";
+            this.носителиЭлектронныеМагазиныToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.носителиЭлектронныеМагазиныToolStripMenuItem.Text = "Носители";
+            this.носителиЭлектронныеМагазиныToolStripMenuItem.ToolTipText = "Носители, электронные магазины, подписки";
             this.носителиЭлектронныеМагазиныToolStripMenuItem.Click += new System.EventHandler(this.носителиЭлектронныеМагазиныToolStripMenuItem_Click);
             // 
             // жанрыToolStripMenuItem
             // 
             this.жанрыToolStripMenuItem.Name = "жанрыToolStripMenuItem";
-            this.жанрыToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
+            this.жанрыToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.жанрыToolStripMenuItem.Text = "Жанры";
             this.жанрыToolStripMenuItem.Click += new System.EventHandler(this.жанрыToolStripMenuItem_Click);
             // 
@@ -261,7 +265,7 @@
             // 
             // MenuHistory
             // 
-            this.MenuHistory.Image = global::My_Games.Properties.Resources.list;
+            this.MenuHistory.Image = global::My_Games.Properties.Resources.purchase;
             this.MenuHistory.Name = "MenuHistory";
             this.MenuHistory.ShortcutKeys = System.Windows.Forms.Keys.F6;
             this.MenuHistory.Size = new System.Drawing.Size(218, 22);
@@ -270,7 +274,7 @@
             // 
             // историяПрохожденияToolStripMenuIte
             // 
-            this.историяПрохожденияToolStripMenuIte.Image = global::My_Games.Properties.Resources.history;
+            this.историяПрохожденияToolStripMenuIte.Image = global::My_Games.Properties.Resources.winner;
             this.историяПрохожденияToolStripMenuIte.Name = "историяПрохожденияToolStripMenuIte";
             this.историяПрохожденияToolStripMenuIte.ShortcutKeys = System.Windows.Forms.Keys.F7;
             this.историяПрохожденияToolStripMenuIte.Size = new System.Drawing.Size(218, 22);
@@ -310,6 +314,7 @@
             this.toolStripButtonReset,
             this.toolStripSeparator2,
             this.toolStripButtonFilter,
+            this.toolStripButtonInfo,
             this.toolStripSeparator1,
             this.toolStripButtonStat,
             this.toolStripButtonList,
@@ -337,9 +342,11 @@
             // 
             // toolStripLabelFind
             // 
+            this.toolStripLabelFind.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripLabelFind.Image = global::My_Games.Properties.Resources.search;
             this.toolStripLabelFind.Name = "toolStripLabelFind";
-            this.toolStripLabelFind.Size = new System.Drawing.Size(45, 22);
-            this.toolStripLabelFind.Text = "Поиск:";
+            this.toolStripLabelFind.Size = new System.Drawing.Size(16, 22);
+            this.toolStripLabelFind.Text = "Поиск";
             // 
             // toolStripTextBoxFind
             // 
@@ -365,12 +372,22 @@
             // toolStripButtonFilter
             // 
             this.toolStripButtonFilter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonFilter.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonFilter.Image")));
+            this.toolStripButtonFilter.Image = global::My_Games.Properties.Resources.filter;
             this.toolStripButtonFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonFilter.Name = "toolStripButtonFilter";
             this.toolStripButtonFilter.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonFilter.Text = "Фильтр";
             this.toolStripButtonFilter.Click += new System.EventHandler(this.toolStripButtonFilter_Click);
+            // 
+            // toolStripButtonInfo
+            // 
+            this.toolStripButtonInfo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonInfo.Image = global::My_Games.Properties.Resources.info;
+            this.toolStripButtonInfo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonInfo.Name = "toolStripButtonInfo";
+            this.toolStripButtonInfo.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonInfo.Text = "Панель информации";
+            this.toolStripButtonInfo.Click += new System.EventHandler(this.toolStripButtonInfo_Click);
             // 
             // toolStripSeparator1
             // 
@@ -390,7 +407,7 @@
             // toolStripButtonList
             // 
             this.toolStripButtonList.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonList.Image = global::My_Games.Properties.Resources.list;
+            this.toolStripButtonList.Image = global::My_Games.Properties.Resources.purchase;
             this.toolStripButtonList.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonList.Name = "toolStripButtonList";
             this.toolStripButtonList.Size = new System.Drawing.Size(23, 22);
@@ -400,7 +417,7 @@
             // toolStripButtonPlay
             // 
             this.toolStripButtonPlay.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonPlay.Image = global::My_Games.Properties.Resources.history;
+            this.toolStripButtonPlay.Image = global::My_Games.Properties.Resources.winner;
             this.toolStripButtonPlay.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonPlay.Name = "toolStripButtonPlay";
             this.toolStripButtonPlay.Size = new System.Drawing.Size(23, 22);
@@ -488,6 +505,7 @@
             // открытьToolStripMenuItem
             // 
             this.открытьToolStripMenuItem.Enabled = false;
+            this.открытьToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
             this.открытьToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.открытьToolStripMenuItem.Text = "Открыть";
@@ -714,6 +732,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonInfo;
     }
 }
 
