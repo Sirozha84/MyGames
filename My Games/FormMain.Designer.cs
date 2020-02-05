@@ -78,23 +78,28 @@
             this.columnHeaderVersions = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.перейтиНаСайтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.удалитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuGoToSite = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDelC = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusAll = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusShowed = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusSelected = new System.Windows.Forms.ToolStripStatusLabel();
             this.infoView = new System.Windows.Forms.Panel();
+            this.labelHistory = new System.Windows.Forms.Label();
+            this.labelHistoryL = new System.Windows.Forms.Label();
+            this.labelDLCs = new System.Windows.Forms.Label();
+            this.labelDLCL = new System.Windows.Forms.Label();
+            this.labelVersions = new System.Windows.Forms.Label();
+            this.labelVersionsL = new System.Windows.Forms.Label();
             this.pictureBoxCover = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelYear = new System.Windows.Forms.Label();
+            this.labelYearL = new System.Windows.Forms.Label();
+            this.labelPublishers = new System.Windows.Forms.Label();
+            this.labelPublishersL = new System.Windows.Forms.Label();
+            this.labelDevelopers = new System.Windows.Forms.Label();
+            this.labelDevelopersL = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.toolStripPanel.SuspendLayout();
             this.contextMenu.SuspendLayout();
@@ -243,14 +248,14 @@
             // menuPlatforms
             // 
             this.menuPlatforms.Name = "menuPlatforms";
-            this.menuPlatforms.Size = new System.Drawing.Size(180, 22);
+            this.menuPlatforms.Size = new System.Drawing.Size(142, 22);
             this.menuPlatforms.Text = "Платформы";
             this.menuPlatforms.Click += new System.EventHandler(this.menuPlatforms_Click);
             // 
             // menuMediums
             // 
             this.menuMediums.Name = "menuMediums";
-            this.menuMediums.Size = new System.Drawing.Size(180, 22);
+            this.menuMediums.Size = new System.Drawing.Size(142, 22);
             this.menuMediums.Text = "Носители";
             this.menuMediums.ToolTipText = "Носители, электронные магазины, подписки";
             this.menuMediums.Click += new System.EventHandler(this.menuMediums_Click);
@@ -258,7 +263,7 @@
             // menuGenres
             // 
             this.menuGenres.Name = "menuGenres";
-            this.menuGenres.Size = new System.Drawing.Size(180, 22);
+            this.menuGenres.Size = new System.Drawing.Size(142, 22);
             this.menuGenres.Text = "Жанры";
             this.menuGenres.Click += new System.EventHandler(this.menuGenres_Click);
             // 
@@ -523,36 +528,36 @@
             // contextMenu
             // 
             this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.открытьToolStripMenuItem,
-            this.перейтиНаСайтToolStripMenuItem,
-            this.удалитьToolStripMenuItem1});
+            this.menuOpen,
+            this.menuGoToSite,
+            this.menuDelC});
             this.contextMenu.Name = "contextMenuStrip1";
-            this.contextMenu.Size = new System.Drawing.Size(181, 92);
+            this.contextMenu.Size = new System.Drawing.Size(165, 70);
             // 
-            // открытьToolStripMenuItem
+            // menuOpen
             // 
-            this.открытьToolStripMenuItem.Enabled = false;
-            this.открытьToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.открытьToolStripMenuItem.Text = "Открыть";
-            this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
+            this.menuOpen.Enabled = false;
+            this.menuOpen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.menuOpen.Name = "menuOpen";
+            this.menuOpen.Size = new System.Drawing.Size(164, 22);
+            this.menuOpen.Text = "Открыть";
+            this.menuOpen.Click += new System.EventHandler(this.menuOpen_Click);
             // 
-            // перейтиНаСайтToolStripMenuItem
+            // menuGoToSite
             // 
-            this.перейтиНаСайтToolStripMenuItem.Enabled = false;
-            this.перейтиНаСайтToolStripMenuItem.Name = "перейтиНаСайтToolStripMenuItem";
-            this.перейтиНаСайтToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.перейтиНаСайтToolStripMenuItem.Text = "Перейти на сайт";
-            this.перейтиНаСайтToolStripMenuItem.Click += new System.EventHandler(this.ПерейтиНаСайтToolStripMenuItem_Click);
+            this.menuGoToSite.Enabled = false;
+            this.menuGoToSite.Name = "menuGoToSite";
+            this.menuGoToSite.Size = new System.Drawing.Size(164, 22);
+            this.menuGoToSite.Text = "Перейти на сайт";
+            this.menuGoToSite.Click += new System.EventHandler(this.menuGoToSite_Click);
             // 
-            // удалитьToolStripMenuItem1
+            // menuDelC
             // 
-            this.удалитьToolStripMenuItem1.Enabled = false;
-            this.удалитьToolStripMenuItem1.Name = "удалитьToolStripMenuItem1";
-            this.удалитьToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.удалитьToolStripMenuItem1.Text = "Удалить";
-            this.удалитьToolStripMenuItem1.Click += new System.EventHandler(this.удалитьToolStripMenuItem1_Click);
+            this.menuDelC.Enabled = false;
+            this.menuDelC.Name = "menuDelC";
+            this.menuDelC.Size = new System.Drawing.Size(164, 22);
+            this.menuDelC.Text = "Удалить";
+            this.menuDelC.Click += new System.EventHandler(this.menuDelC_Click);
             // 
             // statusStrip
             // 
@@ -594,103 +599,148 @@
             // 
             this.infoView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.infoView.Controls.Add(this.labelHistory);
+            this.infoView.Controls.Add(this.labelHistoryL);
+            this.infoView.Controls.Add(this.labelDLCs);
+            this.infoView.Controls.Add(this.labelDLCL);
+            this.infoView.Controls.Add(this.labelVersions);
+            this.infoView.Controls.Add(this.labelVersionsL);
             this.infoView.Controls.Add(this.pictureBoxCover);
-            this.infoView.Controls.Add(this.label8);
-            this.infoView.Controls.Add(this.label7);
-            this.infoView.Controls.Add(this.label6);
-            this.infoView.Controls.Add(this.label5);
-            this.infoView.Controls.Add(this.label4);
-            this.infoView.Controls.Add(this.label3);
-            this.infoView.Controls.Add(this.label2);
-            this.infoView.Controls.Add(this.label1);
+            this.infoView.Controls.Add(this.labelYear);
+            this.infoView.Controls.Add(this.labelYearL);
+            this.infoView.Controls.Add(this.labelPublishers);
+            this.infoView.Controls.Add(this.labelPublishersL);
+            this.infoView.Controls.Add(this.labelDevelopers);
+            this.infoView.Controls.Add(this.labelDevelopersL);
+            this.infoView.Controls.Add(this.labelName);
             this.infoView.Location = new System.Drawing.Point(585, 52);
             this.infoView.Name = "infoView";
             this.infoView.Size = new System.Drawing.Size(199, 484);
             this.infoView.TabIndex = 4;
             // 
+            // labelHistory
+            // 
+            this.labelHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelHistory.Location = new System.Drawing.Point(3, 439);
+            this.labelHistory.Name = "labelHistory";
+            this.labelHistory.Size = new System.Drawing.Size(190, 30);
+            this.labelHistory.TabIndex = 14;
+            // 
+            // labelHistoryL
+            // 
+            this.labelHistoryL.AutoSize = true;
+            this.labelHistoryL.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelHistoryL.Location = new System.Drawing.Point(3, 426);
+            this.labelHistoryL.Name = "labelHistoryL";
+            this.labelHistoryL.Size = new System.Drawing.Size(60, 13);
+            this.labelHistoryL.TabIndex = 13;
+            this.labelHistoryL.Text = "Пройдена:";
+            // 
+            // labelDLCs
+            // 
+            this.labelDLCs.Location = new System.Drawing.Point(3, 396);
+            this.labelDLCs.Name = "labelDLCs";
+            this.labelDLCs.Size = new System.Drawing.Size(190, 30);
+            this.labelDLCs.TabIndex = 12;
+            // 
+            // labelDLCL
+            // 
+            this.labelDLCL.AutoSize = true;
+            this.labelDLCL.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelDLCL.Location = new System.Drawing.Point(3, 383);
+            this.labelDLCL.Name = "labelDLCL";
+            this.labelDLCL.Size = new System.Drawing.Size(158, 13);
+            this.labelDLCL.TabIndex = 11;
+            this.labelDLCL.Text = "Дополнительные материалы:";
+            // 
+            // labelVersions
+            // 
+            this.labelVersions.Location = new System.Drawing.Point(3, 353);
+            this.labelVersions.Name = "labelVersions";
+            this.labelVersions.Size = new System.Drawing.Size(190, 30);
+            this.labelVersions.TabIndex = 10;
+            // 
+            // labelVersionsL
+            // 
+            this.labelVersionsL.AutoSize = true;
+            this.labelVersionsL.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelVersionsL.Location = new System.Drawing.Point(3, 340);
+            this.labelVersionsL.Name = "labelVersionsL";
+            this.labelVersionsL.Size = new System.Drawing.Size(47, 13);
+            this.labelVersionsL.TabIndex = 9;
+            this.labelVersionsL.Text = "Версии:";
+            // 
             // pictureBoxCover
             // 
-            this.pictureBoxCover.Location = new System.Drawing.Point(6, 135);
+            this.pictureBoxCover.Location = new System.Drawing.Point(3, 3);
             this.pictureBoxCover.Name = "pictureBoxCover";
             this.pictureBoxCover.Size = new System.Drawing.Size(190, 190);
+            this.pictureBoxCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxCover.TabIndex = 8;
             this.pictureBoxCover.TabStop = false;
             // 
-            // label8
+            // labelYear
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(2, 112);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(151, 20);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Игра не выбрана";
+            this.labelYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelYear.Location = new System.Drawing.Point(2, 320);
+            this.labelYear.Name = "labelYear";
+            this.labelYear.Size = new System.Drawing.Size(191, 20);
+            this.labelYear.TabIndex = 7;
             // 
-            // label7
+            // labelYearL
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 99);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Год выхода";
+            this.labelYearL.AutoSize = true;
+            this.labelYearL.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelYearL.Location = new System.Drawing.Point(3, 307);
+            this.labelYearL.Name = "labelYearL";
+            this.labelYearL.Size = new System.Drawing.Size(68, 13);
+            this.labelYearL.TabIndex = 6;
+            this.labelYearL.Text = "Год выхода:";
             // 
-            // label6
+            // labelPublishers
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(2, 79);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(151, 20);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Игра не выбрана";
+            this.labelPublishers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPublishers.Location = new System.Drawing.Point(2, 287);
+            this.labelPublishers.Name = "labelPublishers";
+            this.labelPublishers.Size = new System.Drawing.Size(191, 20);
+            this.labelPublishers.TabIndex = 5;
             // 
-            // label5
+            // labelPublishersL
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 66);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Издатель";
+            this.labelPublishersL.AutoSize = true;
+            this.labelPublishersL.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelPublishersL.Location = new System.Drawing.Point(3, 274);
+            this.labelPublishersL.Name = "labelPublishersL";
+            this.labelPublishersL.Size = new System.Drawing.Size(59, 13);
+            this.labelPublishersL.TabIndex = 4;
+            this.labelPublishersL.Text = "Издатель:";
             // 
-            // label4
+            // labelDevelopers
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(2, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(151, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Игра не выбрана";
+            this.labelDevelopers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelDevelopers.Location = new System.Drawing.Point(2, 254);
+            this.labelDevelopers.Name = "labelDevelopers";
+            this.labelDevelopers.Size = new System.Drawing.Size(191, 20);
+            this.labelDevelopers.TabIndex = 3;
             // 
-            // label3
+            // labelDevelopersL
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 33);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Разработчик";
+            this.labelDevelopersL.AutoSize = true;
+            this.labelDevelopersL.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelDevelopersL.Location = new System.Drawing.Point(3, 241);
+            this.labelDevelopersL.Name = "labelDevelopersL";
+            this.labelDevelopersL.Size = new System.Drawing.Size(75, 13);
+            this.labelDevelopersL.TabIndex = 2;
+            this.labelDevelopersL.Text = "Разработчик:";
             // 
-            // label2
+            // labelName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(2, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Игра не выбрана";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Игра";
+            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelName.Location = new System.Drawing.Point(3, 196);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(190, 45);
+            this.labelName.TabIndex = 1;
+            this.labelName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FormMain
             // 
@@ -751,25 +801,24 @@
         private System.Windows.Forms.ToolStripMenuItem menuAddFast;
         private System.Windows.Forms.ToolStripMenuItem menuDel;
         private System.Windows.Forms.ContextMenuStrip contextMenu;
-        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem menuOpen;
+        private System.Windows.Forms.ToolStripMenuItem menuDelC;
         private System.Windows.Forms.ToolStripMenuItem menuView;
         private System.Windows.Forms.ToolStripMenuItem menuInfoPanel;
         private System.Windows.Forms.Panel infoView;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem menuService;
         private System.Windows.Forms.ToolStripMenuItem menuStat;
         private System.Windows.Forms.ToolStripButton toolStat;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label labelYearL;
+        private System.Windows.Forms.Label labelPublishers;
+        private System.Windows.Forms.Label labelPublishersL;
+        private System.Windows.Forms.Label labelDevelopers;
+        private System.Windows.Forms.Label labelDevelopersL;
+        private System.Windows.Forms.Label labelYear;
         private System.Windows.Forms.ToolStripStatusLabel statusAll;
         private System.Windows.Forms.ToolStripMenuItem menuPurchases;
-        private System.Windows.Forms.ToolStripMenuItem перейтиНаСайтToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuGoToSite;
         private System.Windows.Forms.ToolStripSeparator menuSep1;
         private System.Windows.Forms.ToolStripMenuItem menuExit;
         private System.Windows.Forms.ToolStripMenuItem menuPage;
@@ -790,6 +839,12 @@
         private System.Windows.Forms.ToolStripSplitButton toolAdd;
         private System.Windows.Forms.ToolStripMenuItem toolAddFast;
         private System.Windows.Forms.ToolStripMenuItem menuSearch;
+        private System.Windows.Forms.Label labelVersions;
+        private System.Windows.Forms.Label labelVersionsL;
+        private System.Windows.Forms.Label labelDLCs;
+        private System.Windows.Forms.Label labelDLCL;
+        private System.Windows.Forms.Label labelHistory;
+        private System.Windows.Forms.Label labelHistoryL;
     }
 }
 

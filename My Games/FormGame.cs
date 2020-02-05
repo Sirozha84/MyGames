@@ -57,14 +57,12 @@ namespace My_Games
             foreach (DLC d in game.DLCs)
                 dlcs.Add(new DLC(d));
             DrawDLCs();
-            tabPagePurchases.Text = game.versions.Count + game.DLCs.Count > 0 ? "Покупки: " + (game.versions.Count + game.DLCs.Count).ToString() : "Покупки";
 
             //Вкладка истории прохождений
             history.Clear();
             foreach (Event e in game.history)
                 history.Add(new Event(e));
             DrawHistory();
-            tabPageHistory.Text = game.history.Count > 0 ? "История: " + (game.history.Count).ToString() : "История";
 
             //Вкладка заметок
             notes.Clear();
@@ -75,7 +73,6 @@ namespace My_Games
                 notes.Add(nn);
             }
             DrawNotes(false);
-            tabPageNotes.Text = game.notes.Count > 0 ? "Заметки: " + (game.notes.Count).ToString() : "Заметки";
 
             //Вкладка прочего
             labelInfo.Text = "Игра: " + game.name +
@@ -242,16 +239,11 @@ namespace My_Games
             versions.Sort(dc);
             listViewVersions.BeginUpdate();
             listViewVersions.Items.Clear();
-            string text = "";
             foreach (Version v in versions)
-            {
                 listViewVersions.Items.Add(v.listItem());
-                if (text != "") text += ", ";
-                text += Data.PlatformIDToName(v.platform);
-            }
-            if (text == "") text += "Нет";
-            labelVers.Text = text;
+            labelVers.Text = Data.StringVersions(versions);
             listViewVersions.EndUpdate();
+            tabPagePurchases.Text = versions.Count + dlcs.Count > 0 ? "Покупки: " + (versions.Count + dlcs.Count).ToString() : "Покупки";
         }
 
         private void listViewVersions_SelectedIndexChanged(object sender, EventArgs e)
@@ -305,17 +297,13 @@ namespace My_Games
             dlcs.Sort(dc);
             listViewDLCs.BeginUpdate();
             listViewDLCs.Items.Clear();
-            string text = "";
             foreach (DLC d in dlcs)
-            {
                 listViewDLCs.Items.Add(d.listItem());
-                if (text != "") text += ", ";
-                text += d.name;
-            }
-            if (text == "") text += "Нет";
-            labelDLCs.Text = text;
+            labelDLCs.Text = Data.StringDLCs(dlcs);
             listViewDLCs.EndUpdate();
+            tabPagePurchases.Text = versions.Count + dlcs.Count > 0 ? "Покупки: " + (versions.Count + dlcs.Count).ToString() : "Покупки";
         }
+
         private void ListViewDLCs_SelectedIndexChanged(object sender, EventArgs e)
         {
             bool sel = listViewDLCs.SelectedIndices.Count > 0;
@@ -365,16 +353,11 @@ namespace My_Games
             history.Sort(dc);
             listViewHistory.BeginUpdate();
             listViewHistory.Items.Clear();
-            int max = 0;
-            int hours = 0;
             foreach (Event e in history)
-            {
                 listViewHistory.Items.Add(e.listItem());
-                if (max < e.even) max = e.even;
-                hours += e.hours;
-            }
-            labelHis.Text = Event.events[max] + ", общее время в игре: " + hours.ToString() + " ч.";
+            labelHis.Text = Data.StringHistory(history); //Event.events[max] + ", общее время в игре: " + hours.ToString() + " ч.";
             listViewHistory.EndUpdate();
+            tabPageHistory.Text = history.Count > 0 ? "История: " + (history.Count).ToString() : "История";
         }
 
         private void listViewHistory_SelectedIndexChanged(object sender, EventArgs e)
@@ -394,7 +377,9 @@ namespace My_Games
                 listViewNotes.Items.Add(n.listItem());
             listViewNotes.EndUpdate();
             if (add) listViewNotes.Items[listViewNotes.Items.Count - 1].Selected = true;
+            tabPageNotes.Text = notes.Count > 0 ? "Заметки: " + (notes.Count).ToString() : "Заметки";
         }
+
 
         private void ButtonNoteAdd_Click(object sender, EventArgs e)
         {

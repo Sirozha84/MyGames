@@ -98,6 +98,8 @@
             this.groupBoxHistory = new System.Windows.Forms.GroupBox();
             this.tabPageNotes = new System.Windows.Forms.TabPage();
             this.groupBoxNotes = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.buttonNoteAdd = new System.Windows.Forms.Button();
             this.textBoxNoteName = new System.Windows.Forms.TextBox();
             this.listViewNotes = new System.Windows.Forms.ListView();
@@ -108,8 +110,6 @@
             this.textBoxNote = new System.Windows.Forms.TextBox();
             this.tabPageOthers = new System.Windows.Forms.TabPage();
             this.imageListTabs = new System.Windows.Forms.ImageList(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.groupBoxMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             this.groupBoxComment.SuspendLayout();
@@ -863,6 +863,24 @@
             this.groupBoxNotes.TabStop = false;
             this.groupBoxNotes.Text = "Заметки";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(297, 24);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(36, 13);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Дата:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(269, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Заголовок:";
+            // 
             // buttonNoteAdd
             // 
             this.buttonNoteAdd.Image = global::My_Games.Properties.Resources.add;
@@ -968,24 +986,6 @@
             this.imageListTabs.Images.SetKeyName(0, "purchase.png");
             this.imageListTabs.Images.SetKeyName(1, "winner.png");
             this.imageListTabs.Images.SetKeyName(2, "notes.png");
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(269, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Заголовок:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(297, 24);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(36, 13);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Дата:";
             // 
             // FormGame
             // 

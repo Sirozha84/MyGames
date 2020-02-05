@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-
+using System.Drawing;
 using System.Collections;
 
 namespace My_Games
@@ -52,19 +52,30 @@ namespace My_Games
             bool selected = listViewGames.SelectedIndices.Count > 0;
             bool enableSite = false;
             menuDel.Enabled = selected;
-            открытьToolStripMenuItem.Enabled = selected;
-            удалитьToolStripMenuItem1.Enabled = selected;
-            //Инфопанель
-            const string ns = "";
+            menuOpen.Enabled = selected;
+            menuDelC.Enabled = selected;
+
             Game game = selected? (Game)listViewGames.SelectedItems[0].Tag : new Game();
-            label2.Text = selected ? game.name : ns;
-            label4.Text = selected ? game.developer : ns;
-            label6.Text = selected ? game.publisher : ns;
-            label8.Text = selected ? game.year : ns;
+
+            //Инфопанель
+            if (game.cover != null)
+                try { pictureBoxCover.Image = Image.FromFile("Covers\\" + game.cover); }
+                catch { }
+            else
+                pictureBoxCover.Image = null;
+
+            labelName.Text = selected ? game.name : "";
+            labelDevelopers.Text = selected ? game.developer : "";
+            labelPublishers.Text = selected ? game.publisher : "";
+            labelYear.Text = selected ? game.year : "";
+            labelVersions.Text = selected ? Data.StringVersions(game.versions) : "";
+            labelDLCs.Text = selected ? Data.StringDLCs(game.DLCs) : "";
+            labelHistory.Text = selected ? Data.StringHistory(game.history) : "";
+
             int selectC = listViewGames.SelectedIndices.Count;
             if (selectC == 1)
                 enableSite = game.website != null & game.website != "";
-            перейтиНаСайтToolStripMenuItem.Enabled = enableSite;
+            menuGoToSite.Enabled = enableSite;
             if (selectC == 0)
                 statusSelected.Text = "";
             else
@@ -359,17 +370,17 @@ namespace My_Games
         #endregion
 
         #region Контекстное меню
-        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuOpen_Click(object sender, EventArgs e)
         {
             Open();
         }
 
-        private void удалитьToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void menuDelC_Click(object sender, EventArgs e)
         {
             menuDel_Click(null, null);
         }
 
-        private void ПерейтиНаСайтToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuGoToSite_Click(object sender, EventArgs e)
         {
             GoToSite();
         }
