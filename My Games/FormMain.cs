@@ -51,7 +51,7 @@ namespace My_Games
         {
             bool selected = listViewGames.SelectedIndices.Count > 0;
             bool enableSite = false;
-            удалитьToolStripMenuItem.Enabled = selected;
+            menuDel.Enabled = selected;
             открытьToolStripMenuItem.Enabled = selected;
             удалитьToolStripMenuItem1.Enabled = selected;
             //Инфопанель
@@ -66,12 +66,13 @@ namespace My_Games
                 enableSite = game.website != null & game.website != "";
             перейтиНаСайтToolStripMenuItem.Enabled = enableSite;
             if (selectC == 0)
-                toolStripStatusLabelSelected.Text = "";
+                statusSelected.Text = "";
             else
-                toolStripStatusLabelSelected.Text = "Выделено: " + selectC.ToString();
+                statusSelected.Text = "Выделено: " + selectC.ToString();
         }
 
         #region Вид приложения, обновление, сортировка
+
         void RefreshData()
         {
             GameDateComparer dc = new GameDateComparer();
@@ -84,7 +85,7 @@ namespace My_Games
                 bool draw = true;
                 bool match;
                 Filter fl = Data.data.filter;
-                if (!g.name.ToLower().Contains(toolStripTextBoxFind.Text.ToLower())) draw = false;
+                if (!g.name.ToLower().Contains(toolSearch.Text.ToLower())) draw = false;
                 if (fl.enable)
                 {
                     if (fl.startEnable | fl.endEnable)
@@ -130,12 +131,12 @@ namespace My_Games
 
         void StatusBas(int showed)
         {
-            toolStripStatusLabelAll.Text = "Всего игр: " + Data.data.games.Count;
+            statusAll.Text = "Всего игр: " + Data.data.games.Count;
             if (showed == Data.data.games.Count)
-                toolStripStatusLabelShowed.Text = "";
+                statusShowed.Text = "";
             else
-                toolStripStatusLabelShowed.Text = "Показано: " + showed.ToString();
-            toolStripStatusLabelSelected.Text = "";
+                statusShowed.Text = "Показано: " + showed.ToString();
+            statusSelected.Text = "";
         }
 
         /// <summary>
@@ -145,16 +146,16 @@ namespace My_Games
         void ShowHideInfoView(bool resize)
         {
             //Порядок не нарушаем - иначе моргает из-за перерисовок.
-            if (infoViewMenu.Checked)
+            if (menuInfoPanel.Checked)
             {
                 if (resize) Width += infoView.Width;
-                listViewGames.Width = menuStrip1.Width - infoView.Width;
-                infoView.Left = menuStrip1.Width - infoView.Width;
+                listViewGames.Width = menuStrip.Width - infoView.Width;
+                infoView.Left = menuStrip.Width - infoView.Width;
             }
             else
             {
-                listViewGames.Width = menuStrip1.Width;
-                infoView.Left = menuStrip1.Width;
+                listViewGames.Width = menuStrip.Width;
+                infoView.Left = menuStrip.Width;
                 if (resize) Width -= infoView.Width;
             }
         }
@@ -175,34 +176,12 @@ namespace My_Games
             lastColumn = e.Column;
         }
 
-        private void платформыToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormCats form = new FormCats(1, Data.data.platforms);
-            form.ShowDialog();
-            Data.Save();
-        }
 
-        private void носителиЭлектронныеМагазиныToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormCats form = new FormCats(2, Data.data.mediums);
-            form.ShowDialog();
-            Data.Save();
-        }
-
-        private void жанрыToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormCats form = new FormCats(3, Data.data.genres);
-            form.ShowDialog();
-            Data.Save();
-            RefreshData();
-        }
         #endregion
 
-        #region Главное меню
+        #region Меню "Файл"
 
-        //Файл
-
-        private void новаяToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuAdd_Click(object sender, EventArgs e)
         {
             Game game = new Game();
             FormGame form = new FormGame(game);
@@ -214,7 +193,7 @@ namespace My_Games
             }
         }
 
-        private void быстроеДобавлениеToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void menuAddFast_Click(object sender, EventArgs e)
         {
             Game game = new Game();
             FormFastAdd form = new FormFastAdd(game);
@@ -237,7 +216,7 @@ namespace My_Games
             }
         }
 
-        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuDel_Click(object sender, EventArgs e)
         {
             int count = listViewGames.SelectedIndices.Count;
             if (count < 1) return; //Хотя до этого и не должно дойти, но мало ли
@@ -253,14 +232,16 @@ namespace My_Games
             }
         }
 
-        private void ВыходToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuExit_Click(object sender, EventArgs e)
         {
             Close();
         }
+        
+        #endregion
 
-        //Вид
-
-        private void filterToolStripMenuItem_Click(object sender, EventArgs e)
+        #region Меню "Вид"
+        
+        private void menuFilter_Click(object sender, EventArgs e)
         {
             Filter fl = Data.data.filter;
             if (fl.enable)
@@ -268,80 +249,112 @@ namespace My_Games
             else
                 using (FormFilter form = new FormFilter())
                     form.ShowDialog();
-            filterToolStripMenuItem.Checked = fl.enable;
-            toolStripButtonFilter.Checked = fl.enable;
+            menuFilter.Checked = fl.enable;
+            toolFilter.Checked = fl.enable;
             RefreshData();
         }
 
-        private void infoViewMenu_Click(object sender, EventArgs e)
+        private void menuSearch_Click(object sender, EventArgs e) { toolSearch.Focus(); }
+
+        private void menuInfoPanel_Click(object sender, EventArgs e)
         {
-            infoViewMenu.Checked = !infoViewMenu.Checked;
-            toolStripButtonInfo.Checked = infoViewMenu.Checked;
+            menuInfoPanel.Checked = !menuInfoPanel.Checked;
+            toolInfoPanel.Checked = menuInfoPanel.Checked;
             ShowHideInfoView(true);
         }
 
 
-        //Сервис
+        #endregion
 
-        private void статистикаToolStripMenuItem_Click(object sender, EventArgs e)
+        #region Меню "Справочники"
+
+        private void menuPlatforms_Click(object sender, EventArgs e)
+        {
+            FormCats form = new FormCats(1, Data.data.platforms);
+            form.ShowDialog();
+            Data.Save();
+        }
+
+        private void menuMediums_Click(object sender, EventArgs e)
+        {
+            FormCats form = new FormCats(2, Data.data.mediums);
+            form.ShowDialog();
+            Data.Save();
+        }
+
+        private void menuGenres_Click(object sender, EventArgs e)
+        {
+            FormCats form = new FormCats(3, Data.data.genres);
+            form.ShowDialog();
+            Data.Save();
+            RefreshData();
+        }
+
+        #endregion
+
+        #region Меню "Сервис"
+
+        private void menuStat_Click(object sender, EventArgs e)
         {
             using (FormStatistic form = new FormStatistic()) form.ShowDialog();
         }
 
-        private void MenuHistory_Click(object sender, EventArgs e)
+        private void menuPurchases_Click(object sender, EventArgs e)
         {
             using (FormHistory form = new FormHistory()) form.ShowDialog();
         }
 
-        private void ИсторияПрохожденияToolStripMenuIte_Click(object sender, EventArgs e)
+        private void menuHistory_Click(object sender, EventArgs e)
         {
             using (FormPlayHistory form = new FormPlayHistory()) form.ShowDialog();
         }
 
-        private void colorMode0_Click(object sender, EventArgs e)
+        private void menuCol0_Click(object sender, EventArgs e)
         {
-            colorMode0.Checked = true;
-            colorMode1.Checked = false;
+            menuCol0.Checked = true;
+            menuCol1.Checked = false;
             Properties.Settings.Default.colorMode = 0;
             RefreshData();
         }
 
-        private void colorMode1_Click(object sender, EventArgs e)
+        private void menuCol1_Click(object sender, EventArgs e)
         {
-            colorMode0.Checked = false;
-            colorMode1.Checked = true;
+            menuCol0.Checked = false;
+            menuCol1.Checked = true;
             Properties.Settings.Default.colorMode = 1;
             RefreshData();
         }
 
-        //Справка
+        #endregion
 
-        private void СтраницаПрограммыToolStripMenuItem_Click(object sender, EventArgs e)
+        #region Меню "Справка"
+
+        private void menuPage_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.sg-software.ru/windows/programs/mygames");
         }
 
-        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuAbout_Click(object sender, EventArgs e)
         {
             using (FormAbout form = new FormAbout()) form.ShowDialog();
         }
 
-        //Панель с кнопками
+        #endregion
 
-        private void toolStripButtonNew_Click(object sender, EventArgs e) {  }
-        private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e) { новаяToolStripMenuItem_Click(null, null); }
-        private void NewFastToolStripMenuItem_Click(object sender, EventArgs e) { быстроеДобавлениеToolStripMenuItem1_Click(null, null); }
-        private void toolStripTextBoxFind_TextChanged(object sender, EventArgs e)
-        {
-            toolStripButtonReset.Enabled = toolStripTextBoxFind.Text != "";
-            RefreshData();
-        }
-        private void toolStripButtonReset_Click(object sender, EventArgs e) { toolStripTextBoxFind.Text = ""; }
-        private void toolStripButtonFilter_Click(object sender, EventArgs e) { filterToolStripMenuItem_Click(null, null); }
-        private void toolStripButtonInfo_Click(object sender, EventArgs e) { infoViewMenu_Click(null, null); }
-        private void toolStripButtonStat_Click(object sender, EventArgs e) { статистикаToolStripMenuItem_Click(null, null); }
-        private void ToolStripButtonList_Click(object sender, EventArgs e) { MenuHistory_Click(null, null); }
-        private void ToolStripButtonPlay_Click(object sender, EventArgs e) { ИсторияПрохожденияToolStripMenuIte_Click(null, null); }
+        #region панель инструментов
+
+        private void toolAdd_ButtonClick(object sender, EventArgs e) { menuAdd_Click(null, null); }
+        private void toolAddFast_Click(object sender, EventArgs e) { menuAddFast_Click(null, null); }
+
+        private void toolFilter_Click(object sender, EventArgs e) { menuFilter_Click(null, null); }
+        private void toolInfoPanel_Click(object sender, EventArgs e) { menuInfoPanel_Click(null, null); }
+
+        private void toolStat_Click(object sender, EventArgs e) { menuStat_Click(null, null); }
+        private void toolPurchases_Click(object sender, EventArgs e) { menuPurchases_Click(null, null); }
+        private void toolHistory_Click(object sender, EventArgs e) { menuHistory_Click(null, null); }
+
+        private void toolSearch_TextChanged(object sender, EventArgs e) { toolReset.Enabled = toolSearch.Text != ""; RefreshData(); }
+        private void toolReset_Click(object sender, EventArgs e) { toolSearch.Text = ""; }
 
         #endregion
 
@@ -353,7 +366,7 @@ namespace My_Games
 
         private void удалитьToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            удалитьToolStripMenuItem_Click(null, null);
+            menuDel_Click(null, null);
         }
 
         private void ПерейтиНаСайтToolStripMenuItem_Click(object sender, EventArgs e)
@@ -369,12 +382,12 @@ namespace My_Games
             Top = Properties.Settings.Default.Top;
             Width = Properties.Settings.Default.Width;
             Height = Properties.Settings.Default.Height;
-            filterToolStripMenuItem.Checked = Data.data.filter.enable;
-            toolStripButtonFilter.Checked = Data.data.filter.enable;
-            infoViewMenu.Checked = Properties.Settings.Default.InfoView;
-            toolStripButtonInfo.Checked = Properties.Settings.Default.InfoView;
-            colorMode0.Checked = Properties.Settings.Default.colorMode == 0;
-            colorMode1.Checked = Properties.Settings.Default.colorMode == 1;
+            menuFilter.Checked = Data.data.filter.enable;
+            toolFilter.Checked = Data.data.filter.enable;
+            menuInfoPanel.Checked = Properties.Settings.Default.InfoView;
+            toolInfoPanel.Checked = Properties.Settings.Default.InfoView;
+            menuCol0.Checked = Properties.Settings.Default.colorMode == 0;
+            menuCol1.Checked = Properties.Settings.Default.colorMode == 1;
             ShowHideInfoView(false);
         }
 
@@ -384,7 +397,7 @@ namespace My_Games
             Properties.Settings.Default.Top = Top;
             Properties.Settings.Default.Width = Width;
             Properties.Settings.Default.Height = Height;
-            Properties.Settings.Default.InfoView = infoViewMenu.Checked;
+            Properties.Settings.Default.InfoView = menuInfoPanel.Checked;
             Properties.Settings.Default.Save();
             Data.Save();
         }
@@ -392,10 +405,6 @@ namespace My_Games
 
         #endregion
 
-        private void поискToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            toolStripTextBoxFind.Focus();
-        }
     }
 
     class ItemComparer : IComparer
