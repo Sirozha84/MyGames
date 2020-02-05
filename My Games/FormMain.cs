@@ -130,7 +130,7 @@ namespace My_Games
 
         void StatusBas(int showed)
         {
-            toolStripStatusLabelAll.Text = "Всего игр в коллекции: " + Data.data.games.Count;
+            toolStripStatusLabelAll.Text = "Всего игр: " + Data.data.games.Count;
             if (showed == Data.data.games.Count)
                 toolStripStatusLabelShowed.Text = "";
             else
@@ -328,9 +328,15 @@ namespace My_Games
 
         //Панель с кнопками
 
-        private void toolStripButtonNew_Click(object sender, EventArgs e) { новаяToolStripMenuItem_Click(null, null); }
-        private void toolStripTextBoxFind_TextChanged(object sender, EventArgs e) { RefreshData(); }
-        private void toolStripButtonReset_Click(object sender, EventArgs e) { toolStripTextBoxFind.Text = ""; RefreshData(); }
+        private void toolStripButtonNew_Click(object sender, EventArgs e) {  }
+        private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e) { новаяToolStripMenuItem_Click(null, null); }
+        private void NewFastToolStripMenuItem_Click(object sender, EventArgs e) { быстроеДобавлениеToolStripMenuItem1_Click(null, null); }
+        private void toolStripTextBoxFind_TextChanged(object sender, EventArgs e)
+        {
+            toolStripButtonReset.Enabled = toolStripTextBoxFind.Text != "";
+            RefreshData();
+        }
+        private void toolStripButtonReset_Click(object sender, EventArgs e) { toolStripTextBoxFind.Text = ""; }
         private void toolStripButtonFilter_Click(object sender, EventArgs e) { filterToolStripMenuItem_Click(null, null); }
         private void toolStripButtonInfo_Click(object sender, EventArgs e) { infoViewMenu_Click(null, null); }
         private void toolStripButtonStat_Click(object sender, EventArgs e) { статистикаToolStripMenuItem_Click(null, null); }
@@ -385,6 +391,11 @@ namespace My_Games
 
 
         #endregion
+
+        private void поискToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStripTextBoxFind.Focus();
+        }
     }
 
     class ItemComparer : IComparer
