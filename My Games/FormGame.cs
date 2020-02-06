@@ -259,7 +259,7 @@ namespace My_Games
         private void buttonAddDLC_Click(object sender, EventArgs e)
         {
             DLC dlc = new DLC();
-            FormDLC form = new FormDLC(dlc);
+            FormDLC form = new FormDLC(dlc, versions);
             if (form.ShowDialog() == DialogResult.OK)
             {
                 dlcs.Add(dlc);
@@ -274,7 +274,7 @@ namespace My_Games
             if (listViewDLCs.SelectedIndices.Count == 1)
             {
                 DLC dlc = (DLC)listViewDLCs.SelectedItems[0].Tag;
-                FormDLC form = new FormDLC(dlc);
+                FormDLC form = new FormDLC(dlc, versions);
                 if (form.ShowDialog() == DialogResult.OK)
                     DrawDLCs();
             }
@@ -316,7 +316,7 @@ namespace My_Games
         private void buttonAddEvent_Click(object sender, EventArgs e)
         {
             Event ev = new Event();
-            FormEvent form = new FormEvent(ev);
+            FormEvent form = new FormEvent(ev, versions);
             if (form.ShowDialog() == DialogResult.OK)
             {
                 history.Add(ev);
@@ -330,7 +330,7 @@ namespace My_Games
             if (listViewHistory.SelectedIndices.Count == 1)
             {
                 Event ev = (Event)listViewHistory.SelectedItems[0].Tag;
-                FormEvent form = new FormEvent(ev);
+                FormEvent form = new FormEvent(ev, versions);
                 if (form.ShowDialog() == DialogResult.OK)
                     DrawHistory();
             }
@@ -441,6 +441,7 @@ namespace My_Games
             Note note = (Note)listViewNotes.SelectedItems[0].Tag;
             notes.Remove(note);
             DrawNotes(false);
+            ListViewNotes_SelectedIndexChanged(null, null);
         }
         #endregion
 

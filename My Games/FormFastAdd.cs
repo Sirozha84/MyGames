@@ -13,9 +13,9 @@ namespace My_Games
             this.game = game;
             comboBoxRate.DataSource = Game.stars;
             comboBoxRate.SelectedIndex = game.rate - 1;
-            Genre.FillCombobox(comboBoxGenre, game.genre);
-            Platform.FillCombobox(comboBoxPlatform, game.genre);
-            Medium.FillCombobox(comboBoxMedium, game.genre, "");
+            Genre.FillCombobox(comboBoxGenre, 0);
+            Platform.FillCombobox(comboBoxPlatform, 0, true, null);
+            Medium.FillCombobox(comboBoxMedium, 0, "");
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace My_Games
         {
             FormCats form = new FormCats(1, Data.data.platforms);
             form.ShowDialog();
-            Platform.FillCombobox(comboBoxPlatform, 0);
+            Platform.FillCombobox(comboBoxPlatform, 0, true, null);
         }
 
         private void linkLabelMedia_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -1,23 +1,25 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace My_Games
 {
     public partial class FormDLC : Form
     {
         DLC dlc;
-
-        public FormDLC(DLC dlc)
+        List<Version> versions;
+        public FormDLC(DLC dlc, List<Version> versions)
         {
             InitializeComponent();
             this.dlc = dlc;
+            this.versions = versions;
             RefreshData();
         }
 
         void RefreshData()
         {
             date.Value = dlc.date;
-            Platform.FillCombobox(comboBoxPlatform, dlc.platform);
+            Platform.FillCombobox(comboBoxPlatform, dlc.platform, checkBoxAll.Checked, versions);
             textBoxName.Text = dlc.name;
             textBoxPrice.Text = dlc.price.ToString();
             textBoxComment.Text = dlc.comment;
@@ -38,7 +40,12 @@ namespace My_Games
         {
             FormCats form = new FormCats(1, Data.data.platforms);
             form.ShowDialog();
-            Platform.FillCombobox(comboBoxPlatform, dlc.platform);
+            Platform.FillCombobox(comboBoxPlatform, dlc.platform, checkBoxAll.Checked, versions);
+        }
+
+        private void checkBoxAll_CheckedChanged(object sender, EventArgs e)
+        {
+            Platform.FillCombobox(comboBoxPlatform, dlc.platform, checkBoxAll.Checked, versions);
         }
     }
 }

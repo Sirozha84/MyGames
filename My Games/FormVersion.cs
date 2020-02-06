@@ -17,7 +17,7 @@ namespace My_Games
         void RefreshData()
         {
             date.Value = version.date;
-            Platform.FillCombobox(comboBoxPlatform, version.platform);
+            Platform.FillCombobox(comboBoxPlatform, version.platform, true, null);
             Medium.FillCombobox(comboBoxMedium, version.medium, comboBoxPlatform.Text);
             textBoxPrice.Text = version.price.ToString();
             textBoxComment.Text = version.comment;
@@ -38,7 +38,7 @@ namespace My_Games
         {
             FormCats form = new FormCats(1, Data.data.platforms);
             form.ShowDialog();
-            Platform.FillCombobox(comboBoxPlatform, version.platform);
+            Platform.FillCombobox(comboBoxPlatform, version.platform, true, null);
         }
 
         private void linkLabelMedium_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

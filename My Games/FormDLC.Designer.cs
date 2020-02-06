@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
@@ -40,6 +41,8 @@
             this.linkLabelPlatform = new System.Windows.Forms.LinkLabel();
             this.textBoxComment = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.checkBoxAll = new System.Windows.Forms.CheckBox();
+            this.toolTipAll = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // textBoxPrice
@@ -153,6 +156,19 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "Комментарий:";
             // 
+            // checkBoxAll
+            // 
+            this.checkBoxAll.AutoSize = true;
+            this.checkBoxAll.Location = new System.Drawing.Point(251, 40);
+            this.checkBoxAll.Name = "checkBoxAll";
+            this.checkBoxAll.Size = new System.Drawing.Size(45, 17);
+            this.checkBoxAll.TabIndex = 17;
+            this.checkBoxAll.Text = "Все";
+            this.toolTipAll.SetToolTip(this.checkBoxAll, "Показать полный список платформ, иначе будут только те, версии игры для которых и" +
+        "меются в коллекции");
+            this.checkBoxAll.UseVisualStyleBackColor = true;
+            this.checkBoxAll.CheckedChanged += new System.EventHandler(this.checkBoxAll_CheckedChanged);
+            // 
             // FormDLC
             // 
             this.AcceptButton = this.buttonOK;
@@ -160,6 +176,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(384, 261);
+            this.Controls.Add(this.checkBoxAll);
             this.Controls.Add(this.textBoxComment);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.linkLabelPlatform);
@@ -199,5 +216,7 @@
         private System.Windows.Forms.LinkLabel linkLabelPlatform;
         private System.Windows.Forms.TextBox textBoxComment;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox checkBoxAll;
+        private System.Windows.Forms.ToolTip toolTipAll;
     }
 }

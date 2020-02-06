@@ -28,16 +28,31 @@ namespace My_Games
             return String.Compare(name, ((Platform)obj).name);
         }
 
-        public static void FillCombobox(ComboBox box, int id)
+        /// <summary>
+        /// Заполнение выпадающего списка платформ
+        /// </summary>
+        /// <param name="box">Ссылка на "комбобокс"</param>
+        /// <param name="id">Идентификатор платформы (для автоматического выбора), 0 - если не надо выбирать</param>
+        /// <param name="all">Показывать все платформы?</param>
+        /// <param name="versions">Список версии, по которому делать фильтр</param>
+        public static void FillCombobox(ComboBox box, int id, bool all, List<Version> versions)
         {
             box.BeginUpdate();
             box.Items.Clear();
-            box.Items.Add("");
+            if (all) box.Items.Add("");
             foreach (Platform p in Data.data.platforms)
-                box.Items.Add(p.name);
+                if (all)
+                    box.Items.Add(p.name);
+                else
+                    foreach (Version ver in versions)
+                        if (p.ID == ver.platform)
+                        {
+                            box.Items.Add(p.name);
+                            break;
+                        }
             box.Text = Data.PlatformIDToName(id);
+            if (box.Items.Count == 1) box.SelectedIndex = 0;
             box.EndUpdate();
         }
-
     }
 }

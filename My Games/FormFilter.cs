@@ -18,7 +18,7 @@ namespace My_Games
             dateTimeEnd.Value = fl.end;
             checkBoxEnd.Checked = fl.endEnable;
 
-            Platform.FillCombobox(comboBoxPlatform, 0);
+            Platform.FillCombobox(comboBoxPlatform, 0, true, null);
             comboBoxPlatform.SelectedItem = Data.PlatformIDToName(fl.platform);
             checkBoxPlatform.Checked = fl.platformEnable;
 
