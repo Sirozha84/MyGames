@@ -36,7 +36,6 @@ namespace My_Games
         private void buttonOK_Click(object sender, EventArgs e)
         {
             Filter fl = Data.data.filter;
-            fl.enable = true;
             fl.start = dateTimeStart.Value;
             fl.startEnable = checkBoxStart.Checked;
             fl.end = dateTimeEnd.Value;
@@ -47,6 +46,11 @@ namespace My_Games
             fl.mediumEnable = checkBoxMedium.Checked;
             fl.genre = Data.GenreNameToID(comboBoxGenre.SelectedItem.ToString());
             fl.genreEnable = checkBoxGenre.Checked;
+            fl.enable = fl.startEnable | 
+                        fl.endEnable | 
+                        fl.platformEnable | 
+                        fl.mediumEnable | 
+                        fl.genreEnable;
             Close();
         }
 

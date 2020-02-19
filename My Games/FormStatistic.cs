@@ -424,6 +424,13 @@ namespace My_Games
                             }
                             s += m[c, j] / grad;
                         }
+                    else
+                    {
+                        int sum = 0;
+                        for (int j = 0; j < plCount; j++)
+                            sum += m[c, j];
+                        graph.DrawString(sum.ToString("### ### ###"), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, height - (s + sum / grad) * k - 20, cWidth, 15), formatC);
+                    }
                 } catch { }
                 
                 //Подписи столбиков
