@@ -75,10 +75,35 @@ namespace My_Games
             DrawNotes(false);
 
             //Вкладка прочего
+            string timeInCollection = "";
+            string timeUntilPlay = "";
+            string timePlay = "";
+            string timeFromLastPlay = "";
+            if (game.versions.Count > 0 & game.history.Count > 0)
+            {
+                DateTime firstPurchase = game.versions[0].date;
+                DateTime firstPlay = game.history[0].date;
+                DateTime lastPlay = game.history[game.history.Count - 1].date;
+                timeInCollection = TimeSpanString(firstPurchase, DateTime.Now);
+                timeUntilPlay = TimeSpanString(firstPurchase, firstPlay);
+                timePlay = TimeSpanString(firstPlay, lastPlay);
+                timeFromLastPlay = TimeSpanString(lastPlay, DateTime.Now);
+            }
             labelInfo.Text = "Игра: " + game.name +
                 "\n\nID: " + game.ID +
                 "\n\nДата создания: " + game.create +
-                "\n\nДата последнего изменения: " + game.change;
+                "\n\nДата последнего изменения: " + game.change +
+                "\n\nВремени в коллекции: " + timeInCollection +
+                "\n\nВремя с покупки до игры: " + timeUntilPlay +
+                "\n\nПериод игры: " + timePlay +
+                "\n\nПрошло времени с последней игры: " + timeFromLastPlay;
+        }
+
+        string TimeSpanString(DateTime Start, DateTime End)
+        {
+            int days = (int)(End - Start).TotalDays + 1;
+            if (days < 365) return days.ToString() + " (дней)";
+            return ((int)(days / 365.25)).ToString() + " (лет)";
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
