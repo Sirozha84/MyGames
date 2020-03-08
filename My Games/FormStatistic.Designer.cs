@@ -41,6 +41,7 @@
             this.listView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.radioButtonWT = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -53,7 +54,7 @@
             this.radioButtonGames.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radioButtonGames.Location = new System.Drawing.Point(3, 3);
             this.radioButtonGames.Name = "radioButtonGames";
-            this.radioButtonGames.Size = new System.Drawing.Size(247, 26);
+            this.radioButtonGames.Size = new System.Drawing.Size(184, 26);
             this.radioButtonGames.TabIndex = 0;
             this.radioButtonGames.TabStop = true;
             this.radioButtonGames.Text = "Игр куплено";
@@ -65,9 +66,9 @@
             // 
             this.radioButtonMoney.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonMoney.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButtonMoney.Location = new System.Drawing.Point(256, 3);
+            this.radioButtonMoney.Location = new System.Drawing.Point(193, 3);
             this.radioButtonMoney.Name = "radioButtonMoney";
-            this.radioButtonMoney.Size = new System.Drawing.Size(247, 26);
+            this.radioButtonMoney.Size = new System.Drawing.Size(184, 26);
             this.radioButtonMoney.TabIndex = 1;
             this.radioButtonMoney.Text = "Денег потрачено";
             this.radioButtonMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -78,9 +79,9 @@
             // 
             this.radioButtonTime.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButtonTime.Location = new System.Drawing.Point(509, 3);
+            this.radioButtonTime.Location = new System.Drawing.Point(383, 3);
             this.radioButtonTime.Name = "radioButtonTime";
-            this.radioButtonTime.Size = new System.Drawing.Size(248, 26);
+            this.radioButtonTime.Size = new System.Drawing.Size(184, 26);
             this.radioButtonTime.TabIndex = 2;
             this.radioButtonTime.Text = "Времени наиграно";
             this.radioButtonTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -135,9 +136,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox.BackColor = System.Drawing.Color.White;
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox.Location = new System.Drawing.Point(15, 50);
+            this.pictureBox.Location = new System.Drawing.Point(12, 50);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(549, 444);
+            this.pictureBox.Size = new System.Drawing.Size(552, 444);
             this.pictureBox.TabIndex = 5;
             this.pictureBox.TabStop = false;
             // 
@@ -155,10 +156,12 @@
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Controls.Add(this.radioButtonWT, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.radioButtonGames, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.radioButtonTime, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.radioButtonMoney, 1, 0);
@@ -166,6 +169,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(760, 32);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
@@ -195,9 +199,10 @@
             this.columnHeader1,
             this.columnHeader2});
             this.listView.FullRowSelect = true;
+            this.listView.HideSelection = false;
             this.listView.Location = new System.Drawing.Point(570, 50);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(199, 444);
+            this.listView.Size = new System.Drawing.Size(202, 444);
             this.listView.TabIndex = 0;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -212,6 +217,19 @@
             // 
             this.columnHeader2.Text = "Значение";
             this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // radioButtonWT
+            // 
+            this.radioButtonWT.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonWT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radioButtonWT.Location = new System.Drawing.Point(573, 3);
+            this.radioButtonWT.Name = "radioButtonWT";
+            this.radioButtonWT.Size = new System.Drawing.Size(184, 26);
+            this.radioButtonWT.TabIndex = 3;
+            this.radioButtonWT.Text = "Динамика прохождения";
+            this.radioButtonWT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonWT.UseVisualStyleBackColor = true;
+            this.radioButtonWT.CheckedChanged += new System.EventHandler(this.RadioButtonWT_CheckedChanged);
             // 
             // FormStatistic
             // 
@@ -253,5 +271,6 @@
         private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.RadioButton radioButtonWT;
     }
 }

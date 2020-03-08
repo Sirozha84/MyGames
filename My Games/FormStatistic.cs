@@ -9,7 +9,7 @@ namespace My_Games
         Bitmap bmp;
         Graphics graph;
         DateTime last;
-        int[,] platforms;
+        int[,] categories;
         int plCount, yearCount, scrollVal, yearsInColumn; //Количество платыорм, лет, скролл, лет в колонке
         int[,] mounts, years, all; //Таблицы с данными
         //int mK, yK, aK; //Коэффициенты уменьшения таблиц (для правильной отрисовки)
@@ -18,6 +18,7 @@ namespace My_Games
 
         SolidBrush[] plBrushes;
 
+        #region Выбор типа графика и подготовка данных
         /// <summary>
         /// Игр куплено
         /// </summary>
@@ -42,16 +43,16 @@ namespace My_Games
             
             //Создадим табличку с рейтингом по платформам
             plCount = Data.data.platforms.Count;
-            platforms = new int[plCount, 2];
+            categories = new int[plCount, 2];
             foreach (Game g in Data.data.games)
                 foreach (Version v in g.versions)
                 {
                     for (int i = 0; i < plCount; i++)
                     {
-                        if (platforms[i, 0] == 0) platforms[i, 0] = v.platform;
-                        if (platforms[i, 0] == v.platform)
+                        if (categories[i, 0] == 0) categories[i, 0] = v.platform;
+                        if (categories[i, 0] == v.platform)
                         {
-                            platforms[i, 1]++;
+                            categories[i, 1]++;
                             i = plCount;
                         }
                     }
@@ -68,7 +69,7 @@ namespace My_Games
                 {
                     int p = 0;
                     for (int i = 0; i < plCount; i++)
-                        if (platforms[i, 0] == v.platform)
+                        if (categories[i, 0] == v.platform)
                         {
                             p = i;
                             break;
@@ -110,17 +111,17 @@ namespace My_Games
 
             //Создадим табличку с рейтингом по платформам
             plCount = Data.data.platforms.Count;
-            platforms = new int[plCount, 2];
+            categories = new int[plCount, 2];
             foreach (Game g in Data.data.games)
             {
                 foreach (Version v in g.versions)
                 {
                     for (int i = 0; i < plCount; i++)
                     {
-                        if (platforms[i, 0] == 0) platforms[i, 0] = v.platform;
-                        if (platforms[i, 0] == v.platform)
+                        if (categories[i, 0] == 0) categories[i, 0] = v.platform;
+                        if (categories[i, 0] == v.platform)
                         {
-                            platforms[i, 1] += v.price;
+                            categories[i, 1] += v.price;
                             i = plCount;
                         }
                     }
@@ -129,10 +130,10 @@ namespace My_Games
                 {
                     for (int i = 0; i < plCount; i++)
                     {
-                        if (platforms[i, 0] == 0) platforms[i, 0] = d.platform;
-                        if (platforms[i, 0] == d.platform)
+                        if (categories[i, 0] == 0) categories[i, 0] = d.platform;
+                        if (categories[i, 0] == d.platform)
                         {
-                            platforms[i, 1] += d.price;
+                            categories[i, 1] += d.price;
                             i = plCount;
                         }
                     }
@@ -152,7 +153,7 @@ namespace My_Games
                 {
                     int p = 0;
                     for (int i = 0; i < plCount; i++)
-                        if (platforms[i, 0] == v.platform)
+                        if (categories[i, 0] == v.platform)
                         {
                             p = i;
                             break;
@@ -165,7 +166,7 @@ namespace My_Games
                 {
                     int p = 0;
                     for (int i = 0; i < plCount; i++)
-                        if (platforms[i, 0] == d.platform)
+                        if (categories[i, 0] == d.platform)
                         {
                             p = i;
                             break;
@@ -203,16 +204,16 @@ namespace My_Games
 
             //Создадим табличку с рейтингом по платформам
             plCount = Data.data.platforms.Count;
-            platforms = new int[plCount, 2];
+            categories = new int[plCount, 2];
             foreach (Game g in Data.data.games)
                 foreach (Event ev in g.history)
                 {
                     for (int i = 0; i < plCount; i++)
                     {
-                        if (platforms[i, 0] == 0) platforms[i, 0] = ev.platform;
-                        if (platforms[i, 0] == ev.platform)
+                        if (categories[i, 0] == 0) categories[i, 0] = ev.platform;
+                        if (categories[i, 0] == ev.platform)
                         {
-                            platforms[i, 1] += ev.hours;
+                            categories[i, 1] += ev.hours;
                             i = plCount;
                         }
                     }
@@ -230,7 +231,7 @@ namespace My_Games
                 {
                     int p = 0;
                     for (int i = 0; i < plCount; i++)
-                        if (platforms[i, 0] == ev.platform)
+                        if (categories[i, 0] == ev.platform)
                         {
                             p = i;
                             break;
@@ -245,9 +246,83 @@ namespace My_Games
             DrawGraph();
         }
 
+        /// <summary>
+        /// Динамика прохождения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadioButtonWT_CheckedChanged(object sender, EventArgs e)
+        {
+            //Сканируем базу и узнаём крайние даты (минимум и максимум)
+            DateTime old = DateTime.Now;
+            foreach (Game g in Data.data.games)
+                foreach (Version v in g.versions)
+                    if (old > v.date) old = v.date;
+            last = old;
+            foreach (Game g in Data.data.games)
+                foreach (Version v in g.versions)
+                    if (last < v.date) last = v.date;
+
+            //Считаем количество лет
+            yearCount = last.Year - old.Year + 1;
+            if (yearCount < 10) yearCount = 10;
+            yearsInColumn = yearCount / 10 + ((yearCount % 10) > 0 ? 1 : 0); //Типа сколько лет показывает колонка когда показываем всё сразу
+
+            //Создадим табличку с рейтингом по платформам
+            //Табличка будет статичная - с уровнями прохождений, цвета надо будет брать с одного места (и сделать их настройку)
+
+            /*plCount = Data.data.platforms.Count;
+            categories = new int[plCount, 2];
+            foreach (Game g in Data.data.games)
+                foreach (Version v in g.versions)
+                {
+                    for (int i = 0; i < plCount; i++)
+                    {
+                        if (categories[i, 0] == 0) categories[i, 0] = v.platform;
+                        if (categories[i, 0] == v.platform)
+                        {
+                            categories[i, 1]++;
+                            i = plCount;
+                        }
+                    }
+                }
+            DrawPlatformList();*/
+
+            //Создаём массивы данных
+            mounts = new int[yearCount * 12, plCount];
+            years = new int[yearCount, plCount];
+            all = new int[10, plCount];
+            //И заполняем их
+            //Заполнять надо будет от обратного, прогонять все даты таблицы и заполнять её текущими на ту дату значениями.
+            /*foreach (Game g in Data.data.games)
+                foreach (Version v in g.versions)
+                {
+                    int p = 0;
+                    for (int i = 0; i < plCount; i++)
+                        if (categories[i, 0] == v.platform)
+                        {
+                            p = i;
+                            break;
+                        }
+                    years[last.Year - v.date.Year, p]++;
+                    mounts[last.Year * 12 - v.date.Year * 12 + 12 - v.date.Month, p]++;
+                    all[(last.Year - v.date.Year) / yearsInColumn, p]++;
+                }*/
+
+            FindMaximumHeight();
+            ScrollCalc();
+            DrawGraph();
+
+        }
+
+        #endregion
+
+        #region Выбор масштаба
         private void RadioButtonMounts_CheckedChanged(object sender, EventArgs e) { ScrollCalc(); DrawGraph(); }
         private void RadioButtonYears_CheckedChanged(object sender, EventArgs e) { ScrollCalc(); DrawGraph(); }
         private void RadioButtonEverytime_CheckedChanged(object sender, EventArgs e) { ScrollCalc(); DrawGraph(); }
+
+        #endregion
 
         private void ScrollBar_ValueChanged(object sender, EventArgs e)
         {
@@ -259,6 +334,8 @@ namespace My_Games
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e) { DrawGraph(); }
 
+
+
         /// <summary>
         /// Сортировка списка платформ и вывод его на форму
         /// </summary>
@@ -267,14 +344,14 @@ namespace My_Games
             for (int i = 0; i < plCount - 1; i++)
             {
                 for (int j = i + 1; j < plCount; j++)
-                    if (platforms[i, 1] < platforms[j, 1])
+                    if (categories[i, 1] < categories[j, 1])
                     {
-                        int t0 = platforms[i, 0];
-                        int t1 = platforms[i, 1];
-                        platforms[i, 0] = platforms[j, 0];
-                        platforms[i, 1] = platforms[j, 1];
-                        platforms[j, 0] = t0;
-                        platforms[j, 1] = t1;
+                        int t0 = categories[i, 0];
+                        int t1 = categories[i, 1];
+                        categories[i, 0] = categories[j, 0];
+                        categories[i, 1] = categories[j, 1];
+                        categories[j, 0] = t0;
+                        categories[j, 1] = t1;
                     }
             }
             listView.BeginUpdate();
@@ -282,11 +359,11 @@ namespace My_Games
             plBrushes = new SolidBrush[plCount];
             for (int i = 0; i < plCount; i++)
             {
-                string s = Data.PlatformIDToName(platforms[i, 0]);
-                if (s != "" && platforms[i, 1] != 0)
+                string s = Data.PlatformIDToName(categories[i, 0]);
+                if (s != "" && categories[i, 1] != 0)
                 {
                     ListViewItem item = new ListViewItem(s);
-                    item.SubItems.Add(platforms[i, 1].ToString("### ### ### ### ###"));
+                    item.SubItems.Add(categories[i, 1].ToString("### ### ### ### ###"));
                     item.BackColor = Data.data.platforms.Find(o => o.name == s).color;
                     plBrushes[i] = new SolidBrush(item.BackColor);
                     listView.Items.Add(item);
