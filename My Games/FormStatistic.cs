@@ -10,7 +10,7 @@ namespace My_Games
         Graphics graph;
         DateTime last;
         int[,] categories;
-        int plCount, yearCount, scrollVal, yearsInColumn; //Количество платыорм, лет, скролл, лет в колонке
+        int ctCount, yearCount, scrollVal, yearsInColumn; //Количество платформ, лет, скролл, лет в колонке
         int[,] mounts, years, all; //Таблицы с данными
         //int mK, yK, aK; //Коэффициенты уменьшения таблиц (для правильной отрисовки)
         int heightMounts, heightYears, heightAll; //Максимальные высоты
@@ -42,33 +42,33 @@ namespace My_Games
             yearsInColumn = yearCount / 10 + ((yearCount % 10) > 0 ? 1 : 0); //Типа сколько лет показывает колонка когда показываем всё сразу
             
             //Создадим табличку с рейтингом по платформам
-            plCount = Data.data.platforms.Count;
-            categories = new int[plCount, 2];
+            ctCount = Data.data.platforms.Count;
+            categories = new int[ctCount, 2];
             foreach (Game g in Data.data.games)
                 foreach (Version v in g.versions)
                 {
-                    for (int i = 0; i < plCount; i++)
+                    for (int i = 0; i < ctCount; i++)
                     {
                         if (categories[i, 0] == 0) categories[i, 0] = v.platform;
                         if (categories[i, 0] == v.platform)
                         {
                             categories[i, 1]++;
-                            i = plCount;
+                            i = ctCount;
                         }
                     }
                 }
-            DrawPlatformList();
+            DrawCatList();
 
             //Создаём массивы данных
-            mounts = new int[yearCount * 12, plCount];
-            years = new int[yearCount, plCount];
-            all = new int[10, plCount];
+            mounts = new int[yearCount * 12, ctCount];
+            years = new int[yearCount, ctCount];
+            all = new int[10, ctCount];
             //И заполняем их
             foreach (Game g in Data.data.games)
                 foreach (Version v in g.versions)
                 {
                     int p = 0;
-                    for (int i = 0; i < plCount; i++)
+                    for (int i = 0; i < ctCount; i++)
                         if (categories[i, 0] == v.platform)
                         {
                             p = i;
@@ -110,41 +110,41 @@ namespace My_Games
             yearsInColumn = yearCount / 10 + ((yearCount % 10) > 0 ? 1 : 0); //Типа сколько лет показывает колонка когда показываем всё сразу
 
             //Создадим табличку с рейтингом по платформам
-            plCount = Data.data.platforms.Count;
-            categories = new int[plCount, 2];
+            ctCount = Data.data.platforms.Count;
+            categories = new int[ctCount, 2];
             foreach (Game g in Data.data.games)
             {
                 foreach (Version v in g.versions)
                 {
-                    for (int i = 0; i < plCount; i++)
+                    for (int i = 0; i < ctCount; i++)
                     {
                         if (categories[i, 0] == 0) categories[i, 0] = v.platform;
                         if (categories[i, 0] == v.platform)
                         {
                             categories[i, 1] += v.price;
-                            i = plCount;
+                            i = ctCount;
                         }
                     }
                 }
                 foreach (DLC d in g.DLCs)
                 {
-                    for (int i = 0; i < plCount; i++)
+                    for (int i = 0; i < ctCount; i++)
                     {
                         if (categories[i, 0] == 0) categories[i, 0] = d.platform;
                         if (categories[i, 0] == d.platform)
                         {
                             categories[i, 1] += d.price;
-                            i = plCount;
+                            i = ctCount;
                         }
                     }
                 }
             }
-            DrawPlatformList();
+            DrawCatList();
 
             //Создаём массивы данных
-            mounts = new int[yearCount * 12, plCount];
-            years = new int[yearCount, plCount];
-            all = new int[10, plCount];
+            mounts = new int[yearCount * 12, ctCount];
+            years = new int[yearCount, ctCount];
+            all = new int[10, ctCount];
             
             //И заполняем их
             foreach (Game g in Data.data.games)
@@ -152,7 +152,7 @@ namespace My_Games
                 foreach (Version v in g.versions)
                 {
                     int p = 0;
-                    for (int i = 0; i < plCount; i++)
+                    for (int i = 0; i < ctCount; i++)
                         if (categories[i, 0] == v.platform)
                         {
                             p = i;
@@ -165,7 +165,7 @@ namespace My_Games
                 foreach (DLC d in g.DLCs)
                 {
                     int p = 0;
-                    for (int i = 0; i < plCount; i++)
+                    for (int i = 0; i < ctCount; i++)
                         if (categories[i, 0] == d.platform)
                         {
                             p = i;
@@ -203,34 +203,34 @@ namespace My_Games
             yearsInColumn = yearCount / 10 + ((yearCount % 10) > 0 ? 1 : 0); //Типа сколько лет показывает колонка когда показываем всё сразу
 
             //Создадим табличку с рейтингом по платформам
-            plCount = Data.data.platforms.Count;
-            categories = new int[plCount, 2];
+            ctCount = Data.data.platforms.Count;
+            categories = new int[ctCount, 2];
             foreach (Game g in Data.data.games)
                 foreach (Event ev in g.history)
                 {
-                    for (int i = 0; i < plCount; i++)
+                    for (int i = 0; i < ctCount; i++)
                     {
                         if (categories[i, 0] == 0) categories[i, 0] = ev.platform;
                         if (categories[i, 0] == ev.platform)
                         {
                             categories[i, 1] += ev.hours;
-                            i = plCount;
+                            i = ctCount;
                         }
                     }
                 }
-            DrawPlatformList();
+            DrawCatList();
 
             //Создаём массивы данных
-            mounts = new int[yearCount * 12, plCount];
-            years = new int[yearCount, plCount];
-            all = new int[10, plCount];
+            mounts = new int[yearCount * 12, ctCount];
+            years = new int[yearCount, ctCount];
+            all = new int[10, ctCount];
             
             //И заполняем их
             foreach (Game g in Data.data.games)
                 foreach (Event ev in g.history)
                 {
                     int p = 0;
-                    for (int i = 0; i < plCount; i++)
+                    for (int i = 0; i < ctCount; i++)
                         if (categories[i, 0] == ev.platform)
                         {
                             p = i;
@@ -271,47 +271,55 @@ namespace My_Games
             //Создадим табличку с рейтингом по платформам
             //Табличка будет статичная - с уровнями прохождений, цвета надо будет брать с одного места (и сделать их настройку)
 
-            /*plCount = Data.data.platforms.Count;
-            categories = new int[plCount, 2];
-            foreach (Game g in Data.data.games)
-                foreach (Version v in g.versions)
-                {
-                    for (int i = 0; i < plCount; i++)
-                    {
-                        if (categories[i, 0] == 0) categories[i, 0] = v.platform;
-                        if (categories[i, 0] == v.platform)
-                        {
-                            categories[i, 1]++;
-                            i = plCount;
-                        }
-                    }
-                }
-            DrawPlatformList();*/
+            ctCount = 7;
+
 
             //Создаём массивы данных
-            mounts = new int[yearCount * 12, plCount];
-            years = new int[yearCount, plCount];
-            all = new int[10, plCount];
+            mounts = new int[yearCount * 12, ctCount];
+            years = new int[yearCount, ctCount];
+            all = new int[10, ctCount];
             //И заполняем их
-            //Заполнять надо будет от обратного, прогонять все даты таблицы и заполнять её текущими на ту дату значениями.
-            /*foreach (Game g in Data.data.games)
-                foreach (Version v in g.versions)
+            for (int i = 0; i < yearCount * 12; i++)
+            {
+                DateTime date = new DateTime(old.Year + i / 12, i % 12 + 1, 1);
+                date = date.AddMonths(1);
+                Console.WriteLine(date.ToString());
+                foreach (Game game in Data.data.games)
                 {
-                    int p = 0;
-                    for (int i = 0; i < plCount; i++)
-                        if (categories[i, 0] == v.platform)
-                        {
-                            p = i;
-                            break;
-                        }
-                    years[last.Year - v.date.Year, p]++;
-                    mounts[last.Year * 12 - v.date.Year * 12 + 12 - v.date.Month, p]++;
-                    all[(last.Year - v.date.Year) / yearsInColumn, p]++;
-                }*/
+                    if (game.versions.Find(o => o.date <= date) != null)
+                    {
+                        int max = 0;
+                        foreach (Event ev in game.history)
+                            if (ev.date <= date && ev.even > max) max = ev.even;
+                        mounts[i, max]++;
+                    }
 
-            FindMaximumHeight();
+                }
+            }
+            
+            //Рисовка легенды, нужно дописать количество (взять последние данные), и цвета
+            listView.BeginUpdate();
+            listView.Items.Clear();
+            plBrushes = new SolidBrush[ctCount];
+            for (int i = 0; i < ctCount; i++)
+            {
+                //string s = Data.PlatformIDToName(categories[i, 0]);
+                //if (s != "" && categories[i, 1] != 0)
+                //{
+                ListViewItem item = new ListViewItem(Event.events[i]);
+                //item.SubItems.Add(categories[i, 1].ToString("### ### ### ### ###"));
+                //item.BackColor = Data.data.platforms.Find(o => o.name == s).color;
+                //plBrushes[i] = new SolidBrush(item.BackColor);
+                listView.Items.Add(item);
+                //}
+                //else
+                //plBrushes[i] = new SolidBrush(Color.Black);
+            }
+            listView.EndUpdate();
+
+            //FindMaximumHeight();
             ScrollCalc();
-            DrawGraph();
+            //DrawGraph();
 
         }
 
@@ -339,11 +347,11 @@ namespace My_Games
         /// <summary>
         /// Сортировка списка платформ и вывод его на форму
         /// </summary>
-        void DrawPlatformList()
+        void DrawCatList()
         {
-            for (int i = 0; i < plCount - 1; i++)
+            for (int i = 0; i < ctCount - 1; i++)
             {
-                for (int j = i + 1; j < plCount; j++)
+                for (int j = i + 1; j < ctCount; j++)
                     if (categories[i, 1] < categories[j, 1])
                     {
                         int t0 = categories[i, 0];
@@ -356,8 +364,8 @@ namespace My_Games
             }
             listView.BeginUpdate();
             listView.Items.Clear();
-            plBrushes = new SolidBrush[plCount];
-            for (int i = 0; i < plCount; i++)
+            plBrushes = new SolidBrush[ctCount];
+            for (int i = 0; i < ctCount; i++)
             {
                 string s = Data.PlatformIDToName(categories[i, 0]);
                 if (s != "" && categories[i, 1] != 0)
@@ -383,7 +391,7 @@ namespace My_Games
             for (int i = 0; i < yearCount * 12; i++)
             {
                 int height = 0;
-                for (int j = 0; j < plCount; j++)
+                for (int j = 0; j < ctCount; j++)
                     height += mounts[i, j];
                 if (heightMounts < height) heightMounts = height;
             }
@@ -391,7 +399,7 @@ namespace My_Games
             for (int i = 0; i < yearCount; i++)
             {
                 int height = 0;
-                for (int j = 0; j < plCount; j++)
+                for (int j = 0; j < ctCount; j++)
                     height += years[i, j];
                 if (heightYears < height) heightYears = height;
             }
@@ -399,7 +407,7 @@ namespace My_Games
             for (int i = 0; i < 10; i++)
             {
                 int height = 0;
-                for (int j = 0; j < plCount; j++)
+                for (int j = 0; j < ctCount; j++)
                     height += all[i, j];
                 if (heightAll < height) heightAll = height;
             }
@@ -485,14 +493,14 @@ namespace My_Games
                 int s = 0;
                 try //Когданибудь я разбирусь почему индекс вылазит за пределы массива... но не сегодня
                 {
-                    for (int j = 0; j < plCount; j++)
+                    for (int j = 0; j < ctCount; j++)
                     {
                         graph.FillRectangle(plBrushes[j], left + space + cWidth * i, height - (s + m[c, j] / grad) * k, cWidthS, m[c, j] / grad * k);
                         s += m[c, j] / grad;
                     }
                     s = 0;
                     if (listView.SelectedItems.Count > 0)
-                        for (int j = 0; j < plCount; j++)
+                        for (int j = 0; j < ctCount; j++)
                         {
                             if (j == listView.SelectedItems[0].Index && m[c, j] != 0)
                             {
@@ -504,7 +512,7 @@ namespace My_Games
                     else
                     {
                         int sum = 0;
-                        for (int j = 0; j < plCount; j++)
+                        for (int j = 0; j < ctCount; j++)
                             sum += m[c, j];
                         graph.DrawString(sum.ToString("### ### ###"), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, height - (s + sum / grad) * k - 20, cWidth, 15), formatC);
                     }
