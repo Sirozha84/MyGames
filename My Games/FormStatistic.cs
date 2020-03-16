@@ -253,6 +253,8 @@ namespace My_Games
         /// <param name="e"></param>
         private void RadioButtonWT_CheckedChanged(object sender, EventArgs e)
         {
+            ctCount = 7;
+
             //Сканируем базу и узнаём крайние даты (минимум и максимум)
             DateTime old = DateTime.Now;
             foreach (Game g in Data.data.games)
@@ -268,12 +270,6 @@ namespace My_Games
             if (yearCount < 10) yearCount = 10;
             yearsInColumn = yearCount / 10 + ((yearCount % 10) > 0 ? 1 : 0); //Типа сколько лет показывает колонка когда показываем всё сразу
 
-            //Создадим табличку с рейтингом по платформам
-            //Табличка будет статичная - с уровнями прохождений, цвета надо будет брать с одного места (и сделать их настройку)
-
-            ctCount = 7;
-
-
             //Создаём массивы данных
             mounts = new int[yearCount * 12, ctCount];
             years = new int[yearCount, ctCount];
@@ -286,40 +282,46 @@ namespace My_Games
                 Console.WriteLine(date.ToString());
                 foreach (Game game in Data.data.games)
                 {
+                    int max = 0;
                     if (game.versions.Find(o => o.date <= date) != null)
                     {
-                        int max = 0;
                         foreach (Event ev in game.history)
                             if (ev.date <= date && ev.even > max) max = ev.even;
-                        mounts[i, max]++;
+                        mounts[yearCount * 12 - i - 1, max]++;
                     }
-
                 }
             }
-            
-            //Рисовка легенды, нужно дописать количество (взять последние данные), и цвета
+            for (int j = 0; j < ctCount; j++)
+            {
+                for (int i = 0; i < yearCount; i++)
+                    years[i, j] = mounts[i * 12, j];
+                for (int i = 0; i < 10; i++)
+                    if (i * yearsInColumn < yearCount)
+                        all[i, j] = mounts[i * 12 * yearsInColumn, j];
+            }
+
+            //Рисовка легенды
             listView.BeginUpdate();
             listView.Items.Clear();
             plBrushes = new SolidBrush[ctCount];
             for (int i = 0; i < ctCount; i++)
             {
-                //string s = Data.PlatformIDToName(categories[i, 0]);
-                //if (s != "" && categories[i, 1] != 0)
-                //{
                 ListViewItem item = new ListViewItem(Event.events[i]);
+                //Ещё нужно будет дописать количество (взять последние данные)
                 //item.SubItems.Add(categories[i, 1].ToString("### ### ### ### ###"));
-                //item.BackColor = Data.data.platforms.Find(o => o.name == s).color;
-                //plBrushes[i] = new SolidBrush(item.BackColor);
+                item.BackColor = Color.FromArgb(Data.data.winColR[i], Data.data.winColG[i], Data.data.winColB[i]);
+                plBrushes[i] = new SolidBrush(item.BackColor);
                 listView.Items.Add(item);
-                //}
-                //else
-                //plBrushes[i] = new SolidBrush(Color.Black);
             }
             listView.EndUpdate();
 
-            //FindMaximumHeight();
+
+            heightMounts = 500;
+            heightYears = 500;
+            heightAll = 500;
+
             ScrollCalc();
-            //DrawGraph();
+            DrawGraph();
 
         }
 
