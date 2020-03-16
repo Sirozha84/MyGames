@@ -46,15 +46,7 @@ namespace My_Games
             ListViewItem item = new ListViewItem(labels);
             item.Tag = this;
             if (Properties.Settings.Default.colorMode == 1)
-            {
-                if (win == 0) item.BackColor = Color.FromArgb(255, 192, 192);
-                if (win == 1) item.BackColor = Color.FromArgb(255, 224, 192);
-                if (win == 2) item.BackColor = Color.FromArgb(255, 255, 192);
-                if (win == 3) item.BackColor = Color.FromArgb(224, 255, 192);
-                if (win == 4) item.BackColor = Color.FromArgb(192, 255, 192);
-                if (win == 5) item.BackColor = Color.FromArgb(160, 255, 160);
-                if (win == 6) item.BackColor = Color.FromArgb(192, 255, 255);
-            }
+                item.BackColor = Color.FromArgb(Data.data.winColR[win], Data.data.winColG[win], Data.data.winColB[win]);
             return item;
         }
     }

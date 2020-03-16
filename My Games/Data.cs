@@ -19,7 +19,10 @@ namespace My_Games
         public List<Genre> genres = new List<Genre>();
         public int genreLastID;
         public Filter filter = new Filter();
-        
+        public byte[] winColR = { 255, 255, 255, 224, 192, 160, 192 };
+        public byte[] winColG = { 192, 224, 255, 255, 255, 255, 255 };
+        public byte[] winColB = { 192, 192, 192, 192, 192, 160, 255 };
+
         /// <summary>
         /// Загрузка базы данных
         /// </summary>
