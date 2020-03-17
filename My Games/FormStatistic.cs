@@ -307,8 +307,7 @@ namespace My_Games
             for (int i = 0; i < ctCount; i++)
             {
                 ListViewItem item = new ListViewItem(Event.events[i]);
-                //Ещё нужно будет дописать количество (взять последние данные)
-                //item.SubItems.Add(categories[i, 1].ToString("### ### ### ### ###"));
+                item.SubItems.Add(all[0, i].ToString("### ### ### ### ###"));
                 item.BackColor = Color.FromArgb(Data.data.winColR[i], Data.data.winColG[i], Data.data.winColB[i]);
                 plBrushes[i] = new SolidBrush(item.BackColor);
                 listView.Items.Add(item);
@@ -316,10 +315,11 @@ namespace My_Games
             listView.EndUpdate();
 
 
-            heightMounts = 500;
-            heightYears = 500;
-            heightAll = 500;
+            //heightMounts = 500;
+            //heightYears = 500;
+            //heightAll = 500;
 
+            FindMaximumHeight();
             ScrollCalc();
             DrawGraph();
 
@@ -478,16 +478,15 @@ namespace My_Games
             if (radioButtonEverytime.Checked) { m = all; c1 = 9; columns = 10; heightColumns = heightAll; }
             int cWidth = width / columns;
             int cWidthS = width / columns - space * 2;
-            int grad = calcG(heightColumns);
-            int k = height / (heightColumns / grad);
-            
+
             //Горизонтальные полоски
-            for (int i = 0; i <= heightColumns; i += heightColumns / 4 / grad)
+            float k = (float)(height - 20) / heightColumns;
+            for (int i = 0; i <= heightColumns; i += heightColumns / 4)
             {
                 graph.DrawLine(Pens.Gray, left, height - i * k, fullWidth - 5, height - i * k);
-                graph.DrawString((i * grad).ToString("### ### ###"), title, Brushes.Black, new Rectangle(0, height - i * k - 10, left - 10, 20), formatR);
+                graph.DrawString(i.ToString("### ### ###"), title, Brushes.Black, new Rectangle(0, (int)(height - i * k - 10), left - 10, 20), formatR);
             }
-            
+
             //Рисование столбиков
             for (int i = 0; i < columns; i++)
             {
@@ -497,8 +496,8 @@ namespace My_Games
                 {
                     for (int j = 0; j < ctCount; j++)
                     {
-                        graph.FillRectangle(plBrushes[j], left + space + cWidth * i, height - (s + m[c, j] / grad) * k, cWidthS, m[c, j] / grad * k);
-                        s += m[c, j] / grad;
+                        graph.FillRectangle(plBrushes[j], left + space + cWidth * i, height - (s + m[c, j]) * k, cWidthS, m[c, j] * k);
+                        s += m[c, j];
                     }
                     s = 0;
                     if (listView.SelectedItems.Count > 0)
@@ -506,17 +505,17 @@ namespace My_Games
                         {
                             if (j == listView.SelectedItems[0].Index && m[c, j] != 0)
                             {
-                                graph.DrawRectangle(Pens.Black, left + space + cWidth * i - 3, height - (s + m[c, j] / grad) * k - 3, cWidthS + 5, m[c, j] / grad * k + 5);
-                                graph.DrawString(m[c, j].ToString("### ### ###"), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, height - (s + m[c, j] / grad) * k - 20, cWidth, 15), formatC);
+                                graph.DrawRectangle(Pens.Black, left + space + cWidth * i - 3, height - (s + m[c, j]) * k - 3, cWidthS + 5, m[c, j] / k + 5);
+                                graph.DrawString(m[c, j].ToString("### ### ###"), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, (int)(height - (s + m[c, j]) * k - 20), cWidth, 15), formatC);
                             }
-                            s += m[c, j] / grad;
+                            s += m[c, j];
                         }
                     else
                     {
                         int sum = 0;
                         for (int j = 0; j < ctCount; j++)
                             sum += m[c, j];
-                        graph.DrawString(sum.ToString("### ### ###"), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, height - (s + sum / grad) * k - 20, cWidth, 15), formatC);
+                        graph.DrawString(sum.ToString("### ### ###"), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, (int)(height - (s + sum) * k - 20), cWidth, 15), formatC);
                     }
                 } catch { }
                 
@@ -536,20 +535,6 @@ namespace My_Games
                 }
             }
             pictureBox.Image = bmp;
-        }
-
-        /// <summary>
-        /// Значение размера градации
-        /// </summary>
-        /// <param name="height"></param>
-        /// <returns></returns>
-        int calcG(int height)
-        {
-            if (height < 100) return 1;
-            if (height < 1000) return 5;
-            if (height < 10000) return 50;
-            if (height < 100000) return 500;
-            return 5000;
         }
 
         private void FormStatistic_Paint(object sender, PaintEventArgs e) { DrawGraph(); }
