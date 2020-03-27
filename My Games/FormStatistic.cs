@@ -251,7 +251,7 @@ namespace My_Games
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void RadioButtonWT_CheckedChanged(object sender, EventArgs e)
+        private void RadioButtonCS_CheckedChanged(object sender, EventArgs e)
         {
             ctCount = 7;
 
@@ -470,12 +470,12 @@ namespace My_Games
             formatC.LineAlignment = StringAlignment.Center;
             graph.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
             int[,] m = mounts;
-            int c1 = 0;
+            int scroll = 0;
             int columns = 0;
             int heightColumns = 0;
-            if (radioButtonMounts.Checked) { m = mounts; c1 = scrollVal + 11; columns = 12; heightColumns = heightMounts; }
-            if (radioButtonYears.Checked) { m = years; c1 = scrollVal + 9; columns = 10; heightColumns = heightYears; }
-            if (radioButtonEverytime.Checked) { m = all; c1 = 9; columns = 10; heightColumns = heightAll; }
+            if (radioButtonMounts.Checked) { m = mounts; scroll = scrollVal + 11; columns = 12; heightColumns = heightMounts; }
+            if (radioButtonYears.Checked) { m = years; scroll = scrollVal + 9; columns = 10; heightColumns = heightYears; }
+            if (radioButtonEverytime.Checked) { m = all; scroll = 9; columns = 10; heightColumns = heightAll; }
             int cWidth = width / columns;
             int cWidthS = width / columns - space * 2;
 
@@ -490,7 +490,7 @@ namespace My_Games
             //Рисование столбиков
             for (int i = 0; i < columns; i++)
             {
-                int c = c1 - i;
+                int c = scroll - i;
                 int s = 0;
                 try //Когданибудь я разбирусь почему индекс вылазит за пределы массива... но не сегодня
                 {

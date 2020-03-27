@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAbout));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelVersion = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -73,7 +72,7 @@
             this.tabPage1.Controls.Add(this.linkLabel1);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.labelVersion);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.buttonClose);
             this.tabPage1.Controls.Add(this.pictureBox1);
@@ -113,14 +112,14 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Автор: Сергей Гордеев";
             // 
-            // label2
+            // labelVersion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(182, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Версия";
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.Location = new System.Drawing.Point(182, 67);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(44, 13);
+            this.labelVersion.TabIndex = 3;
+            this.labelVersion.Text = "Версия";
             // 
             // label1
             // 
@@ -164,7 +163,7 @@
             this.richTextBoxHostory.ReadOnly = true;
             this.richTextBoxHostory.Size = new System.Drawing.Size(446, 205);
             this.richTextBoxHostory.TabIndex = 0;
-            this.richTextBoxHostory.Text = resources.GetString("richTextBoxHostory.Text");
+            this.richTextBoxHostory.Text = "";
             // 
             // FormAbout
             // 
@@ -196,7 +195,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label4;

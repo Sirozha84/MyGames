@@ -37,11 +37,11 @@
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.scrollBar = new System.Windows.Forms.HScrollBar();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.radioButtonCS = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.listView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.radioButtonWT = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -161,7 +161,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.radioButtonWT, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.radioButtonCS, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.radioButtonGames, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.radioButtonTime, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.radioButtonMoney, 1, 0);
@@ -169,9 +169,22 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(760, 32);
             this.tableLayoutPanel1.TabIndex = 7;
+            // 
+            // radioButtonCS
+            // 
+            this.radioButtonCS.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonCS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radioButtonCS.Location = new System.Drawing.Point(573, 3);
+            this.radioButtonCS.Name = "radioButtonCS";
+            this.radioButtonCS.Size = new System.Drawing.Size(184, 26);
+            this.radioButtonCS.TabIndex = 3;
+            this.radioButtonCS.Text = "Размер коллекции";
+            this.radioButtonCS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonCS.UseVisualStyleBackColor = true;
+            this.radioButtonCS.CheckedChanged += new System.EventHandler(this.RadioButtonCS_CheckedChanged);
             // 
             // tableLayoutPanel2
             // 
@@ -218,19 +231,6 @@
             this.columnHeader2.Text = "Значение";
             this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // radioButtonWT
-            // 
-            this.radioButtonWT.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonWT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButtonWT.Location = new System.Drawing.Point(573, 3);
-            this.radioButtonWT.Name = "radioButtonWT";
-            this.radioButtonWT.Size = new System.Drawing.Size(184, 26);
-            this.radioButtonWT.TabIndex = 3;
-            this.radioButtonWT.Text = "Динамика прохождения";
-            this.radioButtonWT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButtonWT.UseVisualStyleBackColor = true;
-            this.radioButtonWT.CheckedChanged += new System.EventHandler(this.RadioButtonWT_CheckedChanged);
-            // 
             // FormStatistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,6 +271,6 @@
         private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.RadioButton radioButtonWT;
+        private System.Windows.Forms.RadioButton radioButtonCS;
     }
 }
