@@ -50,7 +50,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>My Game Collectiom.ico</ApplicationIcon>
+    <ApplicationIcon>My Games.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -245,6 +245,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="My Game Collectiom.ico" />
+    <Content Include="My Games.ico" />
+    <None Include="Resources\My Games.png" />
     <None Include="Resources\add.png" />
     <None Include="Resources\add fast.png" />
     <None Include="Resources\info.png" />
@@ -252,7 +254,6 @@
     <None Include="Resources\filter.png" />
     <None Include="Resources\winner.png" />
     <None Include="Resources\purchase.png" />
-    <None Include="Resources\My Games.png" />
     <None Include="Resources\stat.png" />
   </ItemGroup>
   <ItemGroup>

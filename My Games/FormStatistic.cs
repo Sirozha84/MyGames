@@ -500,12 +500,13 @@ namespace My_Games
                         s += m[c, j];
                     }
                     s = 0;
+                    //Обводим столбик, если что-нибдуь в легенде выбрано
                     if (listView.SelectedItems.Count > 0)
                         for (int j = 0; j < ctCount; j++)
                         {
                             if (j == listView.SelectedItems[0].Index && m[c, j] != 0)
                             {
-                                graph.DrawRectangle(Pens.Black, left + space + cWidth * i - 3, height - (s + m[c, j]) * k - 3, cWidthS + 5, m[c, j] / k + 5);
+                                graph.DrawRectangle(Pens.Black, left + space + cWidth * i - 3, height - (s + m[c, j]) * k - 3, cWidthS + 5, m[c, j] * k + 5);
                                 graph.DrawString(m[c, j].ToString("### ### ###"), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, (int)(height - (s + m[c, j]) * k - 20), cWidth, 15), formatC);
                             }
                             s += m[c, j];
