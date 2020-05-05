@@ -78,28 +78,7 @@ namespace My_Games
             DrawNotes(false);
 
             //Вкладка прочего
-            string timeInCollection = "";
-            string timeUntilPlay = "";
-            string timePlay = "";
-            string timeFromLastPlay = "";
-            if (game.versions.Count > 0 & game.history.Count > 0)
-            {
-                DateTime firstPurchase = game.versions[0].date;
-                DateTime firstPlay = game.history[0].date;
-                DateTime lastPlay = game.history[game.history.Count - 1].date;
-                timeInCollection = TimeSpanString(firstPurchase, DateTime.Now);
-                timeUntilPlay = TimeSpanString(firstPurchase, firstPlay);
-                timePlay = TimeSpanString(firstPlay, lastPlay);
-                timeFromLastPlay = TimeSpanString(lastPlay, DateTime.Now);
-            }
-            labelInfo.Text = "Игра: " + game.name +
-                "\n\nID: " + game.ID +
-                "\n\nДата создания: " + game.create +
-                "\n\nДата последнего изменения: " + game.change +
-                "\n\nВремени в коллекции: " + timeInCollection +
-                "\n\nВремя с покупки до игры: " + timeUntilPlay +
-                "\n\nПериод игры: " + timePlay +
-                "\n\nПрошло времени с последней игры: " + timeFromLastPlay;
+            RefreshOthers();
         }
 
         string TimeSpanString(DateTime Start, DateTime End)
@@ -178,6 +157,11 @@ namespace My_Games
             DialogResult = DialogResult.OK;
             Close();
         }
+        private void TabPageVersions_SizeChanged(object sender, EventArgs e)
+        {
+            panelVersion.Height = (tabPagePurchases.Height - 10) / 2;
+        }
+
 
         #region Main
         private void textBoxName_TextChanged(object sender, EventArgs e) { Text = textBoxName.Text; }
@@ -252,6 +236,7 @@ namespace My_Games
             {
                 versions.Add(version);
                 DrawVersions();
+                RefreshOthers();
             }
         }
 
@@ -263,7 +248,10 @@ namespace My_Games
                 Version version = (Version)listViewVersions.SelectedItems[0].Tag;
                 FormVersion form = new FormVersion(version);
                 if (form.ShowDialog() == DialogResult.OK)
+                {
                     DrawVersions();
+                    RefreshOthers();
+                }
             }
         }
 
@@ -275,6 +263,7 @@ namespace My_Games
                 versions.Remove(version);
                 DrawVersions();
                 listViewVersions_SelectedIndexChanged(null, null);
+                RefreshOthers();
             }
         }
 
@@ -309,6 +298,7 @@ namespace My_Games
             {
                 dlcs.Add(dlc);
                 DrawDLCs();
+                RefreshOthers();
             }
         }
 
@@ -321,7 +311,10 @@ namespace My_Games
                 DLC dlc = (DLC)listViewDLCs.SelectedItems[0].Tag;
                 FormDLC form = new FormDLC(dlc, versions);
                 if (form.ShowDialog() == DialogResult.OK)
+                {
                     DrawDLCs();
+                    RefreshOthers();
+                }
             }
         }
 
@@ -333,6 +326,7 @@ namespace My_Games
                 dlcs.Remove(dlc);
                 DrawDLCs();
                 ListViewDLCs_SelectedIndexChanged(null, null);
+                RefreshOthers();
             }
         }
 
@@ -366,6 +360,7 @@ namespace My_Games
             {
                 history.Add(ev);
                 DrawHistory();
+                RefreshOthers();
             }
         }
 
@@ -377,7 +372,10 @@ namespace My_Games
                 Event ev = (Event)listViewHistory.SelectedItems[0].Tag;
                 FormEvent form = new FormEvent(ev, versions);
                 if (form.ShowDialog() == DialogResult.OK)
+                {
                     DrawHistory();
+                    RefreshOthers();
+                }
             }
         }
 
@@ -389,6 +387,7 @@ namespace My_Games
                 history.Remove(ev);
                 DrawHistory();
                 listViewHistory_SelectedIndexChanged(null, null);
+                RefreshOthers();
             }
         }
 
@@ -490,10 +489,33 @@ namespace My_Games
         }
         #endregion
 
-        private void TabPageVersions_SizeChanged(object sender, EventArgs e)
+        #region Others
+        void RefreshOthers()
         {
-            panelVersion.Height = (tabPagePurchases.Height - 10) / 2;
+            string timeInCollection = "";
+            string timeUntilPlay = "";
+            string timePlay = "";
+            string timeFromLastPlay = "";
+            if (versions.Count > 0 & history.Count > 0)
+            {
+                DateTime firstPurchase = versions[0].date;
+                DateTime firstPlay = history[0].date;
+                DateTime lastPlay = history[history.Count - 1].date;
+                timeInCollection = TimeSpanString(firstPurchase, DateTime.Now);
+                timeUntilPlay = TimeSpanString(firstPurchase, firstPlay);
+                timePlay = TimeSpanString(firstPlay, lastPlay);
+                timeFromLastPlay = TimeSpanString(lastPlay, DateTime.Now);
+            }
+            labelInfo.Text = "Игра: " + game.name +
+                "\n\nID: " + game.ID +
+                "\n\nДата создания: " + game.create +
+                "\n\nДата последнего изменения: " + game.change +
+                "\n\nВремени в коллекции: " + timeInCollection +
+                "\n\nВремя с покупки до игры: " + timeUntilPlay +
+                "\n\nПериод игры: " + timePlay +
+                "\n\nПрошло времени с последней игры: " + timeFromLastPlay;
         }
+        #endregion
 
     }
 }

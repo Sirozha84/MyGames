@@ -32,7 +32,7 @@ namespace My_Games
             ev.date = date.Value;
             ev.platform = Data.PlatformNameToID(comboBoxPlatform.Text);
             ev.even = comboBoxEvent.SelectedIndex;
-            ev.hours= Convert.ToInt32(textBoxHours.Text);
+            ev.hours = Data.TextToInt(textBoxHours.Text);
             ev.comment = textBoxComment.Text;
             DialogResult = DialogResult.OK;
             Close();
