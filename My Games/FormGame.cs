@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
+using System.IO;
+using System.Drawing.Imaging;
 
 namespace My_Games
 {
@@ -14,7 +16,8 @@ namespace My_Games
         List<Note> notes = new List<Note>();
 
         bool changePicture = false;
-        string ext;
+        string newCover;
+        //string ext;
 
         public FormGame(Game game)
         {
@@ -125,9 +128,9 @@ namespace My_Games
             {
                 try
                 {
-                    System.IO.Directory.CreateDirectory("Covers");
-                    string file = game.ID + ext;
-                    pictureBoxCover.Image.Save("Covers\\" + file);
+                    Directory.CreateDirectory("Covers");
+                    string file = game.ID + Path.GetExtension(newCover).ToLower();
+                    File.Copy(newCover, "Covers\\" + file, true);
                     game.cover = file;
                 }
                 catch { }
@@ -194,7 +197,6 @@ namespace My_Games
         {
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
             string file = files[0];
-            ext = System.IO.Path.GetExtension(file).ToLower();
             changePicture = OpenCover(file);
         }
 
@@ -214,9 +216,11 @@ namespace My_Games
         {
             try
             {
-                pictureBoxCover.Image = Image.FromFile(file);
                 labelCover.Visible = false;
+                using (var File = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.Inheritable))
+                    pictureBoxCover.Image = Image.FromStream(File);
                 pictureBoxCover.BackColor = tabPageMain.BackColor;
+                newCover = file;
                 return true;
             }
             catch { return false; }

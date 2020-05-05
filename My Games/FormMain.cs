@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Drawing;
 using System.Collections;
+using System.IO;
 
 namespace My_Games
 {
@@ -59,7 +60,11 @@ namespace My_Games
 
             //Инфопанель
             if (game.cover != null)
-                try { pictureBoxCover.Image = Image.FromFile("Covers\\" + game.cover); }
+                try
+                {
+                    using (var File = new FileStream("Covers\\" + game.cover, FileMode.Open, FileAccess.Read, FileShare.Inheritable))
+                        pictureBoxCover.Image = Image.FromStream(File);
+                }
                 catch { }
             else
                 pictureBoxCover.Image = null;
