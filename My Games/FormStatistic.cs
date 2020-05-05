@@ -480,6 +480,7 @@ namespace My_Games
             int cWidthS = width / columns - space * 2;
 
             //Горизонтальные полоски
+            if (heightColumns == 0) return;
             float k = (float)(height - 20) / heightColumns;
             for (int i = 0; i <= heightColumns; i += heightColumns / 4)
             {

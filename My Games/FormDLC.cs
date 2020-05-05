@@ -30,7 +30,7 @@ namespace My_Games
             dlc.date = date.Value;
             dlc.platform = Data.PlatformNameToID(comboBoxPlatform.Text);
             dlc.name = textBoxName.Text;
-            dlc.price = Convert.ToInt32(textBoxPrice.Text);
+            dlc.price = Data.TextToInt(textBoxPrice.Text);
             dlc.comment = textBoxComment.Text;
             DialogResult = DialogResult.OK;
             Close();

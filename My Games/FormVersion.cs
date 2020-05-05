@@ -28,7 +28,7 @@ namespace My_Games
             version.date = date.Value;
             version.platform = Data.PlatformNameToID(comboBoxPlatform.Text);
             version.medium = Data.MediumNameToID(comboBoxMedium.Text);
-            version.price = Convert.ToInt32(textBoxPrice.Text);
+            version.price = Data.TextToInt(textBoxPrice.Text);
             version.comment = textBoxComment.Text;
             DialogResult = DialogResult.OK;
             Close();

@@ -110,6 +110,9 @@
             this.textBoxNote = new System.Windows.Forms.TextBox();
             this.tabPageOthers = new System.Windows.Forms.TabPage();
             this.imageListTabs = new System.Windows.Forms.ImageList(this.components);
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.выбратьОбложкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             this.groupBoxComment.SuspendLayout();
@@ -126,6 +129,7 @@
             this.tabPageNotes.SuspendLayout();
             this.groupBoxNotes.SuspendLayout();
             this.tabPageOthers.SuspendLayout();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -421,17 +425,22 @@
             // labelCover
             // 
             this.labelCover.AutoSize = true;
-            this.labelCover.BackColor = System.Drawing.Color.LightGray;
-            this.labelCover.Location = new System.Drawing.Point(60, 150);
+            this.labelCover.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.labelCover.ContextMenuStrip = this.contextMenuStrip;
+            this.labelCover.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelCover.Location = new System.Drawing.Point(29, 140);
             this.labelCover.Name = "labelCover";
-            this.labelCover.Size = new System.Drawing.Size(192, 26);
+            this.labelCover.Size = new System.Drawing.Size(258, 26);
             this.labelCover.TabIndex = 25;
-            this.labelCover.Text = "Нажмите сюда для выбора обложки\r\nили перетащите изображение сюда";
+            this.labelCover.Text = "Нажмите здесь левой или правой кнопкой мыши\r\nили перетащите сюда файл изображения" +
+    "";
             this.labelCover.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelCover.Click += new System.EventHandler(this.labelCover_Click);
             // 
             // pictureBoxCover
             // 
-            this.pictureBoxCover.BackColor = System.Drawing.Color.LightGray;
+            this.pictureBoxCover.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pictureBoxCover.ContextMenuStrip = this.contextMenuStrip;
             this.pictureBoxCover.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxCover.Location = new System.Drawing.Point(6, 6);
             this.pictureBoxCover.Name = "pictureBoxCover";
@@ -987,6 +996,29 @@
             this.imageListTabs.Images.SetKeyName(1, "winner.png");
             this.imageListTabs.Images.SetKeyName(2, "notes.png");
             // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.выбратьОбложкуToolStripMenuItem,
+            this.удалитьToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(181, 70);
+            // 
+            // выбратьОбложкуToolStripMenuItem
+            // 
+            this.выбратьОбложкуToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.выбратьОбложкуToolStripMenuItem.Name = "выбратьОбложкуToolStripMenuItem";
+            this.выбратьОбложкуToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выбратьОбложкуToolStripMenuItem.Text = "Выбрать обложку";
+            this.выбратьОбложкуToolStripMenuItem.Click += new System.EventHandler(this.выбратьОбложкуToolStripMenuItem_Click);
+            // 
+            // удалитьToolStripMenuItem
+            // 
+            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.удалитьToolStripMenuItem.Text = "Удалить";
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
+            // 
             // FormGame
             // 
             this.AllowDrop = true;
@@ -1024,6 +1056,7 @@
             this.groupBoxNotes.PerformLayout();
             this.tabPageOthers.ResumeLayout(false);
             this.tabPageOthers.PerformLayout();
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1110,5 +1143,8 @@
         private System.Windows.Forms.ImageList imageListTabs;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem выбратьОбложкуToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
     }
 }

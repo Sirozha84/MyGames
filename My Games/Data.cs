@@ -175,5 +175,11 @@ namespace My_Games
             if (max > 0) text += ", время в игре: " + hours.ToString() + " ч.";
             return text;
         }
+
+        public static int TextToInt(string text)
+        {
+            try { return Convert.ToInt32(text); }
+            catch { return 0; }
+        }
     }
 }

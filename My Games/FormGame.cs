@@ -126,14 +126,16 @@ namespace My_Games
             game.comment = textBoxComment.Text.Replace("\r\n", "☺");
             if (changePicture)
             {
-                try
-                {
-                    Directory.CreateDirectory("Covers");
-                    string file = game.ID + Path.GetExtension(newCover).ToLower();
-                    File.Copy(newCover, "Covers\\" + file, true);
-                    game.cover = file;
-                }
-                catch { }
+                if (newCover == "") game.cover = null;
+                else
+                    try
+                    {
+                        Directory.CreateDirectory("Covers");
+                        string file = game.ID + Path.GetExtension(newCover).ToLower();
+                        File.Copy(newCover, "Covers\\" + file, true);
+                        game.cover = file;
+                    }
+                    catch { }
             }
             //Итоговые данные
             game.price = 0;
@@ -210,6 +212,20 @@ namespace My_Games
                 changePicture = true;
                 OpenCover(dialog.FileName);
             }
+        }
+        private void labelCover_Click(object sender, EventArgs e) { PictureBoxCover_Click(null, null); }
+        private void выбратьОбложкуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PictureBoxCover_Click(null, null);
+        }
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            changePicture = true;
+            newCover = "";
+            pictureBoxCover.Image = null;
+            pictureBoxCover.BackColor = SystemColors.AppWorkspace;
+            labelCover.Visible = true;
+            //game.cover = "";
         }
 
         bool OpenCover(string file)
