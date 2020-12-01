@@ -38,7 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.richTextBoxHostory = new System.Windows.Forms.RichTextBox();
+            this.history = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -64,7 +64,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(460, 237);
+            this.tabControl1.Size = new System.Drawing.Size(460, 208);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -74,12 +74,11 @@
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.labelVersion);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.buttonClose);
             this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(452, 211);
+            this.tabPage1.Size = new System.Drawing.Size(452, 182);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "О программе";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -135,7 +134,7 @@
             // 
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonClose.Location = new System.Drawing.Point(371, 182);
+            this.buttonClose.Location = new System.Drawing.Point(397, 226);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(75, 23);
             this.buttonClose.TabIndex = 1;
@@ -144,26 +143,26 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.richTextBoxHostory);
+            this.tabPage2.Controls.Add(this.history);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(452, 211);
+            this.tabPage2.Size = new System.Drawing.Size(452, 182);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "История версий";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // richTextBoxHostory
+            // history
             // 
-            this.richTextBoxHostory.BackColor = System.Drawing.Color.White;
-            this.richTextBoxHostory.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBoxHostory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxHostory.Location = new System.Drawing.Point(3, 3);
-            this.richTextBoxHostory.Name = "richTextBoxHostory";
-            this.richTextBoxHostory.ReadOnly = true;
-            this.richTextBoxHostory.Size = new System.Drawing.Size(446, 205);
-            this.richTextBoxHostory.TabIndex = 0;
-            this.richTextBoxHostory.Text = "";
+            this.history.BackColor = System.Drawing.Color.White;
+            this.history.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.history.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.history.Location = new System.Drawing.Point(3, 3);
+            this.history.Name = "history";
+            this.history.ReadOnly = true;
+            this.history.Size = new System.Drawing.Size(446, 176);
+            this.history.TabIndex = 0;
+            this.history.Text = "";
             // 
             // FormAbout
             // 
@@ -173,10 +172,13 @@
             this.CancelButton = this.buttonClose;
             this.ClientSize = new System.Drawing.Size(484, 261);
             this.Controls.Add(this.tabControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Controls.Add(this.buttonClose);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(500, 300);
             this.Name = "FormAbout";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "О программе";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -200,6 +202,6 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RichTextBox richTextBoxHostory;
+        private System.Windows.Forms.RichTextBox history;
     }
 }
