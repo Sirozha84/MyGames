@@ -61,6 +61,9 @@
             this.comboBoxRate = new System.Windows.Forms.ComboBox();
             this.textBoxYear = new System.Windows.Forms.TextBox();
             this.labelCover = new System.Windows.Forms.Label();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.выбратьОбложкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBoxCover = new System.Windows.Forms.PictureBox();
             this.buttonChangeVersion = new System.Windows.Forms.Button();
             this.buttonDelVersion = new System.Windows.Forms.Button();
@@ -110,10 +113,8 @@
             this.textBoxNote = new System.Windows.Forms.TextBox();
             this.tabPageOthers = new System.Windows.Forms.TabPage();
             this.imageListTabs = new System.Windows.Forms.ImageList(this.components);
-            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.выбратьОбложкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxMain.SuspendLayout();
+            this.contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             this.groupBoxComment.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -129,7 +130,6 @@
             this.tabPageNotes.SuspendLayout();
             this.groupBoxNotes.SuspendLayout();
             this.tabPageOthers.SuspendLayout();
-            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -160,7 +160,7 @@
             this.comboBoxGenre.Location = new System.Drawing.Point(104, 127);
             this.comboBoxGenre.Name = "comboBoxGenre";
             this.comboBoxGenre.Size = new System.Drawing.Size(324, 21);
-            this.comboBoxGenre.TabIndex = 4;
+            this.comboBoxGenre.TabIndex = 9;
             // 
             // label3
             // 
@@ -186,7 +186,7 @@
             this.buttonOK.Location = new System.Drawing.Point(616, 526);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
-            this.buttonOK.TabIndex = 0;
+            this.buttonOK.TabIndex = 1;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
@@ -198,7 +198,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(697, 526);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 1;
+            this.buttonCancel.TabIndex = 2;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
@@ -345,7 +345,7 @@
             this.groupBoxMain.Location = new System.Drawing.Point(312, 6);
             this.groupBoxMain.Name = "groupBoxMain";
             this.groupBoxMain.Size = new System.Drawing.Size(434, 210);
-            this.groupBoxMain.TabIndex = 0;
+            this.groupBoxMain.TabIndex = 1;
             this.groupBoxMain.TabStop = false;
             this.groupBoxMain.Text = "Общие сведения";
             // 
@@ -356,7 +356,7 @@
             this.textBoxPublisher.Location = new System.Drawing.Point(104, 74);
             this.textBoxPublisher.Name = "textBoxPublisher";
             this.textBoxPublisher.Size = new System.Drawing.Size(324, 20);
-            this.textBoxPublisher.TabIndex = 2;
+            this.textBoxPublisher.TabIndex = 5;
             // 
             // textBoxDeveloper
             // 
@@ -365,7 +365,7 @@
             this.textBoxDeveloper.Location = new System.Drawing.Point(104, 47);
             this.textBoxDeveloper.Name = "textBoxDeveloper";
             this.textBoxDeveloper.Size = new System.Drawing.Size(324, 20);
-            this.textBoxDeveloper.TabIndex = 1;
+            this.textBoxDeveloper.TabIndex = 3;
             // 
             // linkLabelSite
             // 
@@ -373,7 +373,7 @@
             this.linkLabelSite.Location = new System.Drawing.Point(64, 184);
             this.linkLabelSite.Name = "linkLabelSite";
             this.linkLabelSite.Size = new System.Drawing.Size(34, 13);
-            this.linkLabelSite.TabIndex = 8;
+            this.linkLabelSite.TabIndex = 12;
             this.linkLabelSite.TabStop = true;
             this.linkLabelSite.Text = "Сайт:";
             // 
@@ -384,7 +384,7 @@
             this.textBoxSite.Location = new System.Drawing.Point(104, 181);
             this.textBoxSite.Name = "textBoxSite";
             this.textBoxSite.Size = new System.Drawing.Size(324, 20);
-            this.textBoxSite.TabIndex = 6;
+            this.textBoxSite.TabIndex = 13;
             // 
             // linkLabelGenre
             // 
@@ -392,7 +392,7 @@
             this.linkLabelGenre.Location = new System.Drawing.Point(59, 131);
             this.linkLabelGenre.Name = "linkLabelGenre";
             this.linkLabelGenre.Size = new System.Drawing.Size(39, 13);
-            this.linkLabelGenre.TabIndex = 7;
+            this.linkLabelGenre.TabIndex = 8;
             this.linkLabelGenre.TabStop = true;
             this.linkLabelGenre.Text = "Жанр:";
             this.linkLabelGenre.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
@@ -403,7 +403,7 @@
             this.label6.Location = new System.Drawing.Point(23, 50);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 13);
-            this.label6.TabIndex = 22;
+            this.label6.TabIndex = 2;
             this.label6.Text = "Разработчик:";
             // 
             // comboBoxRate
@@ -413,14 +413,14 @@
             this.comboBoxRate.Location = new System.Drawing.Point(104, 154);
             this.comboBoxRate.Name = "comboBoxRate";
             this.comboBoxRate.Size = new System.Drawing.Size(58, 21);
-            this.comboBoxRate.TabIndex = 5;
+            this.comboBoxRate.TabIndex = 11;
             // 
             // textBoxYear
             // 
             this.textBoxYear.Location = new System.Drawing.Point(104, 101);
             this.textBoxYear.Name = "textBoxYear";
             this.textBoxYear.Size = new System.Drawing.Size(57, 20);
-            this.textBoxYear.TabIndex = 3;
+            this.textBoxYear.TabIndex = 7;
             // 
             // labelCover
             // 
@@ -431,17 +431,41 @@
             this.labelCover.Location = new System.Drawing.Point(29, 140);
             this.labelCover.Name = "labelCover";
             this.labelCover.Size = new System.Drawing.Size(258, 26);
-            this.labelCover.TabIndex = 25;
+            this.labelCover.TabIndex = 0;
             this.labelCover.Text = "Нажмите здесь левой или правой кнопкой мыши\r\nили перетащите сюда файл изображения" +
     "";
             this.labelCover.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelCover.Click += new System.EventHandler(this.labelCover_Click);
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.выбратьОбложкуToolStripMenuItem,
+            this.удалитьToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(179, 48);
+            // 
+            // выбратьОбложкуToolStripMenuItem
+            // 
+            this.выбратьОбложкуToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.выбратьОбложкуToolStripMenuItem.Name = "выбратьОбложкуToolStripMenuItem";
+            this.выбратьОбложкуToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.выбратьОбложкуToolStripMenuItem.Text = "Выбрать обложку";
+            this.выбратьОбложкуToolStripMenuItem.Click += new System.EventHandler(this.выбратьОбложкуToolStripMenuItem_Click);
+            // 
+            // удалитьToolStripMenuItem
+            // 
+            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.удалитьToolStripMenuItem.Text = "Удалить";
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
             // pictureBoxCover
             // 
             this.pictureBoxCover.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.pictureBoxCover.ContextMenuStrip = this.contextMenuStrip;
             this.pictureBoxCover.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxCover.Enabled = false;
             this.pictureBoxCover.Location = new System.Drawing.Point(6, 6);
             this.pictureBoxCover.Name = "pictureBoxCover";
             this.pictureBoxCover.Size = new System.Drawing.Size(300, 300);
@@ -529,7 +553,7 @@
             this.groupBoxComment.Location = new System.Drawing.Point(6, 312);
             this.groupBoxComment.Name = "groupBoxComment";
             this.groupBoxComment.Size = new System.Drawing.Size(740, 164);
-            this.groupBoxComment.TabIndex = 1;
+            this.groupBoxComment.TabIndex = 3;
             this.groupBoxComment.TabStop = false;
             this.groupBoxComment.Text = "Описание";
             // 
@@ -560,6 +584,7 @@
             this.tabControl.Size = new System.Drawing.Size(760, 508);
             this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl.TabIndex = 0;
+            this.tabControl.TabStop = false;
             // 
             // tabPageMain
             // 
@@ -592,7 +617,7 @@
             this.groupBoxInfo.Location = new System.Drawing.Point(312, 222);
             this.groupBoxInfo.Name = "groupBoxInfo";
             this.groupBoxInfo.Size = new System.Drawing.Size(434, 84);
-            this.groupBoxInfo.TabIndex = 26;
+            this.groupBoxInfo.TabIndex = 2;
             this.groupBoxInfo.TabStop = false;
             this.groupBoxInfo.Text = "Информация о коллекции";
             // 
@@ -612,7 +637,7 @@
             this.labelDLCs.Location = new System.Drawing.Point(106, 38);
             this.labelDLCs.Name = "labelDLCs";
             this.labelDLCs.Size = new System.Drawing.Size(322, 13);
-            this.labelDLCs.TabIndex = 4;
+            this.labelDLCs.TabIndex = 3;
             // 
             // labelVers
             // 
@@ -621,7 +646,7 @@
             this.labelVers.Location = new System.Drawing.Point(106, 20);
             this.labelVers.Name = "labelVers";
             this.labelVers.Size = new System.Drawing.Size(322, 13);
-            this.labelVers.TabIndex = 0;
+            this.labelVers.TabIndex = 1;
             // 
             // label9
             // 
@@ -629,7 +654,7 @@
             this.label9.Location = new System.Drawing.Point(40, 56);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 13);
-            this.label9.TabIndex = 2;
+            this.label9.TabIndex = 4;
             this.label9.Text = "Пройдена:";
             // 
             // label8
@@ -638,7 +663,7 @@
             this.label8.Location = new System.Drawing.Point(6, 38);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(94, 13);
-            this.label8.TabIndex = 1;
+            this.label8.TabIndex = 2;
             this.label8.Text = "Доп. материалы:";
             // 
             // label7
@@ -996,29 +1021,6 @@
             this.imageListTabs.Images.SetKeyName(1, "winner.png");
             this.imageListTabs.Images.SetKeyName(2, "notes.png");
             // 
-            // contextMenuStrip
-            // 
-            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.выбратьОбложкуToolStripMenuItem,
-            this.удалитьToolStripMenuItem});
-            this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(181, 70);
-            // 
-            // выбратьОбложкуToolStripMenuItem
-            // 
-            this.выбратьОбложкуToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.выбратьОбложкуToolStripMenuItem.Name = "выбратьОбложкуToolStripMenuItem";
-            this.выбратьОбложкуToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.выбратьОбложкуToolStripMenuItem.Text = "Выбрать обложку";
-            this.выбратьОбложкуToolStripMenuItem.Click += new System.EventHandler(this.выбратьОбложкуToolStripMenuItem_Click);
-            // 
-            // удалитьToolStripMenuItem
-            // 
-            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.удалитьToolStripMenuItem.Text = "Удалить";
-            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
-            // 
             // FormGame
             // 
             this.AllowDrop = true;
@@ -1036,6 +1038,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.groupBoxMain.ResumeLayout(false);
             this.groupBoxMain.PerformLayout();
+            this.contextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).EndInit();
             this.groupBoxComment.ResumeLayout(false);
             this.groupBoxComment.PerformLayout();
@@ -1056,7 +1059,6 @@
             this.groupBoxNotes.PerformLayout();
             this.tabPageOthers.ResumeLayout(false);
             this.tabPageOthers.PerformLayout();
-            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

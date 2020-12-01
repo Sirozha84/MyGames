@@ -16,6 +16,7 @@ namespace My_Games
             Genre.FillCombobox(comboBoxGenre, 0);
             Platform.FillCombobox(comboBoxPlatform, 0, true, null);
             Medium.FillCombobox(comboBoxMedium, 0, "");
+            textBoxName_TextChanged(null, null);
         }
 
         /// <summary>
@@ -75,6 +76,11 @@ namespace My_Games
         private void ComboBoxPlatform_SelectedIndexChanged(object sender, EventArgs e)
         {
             Medium.FillCombobox(comboBoxMedium, 0, comboBoxPlatform.Text);
+        }
+
+        private void textBoxName_TextChanged(object sender, EventArgs e)
+        {
+            buttonOK.Enabled = textBoxName.Text != "";
         }
     }
 }

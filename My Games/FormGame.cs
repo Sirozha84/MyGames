@@ -34,6 +34,7 @@ namespace My_Games
 
             comboBoxRate.DataSource = Game.stars;
             RefreshData();
+            textBoxName.Focus();
         }
 
         void RefreshData()
@@ -79,6 +80,7 @@ namespace My_Games
 
             //Вкладка прочего
             RefreshOthers();
+
             textBoxName_TextChanged(null, null); //Это чтоб обновить кнопку ОК
         }
 
@@ -168,6 +170,7 @@ namespace My_Games
         private void textBoxName_TextChanged(object sender, EventArgs e) 
         {
             Text = textBoxName.Text;
+            if (textBoxName.Text == "") Text = "Новая игра";
             buttonOK.Enabled = textBoxName.Text != "";
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
