@@ -13,6 +13,7 @@ namespace My_Games
             this.g = g;
             textBoxName.Text = g.name;
             buttonCol.BackColor = g.color;
+            textBoxName_TextChanged(null, null);
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
@@ -27,6 +28,11 @@ namespace My_Games
             using (ColorDialog col = new ColorDialog())
                 if (col.ShowDialog() == DialogResult.OK)
                     buttonCol.BackColor = col.Color;
+        }
+
+        private void textBoxName_TextChanged(object sender, EventArgs e)
+        {
+            buttonOK.Enabled = textBoxName.Text != "";
         }
     }
 }

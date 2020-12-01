@@ -18,6 +18,7 @@ namespace My_Games
             buttonCol.BackColor = p.color;
             foreach (int m in p.mediums)
                 checkedListBox.SetItemChecked(checkedListBox.FindString(Data.MediumIDToName(m)), true);
+            textBoxName_TextChanged(null, null);
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
@@ -36,6 +37,11 @@ namespace My_Games
             using (ColorDialog col = new ColorDialog())
                 if (col.ShowDialog() == DialogResult.OK)
                     buttonCol.BackColor = col.Color;
+        }
+
+        private void textBoxName_TextChanged(object sender, EventArgs e)
+        {
+            buttonOK.Enabled = textBoxName.Text != "";
         }
     }
 }

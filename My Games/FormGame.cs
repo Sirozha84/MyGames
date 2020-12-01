@@ -79,6 +79,7 @@ namespace My_Games
 
             //Вкладка прочего
             RefreshOthers();
+            textBoxName_TextChanged(null, null); //Это чтоб обновить кнопку ОК
         }
 
         string TimeSpanString(DateTime Start, DateTime End)
@@ -164,7 +165,11 @@ namespace My_Games
 
 
         #region Main
-        private void textBoxName_TextChanged(object sender, EventArgs e) { Text = textBoxName.Text; }
+        private void textBoxName_TextChanged(object sender, EventArgs e) 
+        {
+            Text = textBoxName.Text;
+            buttonOK.Enabled = textBoxName.Text != "";
+        }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormCats form = new FormCats(3, Data.data.genres);
