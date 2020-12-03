@@ -307,7 +307,7 @@ namespace My_Games
             for (int i = 0; i < ctCount; i++)
             {
                 ListViewItem item = new ListViewItem(Event.events[i]);
-                item.SubItems.Add(all[0, i].ToString("### ### ### ### ###"));
+                item.SubItems.Add(all[0, i].ToString(Program.num));
                 item.BackColor = Color.FromArgb(Data.data.winColR[i], Data.data.winColG[i], Data.data.winColB[i]);
                 plBrushes[i] = new SolidBrush(item.BackColor);
                 listView.Items.Add(item);
@@ -373,7 +373,7 @@ namespace My_Games
                 if (s != "" && categories[i, 1] != 0)
                 {
                     ListViewItem item = new ListViewItem(s);
-                    item.SubItems.Add(categories[i, 1].ToString("### ### ### ### ###"));
+                    item.SubItems.Add(categories[i, 1].ToString(Program.num));
                     item.BackColor = Data.data.platforms.Find(o => o.name == s).color;
                     plBrushes[i] = new SolidBrush(item.BackColor);
                     listView.Items.Add(item);
@@ -485,7 +485,7 @@ namespace My_Games
             for (int i = 0; i <= heightColumns; i += heightColumns / 4)
             {
                 graph.DrawLine(Pens.Gray, left, height - i * k, fullWidth - 5, height - i * k);
-                graph.DrawString(i.ToString("### ### ###"), title, Brushes.Black, new Rectangle(0, (int)(height - i * k - 10), left - 10, 20), formatR);
+                graph.DrawString(i.ToString(Program.num), title, Brushes.Black, new Rectangle(0, (int)(height - i * k - 10), left - 10, 20), formatR);
             }
 
             //Рисование столбиков
@@ -508,7 +508,7 @@ namespace My_Games
                             if (j == listView.SelectedItems[0].Index && m[c, j] != 0)
                             {
                                 graph.DrawRectangle(Pens.Black, left + space + cWidth * i - 3, height - (s + m[c, j]) * k - 3, cWidthS + 5, m[c, j] * k + 5);
-                                graph.DrawString(m[c, j].ToString("### ### ###"), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, (int)(height - (s + m[c, j]) * k - 20), cWidth, 15), formatC);
+                                graph.DrawString(m[c, j].ToString(Program.num), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, (int)(height - (s + m[c, j]) * k - 20), cWidth, 15), formatC);
                             }
                             s += m[c, j];
                         }
@@ -517,7 +517,7 @@ namespace My_Games
                         int sum = 0;
                         for (int j = 0; j < ctCount; j++)
                             sum += m[c, j];
-                        graph.DrawString(sum.ToString("### ### ###"), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, (int)(height - (s + sum) * k - 20), cWidth, 15), formatC);
+                        graph.DrawString(sum.ToString(Program.num), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, (int)(height - (s + sum) * k - 20), cWidth, 15), formatC);
                     }
                 } catch { }
                 

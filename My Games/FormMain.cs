@@ -35,12 +35,6 @@ namespace My_Games
             }
         }
 
-        void GoToSite()
-        {
-            Game game = (Game)listViewGames.SelectedItems[0].Tag;
-            System.Diagnostics.Process.Start("http:" + game.website);
-        }
-
         private void listViewGames_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) listViewGames_MouseDoubleClick(null, null);
@@ -387,7 +381,8 @@ namespace My_Games
 
         private void menuGoToSite_Click(object sender, EventArgs e)
         {
-            GoToSite();
+            Game game = (Game)listViewGames.SelectedItems[0].Tag;
+            System.Diagnostics.Process.Start("http:" + game.website);
         }
         #endregion
 

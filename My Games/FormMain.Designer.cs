@@ -74,7 +74,7 @@
             this.columnHeaderGenre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderRating = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderWin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderHourse = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderVersions = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -192,7 +192,7 @@
             this.menuFilter.Image = global::My_Games.Properties.Resources.filter;
             this.menuFilter.Name = "menuFilter";
             this.menuFilter.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.menuFilter.Size = new System.Drawing.Size(248, 22);
+            this.menuFilter.Size = new System.Drawing.Size(247, 22);
             this.menuFilter.Text = "Фильтр";
             this.menuFilter.Click += new System.EventHandler(this.menuFilter_Click);
             // 
@@ -201,7 +201,7 @@
             this.menuSearch.Image = global::My_Games.Properties.Resources.search;
             this.menuSearch.Name = "menuSearch";
             this.menuSearch.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.menuSearch.Size = new System.Drawing.Size(248, 22);
+            this.menuSearch.Size = new System.Drawing.Size(247, 22);
             this.menuSearch.Text = "Поиск";
             this.menuSearch.Click += new System.EventHandler(this.menuSearch_Click);
             // 
@@ -210,20 +210,20 @@
             this.menuInfoPanel.Image = global::My_Games.Properties.Resources.info;
             this.menuInfoPanel.Name = "menuInfoPanel";
             this.menuInfoPanel.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.menuInfoPanel.Size = new System.Drawing.Size(248, 22);
+            this.menuInfoPanel.Size = new System.Drawing.Size(247, 22);
             this.menuInfoPanel.Text = "Панель информации";
             this.menuInfoPanel.Click += new System.EventHandler(this.menuInfoPanel_Click);
             // 
             // menuSep2
             // 
             this.menuSep2.Name = "menuSep2";
-            this.menuSep2.Size = new System.Drawing.Size(245, 6);
+            this.menuSep2.Size = new System.Drawing.Size(244, 6);
             // 
             // menuCol0
             // 
             this.menuCol0.Name = "menuCol0";
             this.menuCol0.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.menuCol0.Size = new System.Drawing.Size(248, 22);
+            this.menuCol0.Size = new System.Drawing.Size(247, 22);
             this.menuCol0.Text = "Раскраска отключена";
             this.menuCol0.Click += new System.EventHandler(this.menuCol0_Click);
             // 
@@ -231,7 +231,7 @@
             // 
             this.menuCol1.Name = "menuCol1";
             this.menuCol1.ShortcutKeys = System.Windows.Forms.Keys.F6;
-            this.menuCol1.Size = new System.Drawing.Size(248, 22);
+            this.menuCol1.Size = new System.Drawing.Size(247, 22);
             this.menuCol1.Text = "Раскраска по прохождению";
             this.menuCol1.Click += new System.EventHandler(this.menuCol1_Click);
             // 
@@ -282,7 +282,7 @@
             this.menuStat.Image = global::My_Games.Properties.Resources.stat;
             this.menuStat.Name = "menuStat";
             this.menuStat.ShortcutKeys = System.Windows.Forms.Keys.F9;
-            this.menuStat.Size = new System.Drawing.Size(225, 22);
+            this.menuStat.Size = new System.Drawing.Size(224, 22);
             this.menuStat.Text = "Статистика";
             this.menuStat.Click += new System.EventHandler(this.menuStat_Click);
             // 
@@ -291,7 +291,7 @@
             this.menuPurchases.Image = global::My_Games.Properties.Resources.purchase;
             this.menuPurchases.Name = "menuPurchases";
             this.menuPurchases.ShortcutKeys = System.Windows.Forms.Keys.F10;
-            this.menuPurchases.Size = new System.Drawing.Size(225, 22);
+            this.menuPurchases.Size = new System.Drawing.Size(224, 22);
             this.menuPurchases.Text = "История покупок";
             this.menuPurchases.Click += new System.EventHandler(this.menuPurchases_Click);
             // 
@@ -300,7 +300,7 @@
             this.menuHistory.Image = global::My_Games.Properties.Resources.winner;
             this.menuHistory.Name = "menuHistory";
             this.menuHistory.ShortcutKeys = System.Windows.Forms.Keys.F11;
-            this.menuHistory.Size = new System.Drawing.Size(225, 22);
+            this.menuHistory.Size = new System.Drawing.Size(224, 22);
             this.menuHistory.Text = "История прохождений";
             this.menuHistory.Click += new System.EventHandler(this.menuHistory_Click);
             // 
@@ -467,7 +467,7 @@
             this.columnHeaderGenre,
             this.columnHeaderRating,
             this.columnHeaderWin,
-            this.columnHeaderHourse,
+            this.columnHeaderTime,
             this.columnHeaderVersions,
             this.columnHeaderPrice});
             this.listViewGames.ContextMenuStrip = this.contextMenu;
@@ -509,10 +509,10 @@
             this.columnHeaderWin.Text = "Пройдена";
             this.columnHeaderWin.Width = 100;
             // 
-            // columnHeaderHourse
+            // columnHeaderTime
             // 
-            this.columnHeaderHourse.Text = "Часы";
-            this.columnHeaderHourse.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeaderTime.Text = "Время";
+            this.columnHeaderTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // columnHeaderVersions
             // 
@@ -789,7 +789,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuFile;
         private System.Windows.Forms.ToolStripMenuItem menuAdd;
         private System.Windows.Forms.ColumnHeader columnHeaderVersions;
-        private System.Windows.Forms.ColumnHeader columnHeaderHourse;
+        private System.Windows.Forms.ColumnHeader columnHeaderTime;
         private System.Windows.Forms.ColumnHeader columnHeaderPrice;
         private System.Windows.Forms.ColumnHeader columnHeaderGenre;
         private System.Windows.Forms.ColumnHeader columnHeaderRating;

@@ -28,7 +28,8 @@ namespace My_Games
             foreach (Game game in Data.data.games)
             {
                 foreach (Event ev in game.history)
-                    list.Add(new PlayHistoryString(ev.date, game.name, ev.platform, game.genre, ev.even, ev.hours));
+                    list.Add(new PlayHistoryString(ev.date, game.name, ev.platform, game.genre,
+                        ev.even, ev.hours, ev.minutes, ev.comment));
             }
             list.Sort((o1, o2) => o1.time.CompareTo(o2.time));
 
@@ -40,6 +41,7 @@ namespace My_Games
         {
             int count = 0;
             int hours = 0;
+            int minutes = 0;
             listViewHistory.BeginUpdate();
             listViewHistory.Items.Clear();
             foreach (PlayHistoryString str in list)
@@ -52,11 +54,12 @@ namespace My_Games
                     listViewHistory.Items.Add(str.GetListViewItem());
                     count++;
                     hours += str.hours;
+                    minutes += str.minutes;
                 }
             }
             listViewHistory.EndUpdate();
             toolStripStatusLabel1.Text = "Количество: " + count.ToString();
-            toolStripStatusLabel2.Text = "Часы: " + hours.ToString();
+            toolStripStatusLabel2.Text = "Время: " + Data.TimeToString(hours, minutes);
             isUser = true;
         }
 
@@ -79,8 +82,11 @@ namespace My_Games
         public string genre;
         public string even;
         public int hours;
+        public int minutes;
+        string comment;
 
-        public PlayHistoryString(DateTime time, string name, int platform, int genre, int even, int hours)
+        public PlayHistoryString(DateTime time, string name, int platform, int genre,
+            int even, int hours, int minutes, string comment)
         {
             this.time = time;
             this.name = name;
@@ -88,11 +94,14 @@ namespace My_Games
             this.genre = Data.GenreIDToName(genre);
             this.even = Event.events[even];
             this.hours = hours;
+            this.minutes = minutes;
+            this.comment = comment;
         }
 
         public ListViewItem GetListViewItem()
         {
-            string[] item = { time.ToString("dd.MM.yyyy"), name, platform, genre, even, hours.ToString() };
+            string[] item = { time.ToString("dd.MM.yyyy"), name, platform, genre, even,
+                Data.TimeToString(hours, minutes), comment };
             return new ListViewItem(item);
         }
     }
