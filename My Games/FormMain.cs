@@ -454,7 +454,7 @@ namespace My_Games
             if (columnIndex == 4)
                 res = game1.win > game2.win ? 1 : -1;
             if (columnIndex == 5)
-                res = game1.hours > game2.hours ? 1 : -1;
+                res = game1.hours * 60 + game1.minutes > game2.hours * 60 + game2.minutes ? 1 : -1;
             if (columnIndex == 6)
                 res = game1.versions.Count > game2.versions.Count ? 1 : -1;
             if (columnIndex == 7)
