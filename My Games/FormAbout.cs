@@ -10,7 +10,7 @@ namespace My_Games
             InitializeComponent();
             Font fontR = new Font(history.Font.FontFamily, history.Font.Size, FontStyle.Regular);
             Font fontB = new Font(history.Font.FontFamily, history.Font.Size, FontStyle.Bold);
-            labelVersion.Text = "Версия: " + Program.version;
+            labelVersion.Text = "Версия: " + Program.Version;
 
             history.SelectionFont = fontB;
             history.AppendText("Версия 2.3 (01.12.2020)\n\n");

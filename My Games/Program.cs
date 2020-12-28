@@ -5,8 +5,7 @@ namespace My_Games
 {
     static class Program
     {
-        public const string version = "2.3 (01.12.2020)";
-        public const string num = "### ### ##0";
+        public static string Version = "2.3 (01.12.2020)";
 
         /// <summary>
         /// Главная точка входа для приложения.

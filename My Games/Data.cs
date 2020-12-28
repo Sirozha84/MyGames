@@ -178,37 +178,8 @@ namespace My_Games
 
         public static int TextToInt(string text)
         {
-            int i = 0;
-            try { i = Convert.ToInt32(text); }
-            catch { }
-            if (i < 0) i = -i;
-            return i;
-        }
-
-        /// <summary>
-        /// Перевод часов и минут в строку со временем
-        /// За одно пересчитывается количество минут (если больше 60, то переходит к часам)
-        /// </summary>
-        /// <param name="hours">Часы</param>
-        /// <param name="minutes">Минуты</param>
-        /// <returns></returns>
-        public static string TimeToString(ref int hours, ref int minutes)
-        {
-            if (minutes > 59)
-            {
-                hours += minutes / 60;
-                minutes = minutes % 60;
-            }
-            return hours.ToString(Program.num) + ":" + minutes.ToString("00");
-        }
-        public static string TimeToString(int hours, int minutes)
-        {
-            if (minutes > 59)
-            {
-                hours += minutes / 60;
-                minutes = minutes % 60;
-            }
-            return hours.ToString(Program.num) + ":" + minutes.ToString("00");
+            try { return Convert.ToInt32(text); }
+            catch { return 0; }
         }
     }
 }

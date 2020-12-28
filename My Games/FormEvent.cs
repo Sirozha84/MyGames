@@ -24,7 +24,6 @@ namespace My_Games
             Platform.FillCombobox(comboBoxPlatform, ev.platform, checkBoxAll.Checked, versions);
             comboBoxEvent.SelectedIndex = ev.even;
             textBoxHours.Text = ev.hours.ToString();
-            textBoxMinutes.Text = ev.minutes.ToString();
             textBoxComment.Text = ev.comment;
         }
 
@@ -34,7 +33,6 @@ namespace My_Games
             ev.platform = Data.PlatformNameToID(comboBoxPlatform.Text);
             ev.even = comboBoxEvent.SelectedIndex;
             ev.hours = Data.TextToInt(textBoxHours.Text);
-            ev.minutes = Data.TextToInt(textBoxMinutes.Text);
             ev.comment = textBoxComment.Text;
             DialogResult = DialogResult.OK;
             Close();
