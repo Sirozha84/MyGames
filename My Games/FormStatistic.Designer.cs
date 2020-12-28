@@ -60,7 +60,7 @@
             this.radioButtonGames.Text = "Игр куплено";
             this.radioButtonGames.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonGames.UseVisualStyleBackColor = true;
-            this.radioButtonGames.Click += new System.EventHandler(this.RadioButtonGames_Click);
+            this.radioButtonGames.CheckedChanged += new System.EventHandler(this.radioButtonGames_CheckedChanged);
             // 
             // radioButtonMoney
             // 

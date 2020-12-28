@@ -8,6 +8,7 @@ namespace My_Games
     {
         Bitmap bmp;
         Graphics graph;
+        DateTime first;
         DateTime last;
         int[,] categories;
         int ctCount, yearCount, scrollVal, yearsInColumn; //Количество платформ, лет, скролл, лет в колонке
@@ -24,25 +25,21 @@ namespace My_Games
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void RadioButtonGames_Click(object sender, EventArgs e)
+        private void radioButtonGames_CheckedChanged(object sender, EventArgs e)
         {
             //Сканируем базу и узнаём крайние даты (минимум и максимум)
-            DateTime old = DateTime.Now;
+            first = DateTime.Now;
             foreach (Game g in Data.data.games)
                 foreach (Version v in g.versions)
-                    if (old > v.date) old = v.date;
-            last = old;
+                    if (first > v.date) first = v.date;
+            last = first;
             foreach (Game g in Data.data.games)
                 foreach (Version v in g.versions)
                     if (last < v.date) last = v.date;
-            
-            //Считаем количество лет
-            yearCount = last.Year - old.Year + 1;
-            if (yearCount < 10) yearCount = 10;
-            yearsInColumn = yearCount / 10 + ((yearCount % 10) > 0 ? 1 : 0); //Сколько лет показывает одна колонка в "За всё время"
-            
-            //Создадим табличку с рейтингом по платформам
             ctCount = Data.data.platforms.Count;
+            ColumnsCalculate();
+
+            //Создадим табличку с рейтингом по платформам
             categories = new int[ctCount, 2];
             foreach (Game g in Data.data.games)
                 foreach (Version v in g.versions)
@@ -59,10 +56,6 @@ namespace My_Games
                 }
             DrawCatList();
 
-            //Создаём массивы данных
-            mounts = new int[yearCount * 12, ctCount];
-            years = new int[yearCount, ctCount];
-            all = new int[10, ctCount];
             //И заполняем их
             foreach (Game g in Data.data.games)
                 foreach (Version v in g.versions)
@@ -92,25 +85,22 @@ namespace My_Games
         private void RadioButtonMoney_CheckedChanged(object sender, EventArgs e)
         {
             //Сканируем базу и узнаём крайние даты (минимум и максимум)
-            DateTime old = DateTime.Now;
+            first = DateTime.Now;
             foreach (Game g in Data.data.games)
             {
-                foreach (Version v in g.versions) if (old > v.date) old = v.date;
-                foreach (DLC d in g.DLCs) if (old > d.date) old = d.date;
+                foreach (Version v in g.versions) if (first > v.date) first = v.date;
+                foreach (DLC d in g.DLCs) if (first > d.date) first = d.date;
             }
-            last = old;
+            last = first;
             foreach (Game g in Data.data.games)
             {
                 foreach (Version v in g.versions) if (last < v.date) last = v.date;
                 foreach (DLC d in g.DLCs) if (last < d.date) last = d.date;
             }
-            //Считаем количество лет
-            yearCount = last.Year - old.Year + 1;
-            if (yearCount < 10) yearCount = 10;
-            yearsInColumn = yearCount / 10 + ((yearCount % 10) > 0 ? 1 : 0); //Типа сколько лет показывает колонка когда показываем всё сразу
+            ctCount = Data.data.platforms.Count;
+            ColumnsCalculate();
 
             //Создадим табличку с рейтингом по платформам
-            ctCount = Data.data.platforms.Count;
             categories = new int[ctCount, 2];
             foreach (Game g in Data.data.games)
             {
@@ -140,13 +130,8 @@ namespace My_Games
                 }
             }
             DrawCatList();
-
-            //Создаём массивы данных
-            mounts = new int[yearCount * 12, ctCount];
-            years = new int[yearCount, ctCount];
-            all = new int[10, ctCount];
             
-            //И заполняем их
+            //Заполняем массивы
             foreach (Game g in Data.data.games)
             {
                 foreach (Version v in g.versions)
@@ -189,21 +174,18 @@ namespace My_Games
         private void RadioButtonTime_CheckedChanged(object sender, EventArgs e)
         {
             //Сканируем базу и узнаём крайние даты (минимум и максимум)
-            DateTime old = DateTime.Now;
+            first = DateTime.Now;
             foreach (Game g in Data.data.games)
                 foreach (Event ev in g.history)
-                    if (old > ev.date) old = ev.date;
-            last = old;
+                    if (first > ev.date) first = ev.date;
+            last = first;
             foreach (Game g in Data.data.games)
                 foreach (Event ev in g.history)
                     if (last < ev.date) last = ev.date;
-            //Считаем количество лет
-            yearCount = last.Year - old.Year + 1;
-            if (yearCount < 10) yearCount = 10;
-            yearsInColumn = yearCount / 10 + ((yearCount % 10) > 0 ? 1 : 0); //Типа сколько лет показывает колонка когда показываем всё сразу
+            ctCount = Data.data.platforms.Count;
+            ColumnsCalculate();
 
             //Создадим табличку с рейтингом по платформам
-            ctCount = Data.data.platforms.Count;
             categories = new int[ctCount, 2];
             foreach (Game g in Data.data.games)
                 foreach (Event ev in g.history)
@@ -219,11 +201,6 @@ namespace My_Games
                     }
                 }
             DrawCatList();
-
-            //Создаём массивы данных
-            mounts = new int[yearCount * 12, ctCount];
-            years = new int[yearCount, ctCount];
-            all = new int[10, ctCount];
             
             //И заполняем их
             foreach (Game g in Data.data.games)
@@ -256,28 +233,25 @@ namespace My_Games
             ctCount = 7;
 
             //Сканируем базу и узнаём крайние даты (минимум и максимум)
-            DateTime old = DateTime.Now;
+            first = DateTime.Now;
             foreach (Game g in Data.data.games)
                 foreach (Version v in g.versions)
-                    if (old > v.date) old = v.date;
-            last = old;
+                    if (first > v.date) first = v.date;
+            last = first;
             foreach (Game g in Data.data.games)
+            {
                 foreach (Version v in g.versions)
                     if (last < v.date) last = v.date;
+                foreach (Event ev in g.history)
+                    if (last < ev.date) last = ev.date;
+            }
 
-            //Считаем количество лет
-            yearCount = last.Year - old.Year + 1;
-            if (yearCount < 10) yearCount = 10;
-            yearsInColumn = yearCount / 10 + ((yearCount % 10) > 0 ? 1 : 0); //Типа сколько лет показывает колонка когда показываем всё сразу
+            ColumnsCalculate();
 
-            //Создаём массивы данных
-            mounts = new int[yearCount * 12, ctCount];
-            years = new int[yearCount, ctCount];
-            all = new int[10, ctCount];
             //И заполняем их
             for (int i = 0; i < yearCount * 12; i++)
             {
-                DateTime date = new DateTime(old.Year + i / 12, i % 12 + 1, 1);
+                DateTime date = new DateTime(first.Year + i / 12, i % 12 + 1, 1);
                 date = date.AddMonths(1);
                 Console.WriteLine(date.ToString());
                 foreach (Game game in Data.data.games)
@@ -335,6 +309,18 @@ namespace My_Games
 
         #endregion
 
+        void ColumnsCalculate()
+        {
+            //Считаем количество лет
+            yearCount = last.Year - first.Year + 1;
+            if (yearCount < 10) yearCount = 10;
+            yearsInColumn = yearCount / 10 + ((yearCount % 10) > 0 ? 1 : 0); //Сколько лет показывает одна колонка в "За всё время"
+            //Создаём массивы данных
+            mounts = new int[yearCount * 12, ctCount];
+            years = new int[yearCount, ctCount];
+            all = new int[10, ctCount];
+        }
+
         private void ScrollBar_ValueChanged(object sender, EventArgs e)
         {
             scrollVal = 0;
@@ -344,7 +330,6 @@ namespace My_Games
         }
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e) { DrawGraph(); }
-
 
         /// <summary>
         /// Сортировка списка платформ и вывод его на форму
@@ -447,7 +432,7 @@ namespace My_Games
         {
             InitializeComponent();
             graph = pictureBox.CreateGraphics();
-            RadioButtonGames_Click(null, null);
+            radioButtonGames_CheckedChanged(null, null);
         }
 
         void DrawGraph()
