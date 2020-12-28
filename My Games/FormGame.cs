@@ -123,6 +123,7 @@ namespace My_Games
             game.price = 0;
             game.win = 0;
             game.hours = 0;
+            game.minutes = 0;
 
             //Вкладка покупок
             game.versions.Clear();
@@ -144,6 +145,7 @@ namespace My_Games
             {
                 game.history.Add(new Event(ev));
                 game.hours += ev.hours;
+                game.minutes += ev.minutes;
                 if (game.win < ev.even) game.win = ev.even;
             }
             

@@ -48,7 +48,7 @@
             this.columnEventDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnEventPlatform = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnEvent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnEventHours = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnEventTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnEventComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBoxComment = new System.Windows.Forms.TextBox();
             this.groupBoxMain = new System.Windows.Forms.GroupBox();
@@ -271,7 +271,7 @@
             this.columnEventDate,
             this.columnEventPlatform,
             this.columnEvent,
-            this.columnEventHours,
+            this.columnEventTime,
             this.columnEventComment});
             this.listViewHistory.FullRowSelect = true;
             this.listViewHistory.GridLines = true;
@@ -302,16 +302,15 @@
             this.columnEvent.Text = "Событие";
             this.columnEvent.Width = 100;
             // 
-            // columnEventHours
+            // columnEventTime
             // 
-            this.columnEventHours.Text = "Часы";
-            this.columnEventHours.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnEventHours.Width = 45;
+            this.columnEventTime.Text = "Время";
+            this.columnEventTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // columnEventComment
             // 
             this.columnEventComment.Text = "Комментарий";
-            this.columnEventComment.Width = 400;
+            this.columnEventComment.Width = 380;
             // 
             // textBoxComment
             // 
@@ -1092,7 +1091,7 @@
         private System.Windows.Forms.GroupBox groupBoxComment;
         private System.Windows.Forms.Button buttonChangeVersion;
         private System.Windows.Forms.Button buttonDelVersion;
-        private System.Windows.Forms.ColumnHeader columnEventHours;
+        private System.Windows.Forms.ColumnHeader columnEventTime;
         private System.Windows.Forms.ColumnHeader columnEventPlatform;
         private System.Windows.Forms.TextBox textBoxYear;
         private System.Windows.Forms.ComboBox comboBoxRate;
