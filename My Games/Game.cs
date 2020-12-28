@@ -30,7 +30,6 @@ namespace My_Games
         public DateTime date = DateTime.Now;
         public int win;
         public int hours;
-        public int minutes;
         public int price;
         
         //Данные документа, не относящиеся к игре
@@ -43,7 +42,7 @@ namespace My_Games
         public ListViewItem listItem()
         {
             string[] labels = {date.ToString("dd.MM.yyyy"), name, Data.GenreIDToName(genre), stars[rate - 1],
-                Event.events[win], Data.TimeToString(ref hours, ref minutes), versions.Count().ToString(), price.ToString(Program.num)};
+                Event.events[win], hours.ToString("### ###"), versions.Count().ToString(), price.ToString("### ### ###")};
             ListViewItem item = new ListViewItem(labels);
             item.Tag = this;
             if (Properties.Settings.Default.colorMode == 1)

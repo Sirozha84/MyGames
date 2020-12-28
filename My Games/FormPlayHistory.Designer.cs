@@ -33,17 +33,16 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.buttonReset = new System.Windows.Forms.Button();
             this.listViewHistory = new System.Windows.Forms.ListView();
-            this.columnHeaderDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderGame = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderPlatform = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderGenre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderEvent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxGenre = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxPlatform = new System.Windows.Forms.ComboBox();
-            this.columnHeaderComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,13 +89,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewHistory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeaderDate,
-            this.columnHeaderGame,
-            this.columnHeaderPlatform,
-            this.columnHeaderGenre,
-            this.columnHeaderEvent,
-            this.columnHeaderTime,
-            this.columnHeaderComment});
+            this.columnHeader1,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader2,
+            this.columnHeader5,
+            this.columnHeader6});
             this.listViewHistory.FullRowSelect = true;
             this.listViewHistory.GridLines = true;
             this.listViewHistory.HideSelection = false;
@@ -107,34 +105,35 @@
             this.listViewHistory.UseCompatibleStateImageBehavior = false;
             this.listViewHistory.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeaderDate
+            // columnHeader1
             // 
-            this.columnHeaderDate.Text = "Дата";
-            this.columnHeaderDate.Width = 80;
+            this.columnHeader1.Text = "Дата";
+            this.columnHeader1.Width = 80;
             // 
-            // columnHeaderGame
+            // columnHeader3
             // 
-            this.columnHeaderGame.Text = "Игра";
-            this.columnHeaderGame.Width = 200;
+            this.columnHeader3.Text = "Игра";
+            this.columnHeader3.Width = 200;
             // 
-            // columnHeaderPlatform
+            // columnHeader4
             // 
-            this.columnHeaderPlatform.Text = "Платформа";
-            this.columnHeaderPlatform.Width = 150;
+            this.columnHeader4.Text = "Платформа";
+            this.columnHeader4.Width = 160;
             // 
-            // columnHeaderGenre
+            // columnHeader2
             // 
-            this.columnHeaderGenre.Text = "Жанр";
-            this.columnHeaderGenre.Width = 100;
+            this.columnHeader2.Text = "Жанр";
+            this.columnHeader2.Width = 160;
             // 
-            // columnHeaderEvent
+            // columnHeader5
             // 
-            this.columnHeaderEvent.Text = "Событие";
-            this.columnHeaderEvent.Width = 100;
+            this.columnHeader5.Text = "Событие";
+            this.columnHeader5.Width = 160;
             // 
-            // columnHeaderTime
+            // columnHeader6
             // 
-            this.columnHeaderTime.Text = "Время";
+            this.columnHeader6.Text = "Часы";
+            this.columnHeader6.Width = 70;
             // 
             // label3
             // 
@@ -174,11 +173,6 @@
             this.comboBoxPlatform.TabIndex = 13;
             this.comboBoxPlatform.SelectedIndexChanged += new System.EventHandler(this.ComboBoxPlatform_SelectedIndexChanged);
             // 
-            // columnHeaderComment
-            // 
-            this.columnHeaderComment.Text = "Комментарий";
-            this.columnHeaderComment.Width = 200;
-            // 
             // FormPlayHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,16 +206,15 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.ListView listViewHistory;
-        private System.Windows.Forms.ColumnHeader columnHeaderDate;
-        private System.Windows.Forms.ColumnHeader columnHeaderGame;
-        private System.Windows.Forms.ColumnHeader columnHeaderPlatform;
-        private System.Windows.Forms.ColumnHeader columnHeaderEvent;
-        private System.Windows.Forms.ColumnHeader columnHeaderTime;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBoxGenre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxPlatform;
-        private System.Windows.Forms.ColumnHeader columnHeaderGenre;
-        private System.Windows.Forms.ColumnHeader columnHeaderComment;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }
