@@ -39,7 +39,7 @@ namespace My_Games
             //Считаем количество лет
             yearCount = last.Year - old.Year + 1;
             if (yearCount < 10) yearCount = 10;
-            yearsInColumn = yearCount / 10 + ((yearCount % 10) > 0 ? 1 : 0); //Типа сколько лет показывает колонка когда показываем всё сразу
+            yearsInColumn = yearCount / 10 + ((yearCount % 10) > 0 ? 1 : 0); //Сколько лет показывает одна колонка в "За всё время"
             
             //Создадим табличку с рейтингом по платформам
             ctCount = Data.data.platforms.Count;
@@ -301,6 +301,7 @@ namespace My_Games
             }
 
             //Рисовка легенды
+            columnHeader.Text = "Статус";
             listView.BeginUpdate();
             listView.Items.Clear();
             plBrushes = new SolidBrush[ctCount];
@@ -345,7 +346,6 @@ namespace My_Games
         private void listView_SelectedIndexChanged(object sender, EventArgs e) { DrawGraph(); }
 
 
-
         /// <summary>
         /// Сортировка списка платформ и вывод его на форму
         /// </summary>
@@ -364,6 +364,7 @@ namespace My_Games
                         categories[j, 1] = t1;
                     }
             }
+            columnHeader.Text = "Платоформа";
             listView.BeginUpdate();
             listView.Items.Clear();
             plBrushes = new SolidBrush[ctCount];
