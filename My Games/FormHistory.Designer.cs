@@ -35,13 +35,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxGenre = new System.Windows.Forms.ComboBox();
             this.listViewHistory = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnGame = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnBuy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnPlatform = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnMedia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnGenre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxMedium = new System.Windows.Forms.ComboBox();
             this.buttonReset = new System.Windows.Forms.Button();
@@ -114,13 +114,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewHistory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader3,
-            this.columnHeader2,
-            this.columnHeader4,
-            this.columnHeader7,
-            this.columnHeader5,
-            this.columnHeader6});
+            this.columnDate,
+            this.columnGame,
+            this.columnBuy,
+            this.columnPlatform,
+            this.columnMedia,
+            this.columnGenre,
+            this.columnPrice});
             this.listViewHistory.FullRowSelect = true;
             this.listViewHistory.GridLines = true;
             this.listViewHistory.HideSelection = false;
@@ -131,39 +131,40 @@
             this.listViewHistory.UseCompatibleStateImageBehavior = false;
             this.listViewHistory.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
+            // columnDate
             // 
-            this.columnHeader1.Text = "Дата";
-            this.columnHeader1.Width = 80;
+            this.columnDate.Text = "Дата";
+            this.columnDate.Width = 80;
             // 
-            // columnHeader3
+            // columnGame
             // 
-            this.columnHeader3.Text = "Игра";
-            this.columnHeader3.Width = 200;
+            this.columnGame.Text = "Игра";
+            this.columnGame.Width = 200;
             // 
-            // columnHeader2
+            // columnBuy
             // 
-            this.columnHeader2.Text = "Покупка";
+            this.columnBuy.Text = "Покупка";
             // 
-            // columnHeader4
+            // columnPlatform
             // 
-            this.columnHeader4.Text = "Платформа";
-            this.columnHeader4.Width = 160;
+            this.columnPlatform.Text = "Платформа";
+            this.columnPlatform.Width = 160;
             // 
-            // columnHeader7
+            // columnMedia
             // 
-            this.columnHeader7.Text = "Носитель";
-            this.columnHeader7.Width = 160;
+            this.columnMedia.Text = "Носитель";
+            this.columnMedia.Width = 160;
             // 
-            // columnHeader5
+            // columnGenre
             // 
-            this.columnHeader5.Text = "Жанр";
-            this.columnHeader5.Width = 160;
+            this.columnGenre.Text = "Жанр";
+            this.columnGenre.Width = 160;
             // 
-            // columnHeader6
+            // columnPrice
             // 
-            this.columnHeader6.Text = "Цена";
-            this.columnHeader6.Width = 70;
+            this.columnPrice.Text = "Цена";
+            this.columnPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnPrice.Width = 70;
             // 
             // label4
             // 
@@ -260,15 +261,15 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBoxGenre;
         private System.Windows.Forms.ListView listViewHistory;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnDate;
+        private System.Windows.Forms.ColumnHeader columnBuy;
+        private System.Windows.Forms.ColumnHeader columnGame;
+        private System.Windows.Forms.ColumnHeader columnPlatform;
+        private System.Windows.Forms.ColumnHeader columnGenre;
+        private System.Windows.Forms.ColumnHeader columnPrice;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBoxMedium;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnMedia;
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCount;

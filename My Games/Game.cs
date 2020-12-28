@@ -42,7 +42,7 @@ namespace My_Games
         public ListViewItem listItem()
         {
             string[] labels = {date.ToString("dd.MM.yyyy"), name, Data.GenreIDToName(genre), stars[rate - 1],
-                Event.events[win], hours.ToString("### ###"), versions.Count().ToString(), price.ToString("### ### ###")};
+                Event.events[win], hours.ToString(Program.num), versions.Count().ToString(Program.num), price.ToString(Program.num)};
             ListViewItem item = new ListViewItem(labels);
             item.Tag = this;
             if (Properties.Settings.Default.colorMode == 1)
