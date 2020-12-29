@@ -13,9 +13,12 @@ namespace My_Games
             labelVersion.Text = "Версия: " + Program.Version;
 
             history.SelectionFont = fontB;
-            history.AppendText("Версия 2.3 (01.12.2020)\n\n");
+            history.AppendText("Версия 2.3 (29.12.2020)\n\n");
             history.SelectionFont = fontR;
-            history.AppendText("• В работе...\n\n");
+            history.AppendText("• Приведены в порядок отображения чисел\n"+
+                "• Колонка комментариев в истории прохождений\n"+
+                "• Запрет на создание игр и элементов справочников без имени\n"+
+                "• Небольшие правки в окне статистики\n\n");
 
             history.SelectionFont = fontB;
             history.AppendText("Версия 2.2 (05.05.2020)\n\n");

@@ -10,10 +10,12 @@ namespace My_Games
         Graphics graph;
         DateTime first;
         DateTime last;
+        int ctCount;        //Количество строк ленегды
+        int yearCount, monthCount, allCount;    //Количество лет, месяцев, общих колонок
+        int yearsInColumn;  //Лет в колонке
+        int scrollVal;      //Позиция скролла
         int[,] categories;
-        int ctCount, yearCount, scrollVal, yearsInColumn; //Количество платформ, лет, скролл, лет в колонке
         int[,] mounts, years, all; //Таблицы с данными
-        //int mK, yK, aK; //Коэффициенты уменьшения таблиц (для правильной отрисовки)
         int heightMounts, heightYears, heightAll; //Максимальные высоты
         string[] mount = { "Янв.", "Фев.", "Март", "Апр.", "Май", "Июнь", "Июль", "Авг.", "Сен.", "Окт.", "Ноя.", "Дек." };
 
@@ -62,7 +64,7 @@ namespace My_Games
                 }
             DrawCatList();
 
-            //И заполняем их
+            //Заполняем массивы
             foreach (Game g in Data.data.games)
                 foreach (Version v in g.versions)
                 {
@@ -207,8 +209,8 @@ namespace My_Games
                     }
                 }
             DrawCatList();
-            
-            //И заполняем их
+
+            //Заполняем массивы
             foreach (Game g in Data.data.games)
                 foreach (Event ev in g.history)
                 {
@@ -230,7 +232,7 @@ namespace My_Games
         }
 
         /// <summary>
-        /// Динамика прохождения
+        /// Размер коллекции
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -243,23 +245,14 @@ namespace My_Games
             foreach (Game g in Data.data.games)
                 foreach (Version v in g.versions)
                     if (first > v.date) first = v.date;
-            last = first;
-            foreach (Game g in Data.data.games)
-            {
-                foreach (Version v in g.versions)
-                    if (last < v.date) last = v.date;
-                foreach (Event ev in g.history)
-                    if (last < ev.date) last = ev.date;
-            }
-
+            last = DateTime.Now;
             ColumnsCalc();
 
             //И заполняем их
-            for (int i = 0; i < yearCount * 12; i++)
+            for (int i = 0; i < monthCount; i++)
             {
                 DateTime date = new DateTime(first.Year + i / 12, i % 12 + 1, 1);
                 date = date.AddMonths(1);
-                Console.WriteLine(date.ToString());
                 foreach (Game game in Data.data.games)
                 {
                     int max = 0;
@@ -267,17 +260,23 @@ namespace My_Games
                     {
                         foreach (Event ev in game.history)
                             if (ev.date <= date && ev.even > max) max = ev.even;
-                        mounts[yearCount * 12 - i - 1, max]++;
+                        mounts[monthCount - i - 1, max]++;
+                        //if (date <= last.AddMonths(1)) - это даёт не заполнятся будущим месяцам, но тогда и года не заполняются
                     }
                 }
             }
             for (int j = 0; j < ctCount; j++)
             {
                 for (int i = 0; i < yearCount; i++)
-                    years[i, j] = mounts[i * 12, j];
+                {
+                    int m = i * 12;
+                    if (m < monthCount) years[i, j] = mounts[m, j];
+                }
                 for (int i = 0; i < 10; i++)
-                    if (i * yearsInColumn < yearCount)
-                        all[i, j] = mounts[i * 12 * yearsInColumn, j];
+                {
+                    int m = i * 12* yearsInColumn;
+                    if (m < monthCount) all[i, j] = mounts[i * 12 * yearsInColumn, j];
+                }
             }
 
             //Рисовка легенды
@@ -295,32 +294,65 @@ namespace My_Games
             }
             listView.EndUpdate();
 
-
-            //heightMounts = 500;
-            //heightYears = 500;
-            //heightAll = 500;
-
             FindMaximumHeight();
             ScrollCalc();
             DrawGraph();
-
         }
+        #endregion
 
+        #region Сопутствующие вычисления
         /// <summary>
         /// Вычисление количества колонок
         /// </summary>
         void ColumnsCalc()
         {
+            //Считаем количество месяцев
+            //monthCount = (last.Year * 12 + last.Month) - (first.Year * 12 + first.Month) + 1;
+            monthCount = (last.Year - first.Year + 1) * 12;
+            if (monthCount < 12) monthCount = 12;
+            mounts = new int[monthCount, ctCount];
+            
             //Считаем количество лет
             yearCount = last.Year - first.Year + 1;
             if (yearCount < 10) yearCount = 10;
-            yearsInColumn = yearCount / 10 + ((yearCount % 10) > 0 ? 1 : 0); //Сколько лет показывает одна колонка в "За всё время"
-            //Создаём массивы данных
-            mounts = new int[yearCount * 12, ctCount];
             years = new int[yearCount, ctCount];
-            all = new int[10, ctCount];
+            
+            //Общее количество
+            allCount = 10;
+            yearsInColumn = yearCount / 10 + ((yearCount % 10) > 0 ? 1 : 0);
+            all = new int[allCount, ctCount];
         }
-
+        
+        /// <summary>
+        /// Поиск максимальных высот столбиков
+        /// </summary>
+        void FindMaximumHeight()
+        {
+            heightMounts = 0;
+            for (int i = 0; i < monthCount; i++)
+            {
+                int height = 0;
+                for (int j = 0; j < ctCount; j++)
+                    height += mounts[i, j];
+                if (heightMounts < height) heightMounts = height;
+            }
+            heightYears = 0;
+            for (int i = 0; i < yearCount; i++)
+            {
+                int height = 0;
+                for (int j = 0; j < ctCount; j++)
+                    height += years[i, j];
+                if (heightYears < height) heightYears = height;
+            }
+            heightAll = 0;
+            for (int i = 0; i < allCount; i++)
+            {
+                int height = 0;
+                for (int j = 0; j < ctCount; j++)
+                    height += all[i, j];
+                if (heightAll < height) heightAll = height;
+            }
+        }
         #endregion
 
         #region Выбор масштаба
@@ -335,7 +367,7 @@ namespace My_Games
         {
             if (radioButtonMounts.Checked)
             {
-                scrollBar.Maximum = yearCount * 12 - 1;
+                scrollBar.Maximum = monthCount - 1;
                 scrollBar.Value = scrollBar.Maximum - 11;
                 scrollBar.LargeChange = 12;
                 scrollBar.Enabled = true;
@@ -408,37 +440,6 @@ namespace My_Games
                     plBrushes[i] = new SolidBrush(Color.Black);
             }
             listView.EndUpdate();
-        }
-
-        /// <summary>
-        /// Поиск максимальных высот столбиков
-        /// </summary>
-        void FindMaximumHeight()
-        {
-            heightMounts = 0;
-            for (int i = 0; i < yearCount * 12; i++)
-            {
-                int height = 0;
-                for (int j = 0; j < ctCount; j++)
-                    height += mounts[i, j];
-                if (heightMounts < height) heightMounts = height;
-            }
-            heightYears = 0;
-            for (int i = 0; i < yearCount; i++)
-            {
-                int height = 0;
-                for (int j = 0; j < ctCount; j++)
-                    height += years[i, j];
-                if (heightYears < height) heightYears = height;
-            }
-            heightAll = 0;
-            for (int i = 0; i < 10; i++)
-            {
-                int height = 0;
-                for (int j = 0; j < ctCount; j++)
-                    height += all[i, j];
-                if (heightAll < height) heightAll = height;
-            }
         }
 
         void DrawGraph()
