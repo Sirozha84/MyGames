@@ -18,14 +18,20 @@ namespace My_Games
         string[] mount = { "Янв.", "Фев.", "Март", "Апр.", "Май", "Июнь", "Июль", "Авг.", "Сен.", "Окт.", "Ноя.", "Дек." };
 
         SolidBrush[] plBrushes;
+        public FormStatistic()
+        {
+            InitializeComponent();
+            graph = pictureBox.CreateGraphics();
+            CalcGames(null, null);
+        }
 
-        #region Выбор типа графика и подготовка данных
+        #region Расчёты данных (выбор вида диаграммы)
         /// <summary>
         /// Игр куплено
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void radioButtonGames_CheckedChanged(object sender, EventArgs e)
+        private void CalcGames(object sender, EventArgs e)
         {
             //Сканируем базу и узнаём крайние даты (минимум и максимум)
             first = DateTime.Now;
@@ -37,7 +43,7 @@ namespace My_Games
                 foreach (Version v in g.versions)
                     if (last < v.date) last = v.date;
             ctCount = Data.data.platforms.Count;
-            ColumnsCalculate();
+            ColumnsCalc();
 
             //Создадим табличку с рейтингом по платформам
             categories = new int[ctCount, 2];
@@ -82,7 +88,7 @@ namespace My_Games
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void RadioButtonMoney_CheckedChanged(object sender, EventArgs e)
+        private void CalcMoney(object sender, EventArgs e)
         {
             //Сканируем базу и узнаём крайние даты (минимум и максимум)
             first = DateTime.Now;
@@ -98,7 +104,7 @@ namespace My_Games
                 foreach (DLC d in g.DLCs) if (last < d.date) last = d.date;
             }
             ctCount = Data.data.platforms.Count;
-            ColumnsCalculate();
+            ColumnsCalc();
 
             //Создадим табличку с рейтингом по платформам
             categories = new int[ctCount, 2];
@@ -171,7 +177,7 @@ namespace My_Games
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void RadioButtonTime_CheckedChanged(object sender, EventArgs e)
+        private void CalcTime(object sender, EventArgs e)
         {
             //Сканируем базу и узнаём крайние даты (минимум и максимум)
             first = DateTime.Now;
@@ -183,7 +189,7 @@ namespace My_Games
                 foreach (Event ev in g.history)
                     if (last < ev.date) last = ev.date;
             ctCount = Data.data.platforms.Count;
-            ColumnsCalculate();
+            ColumnsCalc();
 
             //Создадим табличку с рейтингом по платформам
             categories = new int[ctCount, 2];
@@ -228,7 +234,7 @@ namespace My_Games
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void RadioButtonCS_CheckedChanged(object sender, EventArgs e)
+        private void CalcColCount(object sender, EventArgs e)
         {
             ctCount = 7;
 
@@ -246,7 +252,7 @@ namespace My_Games
                     if (last < ev.date) last = ev.date;
             }
 
-            ColumnsCalculate();
+            ColumnsCalc();
 
             //И заполняем их
             for (int i = 0; i < yearCount * 12; i++)
@@ -300,16 +306,10 @@ namespace My_Games
 
         }
 
-        #endregion
-
-        #region Выбор масштаба
-        private void RadioButtonMounts_CheckedChanged(object sender, EventArgs e) { ScrollCalc(); DrawGraph(); }
-        private void RadioButtonYears_CheckedChanged(object sender, EventArgs e) { ScrollCalc(); DrawGraph(); }
-        private void RadioButtonEverytime_CheckedChanged(object sender, EventArgs e) { ScrollCalc(); DrawGraph(); }
-
-        #endregion
-
-        void ColumnsCalculate()
+        /// <summary>
+        /// Вычисление количества колонок
+        /// </summary>
+        void ColumnsCalc()
         {
             //Считаем количество лет
             yearCount = last.Year - first.Year + 1;
@@ -321,7 +321,43 @@ namespace My_Games
             all = new int[10, ctCount];
         }
 
-        private void ScrollBar_ValueChanged(object sender, EventArgs e)
+        #endregion
+
+        #region Выбор масштаба
+        private void ScaleMonths(object sender, EventArgs e) { ScrollCalc(); DrawGraph(); }
+        private void ScaleYears(object sender, EventArgs e) { ScrollCalc(); DrawGraph(); }
+        private void ScaleAll(object sender, EventArgs e) { ScrollCalc(); DrawGraph(); }
+        
+        /// <summary>
+        /// Инициализация скролл-бара
+        /// </summary>
+        void ScrollCalc()
+        {
+            if (radioButtonMounts.Checked)
+            {
+                scrollBar.Maximum = yearCount * 12 - 1;
+                scrollBar.Value = scrollBar.Maximum - 11;
+                scrollBar.LargeChange = 12;
+                scrollBar.Enabled = true;
+            }
+            if (radioButtonYears.Checked)
+            {
+                scrollBar.Maximum = yearCount - 1;
+                scrollBar.Value = scrollBar.Maximum - 9;
+                scrollBar.LargeChange = 10;
+                scrollBar.Enabled = true;
+            }
+            if (radioButtonEverytime.Checked)
+            {
+                scrollBar.Maximum = 0;
+                scrollBar.Enabled = false;
+            }
+            Scrolling(null, null);
+        }
+        #endregion
+
+        #region Скроллинг или выбор легенды
+        private void Scrolling(object sender, EventArgs e)
         {
             scrollVal = 0;
             if (radioButtonMounts.Checked) scrollVal = scrollBar.Maximum - scrollBar.Value - 11;
@@ -329,7 +365,11 @@ namespace My_Games
             DrawGraph();
         }
 
-        private void listView_SelectedIndexChanged(object sender, EventArgs e) { DrawGraph(); }
+        private void LegendChange(object sender, EventArgs e) { DrawGraph(); }
+        #endregion
+
+        #region Рисование
+        private void FormStatistic_Paint(object sender, PaintEventArgs e) { DrawGraph(); }
 
         /// <summary>
         /// Сортировка списка платформ и вывод его на форму
@@ -399,40 +439,6 @@ namespace My_Games
                     height += all[i, j];
                 if (heightAll < height) heightAll = height;
             }
-        }
-
-        /// <summary>
-        /// Инициализация скролл-бара
-        /// </summary>
-        void ScrollCalc()
-        {
-            if (radioButtonMounts.Checked)
-            {
-                scrollBar.Maximum = yearCount * 12 - 1;
-                scrollBar.Value = scrollBar.Maximum - 11;
-                scrollBar.LargeChange = 12;
-                scrollBar.Enabled = true;
-            }
-            if (radioButtonYears.Checked)
-            {
-                scrollBar.Maximum = yearCount - 1;
-                scrollBar.Value = scrollBar.Maximum - 9;
-                scrollBar.LargeChange = 10;
-                scrollBar.Enabled = true;
-            }
-            if (radioButtonEverytime.Checked)
-            {
-                scrollBar.Maximum = 0;
-                scrollBar.Enabled = false;
-            }
-            ScrollBar_ValueChanged(null, null);
-        }
-
-        public FormStatistic()
-        {
-            InitializeComponent();
-            graph = pictureBox.CreateGraphics();
-            radioButtonGames_CheckedChanged(null, null);
         }
 
         void DrawGraph()
@@ -530,7 +536,6 @@ namespace My_Games
             }
             pictureBox.Image = bmp;
         }
-
-        private void FormStatistic_Paint(object sender, PaintEventArgs e) { DrawGraph(); }
+        #endregion
     }
 }

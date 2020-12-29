@@ -60,7 +60,7 @@
             this.radioButtonGames.Text = "Игр куплено";
             this.radioButtonGames.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonGames.UseVisualStyleBackColor = true;
-            this.radioButtonGames.CheckedChanged += new System.EventHandler(this.radioButtonGames_CheckedChanged);
+            this.radioButtonGames.CheckedChanged += new System.EventHandler(this.CalcGames);
             // 
             // radioButtonMoney
             // 
@@ -73,7 +73,7 @@
             this.radioButtonMoney.Text = "Денег потрачено";
             this.radioButtonMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonMoney.UseVisualStyleBackColor = true;
-            this.radioButtonMoney.CheckedChanged += new System.EventHandler(this.RadioButtonMoney_CheckedChanged);
+            this.radioButtonMoney.CheckedChanged += new System.EventHandler(this.CalcMoney);
             // 
             // radioButtonTime
             // 
@@ -86,7 +86,7 @@
             this.radioButtonTime.Text = "Времени наиграно";
             this.radioButtonTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonTime.UseVisualStyleBackColor = true;
-            this.radioButtonTime.CheckedChanged += new System.EventHandler(this.RadioButtonTime_CheckedChanged);
+            this.radioButtonTime.CheckedChanged += new System.EventHandler(this.CalcTime);
             // 
             // radioButtonMounts
             // 
@@ -99,7 +99,7 @@
             this.radioButtonMounts.Text = "Месяцы";
             this.radioButtonMounts.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonMounts.UseVisualStyleBackColor = true;
-            this.radioButtonMounts.CheckedChanged += new System.EventHandler(this.RadioButtonMounts_CheckedChanged);
+            this.radioButtonMounts.CheckedChanged += new System.EventHandler(this.ScaleMonths);
             // 
             // radioButtonEverytime
             // 
@@ -112,7 +112,7 @@
             this.radioButtonEverytime.Text = "За всё время";
             this.radioButtonEverytime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonEverytime.UseVisualStyleBackColor = true;
-            this.radioButtonEverytime.CheckedChanged += new System.EventHandler(this.RadioButtonEverytime_CheckedChanged);
+            this.radioButtonEverytime.CheckedChanged += new System.EventHandler(this.ScaleAll);
             // 
             // radioButtonYears
             // 
@@ -127,7 +127,7 @@
             this.radioButtonYears.Text = "Годы";
             this.radioButtonYears.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonYears.UseVisualStyleBackColor = true;
-            this.radioButtonYears.CheckedChanged += new System.EventHandler(this.RadioButtonYears_CheckedChanged);
+            this.radioButtonYears.CheckedChanged += new System.EventHandler(this.ScaleYears);
             // 
             // pictureBox
             // 
@@ -150,7 +150,7 @@
             this.scrollBar.Name = "scrollBar";
             this.scrollBar.Size = new System.Drawing.Size(760, 17);
             this.scrollBar.TabIndex = 6;
-            this.scrollBar.ValueChanged += new System.EventHandler(this.ScrollBar_ValueChanged);
+            this.scrollBar.ValueChanged += new System.EventHandler(this.Scrolling);
             // 
             // tableLayoutPanel1
             // 
@@ -184,7 +184,7 @@
             this.radioButtonCS.Text = "Размер коллекции";
             this.radioButtonCS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonCS.UseVisualStyleBackColor = true;
-            this.radioButtonCS.CheckedChanged += new System.EventHandler(this.RadioButtonCS_CheckedChanged);
+            this.radioButtonCS.CheckedChanged += new System.EventHandler(this.CalcColCount);
             // 
             // tableLayoutPanel2
             // 
@@ -219,7 +219,7 @@
             this.listView.TabIndex = 0;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
-            this.listView.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
+            this.listView.SelectedIndexChanged += new System.EventHandler(this.LegendChange);
             // 
             // columnHeader
             // 
