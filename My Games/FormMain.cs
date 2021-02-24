@@ -88,7 +88,6 @@ namespace My_Games
         }
 
         #region Вид приложения, обновление, сортировка
-
         void RefreshData()
         {
             GameDateComparer dc = new GameDateComparer();
@@ -191,13 +190,10 @@ namespace My_Games
             listViewGames.Columns[e.Column].Text += lastSort ? " ▼" : " ▲";
             lastColumn = e.Column;
         }
-
-
         #endregion
 
         #region Меню "Файл"
-
-        private void menuAdd_Click(object sender, EventArgs e)
+        private void addGame(object sender, EventArgs e)
         {
             Game game = new Game();
             FormGame form = new FormGame(game);
@@ -209,7 +205,7 @@ namespace My_Games
             }
         }
 
-        private void menuAddFast_Click(object sender, EventArgs e)
+        private void addGameFast(object sender, EventArgs e)
         {
             Game game = new Game();
             FormFastAdd form = new FormFastAdd(game);
@@ -252,12 +248,10 @@ namespace My_Games
         {
             Close();
         }
-        
         #endregion
 
         #region Меню "Вид"
-        
-        private void menuFilter_Click(object sender, EventArgs e)
+        private void filterChange(object sender, EventArgs e)
         {
             Filter fl = Data.data.filter;
             if (fl.enable)
@@ -272,7 +266,7 @@ namespace My_Games
 
         private void menuSearch_Click(object sender, EventArgs e) { toolSearch.Focus(); }
 
-        private void menuInfoPanel_Click(object sender, EventArgs e)
+        private void infoPanelOnOff(object sender, EventArgs e)
         {
             menuInfoPanel.Checked = !menuInfoPanel.Checked;
             toolInfoPanel.Checked = menuInfoPanel.Checked;
@@ -310,17 +304,17 @@ namespace My_Games
 
         #region Меню "Сервис"
 
-        private void menuStat_Click(object sender, EventArgs e)
+        private void showStat(object sender, EventArgs e)
         {
             using (FormStatistic form = new FormStatistic()) form.ShowDialog();
         }
 
-        private void menuPurchases_Click(object sender, EventArgs e)
+        private void showBuyHistory(object sender, EventArgs e)
         {
             using (FormHistory form = new FormHistory()) form.ShowDialog();
         }
 
-        private void menuHistory_Click(object sender, EventArgs e)
+        private void showPlayHistory(object sender, EventArgs e)
         {
             using (FormPlayHistory form = new FormPlayHistory()) form.ShowDialog();
         }
@@ -357,21 +351,9 @@ namespace My_Games
 
         #endregion
 
-        #region панель инструментов
-
-        private void toolAdd_ButtonClick(object sender, EventArgs e) { menuAdd_Click(null, null); }
-        private void toolAddFast_Click(object sender, EventArgs e) { menuAddFast_Click(null, null); }
-
-        private void toolFilter_Click(object sender, EventArgs e) { menuFilter_Click(null, null); }
-        private void toolInfoPanel_Click(object sender, EventArgs e) { menuInfoPanel_Click(null, null); }
-
-        private void toolStat_Click(object sender, EventArgs e) { menuStat_Click(null, null); }
-        private void toolPurchases_Click(object sender, EventArgs e) { menuPurchases_Click(null, null); }
-        private void toolHistory_Click(object sender, EventArgs e) { menuHistory_Click(null, null); }
-
+        #region "Поиск"
         private void toolSearch_TextChanged(object sender, EventArgs e) { toolReset.Enabled = toolSearch.Text != ""; RefreshData(); }
         private void toolReset_Click(object sender, EventArgs e) { toolSearch.Text = ""; }
-
         #endregion
 
         #region Контекстное меню

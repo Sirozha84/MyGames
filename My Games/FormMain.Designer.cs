@@ -141,7 +141,7 @@
             this.menuAdd.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.menuAdd.Size = new System.Drawing.Size(273, 22);
             this.menuAdd.Text = "Добавить игру";
-            this.menuAdd.Click += new System.EventHandler(this.menuAdd_Click);
+            this.menuAdd.Click += new System.EventHandler(this.addGame);
             // 
             // menuAddFast
             // 
@@ -151,7 +151,7 @@
             | System.Windows.Forms.Keys.N)));
             this.menuAddFast.Size = new System.Drawing.Size(273, 22);
             this.menuAddFast.Text = "Добавить игру быстро";
-            this.menuAddFast.Click += new System.EventHandler(this.menuAddFast_Click);
+            this.menuAddFast.Click += new System.EventHandler(this.addGameFast);
             // 
             // menuDel
             // 
@@ -194,7 +194,7 @@
             this.menuFilter.ShortcutKeys = System.Windows.Forms.Keys.F2;
             this.menuFilter.Size = new System.Drawing.Size(248, 22);
             this.menuFilter.Text = "Фильтр";
-            this.menuFilter.Click += new System.EventHandler(this.menuFilter_Click);
+            this.menuFilter.Click += new System.EventHandler(this.filterChange);
             // 
             // menuSearch
             // 
@@ -212,7 +212,7 @@
             this.menuInfoPanel.ShortcutKeys = System.Windows.Forms.Keys.F4;
             this.menuInfoPanel.Size = new System.Drawing.Size(248, 22);
             this.menuInfoPanel.Text = "Панель информации";
-            this.menuInfoPanel.Click += new System.EventHandler(this.menuInfoPanel_Click);
+            this.menuInfoPanel.Click += new System.EventHandler(this.infoPanelOnOff);
             // 
             // menuSep2
             // 
@@ -284,7 +284,7 @@
             this.menuStat.ShortcutKeys = System.Windows.Forms.Keys.F9;
             this.menuStat.Size = new System.Drawing.Size(225, 22);
             this.menuStat.Text = "Статистика";
-            this.menuStat.Click += new System.EventHandler(this.menuStat_Click);
+            this.menuStat.Click += new System.EventHandler(this.showStat);
             // 
             // menuPurchases
             // 
@@ -293,7 +293,7 @@
             this.menuPurchases.ShortcutKeys = System.Windows.Forms.Keys.F10;
             this.menuPurchases.Size = new System.Drawing.Size(225, 22);
             this.menuPurchases.Text = "История покупок";
-            this.menuPurchases.Click += new System.EventHandler(this.menuPurchases_Click);
+            this.menuPurchases.Click += new System.EventHandler(this.showBuyHistory);
             // 
             // menuHistory
             // 
@@ -302,7 +302,7 @@
             this.menuHistory.ShortcutKeys = System.Windows.Forms.Keys.F11;
             this.menuHistory.Size = new System.Drawing.Size(225, 22);
             this.menuHistory.Text = "История прохождений";
-            this.menuHistory.Click += new System.EventHandler(this.menuHistory_Click);
+            this.menuHistory.Click += new System.EventHandler(this.showPlayHistory);
             // 
             // menuHelp
             // 
@@ -357,7 +357,7 @@
             this.toolAdd.Name = "toolAdd";
             this.toolAdd.Size = new System.Drawing.Size(32, 22);
             this.toolAdd.Text = "Добавить игру";
-            this.toolAdd.ButtonClick += new System.EventHandler(this.toolAdd_ButtonClick);
+            this.toolAdd.ButtonClick += new System.EventHandler(this.addGame);
             // 
             // toolAddFast
             // 
@@ -365,7 +365,7 @@
             this.toolAddFast.Name = "toolAddFast";
             this.toolAddFast.Size = new System.Drawing.Size(198, 22);
             this.toolAddFast.Text = "Добавить игру быстро";
-            this.toolAddFast.Click += new System.EventHandler(this.toolAddFast_Click);
+            this.toolAddFast.Click += new System.EventHandler(this.addGameFast);
             // 
             // toolSep1
             // 
@@ -380,7 +380,7 @@
             this.toolFilter.Name = "toolFilter";
             this.toolFilter.Size = new System.Drawing.Size(23, 22);
             this.toolFilter.Text = "Фильтр";
-            this.toolFilter.Click += new System.EventHandler(this.toolFilter_Click);
+            this.toolFilter.Click += new System.EventHandler(this.filterChange);
             // 
             // toolInfoPanel
             // 
@@ -390,7 +390,7 @@
             this.toolInfoPanel.Name = "toolInfoPanel";
             this.toolInfoPanel.Size = new System.Drawing.Size(23, 22);
             this.toolInfoPanel.Text = "Панель информации";
-            this.toolInfoPanel.Click += new System.EventHandler(this.toolInfoPanel_Click);
+            this.toolInfoPanel.Click += new System.EventHandler(this.infoPanelOnOff);
             // 
             // toolSep2
             // 
@@ -405,7 +405,7 @@
             this.toolStat.Name = "toolStat";
             this.toolStat.Size = new System.Drawing.Size(23, 22);
             this.toolStat.Text = "Статистика";
-            this.toolStat.Click += new System.EventHandler(this.toolStat_Click);
+            this.toolStat.Click += new System.EventHandler(this.showStat);
             // 
             // toolPurchases
             // 
@@ -415,7 +415,7 @@
             this.toolPurchases.Name = "toolPurchases";
             this.toolPurchases.Size = new System.Drawing.Size(23, 22);
             this.toolPurchases.Text = "История покупок";
-            this.toolPurchases.Click += new System.EventHandler(this.toolPurchases_Click);
+            this.toolPurchases.Click += new System.EventHandler(this.showBuyHistory);
             // 
             // toolHistory
             // 
@@ -425,7 +425,7 @@
             this.toolHistory.Name = "toolHistory";
             this.toolHistory.Size = new System.Drawing.Size(23, 22);
             this.toolHistory.Text = "История прохождений";
-            this.toolHistory.Click += new System.EventHandler(this.toolHistory_Click);
+            this.toolHistory.Click += new System.EventHandler(this.showPlayHistory);
             // 
             // toolReset
             // 
