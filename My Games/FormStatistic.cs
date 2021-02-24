@@ -6,17 +6,18 @@ namespace My_Games
 {
     public partial class FormStatistic : Form
     {
+        DateTime first;                             //Дата первого события
+        DateTime last;                              //Дата последнего события
+        int ctCount;                                //Количество строк ленегды
+        int yearCount, monthCount, allCount;        //Количество лет, месяцев, общих колонок
+        int yearsInColumn;                          //Лет в колонке
+        int scrollVal;                              //Позиция скролла
+        int[,] categories;                          //Категории столбиков (легенда)
+        int[,] months, years, all;                  //Таблицы с данными
+        int heightMounts, heightYears, heightAll;   //Максимальные высоты
+        bool isUser;                                //Скроллбары двигает пользователь?
         Bitmap bmp;
         Graphics graph;
-        DateTime first;
-        DateTime last;
-        int ctCount;        //Количество строк ленегды
-        int yearCount, monthCount, allCount;    //Количество лет, месяцев, общих колонок
-        int yearsInColumn;  //Лет в колонке
-        int scrollVal;      //Позиция скролла
-        int[,] categories;
-        int[,] mounts, years, all; //Таблицы с данными
-        int heightMounts, heightYears, heightAll; //Максимальные высоты
         string[] mount = { "Янв.", "Фев.", "Март", "Апр.", "Май", "Июнь", "Июль", "Авг.", "Сен.", "Окт.", "Ноя.", "Дек." };
 
         SolidBrush[] plBrushes;
@@ -76,13 +77,12 @@ namespace My_Games
                             break;
                         }                   
                     years[last.Year - v.date.Year, p]++;
-                    mounts[last.Year * 12 - v.date.Year * 12 + 12 - v.date.Month, p]++;
+                    months[last.Year * 12 - v.date.Year * 12 + 12 - v.date.Month, p]++;
                     all[(last.Year - v.date.Year) / yearsInColumn, p]++;
                 }
 
             FindMaximumHeight();
-            ScrollCalc();
-            DrawGraph();
+            Zoom();
         }
 
         /// <summary>
@@ -152,7 +152,7 @@ namespace My_Games
                             break;
                         }
                     years[last.Year - v.date.Year, p] += v.price;
-                    mounts[last.Year * 12 - v.date.Year * 12 + 12 - v.date.Month, p] += v.price;
+                    months[last.Year * 12 - v.date.Year * 12 + 12 - v.date.Month, p] += v.price;
                     all[(last.Year - v.date.Year) / yearsInColumn, p] += v.price;
                 }
                 foreach (DLC d in g.DLCs)
@@ -165,13 +165,12 @@ namespace My_Games
                             break;
                         }
                     years[last.Year - d.date.Year, p] += d.price;
-                    mounts[last.Year * 12 - d.date.Year * 12 + 12 - d.date.Month, p] += d.price;
+                    months[last.Year * 12 - d.date.Year * 12 + 12 - d.date.Month, p] += d.price;
                     all[(last.Year - d.date.Year) / yearsInColumn, p] += d.price;
                 }
             }
             FindMaximumHeight();
-            ScrollCalc();
-            DrawGraph();
+            Zoom();
         }
 
         /// <summary>
@@ -222,13 +221,12 @@ namespace My_Games
                             break;
                         }
                     years[last.Year - ev.date.Year, p] += ev.hours;
-                    mounts[last.Year * 12 - ev.date.Year * 12 + 12 - ev.date.Month, p] += ev.hours;
+                    months[last.Year * 12 - ev.date.Year * 12 + 12 - ev.date.Month, p] += ev.hours;
                     all[(last.Year - ev.date.Year) / yearsInColumn, p] += ev.hours;
                 }
 
             FindMaximumHeight();
-            ScrollCalc();
-            DrawGraph();
+            Zoom();
         }
 
         /// <summary>
@@ -260,24 +258,30 @@ namespace My_Games
                     {
                         foreach (Event ev in game.history)
                             if (ev.date <= date && ev.even > max) max = ev.even;
-                        mounts[monthCount - i - 1, max]++;
+                        months[monthCount - i - 1, max]++;
                         //if (date <= last.AddMonths(1)) - это даёт не заполнятся будущим месяцам, но тогда и года не заполняются
                     }
                 }
             }
+            //Берём последние значения для срезов по годам
             for (int j = 0; j < ctCount; j++)
             {
                 for (int i = 0; i < yearCount; i++)
                 {
                     int m = i * 12;
-                    if (m < monthCount) years[i, j] = mounts[m, j];
+                    if (m < monthCount) years[i, j] = months[m, j];
                 }
                 for (int i = 0; i < 10; i++)
                 {
                     int m = i * 12* yearsInColumn;
-                    if (m < monthCount) all[i, j] = mounts[i * 12 * yearsInColumn, j];
+                    if (m < monthCount) all[i, j] = months[i * 12 * yearsInColumn, j];
                 }
             }
+            //Очищаем остальные месяца, оставляя текущий последним заполненным
+            int empty = 12 - last.Month;
+            for (int j = 0; j < ctCount; j++)
+                for (int i = 0; i < empty; i++)
+                    months[i, j] = 0;
 
             //Рисовка легенды
             columnHeader.Text = "Статус";
@@ -295,8 +299,7 @@ namespace My_Games
             listView.EndUpdate();
 
             FindMaximumHeight();
-            ScrollCalc();
-            DrawGraph();
+            Zoom();
         }
         #endregion
 
@@ -307,10 +310,9 @@ namespace My_Games
         void ColumnsCalc()
         {
             //Считаем количество месяцев
-            //monthCount = (last.Year * 12 + last.Month) - (first.Year * 12 + first.Month) + 1;
             monthCount = (last.Year - first.Year + 1) * 12;
             if (monthCount < 12) monthCount = 12;
-            mounts = new int[monthCount, ctCount];
+            months = new int[monthCount, ctCount];
             
             //Считаем количество лет
             yearCount = last.Year - first.Year + 1;
@@ -333,7 +335,7 @@ namespace My_Games
             {
                 int height = 0;
                 for (int j = 0; j < ctCount; j++)
-                    height += mounts[i, j];
+                    height += months[i, j];
                 if (heightMounts < height) heightMounts = height;
             }
             heightYears = 0;
@@ -356,15 +358,16 @@ namespace My_Games
         #endregion
 
         #region Выбор масштаба
-        private void ScaleMonths(object sender, EventArgs e) { ScrollCalc(); DrawGraph(); }
-        private void ScaleYears(object sender, EventArgs e) { ScrollCalc(); DrawGraph(); }
-        private void ScaleAll(object sender, EventArgs e) { ScrollCalc(); DrawGraph(); }
+        private void ScaleMonths(object sender, EventArgs e) { Zoom(); }
+        private void ScaleYears(object sender, EventArgs e) { Zoom(); }
+        private void ScaleAll(object sender, EventArgs e) { Zoom(); }
         
         /// <summary>
-        /// Инициализация скролл-бара
+        /// Изменение масштаба, настройка скролл-баров и последующая перерисовка диаграмм
         /// </summary>
-        void ScrollCalc()
+        void Zoom()
         {
+            isUser = false;
             if (radioButtonMounts.Checked)
             {
                 scrollBar.Maximum = monthCount - 1;
@@ -384,6 +387,7 @@ namespace My_Games
                 scrollBar.Maximum = 0;
                 scrollBar.Enabled = false;
             }
+            isUser = true;
             Scrolling(null, null);
         }
         #endregion
@@ -391,6 +395,7 @@ namespace My_Games
         #region Скроллинг или выбор легенды
         private void Scrolling(object sender, EventArgs e)
         {
+            if (!isUser) return;
             scrollVal = 0;
             if (radioButtonMounts.Checked) scrollVal = scrollBar.Maximum - scrollBar.Value - 11;
             if (radioButtonYears.Checked) scrollVal = scrollBar.Maximum - scrollBar.Value - 9;
@@ -462,11 +467,11 @@ namespace My_Games
             formatC.Alignment = StringAlignment.Center;
             formatC.LineAlignment = StringAlignment.Center;
             graph.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            int[,] m = mounts;
+            int[,] m = months;
             int scroll = 0;
             int columns = 0;
             int heightColumns = 0;
-            if (radioButtonMounts.Checked) { m = mounts; scroll = scrollVal + 11; columns = 12; heightColumns = heightMounts; }
+            if (radioButtonMounts.Checked) { m = months; scroll = scrollVal + 11; columns = 12; heightColumns = heightMounts; }
             if (radioButtonYears.Checked) { m = years; scroll = scrollVal + 9; columns = 10; heightColumns = heightYears; }
             if (radioButtonEverytime.Checked) { m = all; scroll = 9; columns = 10; heightColumns = heightAll; }
             int cWidth = width / columns;
@@ -488,38 +493,31 @@ namespace My_Games
             {
                 int c = scroll - i;
                 int s = 0;
-                //Когданибудь я разбирусь почему индекс вылазит за пределы массива... но не сегодня
-                //c - становится большим, когда пользователь переключает с месяцев на годы, :-\
-                //То ли скролл не сбрасывается на более мелкий, то ли чё...
-                //Text = c.ToString();
-                try
+                for (int j = 0; j < ctCount; j++)
                 {
+                    graph.FillRectangle(plBrushes[j], left + space + cWidth * i, height - (s + m[c, j]) * k, cWidthS, m[c, j] * k);
+                    s += m[c, j];
+                }
+                s = 0;
+                //Обводим столбик, если что-нибдуь в легенде выбрано
+                if (listView.SelectedItems.Count > 0)
                     for (int j = 0; j < ctCount; j++)
                     {
-                        graph.FillRectangle(plBrushes[j], left + space + cWidth * i, height - (s + m[c, j]) * k, cWidthS, m[c, j] * k);
+                        if (j == listView.SelectedItems[0].Index && m[c, j] != 0)
+                        {
+                            graph.DrawRectangle(Pens.Black, left + space + cWidth * i - 3, height - (s + m[c, j]) * k - 3, cWidthS + 5, m[c, j] * k + 5);
+                            graph.DrawString(m[c, j].ToString(Program.num), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, (int)(height - (s + m[c, j]) * k - 20), cWidth, 15), formatC);
+                        }
                         s += m[c, j];
                     }
-                    s = 0;
-                    //Обводим столбик, если что-нибдуь в легенде выбрано
-                    if (listView.SelectedItems.Count > 0)
-                        for (int j = 0; j < ctCount; j++)
-                        {
-                            if (j == listView.SelectedItems[0].Index && m[c, j] != 0)
-                            {
-                                graph.DrawRectangle(Pens.Black, left + space + cWidth * i - 3, height - (s + m[c, j]) * k - 3, cWidthS + 5, m[c, j] * k + 5);
-                                graph.DrawString(m[c, j].ToString(Program.num), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, (int)(height - (s + m[c, j]) * k - 20), cWidth, 15), formatC);
-                            }
-                            s += m[c, j];
-                        }
-                    else
-                    {
-                        int sum = 0;
-                        for (int j = 0; j < ctCount; j++)
-                            sum += m[c, j];
-                        graph.DrawString(sum.ToString(Program.num), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, (int)(height - (s + sum) * k - 20), cWidth, 15), formatC);
-                    }
-                } catch { }
-                
+                else
+                {
+                    int sum = 0;
+                    for (int j = 0; j < ctCount; j++)
+                        sum += m[c, j];
+                    graph.DrawString(sum.ToString(Program.num), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, (int)(height - (s + sum) * k - 20), cWidth, 15), formatC);
+                }
+
                 //Подписи столбиков
                 if (radioButtonMounts.Checked)
                 {
