@@ -22,16 +22,7 @@ namespace My_Games
         public FormGame(Game game)
         {
             InitializeComponent();
-
             this.game = game;
-
-            //Если у игры нет ID, создадим его здесь
-            if (game.ID == 0)
-            {
-                game.ID = ++Data.data.gameLastID;
-                Data.Save();
-            }
-
             comboBoxRate.DataSource = Game.stars;
             RefreshData();
             textBoxName.Focus();
@@ -93,6 +84,13 @@ namespace My_Games
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
+            //ID
+            if (game.ID == 0)
+            {
+                game.ID = ++Data.data.gameLastID;
+                Data.Save();
+            }
+
             //Вкладка общих сведений
             game.change = DateTime.Now;
             game.name = textBoxName.Text;
@@ -515,7 +513,7 @@ namespace My_Games
                 timeFromLastPlay = TimeSpanString(lastPlay, DateTime.Now);
             }
             labelInfo.Text = "Игра: " + game.name +
-                "\n\nID: " + game.ID +
+                "\n\nID: " + (game.ID != 0 ? game.ID.ToString() : "Присвоится при записи") +
                 "\n\nДата создания: " + game.create +
                 "\n\nДата последнего изменения: " + game.change +
                 "\n\nВремени в коллекции: " + timeInCollection +

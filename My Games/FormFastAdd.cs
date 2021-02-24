@@ -24,6 +24,7 @@ namespace My_Games
         /// </summary>
         void Create()
         {
+            game.ID = ++Data.data.gameLastID;
             game.date = date.Value;
             game.change = DateTime.Now;
             game.name = textBoxName.Text;
