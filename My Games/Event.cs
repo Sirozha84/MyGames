@@ -18,6 +18,7 @@ namespace My_Games
         public Event()
         {
             date = DateTime.Now;
+            even = 4;               //Действие по умолчанию сделаем "Пройдена"
         }
 
         public Event(Event ev)

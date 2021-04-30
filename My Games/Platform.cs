@@ -35,13 +35,13 @@ namespace My_Games
         /// <param name="id">Идентификатор платформы (для автоматического выбора), 0 - если не надо выбирать</param>
         /// <param name="all">Показывать все платформы?</param>
         /// <param name="versions">Список версии, по которому делать фильтр</param>
-        public static void FillCombobox(ComboBox box, int id, bool all, List<Version> versions)
+        public static void FillCombobox(ComboBox box, int id, CheckBox all, List<Version> versions)
         {
             box.BeginUpdate();
             box.Items.Clear();
-            if (all) box.Items.Add("");
+            if (all.Checked) box.Items.Add("");
             foreach (Platform p in Data.data.platforms)
-                if (all)
+                if (all.Checked)
                     box.Items.Add(p.name);
                 else
                     foreach (Version ver in versions)
@@ -51,6 +51,7 @@ namespace My_Games
                             break;
                         }
             box.Text = Data.PlatformIDToName(id);
+            if (box.Text != Data.PlatformIDToName(id)) all.Checked = true;
             if (box.Items.Count == 1) box.SelectedIndex = 0;
             box.EndUpdate();
         }

@@ -193,7 +193,7 @@
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(273, 218);
+            this.MinimumSize = new System.Drawing.Size(320, 218);
             this.Name = "FormEvent";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
