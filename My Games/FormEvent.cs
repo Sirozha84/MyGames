@@ -26,7 +26,8 @@ namespace My_Games
             textBoxHours.Text = ev.hours.ToString();
             textBoxComment.Text = ev.comment;
             //Если название не совпадает с сохранённым - открываем весь список платформ
-            if (comboBoxPlatform.Text != Data.PlatformIDToName(ev.even)) checkBoxAll.Checked = true;
+            string pl = Data.PlatformIDToName(ev.platform);
+            if (comboBoxPlatform.Text != pl & pl != "") checkBoxAll.Checked = true;
         }
 
         private void buttonOK_Click(object sender, EventArgs e)

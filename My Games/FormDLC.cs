@@ -23,6 +23,9 @@ namespace My_Games
             textBoxName.Text = dlc.name;
             textBoxPrice.Text = dlc.price.ToString();
             textBoxComment.Text = dlc.comment;
+            //Если название не совпадает с сохранённым - открываем весь список платформ
+            string pl = Data.PlatformIDToName(dlc.platform);
+            if (comboBoxPlatform.Text != pl & pl != "") checkBoxAll.Checked = true;
         }
 
         private void buttonOK_Click(object sender, EventArgs e)

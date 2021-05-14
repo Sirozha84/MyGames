@@ -13,6 +13,12 @@ namespace My_Games
             labelVersion.Text = "Версия: " + Program.Version;
 
             history.SelectionFont = fontB;
+            history.AppendText("Версия 2.4+ (14.05.2021)\n\n");
+            history.SelectionFont = fontR;
+            history.AppendText("• Исправлено автоматическое скрытие платформ в выпадающем списке события, "+
+                "а также, эта функция добавлена в окно дополнительных материалов\n\n");
+
+            history.SelectionFont = fontB;
             history.AppendText("Версия 2.4 (30.04.2021)\n\n");
             history.SelectionFont = fontR;
             history.AppendText("• Оптимизация рисования диаграмм статистики\n" +
