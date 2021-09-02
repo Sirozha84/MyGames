@@ -246,13 +246,17 @@
   <ItemGroup>
     <Content Include="My Game Collectiom.ico" />
     <Content Include="My Games.ico" />
+    <None Include="Resources\about.png" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\reset.png" />
+    <None Include="Resources\find.png" />
+    <None Include="Resources\dictionary.png" />
+    <None Include="Resources\colors.png" />
+    <None Include="Resources\dictionary_big.png" />
+    <None Include="Resources\add_big.png" />
     <None Include="Resources\delete.png" />
-    <None Include="Resources\plus.png" />
-    <None Include="Resources\delete 1.png" />
     <None Include="Resources\My Games.png" />
     <None Include="Resources\add.png" />
-    <None Include="Resources\add fast.png" />
-    <None Include="Resources\info.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\filter.png" />
     <None Include="Resources\winner.png" />
