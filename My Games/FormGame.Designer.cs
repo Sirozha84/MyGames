@@ -435,7 +435,7 @@
             this.labelCover.Text = "Нажмите здесь левой или правой кнопкой мыши\r\nили перетащите сюда файл изображения" +
     "";
             this.labelCover.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelCover.Click += new System.EventHandler(this.labelCover_Click);
+            this.labelCover.Click += new System.EventHandler(this.SelectCover);
             // 
             // contextMenuStrip
             // 
@@ -443,7 +443,7 @@
             this.выбратьОбложкуToolStripMenuItem,
             this.удалитьToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(179, 48);
+            this.contextMenuStrip.Size = new System.Drawing.Size(181, 70);
             // 
             // выбратьОбложкуToolStripMenuItem
             // 
@@ -451,28 +451,28 @@
             this.выбратьОбложкуToolStripMenuItem.Name = "выбратьОбложкуToolStripMenuItem";
             this.выбратьОбложкуToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.выбратьОбложкуToolStripMenuItem.Text = "Выбрать обложку";
-            this.выбратьОбложкуToolStripMenuItem.Click += new System.EventHandler(this.выбратьОбложкуToolStripMenuItem_Click);
+            this.выбратьОбложкуToolStripMenuItem.Click += new System.EventHandler(this.SelectCover);
             // 
             // удалитьToolStripMenuItem
             // 
+            this.удалитьToolStripMenuItem.Image = global::My_Games.Properties.Resources.delete;
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
-            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.DeleteCover);
             // 
             // pictureBoxCover
             // 
             this.pictureBoxCover.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.pictureBoxCover.ContextMenuStrip = this.contextMenuStrip;
             this.pictureBoxCover.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxCover.Enabled = false;
             this.pictureBoxCover.Location = new System.Drawing.Point(6, 6);
             this.pictureBoxCover.Name = "pictureBoxCover";
             this.pictureBoxCover.Size = new System.Drawing.Size(300, 300);
             this.pictureBoxCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxCover.TabIndex = 19;
             this.pictureBoxCover.TabStop = false;
-            this.pictureBoxCover.Click += new System.EventHandler(this.PictureBoxCover_Click);
+            this.pictureBoxCover.Click += new System.EventHandler(this.SelectCover);
             // 
             // buttonChangeVersion
             // 

@@ -136,7 +136,7 @@
             // 
             // menuAdd
             // 
-            this.menuAdd.Image = ((System.Drawing.Image)(resources.GetObject("menuAdd.Image")));
+            this.menuAdd.Image = global::My_Games.Properties.Resources.add;
             this.menuAdd.Name = "menuAdd";
             this.menuAdd.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.menuAdd.Size = new System.Drawing.Size(273, 22);
@@ -145,7 +145,7 @@
             // 
             // menuAddFast
             // 
-            this.menuAddFast.Image = global::My_Games.Properties.Resources.add_fast;
+            this.menuAddFast.Image = ((System.Drawing.Image)(resources.GetObject("menuAddFast.Image")));
             this.menuAddFast.Name = "menuAddFast";
             this.menuAddFast.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.N)));
@@ -156,6 +156,7 @@
             // menuDel
             // 
             this.menuDel.Enabled = false;
+            this.menuDel.Image = global::My_Games.Properties.Resources.delete;
             this.menuDel.Name = "menuDel";
             this.menuDel.Size = new System.Drawing.Size(273, 22);
             this.menuDel.Text = "Удалить";
@@ -352,7 +353,7 @@
             this.toolAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolAdd.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolAddFast});
-            this.toolAdd.Image = ((System.Drawing.Image)(resources.GetObject("toolAdd.Image")));
+            this.toolAdd.Image = global::My_Games.Properties.Resources.add;
             this.toolAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolAdd.Name = "toolAdd";
             this.toolAdd.Size = new System.Drawing.Size(32, 22);
@@ -361,7 +362,7 @@
             // 
             // toolAddFast
             // 
-            this.toolAddFast.Image = global::My_Games.Properties.Resources.add_fast;
+            this.toolAddFast.Image = ((System.Drawing.Image)(resources.GetObject("toolAddFast.Image")));
             this.toolAddFast.Name = "toolAddFast";
             this.toolAddFast.Size = new System.Drawing.Size(198, 22);
             this.toolAddFast.Text = "Добавить игру быстро";
@@ -443,6 +444,7 @@
             // 
             this.toolSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolSearch.Name = "toolSearch";
             this.toolSearch.Size = new System.Drawing.Size(160, 25);
             this.toolSearch.TextChanged += new System.EventHandler(this.toolSearch_TextChanged);
@@ -554,6 +556,7 @@
             // menuDelC
             // 
             this.menuDelC.Enabled = false;
+            this.menuDelC.Image = global::My_Games.Properties.Resources.delete;
             this.menuDelC.Name = "menuDelC";
             this.menuDelC.Size = new System.Drawing.Size(164, 22);
             this.menuDelC.Text = "Удалить";

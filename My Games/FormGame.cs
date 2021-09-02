@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
-using System.Drawing.Imaging;
 
 namespace My_Games
 {
@@ -117,6 +116,7 @@ namespace My_Games
                     }
                     catch { }
             }
+            
             //Итоговые данные
             game.price = 0;
             game.win = 0;
@@ -158,6 +158,7 @@ namespace My_Games
             DialogResult = DialogResult.OK;
             Close();
         }
+        
         private void TabPageVersions_SizeChanged(object sender, EventArgs e)
         {
             panelVersion.Height = (tabPagePurchases.Height - 10) / 2;
@@ -171,12 +172,14 @@ namespace My_Games
             if (textBoxName.Text == "") Text = "Новая игра";
             buttonOK.Enabled = textBoxName.Text != "";
         }
+        
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormCats form = new FormCats(3, Data.data.genres);
             form.ShowDialog();
             Genre.FillCombobox(comboBoxGenre, game.genre);
         }
+        
         private void TabPageMain_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop, false))
@@ -192,7 +195,7 @@ namespace My_Games
             changePicture = OpenCover(file);
         }
 
-        private void PictureBoxCover_Click(object sender, EventArgs e)
+        private void SelectCover(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "Изображения (*.jpg; *.jpeg; *.png; *.gif; *.bmp)|" +
@@ -203,19 +206,14 @@ namespace My_Games
                 OpenCover(dialog.FileName);
             }
         }
-        private void labelCover_Click(object sender, EventArgs e) { PictureBoxCover_Click(null, null); }
-        private void выбратьОбложкуToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PictureBoxCover_Click(null, null);
-        }
-        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+                
+        private void DeleteCover(object sender, EventArgs e)
         {
             changePicture = true;
             newCover = "";
             pictureBoxCover.Image = null;
             pictureBoxCover.BackColor = SystemColors.AppWorkspace;
             labelCover.Visible = true;
-            //game.cover = "";
         }
 
         bool OpenCover(string file)
