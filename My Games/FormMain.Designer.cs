@@ -61,13 +61,22 @@
             this.toolSep1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolFilter = new System.Windows.Forms.ToolStripButton();
             this.toolInfoPanel = new System.Windows.Forms.ToolStripButton();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.безРаскраскиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.прохождениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolSep2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolDictionarys = new System.Windows.Forms.ToolStripDropDownButton();
+            this.платформыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.носителиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.жанрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStat = new System.Windows.Forms.ToolStripButton();
             this.toolPurchases = new System.Windows.Forms.ToolStripButton();
             this.toolHistory = new System.Windows.Forms.ToolStripButton();
             this.toolReset = new System.Windows.Forms.ToolStripButton();
             this.toolSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabelFind = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.listViewGames = new System.Windows.Forms.ListView();
             this.columnHeaderDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderGame = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -118,7 +127,7 @@
             this.menuHelp});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(784, 24);
+            this.menuStrip.Size = new System.Drawing.Size(984, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -329,23 +338,29 @@
             // 
             // toolStripPanel
             // 
+            this.toolStripPanel.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStripPanel.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStripPanel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolAdd,
             this.toolSep1,
             this.toolFilter,
             this.toolInfoPanel,
+            this.toolStripDropDownButton1,
             this.toolSep2,
+            this.toolDictionarys,
             this.toolStat,
             this.toolPurchases,
             this.toolHistory,
             this.toolReset,
             this.toolSearch,
-            this.toolStripLabelFind});
+            this.toolStripLabelFind,
+            this.toolStripSeparator1,
+            this.toolStripButton1});
             this.toolStripPanel.Location = new System.Drawing.Point(0, 24);
             this.toolStripPanel.Name = "toolStripPanel";
-            this.toolStripPanel.Size = new System.Drawing.Size(784, 25);
+            this.toolStripPanel.Size = new System.Drawing.Size(984, 39);
             this.toolStripPanel.TabIndex = 1;
-            this.toolStripPanel.Text = "toolStrip1";
+            this.toolStripPanel.Text = "tools";
             // 
             // toolAdd
             // 
@@ -355,7 +370,7 @@
             this.toolAdd.Image = ((System.Drawing.Image)(resources.GetObject("toolAdd.Image")));
             this.toolAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolAdd.Name = "toolAdd";
-            this.toolAdd.Size = new System.Drawing.Size(32, 22);
+            this.toolAdd.Size = new System.Drawing.Size(48, 36);
             this.toolAdd.Text = "Добавить игру";
             this.toolAdd.ButtonClick += new System.EventHandler(this.addGame);
             // 
@@ -370,7 +385,7 @@
             // toolSep1
             // 
             this.toolSep1.Name = "toolSep1";
-            this.toolSep1.Size = new System.Drawing.Size(6, 25);
+            this.toolSep1.Size = new System.Drawing.Size(6, 39);
             // 
             // toolFilter
             // 
@@ -378,7 +393,7 @@
             this.toolFilter.Image = global::My_Games.Properties.Resources.filter;
             this.toolFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolFilter.Name = "toolFilter";
-            this.toolFilter.Size = new System.Drawing.Size(23, 22);
+            this.toolFilter.Size = new System.Drawing.Size(36, 36);
             this.toolFilter.Text = "Фильтр";
             this.toolFilter.Click += new System.EventHandler(this.filterChange);
             // 
@@ -388,14 +403,71 @@
             this.toolInfoPanel.Image = global::My_Games.Properties.Resources.info;
             this.toolInfoPanel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolInfoPanel.Name = "toolInfoPanel";
-            this.toolInfoPanel.Size = new System.Drawing.Size(23, 22);
+            this.toolInfoPanel.Size = new System.Drawing.Size(36, 36);
             this.toolInfoPanel.Text = "Панель информации";
             this.toolInfoPanel.Click += new System.EventHandler(this.infoPanelOnOff);
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.безРаскраскиToolStripMenuItem,
+            this.прохождениеToolStripMenuItem});
+            this.toolStripDropDownButton1.Image = global::My_Games.Properties.Resources.colors;
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(45, 36);
+            this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
+            // 
+            // безРаскраскиToolStripMenuItem
+            // 
+            this.безРаскраскиToolStripMenuItem.Name = "безРаскраскиToolStripMenuItem";
+            this.безРаскраскиToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.безРаскраскиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.безРаскраскиToolStripMenuItem.Text = "Без раскраски";
+            // 
+            // прохождениеToolStripMenuItem
+            // 
+            this.прохождениеToolStripMenuItem.Name = "прохождениеToolStripMenuItem";
+            this.прохождениеToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.прохождениеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.прохождениеToolStripMenuItem.Text = "Прохождение";
             // 
             // toolSep2
             // 
             this.toolSep2.Name = "toolSep2";
-            this.toolSep2.Size = new System.Drawing.Size(6, 25);
+            this.toolSep2.Size = new System.Drawing.Size(6, 39);
+            // 
+            // toolDictionarys
+            // 
+            this.toolDictionarys.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolDictionarys.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.платформыToolStripMenuItem,
+            this.носителиToolStripMenuItem,
+            this.жанрыToolStripMenuItem});
+            this.toolDictionarys.Image = global::My_Games.Properties.Resources.dictionary;
+            this.toolDictionarys.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolDictionarys.Name = "toolDictionarys";
+            this.toolDictionarys.Size = new System.Drawing.Size(45, 36);
+            this.toolDictionarys.Text = "toolStripDropDownButton2";
+            // 
+            // платформыToolStripMenuItem
+            // 
+            this.платформыToolStripMenuItem.Name = "платформыToolStripMenuItem";
+            this.платформыToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.платформыToolStripMenuItem.Text = "Платформы";
+            // 
+            // носителиToolStripMenuItem
+            // 
+            this.носителиToolStripMenuItem.Name = "носителиToolStripMenuItem";
+            this.носителиToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.носителиToolStripMenuItem.Text = "Носители";
+            // 
+            // жанрыToolStripMenuItem
+            // 
+            this.жанрыToolStripMenuItem.Name = "жанрыToolStripMenuItem";
+            this.жанрыToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.жанрыToolStripMenuItem.Text = "Жанры";
             // 
             // toolStat
             // 
@@ -403,7 +475,7 @@
             this.toolStat.Image = global::My_Games.Properties.Resources.stat;
             this.toolStat.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStat.Name = "toolStat";
-            this.toolStat.Size = new System.Drawing.Size(23, 22);
+            this.toolStat.Size = new System.Drawing.Size(36, 36);
             this.toolStat.Text = "Статистика";
             this.toolStat.Click += new System.EventHandler(this.showStat);
             // 
@@ -413,7 +485,7 @@
             this.toolPurchases.Image = global::My_Games.Properties.Resources.purchase;
             this.toolPurchases.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolPurchases.Name = "toolPurchases";
-            this.toolPurchases.Size = new System.Drawing.Size(23, 22);
+            this.toolPurchases.Size = new System.Drawing.Size(36, 36);
             this.toolPurchases.Text = "История покупок";
             this.toolPurchases.Click += new System.EventHandler(this.showBuyHistory);
             // 
@@ -423,7 +495,7 @@
             this.toolHistory.Image = global::My_Games.Properties.Resources.winner;
             this.toolHistory.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolHistory.Name = "toolHistory";
-            this.toolHistory.Size = new System.Drawing.Size(23, 22);
+            this.toolHistory.Size = new System.Drawing.Size(36, 36);
             this.toolHistory.Text = "История прохождений";
             this.toolHistory.Click += new System.EventHandler(this.showPlayHistory);
             // 
@@ -432,10 +504,10 @@
             this.toolReset.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolReset.Enabled = false;
-            this.toolReset.Image = global::My_Games.Properties.Resources.clear;
+            this.toolReset.Image = global::My_Games.Properties.Resources.reset;
             this.toolReset.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolReset.Name = "toolReset";
-            this.toolReset.Size = new System.Drawing.Size(23, 22);
+            this.toolReset.Size = new System.Drawing.Size(36, 36);
             this.toolReset.Text = "Сброс";
             this.toolReset.Click += new System.EventHandler(this.toolReset_Click);
             // 
@@ -443,19 +515,33 @@
             // 
             this.toolSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.toolSearch.Name = "toolSearch";
-            this.toolSearch.Size = new System.Drawing.Size(160, 25);
+            this.toolSearch.Size = new System.Drawing.Size(300, 39);
             this.toolSearch.TextChanged += new System.EventHandler(this.toolSearch_TextChanged);
             // 
             // toolStripLabelFind
             // 
             this.toolStripLabelFind.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripLabelFind.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripLabelFind.Image = global::My_Games.Properties.Resources.search;
+            this.toolStripLabelFind.Image = global::My_Games.Properties.Resources.find;
             this.toolStripLabelFind.Name = "toolStripLabelFind";
-            this.toolStripLabelFind.Size = new System.Drawing.Size(16, 22);
+            this.toolStripLabelFind.Size = new System.Drawing.Size(32, 36);
             this.toolStripLabelFind.Text = "Поиск";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::My_Games.Properties.Resources.about;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton1.Text = "toolStripButton1";
             // 
             // listViewGames
             // 
@@ -472,12 +558,13 @@
             this.columnHeaderVersions,
             this.columnHeaderPrice});
             this.listViewGames.ContextMenuStrip = this.contextMenu;
+            this.listViewGames.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listViewGames.FullRowSelect = true;
             this.listViewGames.GridLines = true;
             this.listViewGames.HideSelection = false;
-            this.listViewGames.Location = new System.Drawing.Point(0, 52);
+            this.listViewGames.Location = new System.Drawing.Point(0, 66);
             this.listViewGames.Name = "listViewGames";
-            this.listViewGames.Size = new System.Drawing.Size(579, 484);
+            this.listViewGames.Size = new System.Drawing.Size(779, 570);
             this.listViewGames.TabIndex = 2;
             this.listViewGames.UseCompatibleStateImageBehavior = false;
             this.listViewGames.View = System.Windows.Forms.View.Details;
@@ -489,26 +576,27 @@
             // columnHeaderDate
             // 
             this.columnHeaderDate.Text = "Дата";
-            this.columnHeaderDate.Width = 70;
+            this.columnHeaderDate.Width = 90;
             // 
             // columnHeaderGame
             // 
             this.columnHeaderGame.Text = "Игра";
-            this.columnHeaderGame.Width = 180;
+            this.columnHeaderGame.Width = 200;
             // 
             // columnHeaderGenre
             // 
             this.columnHeaderGenre.Text = "Жанр";
-            this.columnHeaderGenre.Width = 80;
+            this.columnHeaderGenre.Width = 150;
             // 
             // columnHeaderRating
             // 
             this.columnHeaderRating.Text = "Оценка";
+            this.columnHeaderRating.Width = 80;
             // 
             // columnHeaderWin
             // 
             this.columnHeaderWin.Text = "Пройдена";
-            this.columnHeaderWin.Width = 100;
+            this.columnHeaderWin.Width = 160;
             // 
             // columnHeaderHourse
             // 
@@ -519,12 +607,13 @@
             // 
             this.columnHeaderVersions.Text = "Версии";
             this.columnHeaderVersions.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeaderVersions.Width = 70;
             // 
             // columnHeaderPrice
             // 
             this.columnHeaderPrice.Text = "Потрачено";
             this.columnHeaderPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeaderPrice.Width = 80;
+            this.columnHeaderPrice.Width = 100;
             // 
             // contextMenu
             // 
@@ -563,13 +652,14 @@
             // 
             // statusStrip
             // 
+            this.statusStrip.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusAll,
             this.statusShowed,
             this.statusSelected});
-            this.statusStrip.Location = new System.Drawing.Point(0, 539);
+            this.statusStrip.Location = new System.Drawing.Point(0, 629);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(784, 22);
+            this.statusStrip.Size = new System.Drawing.Size(984, 32);
             this.statusStrip.TabIndex = 3;
             this.statusStrip.Text = "statusStrip1";
             // 
@@ -577,7 +667,7 @@
             // 
             this.statusAll.AutoSize = false;
             this.statusAll.Name = "statusAll";
-            this.statusAll.Size = new System.Drawing.Size(150, 17);
+            this.statusAll.Size = new System.Drawing.Size(150, 27);
             this.statusAll.Text = "All";
             this.statusAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -585,7 +675,7 @@
             // 
             this.statusShowed.AutoSize = false;
             this.statusShowed.Name = "statusShowed";
-            this.statusShowed.Size = new System.Drawing.Size(150, 17);
+            this.statusShowed.Size = new System.Drawing.Size(150, 27);
             this.statusShowed.Text = "Showed";
             this.statusShowed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -593,7 +683,7 @@
             // 
             this.statusSelected.AutoSize = false;
             this.statusSelected.Name = "statusSelected";
-            this.statusSelected.Size = new System.Drawing.Size(150, 17);
+            this.statusSelected.Size = new System.Drawing.Size(150, 27);
             this.statusSelected.Text = "Selected";
             this.statusSelected.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -615,32 +705,34 @@
             this.infoView.Controls.Add(this.labelDevelopers);
             this.infoView.Controls.Add(this.labelDevelopersL);
             this.infoView.Controls.Add(this.labelName);
-            this.infoView.Location = new System.Drawing.Point(585, 52);
+            this.infoView.Location = new System.Drawing.Point(785, 66);
             this.infoView.Name = "infoView";
-            this.infoView.Size = new System.Drawing.Size(199, 484);
+            this.infoView.Size = new System.Drawing.Size(199, 560);
             this.infoView.TabIndex = 4;
             // 
             // labelHistory
             // 
-            this.labelHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelHistory.Location = new System.Drawing.Point(3, 439);
+            this.labelHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelHistory.Location = new System.Drawing.Point(3, 483);
             this.labelHistory.Name = "labelHistory";
-            this.labelHistory.Size = new System.Drawing.Size(190, 30);
+            this.labelHistory.Size = new System.Drawing.Size(190, 77);
             this.labelHistory.TabIndex = 14;
             // 
             // labelHistoryL
             // 
             this.labelHistoryL.AutoSize = true;
+            this.labelHistoryL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelHistoryL.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.labelHistoryL.Location = new System.Drawing.Point(3, 426);
+            this.labelHistoryL.Location = new System.Drawing.Point(3, 463);
             this.labelHistoryL.Name = "labelHistoryL";
-            this.labelHistoryL.Size = new System.Drawing.Size(60, 13);
+            this.labelHistoryL.Size = new System.Drawing.Size(90, 20);
             this.labelHistoryL.TabIndex = 13;
             this.labelHistoryL.Text = "Пройдена:";
             // 
             // labelDLCs
             // 
-            this.labelDLCs.Location = new System.Drawing.Point(3, 396);
+            this.labelDLCs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelDLCs.Location = new System.Drawing.Point(3, 433);
             this.labelDLCs.Name = "labelDLCs";
             this.labelDLCs.Size = new System.Drawing.Size(190, 30);
             this.labelDLCs.TabIndex = 12;
@@ -648,16 +740,18 @@
             // labelDLCL
             // 
             this.labelDLCL.AutoSize = true;
+            this.labelDLCL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelDLCL.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.labelDLCL.Location = new System.Drawing.Point(3, 383);
+            this.labelDLCL.Location = new System.Drawing.Point(3, 413);
             this.labelDLCL.Name = "labelDLCL";
-            this.labelDLCL.Size = new System.Drawing.Size(158, 13);
+            this.labelDLCL.Size = new System.Drawing.Size(45, 20);
             this.labelDLCL.TabIndex = 11;
-            this.labelDLCL.Text = "Дополнительные материалы:";
+            this.labelDLCL.Text = "DLC:";
             // 
             // labelVersions
             // 
-            this.labelVersions.Location = new System.Drawing.Point(3, 353);
+            this.labelVersions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelVersions.Location = new System.Drawing.Point(3, 433);
             this.labelVersions.Name = "labelVersions";
             this.labelVersions.Size = new System.Drawing.Size(190, 30);
             this.labelVersions.TabIndex = 10;
@@ -665,10 +759,11 @@
             // labelVersionsL
             // 
             this.labelVersionsL.AutoSize = true;
+            this.labelVersionsL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelVersionsL.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.labelVersionsL.Location = new System.Drawing.Point(3, 340);
+            this.labelVersionsL.Location = new System.Drawing.Point(3, 361);
             this.labelVersionsL.Name = "labelVersionsL";
-            this.labelVersionsL.Size = new System.Drawing.Size(47, 13);
+            this.labelVersionsL.Size = new System.Drawing.Size(68, 20);
             this.labelVersionsL.TabIndex = 9;
             this.labelVersionsL.Text = "Версии:";
             // 
@@ -683,8 +778,8 @@
             // 
             // labelYear
             // 
-            this.labelYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelYear.Location = new System.Drawing.Point(2, 320);
+            this.labelYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelYear.Location = new System.Drawing.Point(2, 341);
             this.labelYear.Name = "labelYear";
             this.labelYear.Size = new System.Drawing.Size(191, 20);
             this.labelYear.TabIndex = 7;
@@ -692,17 +787,18 @@
             // labelYearL
             // 
             this.labelYearL.AutoSize = true;
+            this.labelYearL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelYearL.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.labelYearL.Location = new System.Drawing.Point(3, 307);
+            this.labelYearL.Location = new System.Drawing.Point(3, 321);
             this.labelYearL.Name = "labelYearL";
-            this.labelYearL.Size = new System.Drawing.Size(68, 13);
+            this.labelYearL.Size = new System.Drawing.Size(102, 20);
             this.labelYearL.TabIndex = 6;
             this.labelYearL.Text = "Год выхода:";
             // 
             // labelPublishers
             // 
-            this.labelPublishers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPublishers.Location = new System.Drawing.Point(2, 287);
+            this.labelPublishers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPublishers.Location = new System.Drawing.Point(3, 301);
             this.labelPublishers.Name = "labelPublishers";
             this.labelPublishers.Size = new System.Drawing.Size(191, 20);
             this.labelPublishers.TabIndex = 5;
@@ -710,17 +806,18 @@
             // labelPublishersL
             // 
             this.labelPublishersL.AutoSize = true;
+            this.labelPublishersL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelPublishersL.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.labelPublishersL.Location = new System.Drawing.Point(3, 274);
+            this.labelPublishersL.Location = new System.Drawing.Point(3, 281);
             this.labelPublishersL.Name = "labelPublishersL";
-            this.labelPublishersL.Size = new System.Drawing.Size(59, 13);
+            this.labelPublishersL.Size = new System.Drawing.Size(89, 20);
             this.labelPublishersL.TabIndex = 4;
             this.labelPublishersL.Text = "Издатель:";
             // 
             // labelDevelopers
             // 
-            this.labelDevelopers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelDevelopers.Location = new System.Drawing.Point(2, 254);
+            this.labelDevelopers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelDevelopers.Location = new System.Drawing.Point(3, 261);
             this.labelDevelopers.Name = "labelDevelopers";
             this.labelDevelopers.Size = new System.Drawing.Size(191, 20);
             this.labelDevelopers.TabIndex = 3;
@@ -728,16 +825,17 @@
             // labelDevelopersL
             // 
             this.labelDevelopersL.AutoSize = true;
+            this.labelDevelopersL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelDevelopersL.ForeColor = System.Drawing.SystemColors.GrayText;
             this.labelDevelopersL.Location = new System.Drawing.Point(3, 241);
             this.labelDevelopersL.Name = "labelDevelopersL";
-            this.labelDevelopersL.Size = new System.Drawing.Size(75, 13);
+            this.labelDevelopersL.Size = new System.Drawing.Size(111, 20);
             this.labelDevelopersL.TabIndex = 2;
             this.labelDevelopersL.Text = "Разработчик:";
             // 
             // labelName
             // 
-            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelName.Location = new System.Drawing.Point(3, 196);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(190, 45);
@@ -748,7 +846,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.infoView);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.listViewGames);
@@ -848,6 +946,15 @@
         private System.Windows.Forms.Label labelDLCL;
         private System.Windows.Forms.Label labelHistory;
         private System.Windows.Forms.Label labelHistoryL;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripDropDownButton toolDictionarys;
+        private System.Windows.Forms.ToolStripMenuItem безРаскраскиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem прохождениеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem платформыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem носителиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem жанрыToolStripMenuItem;
     }
 }
 
