@@ -39,17 +39,17 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.listViewVersions = new System.Windows.Forms.ListView();
-            this.columnVerDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnVerPlatform = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnVerCarrier = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnVerPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnVerComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnVerDate = new System.Windows.Forms.ColumnHeader();
+            this.columnVerPlatform = new System.Windows.Forms.ColumnHeader();
+            this.columnVerCarrier = new System.Windows.Forms.ColumnHeader();
+            this.columnVerPrice = new System.Windows.Forms.ColumnHeader();
+            this.columnVerComment = new System.Windows.Forms.ColumnHeader();
             this.listViewHistory = new System.Windows.Forms.ListView();
-            this.columnEventDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnEventPlatform = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnEvent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnEventHours = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnEventComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnEventDate = new System.Windows.Forms.ColumnHeader();
+            this.columnEventPlatform = new System.Windows.Forms.ColumnHeader();
+            this.columnEvent = new System.Windows.Forms.ColumnHeader();
+            this.columnEventHours = new System.Windows.Forms.ColumnHeader();
+            this.columnEventComment = new System.Windows.Forms.ColumnHeader();
             this.textBoxComment = new System.Windows.Forms.TextBox();
             this.groupBoxMain = new System.Windows.Forms.GroupBox();
             this.textBoxPublisher = new System.Windows.Forms.TextBox();
@@ -89,11 +89,11 @@
             this.buttonDelDLC = new System.Windows.Forms.Button();
             this.buttonChangeDLC = new System.Windows.Forms.Button();
             this.listViewDLCs = new System.Windows.Forms.ListView();
-            this.columnDLCDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnDLCPlatform = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnDLCName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnDLCPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnDLCComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnDLCDate = new System.Windows.Forms.ColumnHeader();
+            this.columnDLCPlatform = new System.Windows.Forms.ColumnHeader();
+            this.columnDLCName = new System.Windows.Forms.ColumnHeader();
+            this.columnDLCPrice = new System.Windows.Forms.ColumnHeader();
+            this.columnDLCComment = new System.Windows.Forms.ColumnHeader();
             this.splitter = new System.Windows.Forms.Splitter();
             this.panelVersion = new System.Windows.Forms.Panel();
             this.groupBoxVersion = new System.Windows.Forms.GroupBox();
@@ -106,8 +106,8 @@
             this.buttonNoteAdd = new System.Windows.Forms.Button();
             this.textBoxNoteName = new System.Windows.Forms.TextBox();
             this.listViewNotes = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.dateTimeNote = new System.Windows.Forms.DateTimePicker();
             this.buttonNoteDel = new System.Windows.Forms.Button();
             this.textBoxNote = new System.Windows.Forms.TextBox();
@@ -135,9 +135,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 22);
+            this.label1.Location = new System.Drawing.Point(104, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(72, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Игра:";
             // 
@@ -145,9 +146,10 @@
             // 
             this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxName.Location = new System.Drawing.Point(89, 19);
+            this.textBoxName.Location = new System.Drawing.Point(193, 47);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(339, 20);
+            this.textBoxName.Size = new System.Drawing.Size(730, 39);
             this.textBoxName.TabIndex = 0;
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
@@ -157,35 +159,39 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGenre.FormattingEnabled = true;
-            this.comboBoxGenre.Location = new System.Drawing.Point(89, 125);
+            this.comboBoxGenre.Location = new System.Drawing.Point(193, 308);
+            this.comboBoxGenre.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.comboBoxGenre.Name = "comboBoxGenre";
-            this.comboBoxGenre.Size = new System.Drawing.Size(339, 21);
+            this.comboBoxGenre.Size = new System.Drawing.Size(730, 40);
             this.comboBoxGenre.TabIndex = 9;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 75);
+            this.label3.Location = new System.Drawing.Point(52, 185);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.Size = new System.Drawing.Size(121, 32);
             this.label3.TabIndex = 4;
             this.label3.Text = "Издатель:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 102);
+            this.label4.Location = new System.Drawing.Point(32, 251);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 13);
+            this.label4.Size = new System.Drawing.Size(144, 32);
             this.label4.TabIndex = 6;
             this.label4.Text = "Год выхода:";
             // 
             // buttonOK
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Location = new System.Drawing.Point(616, 526);
+            this.buttonOK.Location = new System.Drawing.Point(1335, 1295);
+            this.buttonOK.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(75, 23);
+            this.buttonOK.Size = new System.Drawing.Size(162, 57);
             this.buttonOK.TabIndex = 1;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
@@ -195,9 +201,10 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(697, 526);
+            this.buttonCancel.Location = new System.Drawing.Point(1510, 1295);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(162, 57);
             this.buttonCancel.TabIndex = 2;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -205,9 +212,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(35, 155);
+            this.label5.Location = new System.Drawing.Point(76, 382);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.Size = new System.Drawing.Size(102, 32);
             this.label5.TabIndex = 10;
             this.label5.Text = "Оценка:";
             // 
@@ -225,11 +233,11 @@
             this.listViewVersions.FullRowSelect = true;
             this.listViewVersions.GridLines = true;
             this.listViewVersions.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listViewVersions.HideSelection = false;
-            this.listViewVersions.Location = new System.Drawing.Point(6, 48);
+            this.listViewVersions.Location = new System.Drawing.Point(13, 118);
+            this.listViewVersions.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.listViewVersions.MultiSelect = false;
             this.listViewVersions.Name = "listViewVersions";
-            this.listViewVersions.Size = new System.Drawing.Size(728, 178);
+            this.listViewVersions.Size = new System.Drawing.Size(1576, 432);
             this.listViewVersions.TabIndex = 3;
             this.listViewVersions.UseCompatibleStateImageBehavior = false;
             this.listViewVersions.View = System.Windows.Forms.View.Details;
@@ -276,11 +284,11 @@
             this.listViewHistory.FullRowSelect = true;
             this.listViewHistory.GridLines = true;
             this.listViewHistory.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listViewHistory.HideSelection = false;
-            this.listViewHistory.Location = new System.Drawing.Point(6, 48);
+            this.listViewHistory.Location = new System.Drawing.Point(13, 118);
+            this.listViewHistory.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.listViewHistory.MultiSelect = false;
             this.listViewHistory.Name = "listViewHistory";
-            this.listViewHistory.Size = new System.Drawing.Size(728, 416);
+            this.listViewHistory.Size = new System.Drawing.Size(1573, 1018);
             this.listViewHistory.TabIndex = 3;
             this.listViewHistory.UseCompatibleStateImageBehavior = false;
             this.listViewHistory.View = System.Windows.Forms.View.Details;
@@ -318,10 +326,11 @@
             this.textBoxComment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxComment.Location = new System.Drawing.Point(6, 19);
+            this.textBoxComment.Location = new System.Drawing.Point(13, 47);
+            this.textBoxComment.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.textBoxComment.Multiline = true;
             this.textBoxComment.Name = "textBoxComment";
-            this.textBoxComment.Size = new System.Drawing.Size(728, 139);
+            this.textBoxComment.Size = new System.Drawing.Size(1573, 336);
             this.textBoxComment.TabIndex = 0;
             // 
             // groupBoxMain
@@ -342,9 +351,11 @@
             this.groupBoxMain.Controls.Add(this.label3);
             this.groupBoxMain.Controls.Add(this.label4);
             this.groupBoxMain.Controls.Add(this.label5);
-            this.groupBoxMain.Location = new System.Drawing.Point(312, 6);
+            this.groupBoxMain.Location = new System.Drawing.Point(676, 15);
+            this.groupBoxMain.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.groupBoxMain.Name = "groupBoxMain";
-            this.groupBoxMain.Size = new System.Drawing.Size(434, 210);
+            this.groupBoxMain.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.groupBoxMain.Size = new System.Drawing.Size(940, 517);
             this.groupBoxMain.TabIndex = 1;
             this.groupBoxMain.TabStop = false;
             this.groupBoxMain.Text = "Общие сведения";
@@ -353,26 +364,29 @@
             // 
             this.textBoxPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPublisher.Location = new System.Drawing.Point(89, 72);
+            this.textBoxPublisher.Location = new System.Drawing.Point(193, 177);
+            this.textBoxPublisher.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.textBoxPublisher.Name = "textBoxPublisher";
-            this.textBoxPublisher.Size = new System.Drawing.Size(339, 20);
+            this.textBoxPublisher.Size = new System.Drawing.Size(730, 39);
             this.textBoxPublisher.TabIndex = 5;
             // 
             // textBoxDeveloper
             // 
             this.textBoxDeveloper.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDeveloper.Location = new System.Drawing.Point(89, 45);
+            this.textBoxDeveloper.Location = new System.Drawing.Point(193, 111);
+            this.textBoxDeveloper.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.textBoxDeveloper.Name = "textBoxDeveloper";
-            this.textBoxDeveloper.Size = new System.Drawing.Size(339, 20);
+            this.textBoxDeveloper.Size = new System.Drawing.Size(730, 39);
             this.textBoxDeveloper.TabIndex = 3;
             // 
             // linkLabelSite
             // 
             this.linkLabelSite.AutoSize = true;
-            this.linkLabelSite.Location = new System.Drawing.Point(49, 182);
+            this.linkLabelSite.Location = new System.Drawing.Point(106, 448);
+            this.linkLabelSite.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.linkLabelSite.Name = "linkLabelSite";
-            this.linkLabelSite.Size = new System.Drawing.Size(34, 13);
+            this.linkLabelSite.Size = new System.Drawing.Size(70, 32);
             this.linkLabelSite.TabIndex = 12;
             this.linkLabelSite.TabStop = true;
             this.linkLabelSite.Text = "Сайт:";
@@ -381,17 +395,19 @@
             // 
             this.textBoxSite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSite.Location = new System.Drawing.Point(89, 179);
+            this.textBoxSite.Location = new System.Drawing.Point(193, 441);
+            this.textBoxSite.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.textBoxSite.Name = "textBoxSite";
-            this.textBoxSite.Size = new System.Drawing.Size(339, 20);
+            this.textBoxSite.Size = new System.Drawing.Size(730, 39);
             this.textBoxSite.TabIndex = 13;
             // 
             // linkLabelGenre
             // 
             this.linkLabelGenre.AutoSize = true;
-            this.linkLabelGenre.Location = new System.Drawing.Point(44, 129);
+            this.linkLabelGenre.Location = new System.Drawing.Point(95, 318);
+            this.linkLabelGenre.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.linkLabelGenre.Name = "linkLabelGenre";
-            this.linkLabelGenre.Size = new System.Drawing.Size(39, 13);
+            this.linkLabelGenre.Size = new System.Drawing.Size(80, 32);
             this.linkLabelGenre.TabIndex = 8;
             this.linkLabelGenre.TabStop = true;
             this.linkLabelGenre.Text = "Жанр:";
@@ -400,9 +416,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 48);
+            this.label6.Location = new System.Drawing.Point(17, 118);
+            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 13);
+            this.label6.Size = new System.Drawing.Size(159, 32);
             this.label6.TabIndex = 2;
             this.label6.Text = "Разработчик:";
             // 
@@ -410,16 +427,18 @@
             // 
             this.comboBoxRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRate.FormattingEnabled = true;
-            this.comboBoxRate.Location = new System.Drawing.Point(89, 152);
+            this.comboBoxRate.Location = new System.Drawing.Point(193, 374);
+            this.comboBoxRate.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.comboBoxRate.Name = "comboBoxRate";
-            this.comboBoxRate.Size = new System.Drawing.Size(58, 21);
+            this.comboBoxRate.Size = new System.Drawing.Size(121, 40);
             this.comboBoxRate.TabIndex = 11;
             // 
             // textBoxYear
             // 
-            this.textBoxYear.Location = new System.Drawing.Point(89, 99);
+            this.textBoxYear.Location = new System.Drawing.Point(193, 244);
+            this.textBoxYear.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.textBoxYear.Name = "textBoxYear";
-            this.textBoxYear.Size = new System.Drawing.Size(57, 20);
+            this.textBoxYear.Size = new System.Drawing.Size(119, 39);
             this.textBoxYear.TabIndex = 7;
             // 
             // labelCover
@@ -428,9 +447,10 @@
             this.labelCover.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.labelCover.ContextMenuStrip = this.contextMenuStrip;
             this.labelCover.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelCover.Location = new System.Drawing.Point(29, 140);
+            this.labelCover.Location = new System.Drawing.Point(63, 345);
+            this.labelCover.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelCover.Name = "labelCover";
-            this.labelCover.Size = new System.Drawing.Size(258, 26);
+            this.labelCover.Size = new System.Drawing.Size(567, 64);
             this.labelCover.TabIndex = 0;
             this.labelCover.Text = "Нажмите здесь левой или правой кнопкой мыши\r\nили перетащите сюда файл изображения" +
     "";
@@ -439,17 +459,18 @@
             // 
             // contextMenuStrip
             // 
+            this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.выбратьОбложкуToolStripMenuItem,
             this.удалитьToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip.Size = new System.Drawing.Size(319, 84);
             // 
             // выбратьОбложкуToolStripMenuItem
             // 
-            this.выбратьОбложкуToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.выбратьОбложкуToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.выбратьОбложкуToolStripMenuItem.Name = "выбратьОбложкуToolStripMenuItem";
-            this.выбратьОбложкуToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.выбратьОбложкуToolStripMenuItem.Size = new System.Drawing.Size(318, 40);
             this.выбратьОбложкуToolStripMenuItem.Text = "Выбрать обложку";
             this.выбратьОбложкуToolStripMenuItem.Click += new System.EventHandler(this.SelectCover);
             // 
@@ -457,7 +478,7 @@
             // 
             this.удалитьToolStripMenuItem.Image = global::My_Games.Properties.Resources.delete;
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(318, 40);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.DeleteCover);
             // 
@@ -466,9 +487,10 @@
             this.pictureBoxCover.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.pictureBoxCover.ContextMenuStrip = this.contextMenuStrip;
             this.pictureBoxCover.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxCover.Location = new System.Drawing.Point(6, 6);
+            this.pictureBoxCover.Location = new System.Drawing.Point(13, 15);
+            this.pictureBoxCover.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.pictureBoxCover.Name = "pictureBoxCover";
-            this.pictureBoxCover.Size = new System.Drawing.Size(300, 300);
+            this.pictureBoxCover.Size = new System.Drawing.Size(650, 738);
             this.pictureBoxCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxCover.TabIndex = 19;
             this.pictureBoxCover.TabStop = false;
@@ -477,9 +499,10 @@
             // buttonChangeVersion
             // 
             this.buttonChangeVersion.Enabled = false;
-            this.buttonChangeVersion.Location = new System.Drawing.Point(92, 19);
+            this.buttonChangeVersion.Location = new System.Drawing.Point(199, 47);
+            this.buttonChangeVersion.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonChangeVersion.Name = "buttonChangeVersion";
-            this.buttonChangeVersion.Size = new System.Drawing.Size(75, 23);
+            this.buttonChangeVersion.Size = new System.Drawing.Size(162, 57);
             this.buttonChangeVersion.TabIndex = 1;
             this.buttonChangeVersion.Text = "Изменить";
             this.buttonChangeVersion.UseVisualStyleBackColor = true;
@@ -488,9 +511,10 @@
             // buttonDelVersion
             // 
             this.buttonDelVersion.Enabled = false;
-            this.buttonDelVersion.Location = new System.Drawing.Point(173, 19);
+            this.buttonDelVersion.Location = new System.Drawing.Point(375, 47);
+            this.buttonDelVersion.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonDelVersion.Name = "buttonDelVersion";
-            this.buttonDelVersion.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelVersion.Size = new System.Drawing.Size(162, 57);
             this.buttonDelVersion.TabIndex = 2;
             this.buttonDelVersion.Text = "Удалить";
             this.buttonDelVersion.UseVisualStyleBackColor = true;
@@ -498,11 +522,12 @@
             // 
             // buttonAddVersion
             // 
-            this.buttonAddVersion.Image = global::My_Games.Properties.Resources.add;
+            this.buttonAddVersion.Image = global::My_Games.Properties.Resources.add_big;
             this.buttonAddVersion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddVersion.Location = new System.Drawing.Point(6, 19);
+            this.buttonAddVersion.Location = new System.Drawing.Point(13, 47);
+            this.buttonAddVersion.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonAddVersion.Name = "buttonAddVersion";
-            this.buttonAddVersion.Size = new System.Drawing.Size(80, 23);
+            this.buttonAddVersion.Size = new System.Drawing.Size(173, 57);
             this.buttonAddVersion.TabIndex = 0;
             this.buttonAddVersion.Text = "Добавить";
             this.buttonAddVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -512,9 +537,10 @@
             // buttonDelEvent
             // 
             this.buttonDelEvent.Enabled = false;
-            this.buttonDelEvent.Location = new System.Drawing.Point(173, 19);
+            this.buttonDelEvent.Location = new System.Drawing.Point(375, 47);
+            this.buttonDelEvent.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonDelEvent.Name = "buttonDelEvent";
-            this.buttonDelEvent.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelEvent.Size = new System.Drawing.Size(162, 57);
             this.buttonDelEvent.TabIndex = 2;
             this.buttonDelEvent.Text = "Удалить";
             this.buttonDelEvent.UseVisualStyleBackColor = true;
@@ -523,9 +549,10 @@
             // buttonChangeEvent
             // 
             this.buttonChangeEvent.Enabled = false;
-            this.buttonChangeEvent.Location = new System.Drawing.Point(92, 19);
+            this.buttonChangeEvent.Location = new System.Drawing.Point(199, 47);
+            this.buttonChangeEvent.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonChangeEvent.Name = "buttonChangeEvent";
-            this.buttonChangeEvent.Size = new System.Drawing.Size(75, 23);
+            this.buttonChangeEvent.Size = new System.Drawing.Size(162, 57);
             this.buttonChangeEvent.TabIndex = 1;
             this.buttonChangeEvent.Text = "Изменить";
             this.buttonChangeEvent.UseVisualStyleBackColor = true;
@@ -533,11 +560,12 @@
             // 
             // buttonAddEvent
             // 
-            this.buttonAddEvent.Image = global::My_Games.Properties.Resources.add;
+            this.buttonAddEvent.Image = global::My_Games.Properties.Resources.add_big;
             this.buttonAddEvent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddEvent.Location = new System.Drawing.Point(6, 19);
+            this.buttonAddEvent.Location = new System.Drawing.Point(13, 47);
+            this.buttonAddEvent.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonAddEvent.Name = "buttonAddEvent";
-            this.buttonAddEvent.Size = new System.Drawing.Size(80, 23);
+            this.buttonAddEvent.Size = new System.Drawing.Size(173, 57);
             this.buttonAddEvent.TabIndex = 0;
             this.buttonAddEvent.Text = "Добавить";
             this.buttonAddEvent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -550,9 +578,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxComment.Controls.Add(this.textBoxComment);
-            this.groupBoxComment.Location = new System.Drawing.Point(6, 312);
+            this.groupBoxComment.Location = new System.Drawing.Point(13, 768);
+            this.groupBoxComment.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.groupBoxComment.Name = "groupBoxComment";
-            this.groupBoxComment.Size = new System.Drawing.Size(740, 164);
+            this.groupBoxComment.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.groupBoxComment.Size = new System.Drawing.Size(1603, 404);
             this.groupBoxComment.TabIndex = 3;
             this.groupBoxComment.TabStop = false;
             this.groupBoxComment.Text = "Описание";
@@ -561,9 +591,10 @@
             // 
             this.labelInfo.AutoSize = true;
             this.labelInfo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelInfo.Location = new System.Drawing.Point(41, 43);
+            this.labelInfo.Location = new System.Drawing.Point(89, 106);
+            this.labelInfo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelInfo.Name = "labelInfo";
-            this.labelInfo.Size = new System.Drawing.Size(0, 13);
+            this.labelInfo.Size = new System.Drawing.Size(0, 32);
             this.labelInfo.TabIndex = 25;
             // 
             // tabControl
@@ -578,10 +609,11 @@
             this.tabControl.Controls.Add(this.tabPageOthers);
             this.tabControl.ImageList = this.imageListTabs;
             this.tabControl.ItemSize = new System.Drawing.Size(120, 24);
-            this.tabControl.Location = new System.Drawing.Point(12, 12);
+            this.tabControl.Location = new System.Drawing.Point(26, 30);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(760, 508);
+            this.tabControl.Size = new System.Drawing.Size(1647, 1250);
             this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl.TabIndex = 0;
             this.tabControl.TabStop = false;
@@ -594,10 +626,11 @@
             this.tabPageMain.Controls.Add(this.labelCover);
             this.tabPageMain.Controls.Add(this.groupBoxComment);
             this.tabPageMain.Controls.Add(this.pictureBoxCover);
-            this.tabPageMain.Location = new System.Drawing.Point(4, 28);
+            this.tabPageMain.Location = new System.Drawing.Point(8, 32);
+            this.tabPageMain.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tabPageMain.Name = "tabPageMain";
-            this.tabPageMain.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMain.Size = new System.Drawing.Size(752, 476);
+            this.tabPageMain.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.tabPageMain.Size = new System.Drawing.Size(1631, 1210);
             this.tabPageMain.TabIndex = 0;
             this.tabPageMain.Text = "Общие";
             this.tabPageMain.UseVisualStyleBackColor = true;
@@ -614,9 +647,11 @@
             this.groupBoxInfo.Controls.Add(this.label9);
             this.groupBoxInfo.Controls.Add(this.label8);
             this.groupBoxInfo.Controls.Add(this.label7);
-            this.groupBoxInfo.Location = new System.Drawing.Point(312, 222);
+            this.groupBoxInfo.Location = new System.Drawing.Point(676, 546);
+            this.groupBoxInfo.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.groupBoxInfo.Name = "groupBoxInfo";
-            this.groupBoxInfo.Size = new System.Drawing.Size(434, 84);
+            this.groupBoxInfo.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.groupBoxInfo.Size = new System.Drawing.Size(940, 207);
             this.groupBoxInfo.TabIndex = 2;
             this.groupBoxInfo.TabStop = false;
             this.groupBoxInfo.Text = "Информация о коллекции";
@@ -625,53 +660,59 @@
             // 
             this.labelHis.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelHis.Location = new System.Drawing.Point(106, 56);
+            this.labelHis.Location = new System.Drawing.Point(230, 138);
+            this.labelHis.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelHis.Name = "labelHis";
-            this.labelHis.Size = new System.Drawing.Size(322, 13);
+            this.labelHis.Size = new System.Drawing.Size(698, 32);
             this.labelHis.TabIndex = 5;
             // 
             // labelDLCs
             // 
             this.labelDLCs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelDLCs.Location = new System.Drawing.Point(106, 38);
+            this.labelDLCs.Location = new System.Drawing.Point(230, 94);
+            this.labelDLCs.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelDLCs.Name = "labelDLCs";
-            this.labelDLCs.Size = new System.Drawing.Size(322, 13);
+            this.labelDLCs.Size = new System.Drawing.Size(698, 32);
             this.labelDLCs.TabIndex = 3;
             // 
             // labelVers
             // 
             this.labelVers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelVers.Location = new System.Drawing.Point(106, 20);
+            this.labelVers.Location = new System.Drawing.Point(230, 49);
+            this.labelVers.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelVers.Name = "labelVers";
-            this.labelVers.Size = new System.Drawing.Size(322, 13);
+            this.labelVers.Size = new System.Drawing.Size(698, 32);
             this.labelVers.TabIndex = 1;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(40, 56);
+            this.label9.Location = new System.Drawing.Point(87, 138);
+            this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 13);
+            this.label9.Size = new System.Drawing.Size(130, 32);
             this.label9.TabIndex = 4;
             this.label9.Text = "Пройдена:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 38);
+            this.label8.Location = new System.Drawing.Point(13, 94);
+            this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(94, 13);
+            this.label8.Size = new System.Drawing.Size(198, 32);
             this.label8.TabIndex = 2;
             this.label8.Text = "Доп. материалы:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(53, 20);
+            this.label7.Location = new System.Drawing.Point(115, 49);
+            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 13);
+            this.label7.Size = new System.Drawing.Size(99, 32);
             this.label7.TabIndex = 0;
             this.label7.Text = "Версии:";
             // 
@@ -681,12 +722,13 @@
             this.tabPagePurchases.Controls.Add(this.panelDLCs);
             this.tabPagePurchases.Controls.Add(this.splitter);
             this.tabPagePurchases.Controls.Add(this.panelVersion);
-            this.tabPagePurchases.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tabPagePurchases.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabPagePurchases.ImageIndex = 0;
-            this.tabPagePurchases.Location = new System.Drawing.Point(4, 28);
+            this.tabPagePurchases.Location = new System.Drawing.Point(8, 32);
+            this.tabPagePurchases.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tabPagePurchases.Name = "tabPagePurchases";
-            this.tabPagePurchases.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePurchases.Size = new System.Drawing.Size(752, 476);
+            this.tabPagePurchases.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.tabPagePurchases.Size = new System.Drawing.Size(1631, 1210);
             this.tabPagePurchases.TabIndex = 1;
             this.tabPagePurchases.Text = "Покупки";
             this.tabPagePurchases.UseVisualStyleBackColor = true;
@@ -696,9 +738,10 @@
             // 
             this.panelDLCs.Controls.Add(this.groupBoxDLCs);
             this.panelDLCs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDLCs.Location = new System.Drawing.Point(3, 254);
+            this.panelDLCs.Location = new System.Drawing.Point(6, 625);
+            this.panelDLCs.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.panelDLCs.Name = "panelDLCs";
-            this.panelDLCs.Size = new System.Drawing.Size(746, 219);
+            this.panelDLCs.Size = new System.Drawing.Size(1619, 578);
             this.panelDLCs.TabIndex = 6;
             // 
             // groupBoxDLCs
@@ -710,20 +753,23 @@
             this.groupBoxDLCs.Controls.Add(this.buttonDelDLC);
             this.groupBoxDLCs.Controls.Add(this.buttonChangeDLC);
             this.groupBoxDLCs.Controls.Add(this.listViewDLCs);
-            this.groupBoxDLCs.Location = new System.Drawing.Point(3, 6);
+            this.groupBoxDLCs.Location = new System.Drawing.Point(6, 15);
+            this.groupBoxDLCs.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.groupBoxDLCs.Name = "groupBoxDLCs";
-            this.groupBoxDLCs.Size = new System.Drawing.Size(740, 210);
+            this.groupBoxDLCs.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.groupBoxDLCs.Size = new System.Drawing.Size(1606, 556);
             this.groupBoxDLCs.TabIndex = 14;
             this.groupBoxDLCs.TabStop = false;
             this.groupBoxDLCs.Text = "Дополнительные материалы";
             // 
             // buttonAddDLC
             // 
-            this.buttonAddDLC.Image = global::My_Games.Properties.Resources.add;
+            this.buttonAddDLC.Image = global::My_Games.Properties.Resources.add_big;
             this.buttonAddDLC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddDLC.Location = new System.Drawing.Point(6, 19);
+            this.buttonAddDLC.Location = new System.Drawing.Point(13, 47);
+            this.buttonAddDLC.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonAddDLC.Name = "buttonAddDLC";
-            this.buttonAddDLC.Size = new System.Drawing.Size(80, 23);
+            this.buttonAddDLC.Size = new System.Drawing.Size(173, 57);
             this.buttonAddDLC.TabIndex = 10;
             this.buttonAddDLC.Text = "Добавить";
             this.buttonAddDLC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -733,9 +779,10 @@
             // buttonDelDLC
             // 
             this.buttonDelDLC.Enabled = false;
-            this.buttonDelDLC.Location = new System.Drawing.Point(173, 19);
+            this.buttonDelDLC.Location = new System.Drawing.Point(375, 47);
+            this.buttonDelDLC.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonDelDLC.Name = "buttonDelDLC";
-            this.buttonDelDLC.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelDLC.Size = new System.Drawing.Size(162, 57);
             this.buttonDelDLC.TabIndex = 12;
             this.buttonDelDLC.Text = "Удалить";
             this.buttonDelDLC.UseVisualStyleBackColor = true;
@@ -744,9 +791,10 @@
             // buttonChangeDLC
             // 
             this.buttonChangeDLC.Enabled = false;
-            this.buttonChangeDLC.Location = new System.Drawing.Point(92, 19);
+            this.buttonChangeDLC.Location = new System.Drawing.Point(199, 47);
+            this.buttonChangeDLC.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonChangeDLC.Name = "buttonChangeDLC";
-            this.buttonChangeDLC.Size = new System.Drawing.Size(75, 23);
+            this.buttonChangeDLC.Size = new System.Drawing.Size(162, 57);
             this.buttonChangeDLC.TabIndex = 11;
             this.buttonChangeDLC.Text = "Изменить";
             this.buttonChangeDLC.UseVisualStyleBackColor = true;
@@ -766,11 +814,11 @@
             this.listViewDLCs.FullRowSelect = true;
             this.listViewDLCs.GridLines = true;
             this.listViewDLCs.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listViewDLCs.HideSelection = false;
-            this.listViewDLCs.Location = new System.Drawing.Point(6, 48);
+            this.listViewDLCs.Location = new System.Drawing.Point(13, 118);
+            this.listViewDLCs.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.listViewDLCs.MultiSelect = false;
             this.listViewDLCs.Name = "listViewDLCs";
-            this.listViewDLCs.Size = new System.Drawing.Size(728, 156);
+            this.listViewDLCs.Size = new System.Drawing.Size(1576, 417);
             this.listViewDLCs.TabIndex = 13;
             this.listViewDLCs.UseCompatibleStateImageBehavior = false;
             this.listViewDLCs.View = System.Windows.Forms.View.Details;
@@ -806,9 +854,10 @@
             // splitter
             // 
             this.splitter.Dock = System.Windows.Forms.DockStyle.Top;
-            this.splitter.Location = new System.Drawing.Point(3, 244);
+            this.splitter.Location = new System.Drawing.Point(6, 600);
+            this.splitter.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.splitter.Name = "splitter";
-            this.splitter.Size = new System.Drawing.Size(746, 10);
+            this.splitter.Size = new System.Drawing.Size(1619, 25);
             this.splitter.TabIndex = 5;
             this.splitter.TabStop = false;
             // 
@@ -816,9 +865,10 @@
             // 
             this.panelVersion.Controls.Add(this.groupBoxVersion);
             this.panelVersion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelVersion.Location = new System.Drawing.Point(3, 3);
+            this.panelVersion.Location = new System.Drawing.Point(6, 7);
+            this.panelVersion.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.panelVersion.Name = "panelVersion";
-            this.panelVersion.Size = new System.Drawing.Size(746, 241);
+            this.panelVersion.Size = new System.Drawing.Size(1619, 593);
             this.panelVersion.TabIndex = 4;
             // 
             // groupBoxVersion
@@ -830,9 +880,11 @@
             this.groupBoxVersion.Controls.Add(this.buttonDelVersion);
             this.groupBoxVersion.Controls.Add(this.listViewVersions);
             this.groupBoxVersion.Controls.Add(this.buttonChangeVersion);
-            this.groupBoxVersion.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxVersion.Location = new System.Drawing.Point(6, 7);
+            this.groupBoxVersion.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.groupBoxVersion.Name = "groupBoxVersion";
-            this.groupBoxVersion.Size = new System.Drawing.Size(740, 232);
+            this.groupBoxVersion.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.groupBoxVersion.Size = new System.Drawing.Size(1606, 571);
             this.groupBoxVersion.TabIndex = 4;
             this.groupBoxVersion.TabStop = false;
             this.groupBoxVersion.Text = "Версии";
@@ -841,10 +893,11 @@
             // 
             this.tabPageHistory.Controls.Add(this.groupBoxHistory);
             this.tabPageHistory.ImageIndex = 1;
-            this.tabPageHistory.Location = new System.Drawing.Point(4, 28);
+            this.tabPageHistory.Location = new System.Drawing.Point(8, 32);
+            this.tabPageHistory.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tabPageHistory.Name = "tabPageHistory";
-            this.tabPageHistory.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageHistory.Size = new System.Drawing.Size(752, 476);
+            this.tabPageHistory.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.tabPageHistory.Size = new System.Drawing.Size(1631, 1210);
             this.tabPageHistory.TabIndex = 3;
             this.tabPageHistory.Text = "История";
             this.tabPageHistory.UseVisualStyleBackColor = true;
@@ -858,9 +911,11 @@
             this.groupBoxHistory.Controls.Add(this.buttonDelEvent);
             this.groupBoxHistory.Controls.Add(this.listViewHistory);
             this.groupBoxHistory.Controls.Add(this.buttonChangeEvent);
-            this.groupBoxHistory.Location = new System.Drawing.Point(6, 6);
+            this.groupBoxHistory.Location = new System.Drawing.Point(13, 15);
+            this.groupBoxHistory.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.groupBoxHistory.Name = "groupBoxHistory";
-            this.groupBoxHistory.Size = new System.Drawing.Size(740, 470);
+            this.groupBoxHistory.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.groupBoxHistory.Size = new System.Drawing.Size(1603, 1157);
             this.groupBoxHistory.TabIndex = 4;
             this.groupBoxHistory.TabStop = false;
             this.groupBoxHistory.Text = "История прохождения";
@@ -869,10 +924,11 @@
             // 
             this.tabPageNotes.Controls.Add(this.groupBoxNotes);
             this.tabPageNotes.ImageIndex = 2;
-            this.tabPageNotes.Location = new System.Drawing.Point(4, 28);
+            this.tabPageNotes.Location = new System.Drawing.Point(8, 32);
+            this.tabPageNotes.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tabPageNotes.Name = "tabPageNotes";
-            this.tabPageNotes.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageNotes.Size = new System.Drawing.Size(752, 476);
+            this.tabPageNotes.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.tabPageNotes.Size = new System.Drawing.Size(1631, 1210);
             this.tabPageNotes.TabIndex = 4;
             this.tabPageNotes.Text = "Заметки";
             this.tabPageNotes.UseVisualStyleBackColor = true;
@@ -890,9 +946,11 @@
             this.groupBoxNotes.Controls.Add(this.dateTimeNote);
             this.groupBoxNotes.Controls.Add(this.buttonNoteDel);
             this.groupBoxNotes.Controls.Add(this.textBoxNote);
-            this.groupBoxNotes.Location = new System.Drawing.Point(6, 6);
+            this.groupBoxNotes.Location = new System.Drawing.Point(13, 15);
+            this.groupBoxNotes.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.groupBoxNotes.Name = "groupBoxNotes";
-            this.groupBoxNotes.Size = new System.Drawing.Size(740, 464);
+            this.groupBoxNotes.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.groupBoxNotes.Size = new System.Drawing.Size(1603, 1142);
             this.groupBoxNotes.TabIndex = 11;
             this.groupBoxNotes.TabStop = false;
             this.groupBoxNotes.Text = "Заметки";
@@ -900,28 +958,31 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(297, 24);
+            this.label10.Location = new System.Drawing.Point(644, 59);
+            this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(36, 13);
+            this.label10.Size = new System.Drawing.Size(70, 32);
             this.label10.TabIndex = 7;
             this.label10.Text = "Дата:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(269, 50);
+            this.label2.Location = new System.Drawing.Point(583, 123);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.Size = new System.Drawing.Size(133, 32);
             this.label2.TabIndex = 6;
             this.label2.Text = "Заголовок:";
             // 
             // buttonNoteAdd
             // 
-            this.buttonNoteAdd.Image = global::My_Games.Properties.Resources.add;
+            this.buttonNoteAdd.Image = global::My_Games.Properties.Resources.add_big;
             this.buttonNoteAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonNoteAdd.Location = new System.Drawing.Point(6, 19);
+            this.buttonNoteAdd.Location = new System.Drawing.Point(13, 47);
+            this.buttonNoteAdd.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonNoteAdd.Name = "buttonNoteAdd";
-            this.buttonNoteAdd.Size = new System.Drawing.Size(80, 23);
+            this.buttonNoteAdd.Size = new System.Drawing.Size(173, 57);
             this.buttonNoteAdd.TabIndex = 0;
             this.buttonNoteAdd.Text = "Добавить";
             this.buttonNoteAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -933,9 +994,10 @@
             this.textBoxNoteName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxNoteName.Enabled = false;
-            this.textBoxNoteName.Location = new System.Drawing.Point(339, 47);
+            this.textBoxNoteName.Location = new System.Drawing.Point(734, 116);
+            this.textBoxNoteName.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.textBoxNoteName.Name = "textBoxNoteName";
-            this.textBoxNoteName.Size = new System.Drawing.Size(395, 20);
+            this.textBoxNoteName.Size = new System.Drawing.Size(851, 39);
             this.textBoxNoteName.TabIndex = 4;
             this.textBoxNoteName.TextChanged += new System.EventHandler(this.TextBoxNoteName_TextChanged);
             // 
@@ -949,11 +1011,11 @@
             this.listViewNotes.FullRowSelect = true;
             this.listViewNotes.GridLines = true;
             this.listViewNotes.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listViewNotes.HideSelection = false;
-            this.listViewNotes.Location = new System.Drawing.Point(6, 48);
+            this.listViewNotes.Location = new System.Drawing.Point(13, 118);
+            this.listViewNotes.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.listViewNotes.MultiSelect = false;
             this.listViewNotes.Name = "listViewNotes";
-            this.listViewNotes.Size = new System.Drawing.Size(260, 410);
+            this.listViewNotes.Size = new System.Drawing.Size(559, 1003);
             this.listViewNotes.TabIndex = 2;
             this.listViewNotes.UseCompatibleStateImageBehavior = false;
             this.listViewNotes.View = System.Windows.Forms.View.Details;
@@ -972,18 +1034,20 @@
             // dateTimeNote
             // 
             this.dateTimeNote.Enabled = false;
-            this.dateTimeNote.Location = new System.Drawing.Point(339, 21);
+            this.dateTimeNote.Location = new System.Drawing.Point(734, 52);
+            this.dateTimeNote.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.dateTimeNote.Name = "dateTimeNote";
-            this.dateTimeNote.Size = new System.Drawing.Size(140, 20);
+            this.dateTimeNote.Size = new System.Drawing.Size(299, 39);
             this.dateTimeNote.TabIndex = 3;
             this.dateTimeNote.ValueChanged += new System.EventHandler(this.DateTimeNote_ValueChanged);
             // 
             // buttonNoteDel
             // 
             this.buttonNoteDel.Enabled = false;
-            this.buttonNoteDel.Location = new System.Drawing.Point(92, 19);
+            this.buttonNoteDel.Location = new System.Drawing.Point(199, 47);
+            this.buttonNoteDel.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonNoteDel.Name = "buttonNoteDel";
-            this.buttonNoteDel.Size = new System.Drawing.Size(75, 23);
+            this.buttonNoteDel.Size = new System.Drawing.Size(162, 57);
             this.buttonNoteDel.TabIndex = 1;
             this.buttonNoteDel.Text = "Удалить";
             this.buttonNoteDel.UseVisualStyleBackColor = true;
@@ -995,26 +1059,29 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxNote.Enabled = false;
-            this.textBoxNote.Location = new System.Drawing.Point(272, 76);
+            this.textBoxNote.Location = new System.Drawing.Point(589, 187);
+            this.textBoxNote.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.textBoxNote.Multiline = true;
             this.textBoxNote.Name = "textBoxNote";
-            this.textBoxNote.Size = new System.Drawing.Size(462, 382);
+            this.textBoxNote.Size = new System.Drawing.Size(996, 934);
             this.textBoxNote.TabIndex = 5;
             this.textBoxNote.TextChanged += new System.EventHandler(this.TextBoxNote_TextChanged);
             // 
             // tabPageOthers
             // 
             this.tabPageOthers.Controls.Add(this.labelInfo);
-            this.tabPageOthers.Location = new System.Drawing.Point(4, 28);
+            this.tabPageOthers.Location = new System.Drawing.Point(8, 32);
+            this.tabPageOthers.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tabPageOthers.Name = "tabPageOthers";
-            this.tabPageOthers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageOthers.Size = new System.Drawing.Size(752, 476);
+            this.tabPageOthers.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.tabPageOthers.Size = new System.Drawing.Size(1631, 1210);
             this.tabPageOthers.TabIndex = 5;
             this.tabPageOthers.Text = "Прочее";
             this.tabPageOthers.UseVisualStyleBackColor = true;
             // 
             // imageListTabs
             // 
+            this.imageListTabs.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageListTabs.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListTabs.ImageStream")));
             this.imageListTabs.TransparentColor = System.Drawing.Color.Transparent;
             this.imageListTabs.Images.SetKeyName(0, "purchase.png");
@@ -1024,14 +1091,15 @@
             // FormGame
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(1699, 1381);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
-            this.MinimumSize = new System.Drawing.Size(800, 600);
+            this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.MinimumSize = new System.Drawing.Size(1703, 1373);
             this.Name = "FormGame";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

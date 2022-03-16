@@ -41,7 +41,7 @@ namespace My_Games
 
         private void linkLabelPlatform_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormCats form = new FormCats(1, Data.data.platforms);
+            FormDict form = new FormDict(1, Data.data.platforms);
             form.ShowDialog();
             Platform.FillCombobox(comboBoxPlatform, dlc.platform, checkBoxAll.Checked, versions);
         }

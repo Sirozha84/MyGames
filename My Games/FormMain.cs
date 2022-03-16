@@ -1,4 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Collections;
@@ -16,16 +23,143 @@ namespace My_Games
         {
             InitializeComponent();
             Data.Load();
-            listViewGames.ListViewItemSorter = itemComparer;
+            listGames.ListViewItemSorter = itemComparer;
             RefreshData();
-            listViewGames.Columns[lastColumn].Text += " ▲";
+            listGames.Columns[lastColumn].Text += " ▲";
         }
 
-        void Open()
+        private void FormMain_Load(object sender, EventArgs e)
         {
-            if (listViewGames.SelectedItems.Count == 1)
+            Left = Properties.Settings.Default.Left;
+            Top = Properties.Settings.Default.Top;
+            Width = Properties.Settings.Default.Width;
+            Height = Properties.Settings.Default.Height;
+            toolFilter.Checked = Data.data.filter.enable;
+            toolInfo.Checked = Properties.Settings.Default.panelInfo;
+            toolColNone.Checked = Properties.Settings.Default.colorMode == 0;
+            toolColWin.Checked = Properties.Settings.Default.colorMode == 1;
+            ShowHidepanelInfo(false);
+        }
+
+        private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Properties.Settings.Default.Left = Left;
+            Properties.Settings.Default.Top = Top;
+            Properties.Settings.Default.Width = Width;
+            Properties.Settings.Default.Height = Height;
+            Properties.Settings.Default.panelInfo = toolInfo.Checked;
+            Properties.Settings.Default.Save();
+            Data.Save();
+        }
+        #region Панель инструментов
+
+        private void addGame(object sender, EventArgs e)
+        {
+            Game game = new Game();
+            FormGame form = new FormGame(game);
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                Game game = (Game)listViewGames.SelectedItems[0].Tag;
+                Data.data.games.Add(game);
+                Data.Save();
+                RefreshData();
+            }
+        }
+
+        private void FilterChange(object sender, EventArgs e)
+        {
+            Filter fl = Data.data.filter;
+            if (fl.enable)
+                fl.enable = false;
+            else
+                using (FormFilter form = new FormFilter())
+                    form.ShowDialog();
+            toolFilter.Checked = fl.enable;
+            RefreshData();
+        }
+
+        private void infoPanelTogle(object sender, EventArgs e)
+        {
+            toolInfo.Checked = !toolInfo.Checked;
+            ShowHidepanelInfo(true);
+        }
+
+        private void dictPlatforms(object sender, EventArgs e)
+        {
+            FormDict form = new FormDict(1, Data.data.platforms);
+            form.ShowDialog();
+            Data.Save();
+        }
+
+        private void ColorNone(object sender, EventArgs e)
+        {
+            toolColNone.Checked = true;
+            toolColWin.Checked = false;
+            Properties.Settings.Default.colorMode = 0;
+            RefreshData();
+        }
+
+        private void ColorWin(object sender, EventArgs e)
+        {
+            toolColNone.Checked = false;
+            toolColWin.Checked = true;
+            Properties.Settings.Default.colorMode = 1;
+            RefreshData();
+        }
+
+        private void dictMediums(object sender, EventArgs e)
+        {
+            FormDict form = new FormDict(2, Data.data.mediums);
+            form.ShowDialog();
+            Data.Save();
+        }
+
+        private void dictGenres(object sender, EventArgs e)
+        {
+            FormDict form = new FormDict(3, Data.data.genres);
+            form.ShowDialog();
+            Data.Save();
+            RefreshData();
+        }
+
+        private void Statistic(object sender, EventArgs e)
+        {
+            using (FormStatistic form = new FormStatistic()) form.ShowDialog();
+        }
+
+        private void Purchases(object sender, EventArgs e)
+        {
+            using (FormPurchases form = new FormPurchases()) form.ShowDialog();
+        }
+
+        private void History(object sender, EventArgs e)
+        {
+            using (FormHistory form = new FormHistory()) form.ShowDialog();
+        }
+
+        private void About(object sender, EventArgs e)
+        {
+            using (FormAbout form = new FormAbout()) form.ShowDialog();
+        }
+
+        private void SearchTextChange(object sender, EventArgs e)
+        {
+            toolReset.Enabled = toolSearch.Text != ""; RefreshData();
+        }
+
+        private void SearchReset(object sender, EventArgs e)
+        {
+            toolSearch.Text = ""; 
+        }
+
+        #endregion
+
+        #region Контекстное меню
+
+        void Open(object sender, EventArgs e)
+        {
+            if (listGames.SelectedItems.Count == 1)
+            {
+                Game game = (Game)listGames.SelectedItems[0].Tag;
                 FormGame form = new FormGame(game);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
@@ -35,65 +169,83 @@ namespace My_Games
             }
         }
 
-        void GoToSite()
+        void GoToSite(object sender, EventArgs e)
         {
-            Game game = (Game)listViewGames.SelectedItems[0].Tag;
+            Game game = (Game)listGames.SelectedItems[0].Tag;
             System.Diagnostics.Process.Start("http:" + game.website);
         }
 
-        private void listViewGames_KeyDown(object sender, KeyEventArgs e)
+        private void Delete(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) listViewGames_MouseDoubleClick(null, null);
+            int count = listGames.SelectedIndices.Count;
+            if (count < 1) return; //Хотя до этого и не должно дойти, но мало ли
+            Game game = (Game)listGames.SelectedItems[0].Tag;
+            if (MessageBox.Show("Вы действительно хотите удалить " +
+                    (count == 1 ? "игру " + game.name : "выделенные игры (" + count + ")?") + "?",
+                    "Удаление", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                foreach (ListViewItem item in listGames.SelectedItems)
+                    Data.data.games.Remove((Game)item.Tag);
+                Data.Save();
+                RefreshData();
+            }
         }
 
-        private void listViewGames_MouseDoubleClick(object sender, MouseEventArgs e) { Open(); }
+        #endregion
 
-        private void listViewGames_SelectedIndexChanged(object sender, EventArgs e)
+        #region Список игр
+
+        private void listGames_KeyDown(object sender, KeyEventArgs e)
         {
-            bool selected = listViewGames.SelectedIndices.Count > 0;
-            bool enableSite = false;
-            menuDel.Enabled = selected;
-            menuOpen.Enabled = selected;
-            menuDelC.Enabled = selected;
+            if (e.KeyCode == Keys.Enter) Open(null, null);
+        }
 
-            Game game = selected? (Game)listViewGames.SelectedItems[0].Tag : new Game();
+        private void listGames_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool selected = listGames.SelectedIndices.Count > 0;
+            bool enableSite = false;
+            cmOpen.Enabled = selected;
+            cmDelete.Enabled = selected;
+
+            Game game = selected ? (Game)listGames.SelectedItems[0].Tag : new Game();
 
             //Инфопанель
             if (game.cover != null)
                 try
                 {
                     using (var File = new FileStream("Covers\\" + game.cover, FileMode.Open, FileAccess.Read, FileShare.Inheritable))
-                        pictureBoxCover.Image = Image.FromStream(File);
+                        pictureCover.Image = Image.FromStream(File);
                 }
                 catch { }
             else
-                pictureBoxCover.Image = null;
+                pictureCover.Image = null;
 
-            labelName.Text = selected ? game.name : "";
+            /*labelName.Text = selected ? game.name : "";
             labelDevelopers.Text = selected ? game.developer : "";
             labelPublishers.Text = selected ? game.publisher : "";
             labelYear.Text = selected ? game.year : "";
             labelVersions.Text = selected ? Data.StringVersions(game.versions) : "";
             labelDLCs.Text = selected ? Data.StringDLCs(game.DLCs) : "";
-            labelHistory.Text = selected ? Data.StringHistory(game.history) : "";
+            labelHistory.Text = selected ? Data.StringHistory(game.history) : "";*/
 
-            int selectC = listViewGames.SelectedIndices.Count;
+            int selectC = listGames.SelectedIndices.Count;
             if (selectC == 1)
                 enableSite = game.website != null & game.website != "";
-            menuGoToSite.Enabled = enableSite;
+            cmGoToSite.Enabled = enableSite;
             if (selectC == 0)
                 statusSelected.Text = "";
             else
                 statusSelected.Text = "Выделено: " + selectC.ToString();
         }
 
-        #region Вид приложения, обновление, сортировка
+        #endregion
+        
         void RefreshData()
         {
             GameDateComparer dc = new GameDateComparer();
             Data.data.games.Sort(dc);
-            listViewGames.BeginUpdate();
-            listViewGames.Items.Clear();
+            listGames.BeginUpdate();
+            listGames.Items.Clear();
             int showed = 0;
             foreach (Game g in Data.data.games)
             {
@@ -108,7 +260,7 @@ namespace My_Games
                         match = false;
                         foreach (Version ver in g.versions)
                         {
-                            bool min = fl.startEnable? ver.date >= fl.start : true;
+                            bool min = fl.startEnable ? ver.date >= fl.start : true;
                             bool max = fl.endEnable ? ver.date <= fl.end : true;
                             match = min & max;
                         }
@@ -133,19 +285,15 @@ namespace My_Games
                 }
                 if (draw)
                 {
-                    listViewGames.Items.Add(g.listItem());
+                    listGames.Items.Add(g.listItem());
                     showed++;
                 }
             }
-            listViewGames.EndUpdate();
-            //listViewGames.Items[30].Selected = true;
-            //listViewGames.Items[30].Focused = true;
-            //Подумать как после обновления списка оставить выделенным элемент который уже был выделен до обновления
-            StatusBas(showed);
-        }
+            listGames.EndUpdate();
 
-        void StatusBas(int showed)
-        {
+            //Подумать как после обновления списка оставить выделенным элемент который уже был выделен до обновления
+
+            //Обновление сатусбара
             statusAll.Text = "Всего игр: " + Data.data.games.Count;
             if (showed == Data.data.games.Count)
                 statusShowed.Text = "";
@@ -158,250 +306,38 @@ namespace My_Games
         /// Показ или скрытие панели информации
         /// </summary>
         /// <param name="resize"></param>
-        void ShowHideInfoView(bool resize)
+        void ShowHidepanelInfo(bool resize)
         {
             //Порядок не нарушаем - иначе моргает из-за перерисовок.
-            if (menuInfoPanel.Checked)
+            if (toolInfo.Checked)
             {
-                if (resize) Width += infoView.Width;
-                listViewGames.Width = menuStrip.Width - infoView.Width;
-                infoView.Left = menuStrip.Width - infoView.Width;
+                if (resize) Width += panelInfo.Width;
+                listGames.Width = toolStrip.Width - panelInfo.Width;
+                panelInfo.Left = toolStrip.Width - panelInfo.Width;
             }
             else
             {
-                listViewGames.Width = menuStrip.Width;
-                infoView.Left = menuStrip.Width;
-                if (resize) Width -= infoView.Width;
+                listGames.Width = toolStrip.Width;
+                panelInfo.Left = toolStrip.Width;
+                if (resize) Width -= panelInfo.Width;
             }
         }
 
         //Сортировка колонок
-        private void listViewGames_ColumnClick(object sender, ColumnClickEventArgs e)
+        private void listGames_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             itemComparer.ColumnIndex = e.Column;
             ((ListView)sender).Sort();
             //Просто ужасный костыль, может потом сделаю хорошо если научусь
             //Таким образом мы рисуем треугольник на имени столбца, показывающий направление сортировки
-            listViewGames.Columns[lastColumn].Text =
-                listViewGames.Columns[lastColumn].Text.Substring(0, listViewGames.Columns[lastColumn].Text.Length - 2);
+            listGames.Columns[lastColumn].Text =
+                listGames.Columns[lastColumn].Text.Substring(0, listGames.Columns[lastColumn].Text.Length - 2);
             if (lastColumn != e.Column)
                 lastSort = true;
             lastSort = !lastSort;
-            listViewGames.Columns[e.Column].Text += lastSort ? " ▼" : " ▲";
+            listGames.Columns[e.Column].Text += lastSort ? " ▼" : " ▲";
             lastColumn = e.Column;
         }
-        #endregion
-
-        #region Меню "Файл"
-        private void addGame(object sender, EventArgs e)
-        {
-            Game game = new Game();
-            FormGame form = new FormGame(game);
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                Data.data.games.Add(game);
-                Data.Save();
-                RefreshData();
-            }
-        }
-
-        private void addGameFast(object sender, EventArgs e)
-        {
-            Game game = new Game();
-            FormFastAdd form = new FormFastAdd(game);
-            DialogResult res = form.ShowDialog();
-            if (res == DialogResult.OK)
-            {
-                Data.data.games.Add(game);
-                Data.Save();
-                RefreshData();
-            }
-            if (res == DialogResult.Retry)
-            {
-                FormGame form2 = new FormGame(game);
-                if (form2.ShowDialog() == DialogResult.OK)
-                {
-                    Data.data.games.Add(game);
-                    Data.Save();
-                    RefreshData();
-                }
-            }
-        }
-
-        private void menuDel_Click(object sender, EventArgs e)
-        {
-            int count = listViewGames.SelectedIndices.Count;
-            if (count < 1) return; //Хотя до этого и не должно дойти, но мало ли
-            Game game = (Game)listViewGames.SelectedItems[0].Tag;
-            if (MessageBox.Show("Вы действительно хотите удалить " +
-                    (count == 1 ? "игру " + game.name : "выделенные игры (" + count + ")?") + "?",
-                    "Удаление", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                foreach (ListViewItem item in listViewGames.SelectedItems)
-                    Data.data.games.Remove((Game)item.Tag);
-                Data.Save();
-                RefreshData();
-            }
-        }
-
-        private void menuExit_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-        #endregion
-
-        #region Меню "Вид"
-        private void filterChange(object sender, EventArgs e)
-        {
-            Filter fl = Data.data.filter;
-            if (fl.enable)
-                fl.enable = false;
-            else
-                using (FormFilter form = new FormFilter())
-                    form.ShowDialog();
-            menuFilter.Checked = fl.enable;
-            toolFilter.Checked = fl.enable;
-            RefreshData();
-        }
-
-        private void menuSearch_Click(object sender, EventArgs e) { toolSearch.Focus(); }
-
-        private void infoPanelOnOff(object sender, EventArgs e)
-        {
-            menuInfoPanel.Checked = !menuInfoPanel.Checked;
-            toolInfoPanel.Checked = menuInfoPanel.Checked;
-            ShowHideInfoView(true);
-        }
-
-
-        #endregion
-
-        #region Меню "Справочники"
-
-        private void menuPlatforms_Click(object sender, EventArgs e)
-        {
-            FormCats form = new FormCats(1, Data.data.platforms);
-            form.ShowDialog();
-            Data.Save();
-        }
-
-        private void menuMediums_Click(object sender, EventArgs e)
-        {
-            FormCats form = new FormCats(2, Data.data.mediums);
-            form.ShowDialog();
-            Data.Save();
-        }
-
-        private void menuGenres_Click(object sender, EventArgs e)
-        {
-            FormCats form = new FormCats(3, Data.data.genres);
-            form.ShowDialog();
-            Data.Save();
-            RefreshData();
-        }
-
-        #endregion
-
-        #region Меню "Сервис"
-
-        private void showStat(object sender, EventArgs e)
-        {
-            using (FormStatistic form = new FormStatistic()) form.ShowDialog();
-        }
-
-        private void showBuyHistory(object sender, EventArgs e)
-        {
-            using (FormHistory form = new FormHistory()) form.ShowDialog();
-        }
-
-        private void showPlayHistory(object sender, EventArgs e)
-        {
-            using (FormPlayHistory form = new FormPlayHistory()) form.ShowDialog();
-        }
-
-        private void menuCol0_Click(object sender, EventArgs e)
-        {
-            menuCol0.Checked = true;
-            menuCol1.Checked = false;
-            Properties.Settings.Default.colorMode = 0;
-            RefreshData();
-        }
-
-        private void menuCol1_Click(object sender, EventArgs e)
-        {
-            menuCol0.Checked = false;
-            menuCol1.Checked = true;
-            Properties.Settings.Default.colorMode = 1;
-            RefreshData();
-        }
-
-        #endregion
-
-        #region Меню "Справка"
-
-        private void menuPage_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("http://www.sg-software.ru/windows/programs/mygames");
-        }
-
-        private void menuAbout_Click(object sender, EventArgs e)
-        {
-            using (FormAbout form = new FormAbout()) form.ShowDialog();
-        }
-
-        #endregion
-
-        #region "Поиск"
-        private void toolSearch_TextChanged(object sender, EventArgs e) { toolReset.Enabled = toolSearch.Text != ""; RefreshData(); }
-        private void toolReset_Click(object sender, EventArgs e) { toolSearch.Text = ""; }
-        #endregion
-
-        #region Контекстное меню
-        private void menuOpen_Click(object sender, EventArgs e)
-        {
-            Open();
-        }
-
-        private void menuDelC_Click(object sender, EventArgs e)
-        {
-            menuDel_Click(null, null);
-        }
-
-        private void menuGoToSite_Click(object sender, EventArgs e)
-        {
-            GoToSite();
-        }
-        #endregion
-
-        #region Параметры программы
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-            Left = Properties.Settings.Default.Left;
-            Top = Properties.Settings.Default.Top;
-            Width = Properties.Settings.Default.Width;
-            Height = Properties.Settings.Default.Height;
-            menuFilter.Checked = Data.data.filter.enable;
-            toolFilter.Checked = Data.data.filter.enable;
-            menuInfoPanel.Checked = Properties.Settings.Default.InfoView;
-            toolInfoPanel.Checked = Properties.Settings.Default.InfoView;
-            menuCol0.Checked = Properties.Settings.Default.colorMode == 0;
-            menuCol1.Checked = Properties.Settings.Default.colorMode == 1;
-            ShowHideInfoView(false);
-        }
-
-        private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Properties.Settings.Default.Left = Left;
-            Properties.Settings.Default.Top = Top;
-            Properties.Settings.Default.Width = Width;
-            Properties.Settings.Default.Height = Height;
-            Properties.Settings.Default.InfoView = menuInfoPanel.Checked;
-            Properties.Settings.Default.Save();
-            Data.Save();
-        }
-
-
-        #endregion
 
     }
 

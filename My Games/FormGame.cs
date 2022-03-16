@@ -175,7 +175,7 @@ namespace My_Games
         
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormCats form = new FormCats(3, Data.data.genres);
+            FormDict form = new FormDict(3, Data.data.genres);
             form.ShowDialog();
             Genre.FillCombobox(comboBoxGenre, game.genre);
         }

@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace My_Games
 {
-    public class Medium : CatItem
+    public class Medium : DictItem
     {
-        
+
         /// <summary>
         /// Тип носителя: 0 - Физический, 1 - Электронный, 2 - Подписка
         /// </summary>

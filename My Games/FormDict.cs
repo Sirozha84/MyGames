@@ -4,12 +4,12 @@ using System.Windows.Forms;
 
 namespace My_Games
 {
-    public partial class FormCats : Form
+    public partial class FormDict : Form
     {
         object list;
         int type; //Тип каталога... сделаю пока по ламерски, так как не разобрался как правильно :-)
 
-        public FormCats(int type, object list)
+        public FormDict(int type, object list)
         {
             InitializeComponent();
             this.list = list;

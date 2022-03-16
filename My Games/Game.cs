@@ -31,7 +31,7 @@ namespace My_Games
         public int win;
         public int hours;
         public int price;
-        
+
         //Данные документа, не относящиеся к игре
         public DateTime create = DateTime.Now;
         public DateTime change = DateTime.Now;
