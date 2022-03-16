@@ -5,13 +5,13 @@ using System.Collections.Generic;
 
 namespace My_Games
 {
-    public class Platform : CatItem
+    public class Platform : DictItem
     {
         public string company;
         public List<int> mediums = new List<int>();
 
         public Platform() { }
-        
+
         public Platform(int lastID)
         {
             ID = lastID;

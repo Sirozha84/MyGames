@@ -1,6 +1,6 @@
 ﻿namespace My_Games
 {
-    partial class FormCats
+    partial class FormDict
     {
         /// <summary>
         /// Required designer variable.
