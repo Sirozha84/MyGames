@@ -338,6 +338,7 @@
             this.listGames.TabIndex = 2;
             this.listGames.UseCompatibleStateImageBehavior = false;
             this.listGames.View = System.Windows.Forms.View.Details;
+            this.listGames.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listGames_ColumnClick);
             this.listGames.SelectedIndexChanged += new System.EventHandler(this.listGames_SelectedIndexChanged);
             this.listGames.DoubleClick += new System.EventHandler(this.Open);
             this.listGames.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listGames_KeyDown);
@@ -370,16 +371,19 @@
             // columnTime
             // 
             this.columnTime.Text = "Время";
+            this.columnTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnTime.Width = 150;
             // 
             // columnVersions
             // 
             this.columnVersions.Text = "Версий";
+            this.columnVersions.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnVersions.Width = 150;
             // 
             // columnPrice
             // 
             this.columnPrice.Text = "Потрачено";
+            this.columnPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnPrice.Width = 180;
             // 
             // panelInfo
