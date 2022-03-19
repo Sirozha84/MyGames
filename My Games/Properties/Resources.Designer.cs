@@ -73,9 +73,9 @@ namespace My_Games.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add_big {
+        internal static System.Drawing.Bitmap add {
             get {
-                object obj = ResourceManager.GetObject("add_big", resourceCulture);
+                object obj = ResourceManager.GetObject("add", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace My_Games.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap colors {
+        internal static System.Drawing.Bitmap add_big {
             get {
-                object obj = ResourceManager.GetObject("colors", resourceCulture);
+                object obj = ResourceManager.GetObject("add_big", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace My_Games.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dictionary_big {
+        internal static System.Drawing.Bitmap dictionary {
             get {
-                object obj = ResourceManager.GetObject("dictionary_big", resourceCulture);
+                object obj = ResourceManager.GetObject("dictionary", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,19 @@ namespace My_Games.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap info {
+        internal static System.Drawing.Bitmap graph {
             get {
-                object obj = ResourceManager.GetObject("info", resourceCulture);
+                object obj = ResourceManager.GetObject("graph", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap infopanel {
+            get {
+                object obj = ResourceManager.GetObject("infopanel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,6 +156,16 @@ namespace My_Games.Properties {
         internal static System.Drawing.Bitmap My_Games {
             get {
                 object obj = ResourceManager.GetObject("My_Games", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paint {
+            get {
+                object obj = ResourceManager.GetObject("paint", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,16 +186,6 @@ namespace My_Games.Properties {
         internal static System.Drawing.Bitmap reset {
             get {
                 object obj = ResourceManager.GetObject("reset", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap stat {
-            get {
-                object obj = ResourceManager.GetObject("stat", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

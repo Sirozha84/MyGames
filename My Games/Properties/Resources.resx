@@ -112,49 +112,52 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="reset" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dictionary_big" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dictionary_big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="filter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\filter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="about" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\about.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="add_big" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="colors" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\colors.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="stat" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\stat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="winner" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\winner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="about" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\about.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="purchase" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\purchase.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="find" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\find.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="reset" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="purchase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\purchase.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="My_Games" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\My Games.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="find" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\find.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\winner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="filter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\filter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dictionary" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dictionary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="graph" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\graph.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="infopanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\infopanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="paint" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\paint.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

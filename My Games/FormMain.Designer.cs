@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolAdd = new System.Windows.Forms.ToolStripButton();
             this.toolSep1 = new System.Windows.Forms.ToolStripSeparator();
@@ -105,7 +106,7 @@
             // toolAdd
             // 
             this.toolAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolAdd.Image = global::My_Games.Properties.Resources.add_big;
+            this.toolAdd.Image = global::My_Games.Properties.Resources.add;
             this.toolAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolAdd.Name = "toolAdd";
             this.toolAdd.Size = new System.Drawing.Size(68, 68);
@@ -130,7 +131,7 @@
             // toolInfo
             // 
             this.toolInfo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolInfo.Image = global::My_Games.Properties.Resources.info;
+            this.toolInfo.Image = global::My_Games.Properties.Resources.infopanel;
             this.toolInfo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolInfo.Name = "toolInfo";
             this.toolInfo.Size = new System.Drawing.Size(68, 68);
@@ -144,7 +145,7 @@
             this.toolColor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolColNone,
             this.toolColWin});
-            this.toolColor.Image = global::My_Games.Properties.Resources.colors;
+            this.toolColor.Image = global::My_Games.Properties.Resources.paint;
             this.toolColor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolColor.Name = "toolColor";
             this.toolColor.Size = new System.Drawing.Size(86, 68);
@@ -178,7 +179,7 @@
             this.toolDictPlatforms,
             this.toolDictMedia,
             this.toolDictGenres});
-            this.toolDictionary.Image = global::My_Games.Properties.Resources.dictionary_big;
+            this.toolDictionary.Image = global::My_Games.Properties.Resources.dictionary;
             this.toolDictionary.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolDictionary.Name = "toolDictionary";
             this.toolDictionary.Size = new System.Drawing.Size(86, 68);
@@ -208,7 +209,7 @@
             // toolStat
             // 
             this.toolStat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStat.Image = global::My_Games.Properties.Resources.stat;
+            this.toolStat.Image = global::My_Games.Properties.Resources.graph;
             this.toolStat.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStat.Name = "toolStat";
             this.toolStat.Size = new System.Drawing.Size(68, 68);
@@ -448,6 +449,7 @@
             this.Controls.Add(this.listGames);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(2000, 1400);
             this.Name = "FormMain";
             this.Text = "My Games";
