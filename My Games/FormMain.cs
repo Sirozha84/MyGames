@@ -18,7 +18,7 @@ namespace My_Games
         ItemComparer itemComparer = new ItemComparer();
         int lastColumn = 0;
         bool lastSort = false;
-
+        
         public FormMain()
         {
             InitializeComponent();
@@ -26,6 +26,15 @@ namespace My_Games
             listGames.ListViewItemSorter = itemComparer;
             RefreshData();
             listGames.Columns[lastColumn].Text += " ▲";
+
+            float dpiX, dpiY;
+            Graphics graphics = this.CreateGraphics();
+            dpiX = graphics.DpiX;
+            dpiY = graphics.DpiY;
+            string dpi = dpiX.ToString();
+            //MessageBox.Show(dpi); //96 (100), 192 (200)
+            //надо будет проверить как будет работать с другими масштабами,
+            //иначе придётся руками править масштабы иконок, размеры колонок и прочее графическое
         }
 
         private void FormMain_Load(object sender, EventArgs e)
