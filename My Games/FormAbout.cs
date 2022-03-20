@@ -10,12 +10,13 @@ namespace My_Games
             InitializeComponent();
             Font fontR = new Font(history.Font.FontFamily, history.Font.Size, FontStyle.Regular);
             Font fontB = new Font(history.Font.FontFamily, history.Font.Size, FontStyle.Bold);
-            labelVersion.Text = "Версия: " + Program.Version;
+            labelVersion.Text = "Версия: " + Program.version;
 
             history.SelectionFont = fontB;
-            history.AppendText("Версия 2.4+ (14.05.2021)\n\n");
+            history.AppendText("Версия 3.0 (14.03.2022)\n\n");
             history.SelectionFont = fontR;
-            history.AppendText("• Исправлено автоматическое скрытие платформ в выпадающем списке события, "+
+            history.AppendText("• Исправлено удаление обложки\n" +
+                "• Исправлено автоматическое скрытие платформ в выпадающем списке события, "+
                 "а также, эта функция добавлена в окно дополнительных материалов\n\n");
 
             history.SelectionFont = fontB;

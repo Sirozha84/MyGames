@@ -79,6 +79,7 @@
             // 
             // toolStrip
             // 
+            this.toolStrip.AutoSize = false;
             this.toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip.ImageScalingSize = new System.Drawing.Size(64, 64);
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -99,7 +100,6 @@
             this.toolSearchLabel});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Padding = new System.Windows.Forms.Padding(8, 8, 8, 0);
             this.toolStrip.Size = new System.Drawing.Size(1974, 82);
             this.toolStrip.TabIndex = 0;
             // 
@@ -109,14 +109,14 @@
             this.toolAdd.Image = global::My_Games.Properties.Resources.add;
             this.toolAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolAdd.Name = "toolAdd";
-            this.toolAdd.Size = new System.Drawing.Size(68, 68);
+            this.toolAdd.Size = new System.Drawing.Size(68, 76);
             this.toolAdd.Text = "Добавить";
             this.toolAdd.Click += new System.EventHandler(this.addGame);
             // 
             // toolSep1
             // 
             this.toolSep1.Name = "toolSep1";
-            this.toolSep1.Size = new System.Drawing.Size(6, 74);
+            this.toolSep1.Size = new System.Drawing.Size(6, 82);
             // 
             // toolFilter
             // 
@@ -124,7 +124,7 @@
             this.toolFilter.Image = global::My_Games.Properties.Resources.filter;
             this.toolFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolFilter.Name = "toolFilter";
-            this.toolFilter.Size = new System.Drawing.Size(68, 68);
+            this.toolFilter.Size = new System.Drawing.Size(68, 76);
             this.toolFilter.Text = "Фильтр";
             this.toolFilter.Click += new System.EventHandler(this.FilterChange);
             // 
@@ -134,7 +134,7 @@
             this.toolInfo.Image = global::My_Games.Properties.Resources.infopanel;
             this.toolInfo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolInfo.Name = "toolInfo";
-            this.toolInfo.Size = new System.Drawing.Size(68, 68);
+            this.toolInfo.Size = new System.Drawing.Size(68, 76);
             this.toolInfo.Text = "Инфопанель (F4)";
             this.toolInfo.ToolTipText = "Инфопанель";
             this.toolInfo.Click += new System.EventHandler(this.infoPanelTogle);
@@ -148,7 +148,7 @@
             this.toolColor.Image = global::My_Games.Properties.Resources.paint;
             this.toolColor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolColor.Name = "toolColor";
-            this.toolColor.Size = new System.Drawing.Size(86, 68);
+            this.toolColor.Size = new System.Drawing.Size(86, 76);
             this.toolColor.Text = "Раскраска";
             // 
             // toolColNone
@@ -170,7 +170,7 @@
             // toolSep2
             // 
             this.toolSep2.Name = "toolSep2";
-            this.toolSep2.Size = new System.Drawing.Size(6, 74);
+            this.toolSep2.Size = new System.Drawing.Size(6, 82);
             // 
             // toolDictionary
             // 
@@ -182,7 +182,7 @@
             this.toolDictionary.Image = global::My_Games.Properties.Resources.dictionary;
             this.toolDictionary.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolDictionary.Name = "toolDictionary";
-            this.toolDictionary.Size = new System.Drawing.Size(86, 68);
+            this.toolDictionary.Size = new System.Drawing.Size(86, 76);
             this.toolDictionary.Text = "Справочники";
             // 
             // toolDictPlatforms
@@ -212,7 +212,7 @@
             this.toolStat.Image = global::My_Games.Properties.Resources.graph;
             this.toolStat.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStat.Name = "toolStat";
-            this.toolStat.Size = new System.Drawing.Size(68, 68);
+            this.toolStat.Size = new System.Drawing.Size(68, 76);
             this.toolStat.Text = "Статистика";
             this.toolStat.Click += new System.EventHandler(this.Statistic);
             // 
@@ -222,7 +222,7 @@
             this.toolPurchase.Image = global::My_Games.Properties.Resources.purchase;
             this.toolPurchase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolPurchase.Name = "toolPurchase";
-            this.toolPurchase.Size = new System.Drawing.Size(68, 68);
+            this.toolPurchase.Size = new System.Drawing.Size(68, 76);
             this.toolPurchase.Text = "История покупок";
             this.toolPurchase.Click += new System.EventHandler(this.Purchases);
             // 
@@ -232,14 +232,14 @@
             this.toolHistory.Image = global::My_Games.Properties.Resources.game;
             this.toolHistory.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolHistory.Name = "toolHistory";
-            this.toolHistory.Size = new System.Drawing.Size(68, 68);
+            this.toolHistory.Size = new System.Drawing.Size(68, 76);
             this.toolHistory.Text = "История игры";
             this.toolHistory.Click += new System.EventHandler(this.History);
             // 
             // toolSep3
             // 
             this.toolSep3.Name = "toolSep3";
-            this.toolSep3.Size = new System.Drawing.Size(6, 74);
+            this.toolSep3.Size = new System.Drawing.Size(6, 82);
             // 
             // toolAbout
             // 
@@ -247,7 +247,7 @@
             this.toolAbout.Image = global::My_Games.Properties.Resources.info;
             this.toolAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolAbout.Name = "toolAbout";
-            this.toolAbout.Size = new System.Drawing.Size(68, 68);
+            this.toolAbout.Size = new System.Drawing.Size(68, 76);
             this.toolAbout.Text = "О программе";
             this.toolAbout.Click += new System.EventHandler(this.About);
             // 
@@ -258,17 +258,18 @@
             this.toolReset.Image = global::My_Games.Properties.Resources.reset;
             this.toolReset.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolReset.Name = "toolReset";
-            this.toolReset.Size = new System.Drawing.Size(68, 68);
+            this.toolReset.Size = new System.Drawing.Size(68, 76);
             this.toolReset.Text = "Сброс";
             this.toolReset.Click += new System.EventHandler(this.SearchReset);
             // 
             // toolSearch
             // 
             this.toolSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolSearch.AutoSize = false;
             this.toolSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.toolSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.toolSearch.Name = "toolSearch";
-            this.toolSearch.Size = new System.Drawing.Size(400, 74);
+            this.toolSearch.Size = new System.Drawing.Size(400, 50);
             this.toolSearch.TextChanged += new System.EventHandler(this.SearchTextChange);
             // 
             // toolSearchLabel
@@ -277,7 +278,7 @@
             this.toolSearchLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolSearchLabel.Image = global::My_Games.Properties.Resources.search;
             this.toolSearchLabel.Name = "toolSearchLabel";
-            this.toolSearchLabel.Size = new System.Drawing.Size(64, 68);
+            this.toolSearchLabel.Size = new System.Drawing.Size(64, 76);
             this.toolSearchLabel.Text = "toolStripLabel1";
             // 
             // statusStrip
@@ -347,17 +348,17 @@
             // columnDate
             // 
             this.columnDate.Text = "Дата";
-            this.columnDate.Width = 180;
+            this.columnDate.Width = 100;
             // 
             // columnName
             // 
             this.columnName.Text = "Игра";
-            this.columnName.Width = 450;
+            this.columnName.Width = 100;
             // 
             // columnGenre
             // 
             this.columnGenre.Text = "Жанр";
-            this.columnGenre.Width = 300;
+            this.columnGenre.Width = 100;
             // 
             // columnRating
             // 
@@ -367,13 +368,13 @@
             // ColumnWin
             // 
             this.ColumnWin.Text = "Пройдена";
-            this.ColumnWin.Width = 300;
+            this.ColumnWin.Width = 180;
             // 
             // columnTime
             // 
             this.columnTime.Text = "Время";
             this.columnTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnTime.Width = 150;
+            this.columnTime.Width = 140;
             // 
             // columnVersions
             // 
@@ -450,7 +451,7 @@
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(2000, 1400);
+            this.MinimumSize = new System.Drawing.Size(1999, 1396);
             this.Name = "FormMain";
             this.Text = "My Games";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
