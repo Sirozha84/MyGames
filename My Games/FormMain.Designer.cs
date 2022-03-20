@@ -223,17 +223,17 @@
             this.toolPurchase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolPurchase.Name = "toolPurchase";
             this.toolPurchase.Size = new System.Drawing.Size(68, 68);
-            this.toolPurchase.Text = "Покупки";
+            this.toolPurchase.Text = "История покупок";
             this.toolPurchase.Click += new System.EventHandler(this.Purchases);
             // 
             // toolHistory
             // 
             this.toolHistory.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolHistory.Image = global::My_Games.Properties.Resources.winner;
+            this.toolHistory.Image = global::My_Games.Properties.Resources.game;
             this.toolHistory.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolHistory.Name = "toolHistory";
             this.toolHistory.Size = new System.Drawing.Size(68, 68);
-            this.toolHistory.Text = "История";
+            this.toolHistory.Text = "История игры";
             this.toolHistory.Click += new System.EventHandler(this.History);
             // 
             // toolSep3
@@ -244,7 +244,7 @@
             // toolAbout
             // 
             this.toolAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolAbout.Image = global::My_Games.Properties.Resources.about;
+            this.toolAbout.Image = global::My_Games.Properties.Resources.info;
             this.toolAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolAbout.Name = "toolAbout";
             this.toolAbout.Size = new System.Drawing.Size(68, 68);
@@ -275,7 +275,7 @@
             // 
             this.toolSearchLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolSearchLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolSearchLabel.Image = global::My_Games.Properties.Resources.find;
+            this.toolSearchLabel.Image = global::My_Games.Properties.Resources.search;
             this.toolSearchLabel.Name = "toolSearchLabel";
             this.toolSearchLabel.Size = new System.Drawing.Size(64, 68);
             this.toolSearchLabel.Text = "toolStripLabel1";
