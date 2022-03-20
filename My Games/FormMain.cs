@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Drawing;
-using System.Collections;
-using System.IO;
+﻿using System.Collections;
 
 namespace My_Games
 {
@@ -60,6 +49,10 @@ namespace My_Games
             ShowHidepanelInfo(false);
         }
 
+        private void FormMain_Shown(object sender, EventArgs e)
+        {
+            listGames.Focus();
+        }
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             Properties.Settings.Default.Left = Left;
@@ -217,6 +210,8 @@ namespace My_Games
         private void listGames_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) Open(null, null);
+            if (e.KeyCode == Keys.F2) FilterChange(null, null);
+            if (e.KeyCode == Keys.F4) infoPanelTogle(null, null);
         }
 
         private void listGames_SelectedIndexChanged(object sender, EventArgs e)
@@ -239,13 +234,13 @@ namespace My_Games
             else
                 pictureCover.Image = null;
 
-            /*labelName.Text = selected ? game.name : "";
+            labelName.Text = selected ? game.name : "";
             labelDevelopers.Text = selected ? game.developer : "";
             labelPublishers.Text = selected ? game.publisher : "";
             labelYear.Text = selected ? game.year : "";
             labelVersions.Text = selected ? Data.StringVersions(game.versions) : "";
             labelDLCs.Text = selected ? Data.StringDLCs(game.DLCs) : "";
-            labelHistory.Text = selected ? Data.StringHistory(game.history) : "";*/
+            labelHistory.Text = selected ? Data.StringHistory(game.history) : "";
 
             int selectC = listGames.SelectedIndices.Count;
             if (selectC == 1)
@@ -357,6 +352,7 @@ namespace My_Games
             listGames.Columns[e.Column].Text += lastSort ? " ▼" : " ▲";
             lastColumn = e.Column;
         }
+
 
     }
 
