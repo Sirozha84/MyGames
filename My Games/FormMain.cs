@@ -27,14 +27,24 @@ namespace My_Games
             RefreshData();
             listGames.Columns[lastColumn].Text += " ▲";
 
-            float dpiX, dpiY;
-            Graphics graphics = this.CreateGraphics();
-            dpiX = graphics.DpiX;
-            dpiY = graphics.DpiY;
-            string dpi = dpiX.ToString();
-            //MessageBox.Show(dpi); //96 (100), 192 (200)
-            //надо будет проверить как будет работать с другими масштабами,
-            //иначе придётся руками править масштабы иконок, размеры колонок и прочее графическое
+            Graphics graphics = CreateGraphics();
+            Program.scale = graphics.DpiX / 96;
+            //Program.scale = 1;
+
+            MinimumSize = new Size((int)(1000 * Program.scale), (int)(700 * Program.scale));
+            int iconSize = (int)(32 * Program.scale);
+            toolStrip.ImageScalingSize = new Size(iconSize, iconSize);
+            toolStrip.Height = listGames.Top = panelInfo.Top = (iconSize + 18 >= toolSearch.Height) ? iconSize + 18 : toolSearch.Height;
+            listGames.Height = panelInfo.Height = ClientSize.Height - toolStrip.Height - statusStrip.Height;
+            toolSearch.Width = (int)(200 * Program.scale);
+            listGames.Columns[0].Width = (int)(90 * Program.scale);
+            listGames.Columns[1].Width = (int)(220 * Program.scale);
+            listGames.Columns[2].Width = (int)(150 * Program.scale);
+            listGames.Columns[3].Width = (int)(90 * Program.scale);
+            listGames.Columns[4].Width = (int)(130 * Program.scale);
+            listGames.Columns[5].Width = (int)(80 * Program.scale);
+            listGames.Columns[6].Width = (int)(90 * Program.scale);
+            listGames.Columns[7].Width = (int)(110 * Program.scale);
         }
 
         private void FormMain_Load(object sender, EventArgs e)
