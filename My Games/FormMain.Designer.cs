@@ -584,7 +584,7 @@
             // cmDelete
             // 
             this.cmDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cmDelete.Image = global::My_Games.Properties.Resources.delete;
+            this.cmDelete.Image = global::My_Games.Properties.Resources.remove;
             this.cmDelete.Name = "cmDelete";
             this.cmDelete.Size = new System.Drawing.Size(352, 52);
             this.cmDelete.Text = "Удалить";

@@ -135,10 +135,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(104, 54);
+            this.label1.Location = new System.Drawing.Point(145, 60);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 32);
+            this.label1.Size = new System.Drawing.Size(98, 45);
             this.label1.TabIndex = 0;
             this.label1.Text = "Игра:";
             // 
@@ -146,10 +146,10 @@
             // 
             this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxName.Location = new System.Drawing.Point(193, 47);
+            this.textBoxName.Location = new System.Drawing.Point(255, 57);
             this.textBoxName.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(730, 39);
+            this.textBoxName.Size = new System.Drawing.Size(673, 50);
             this.textBoxName.TabIndex = 0;
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
@@ -159,36 +159,36 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGenre.FormattingEnabled = true;
-            this.comboBoxGenre.Location = new System.Drawing.Point(193, 308);
+            this.comboBoxGenre.Location = new System.Drawing.Point(255, 318);
             this.comboBoxGenre.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.comboBoxGenre.Name = "comboBoxGenre";
-            this.comboBoxGenre.Size = new System.Drawing.Size(730, 40);
+            this.comboBoxGenre.Size = new System.Drawing.Size(673, 53);
             this.comboBoxGenre.TabIndex = 9;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(52, 185);
+            this.label3.Location = new System.Drawing.Point(81, 190);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 32);
+            this.label3.Size = new System.Drawing.Size(162, 45);
             this.label3.TabIndex = 4;
             this.label3.Text = "Издатель:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 251);
+            this.label4.Location = new System.Drawing.Point(47, 257);
             this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(144, 32);
+            this.label4.Size = new System.Drawing.Size(196, 45);
             this.label4.TabIndex = 6;
             this.label4.Text = "Год выхода:";
             // 
             // buttonOK
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Location = new System.Drawing.Point(1335, 1295);
+            this.buttonOK.Location = new System.Drawing.Point(1325, 1229);
             this.buttonOK.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(162, 57);
@@ -201,7 +201,7 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(1510, 1295);
+            this.buttonCancel.Location = new System.Drawing.Point(1500, 1229);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(162, 57);
@@ -212,10 +212,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(76, 382);
+            this.label5.Location = new System.Drawing.Point(106, 387);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 32);
+            this.label5.Size = new System.Drawing.Size(137, 45);
             this.label5.TabIndex = 10;
             this.label5.Text = "Оценка:";
             // 
@@ -288,7 +288,7 @@
             this.listViewHistory.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.listViewHistory.MultiSelect = false;
             this.listViewHistory.Name = "listViewHistory";
-            this.listViewHistory.Size = new System.Drawing.Size(1573, 1018);
+            this.listViewHistory.Size = new System.Drawing.Size(1573, 969);
             this.listViewHistory.TabIndex = 3;
             this.listViewHistory.UseCompatibleStateImageBehavior = false;
             this.listViewHistory.View = System.Windows.Forms.View.Details;
@@ -326,11 +326,11 @@
             this.textBoxComment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxComment.Location = new System.Drawing.Point(13, 47);
+            this.textBoxComment.Location = new System.Drawing.Point(13, 57);
             this.textBoxComment.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.textBoxComment.Multiline = true;
             this.textBoxComment.Name = "textBoxComment";
-            this.textBoxComment.Size = new System.Drawing.Size(1573, 336);
+            this.textBoxComment.Size = new System.Drawing.Size(1579, 281);
             this.textBoxComment.TabIndex = 0;
             // 
             // groupBoxMain
@@ -364,29 +364,29 @@
             // 
             this.textBoxPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPublisher.Location = new System.Drawing.Point(193, 177);
+            this.textBoxPublisher.Location = new System.Drawing.Point(255, 187);
             this.textBoxPublisher.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.textBoxPublisher.Name = "textBoxPublisher";
-            this.textBoxPublisher.Size = new System.Drawing.Size(730, 39);
+            this.textBoxPublisher.Size = new System.Drawing.Size(673, 50);
             this.textBoxPublisher.TabIndex = 5;
             // 
             // textBoxDeveloper
             // 
             this.textBoxDeveloper.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDeveloper.Location = new System.Drawing.Point(193, 111);
+            this.textBoxDeveloper.Location = new System.Drawing.Point(255, 121);
             this.textBoxDeveloper.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.textBoxDeveloper.Name = "textBoxDeveloper";
-            this.textBoxDeveloper.Size = new System.Drawing.Size(730, 39);
+            this.textBoxDeveloper.Size = new System.Drawing.Size(673, 50);
             this.textBoxDeveloper.TabIndex = 3;
             // 
             // linkLabelSite
             // 
             this.linkLabelSite.AutoSize = true;
-            this.linkLabelSite.Location = new System.Drawing.Point(106, 448);
+            this.linkLabelSite.Location = new System.Drawing.Point(148, 454);
             this.linkLabelSite.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.linkLabelSite.Name = "linkLabelSite";
-            this.linkLabelSite.Size = new System.Drawing.Size(70, 32);
+            this.linkLabelSite.Size = new System.Drawing.Size(95, 45);
             this.linkLabelSite.TabIndex = 12;
             this.linkLabelSite.TabStop = true;
             this.linkLabelSite.Text = "Сайт:";
@@ -395,19 +395,19 @@
             // 
             this.textBoxSite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSite.Location = new System.Drawing.Point(193, 441);
+            this.textBoxSite.Location = new System.Drawing.Point(255, 451);
             this.textBoxSite.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.textBoxSite.Name = "textBoxSite";
-            this.textBoxSite.Size = new System.Drawing.Size(730, 39);
+            this.textBoxSite.Size = new System.Drawing.Size(673, 50);
             this.textBoxSite.TabIndex = 13;
             // 
             // linkLabelGenre
             // 
             this.linkLabelGenre.AutoSize = true;
-            this.linkLabelGenre.Location = new System.Drawing.Point(95, 318);
+            this.linkLabelGenre.Location = new System.Drawing.Point(135, 321);
             this.linkLabelGenre.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.linkLabelGenre.Name = "linkLabelGenre";
-            this.linkLabelGenre.Size = new System.Drawing.Size(80, 32);
+            this.linkLabelGenre.Size = new System.Drawing.Size(108, 45);
             this.linkLabelGenre.TabIndex = 8;
             this.linkLabelGenre.TabStop = true;
             this.linkLabelGenre.Text = "Жанр:";
@@ -416,10 +416,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 118);
+            this.label6.Location = new System.Drawing.Point(29, 124);
             this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(159, 32);
+            this.label6.Size = new System.Drawing.Size(214, 45);
             this.label6.TabIndex = 2;
             this.label6.Text = "Разработчик:";
             // 
@@ -427,30 +427,29 @@
             // 
             this.comboBoxRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRate.FormattingEnabled = true;
-            this.comboBoxRate.Location = new System.Drawing.Point(193, 374);
+            this.comboBoxRate.Location = new System.Drawing.Point(255, 384);
             this.comboBoxRate.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.comboBoxRate.Name = "comboBoxRate";
-            this.comboBoxRate.Size = new System.Drawing.Size(121, 40);
+            this.comboBoxRate.Size = new System.Drawing.Size(172, 53);
             this.comboBoxRate.TabIndex = 11;
             // 
             // textBoxYear
             // 
-            this.textBoxYear.Location = new System.Drawing.Point(193, 244);
+            this.textBoxYear.Location = new System.Drawing.Point(255, 254);
             this.textBoxYear.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.textBoxYear.Name = "textBoxYear";
-            this.textBoxYear.Size = new System.Drawing.Size(119, 39);
+            this.textBoxYear.Size = new System.Drawing.Size(172, 50);
             this.textBoxYear.TabIndex = 7;
             // 
             // labelCover
             // 
-            this.labelCover.AutoSize = true;
             this.labelCover.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.labelCover.ContextMenuStrip = this.contextMenuStrip;
             this.labelCover.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelCover.Location = new System.Drawing.Point(63, 345);
+            this.labelCover.Location = new System.Drawing.Point(12, 258);
             this.labelCover.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelCover.Name = "labelCover";
-            this.labelCover.Size = new System.Drawing.Size(567, 64);
+            this.labelCover.Size = new System.Drawing.Size(650, 201);
             this.labelCover.TabIndex = 0;
             this.labelCover.Text = "Нажмите здесь левой или правой кнопкой мыши\r\nили перетащите сюда файл изображения" +
     "";
@@ -476,7 +475,7 @@
             // 
             // удалитьToolStripMenuItem
             // 
-            this.удалитьToolStripMenuItem.Image = global::My_Games.Properties.Resources.delete;
+            this.удалитьToolStripMenuItem.Image = global::My_Games.Properties.Resources.remove;
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
             this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(318, 40);
             this.удалитьToolStripMenuItem.Text = "Удалить";
@@ -487,10 +486,10 @@
             this.pictureBoxCover.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.pictureBoxCover.ContextMenuStrip = this.contextMenuStrip;
             this.pictureBoxCover.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxCover.Location = new System.Drawing.Point(13, 15);
+            this.pictureBoxCover.Location = new System.Drawing.Point(12, 14);
             this.pictureBoxCover.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.pictureBoxCover.Name = "pictureBoxCover";
-            this.pictureBoxCover.Size = new System.Drawing.Size(650, 738);
+            this.pictureBoxCover.Size = new System.Drawing.Size(650, 647);
             this.pictureBoxCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxCover.TabIndex = 19;
             this.pictureBoxCover.TabStop = false;
@@ -499,35 +498,44 @@
             // buttonChangeVersion
             // 
             this.buttonChangeVersion.Enabled = false;
-            this.buttonChangeVersion.Location = new System.Drawing.Point(199, 47);
+            this.buttonChangeVersion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonChangeVersion.Image = global::My_Games.Properties.Resources.edit;
+            this.buttonChangeVersion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonChangeVersion.Location = new System.Drawing.Point(245, 47);
             this.buttonChangeVersion.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonChangeVersion.Name = "buttonChangeVersion";
-            this.buttonChangeVersion.Size = new System.Drawing.Size(162, 57);
+            this.buttonChangeVersion.Size = new System.Drawing.Size(220, 57);
             this.buttonChangeVersion.TabIndex = 1;
             this.buttonChangeVersion.Text = "Изменить";
+            this.buttonChangeVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonChangeVersion.UseVisualStyleBackColor = true;
             this.buttonChangeVersion.Click += new System.EventHandler(this.buttonChangeVersion_Click);
             // 
             // buttonDelVersion
             // 
             this.buttonDelVersion.Enabled = false;
-            this.buttonDelVersion.Location = new System.Drawing.Point(375, 47);
+            this.buttonDelVersion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonDelVersion.Image = global::My_Games.Properties.Resources.remove;
+            this.buttonDelVersion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDelVersion.Location = new System.Drawing.Point(477, 47);
             this.buttonDelVersion.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonDelVersion.Name = "buttonDelVersion";
-            this.buttonDelVersion.Size = new System.Drawing.Size(162, 57);
+            this.buttonDelVersion.Size = new System.Drawing.Size(200, 57);
             this.buttonDelVersion.TabIndex = 2;
             this.buttonDelVersion.Text = "Удалить";
+            this.buttonDelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDelVersion.UseVisualStyleBackColor = true;
             this.buttonDelVersion.Click += new System.EventHandler(this.buttonDelVersion_Click);
             // 
             // buttonAddVersion
             // 
-            this.buttonAddVersion.Image = global::My_Games.Properties.Resources.add_big;
+            this.buttonAddVersion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonAddVersion.Image = global::My_Games.Properties.Resources.add;
             this.buttonAddVersion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAddVersion.Location = new System.Drawing.Point(13, 47);
             this.buttonAddVersion.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonAddVersion.Name = "buttonAddVersion";
-            this.buttonAddVersion.Size = new System.Drawing.Size(173, 57);
+            this.buttonAddVersion.Size = new System.Drawing.Size(220, 57);
             this.buttonAddVersion.TabIndex = 0;
             this.buttonAddVersion.Text = "Добавить";
             this.buttonAddVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -537,35 +545,41 @@
             // buttonDelEvent
             // 
             this.buttonDelEvent.Enabled = false;
-            this.buttonDelEvent.Location = new System.Drawing.Point(375, 47);
+            this.buttonDelEvent.Image = global::My_Games.Properties.Resources.remove;
+            this.buttonDelEvent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDelEvent.Location = new System.Drawing.Point(477, 47);
             this.buttonDelEvent.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonDelEvent.Name = "buttonDelEvent";
-            this.buttonDelEvent.Size = new System.Drawing.Size(162, 57);
+            this.buttonDelEvent.Size = new System.Drawing.Size(200, 57);
             this.buttonDelEvent.TabIndex = 2;
             this.buttonDelEvent.Text = "Удалить";
+            this.buttonDelEvent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDelEvent.UseVisualStyleBackColor = true;
             this.buttonDelEvent.Click += new System.EventHandler(this.buttonDelEvent_Click);
             // 
             // buttonChangeEvent
             // 
             this.buttonChangeEvent.Enabled = false;
-            this.buttonChangeEvent.Location = new System.Drawing.Point(199, 47);
+            this.buttonChangeEvent.Image = global::My_Games.Properties.Resources.edit;
+            this.buttonChangeEvent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonChangeEvent.Location = new System.Drawing.Point(245, 47);
             this.buttonChangeEvent.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonChangeEvent.Name = "buttonChangeEvent";
-            this.buttonChangeEvent.Size = new System.Drawing.Size(162, 57);
+            this.buttonChangeEvent.Size = new System.Drawing.Size(220, 57);
             this.buttonChangeEvent.TabIndex = 1;
             this.buttonChangeEvent.Text = "Изменить";
+            this.buttonChangeEvent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonChangeEvent.UseVisualStyleBackColor = true;
             this.buttonChangeEvent.Click += new System.EventHandler(this.buttonChangeEvent_Click);
             // 
             // buttonAddEvent
             // 
-            this.buttonAddEvent.Image = global::My_Games.Properties.Resources.add_big;
+            this.buttonAddEvent.Image = global::My_Games.Properties.Resources.add;
             this.buttonAddEvent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAddEvent.Location = new System.Drawing.Point(13, 47);
             this.buttonAddEvent.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonAddEvent.Name = "buttonAddEvent";
-            this.buttonAddEvent.Size = new System.Drawing.Size(173, 57);
+            this.buttonAddEvent.Size = new System.Drawing.Size(220, 57);
             this.buttonAddEvent.TabIndex = 0;
             this.buttonAddEvent.Text = "Добавить";
             this.buttonAddEvent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -578,11 +592,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxComment.Controls.Add(this.textBoxComment);
-            this.groupBoxComment.Location = new System.Drawing.Point(13, 768);
+            this.groupBoxComment.Location = new System.Drawing.Point(12, 769);
             this.groupBoxComment.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.groupBoxComment.Name = "groupBoxComment";
             this.groupBoxComment.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.groupBoxComment.Size = new System.Drawing.Size(1603, 404);
+            this.groupBoxComment.Size = new System.Drawing.Size(1604, 352);
             this.groupBoxComment.TabIndex = 3;
             this.groupBoxComment.TabStop = false;
             this.groupBoxComment.Text = "Описание";
@@ -594,7 +608,7 @@
             this.labelInfo.Location = new System.Drawing.Point(89, 106);
             this.labelInfo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelInfo.Name = "labelInfo";
-            this.labelInfo.Size = new System.Drawing.Size(0, 32);
+            this.labelInfo.Size = new System.Drawing.Size(0, 45);
             this.labelInfo.TabIndex = 25;
             // 
             // tabControl
@@ -607,13 +621,14 @@
             this.tabControl.Controls.Add(this.tabPageHistory);
             this.tabControl.Controls.Add(this.tabPageNotes);
             this.tabControl.Controls.Add(this.tabPageOthers);
+            this.tabControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl.ImageList = this.imageListTabs;
-            this.tabControl.ItemSize = new System.Drawing.Size(120, 24);
-            this.tabControl.Location = new System.Drawing.Point(26, 30);
+            this.tabControl.ItemSize = new System.Drawing.Size(240, 48);
+            this.tabControl.Location = new System.Drawing.Point(15, 16);
             this.tabControl.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1647, 1250);
+            this.tabControl.Size = new System.Drawing.Size(1647, 1199);
             this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl.TabIndex = 0;
             this.tabControl.TabStop = false;
@@ -626,11 +641,11 @@
             this.tabPageMain.Controls.Add(this.labelCover);
             this.tabPageMain.Controls.Add(this.groupBoxComment);
             this.tabPageMain.Controls.Add(this.pictureBoxCover);
-            this.tabPageMain.Location = new System.Drawing.Point(8, 32);
+            this.tabPageMain.Location = new System.Drawing.Point(8, 56);
             this.tabPageMain.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tabPageMain.Name = "tabPageMain";
             this.tabPageMain.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.tabPageMain.Size = new System.Drawing.Size(1631, 1210);
+            this.tabPageMain.Size = new System.Drawing.Size(1631, 1135);
             this.tabPageMain.TabIndex = 0;
             this.tabPageMain.Text = "Общие";
             this.tabPageMain.UseVisualStyleBackColor = true;
@@ -651,7 +666,7 @@
             this.groupBoxInfo.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.groupBoxInfo.Name = "groupBoxInfo";
             this.groupBoxInfo.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.groupBoxInfo.Size = new System.Drawing.Size(940, 207);
+            this.groupBoxInfo.Size = new System.Drawing.Size(940, 209);
             this.groupBoxInfo.TabIndex = 2;
             this.groupBoxInfo.TabStop = false;
             this.groupBoxInfo.Text = "Информация о коллекции";
@@ -660,59 +675,60 @@
             // 
             this.labelHis.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelHis.Location = new System.Drawing.Point(230, 138);
+            this.labelHis.Location = new System.Drawing.Point(255, 140);
             this.labelHis.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelHis.Name = "labelHis";
-            this.labelHis.Size = new System.Drawing.Size(698, 32);
+            this.labelHis.Size = new System.Drawing.Size(673, 45);
             this.labelHis.TabIndex = 5;
             // 
             // labelDLCs
             // 
             this.labelDLCs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelDLCs.Location = new System.Drawing.Point(230, 94);
+            this.labelDLCs.Location = new System.Drawing.Point(255, 95);
             this.labelDLCs.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelDLCs.Name = "labelDLCs";
-            this.labelDLCs.Size = new System.Drawing.Size(698, 32);
+            this.labelDLCs.Size = new System.Drawing.Size(673, 45);
             this.labelDLCs.TabIndex = 3;
             // 
             // labelVers
             // 
             this.labelVers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelVers.Location = new System.Drawing.Point(230, 49);
+            this.labelVers.Location = new System.Drawing.Point(255, 50);
             this.labelVers.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelVers.Name = "labelVers";
-            this.labelVers.Size = new System.Drawing.Size(698, 32);
+            this.labelVers.Size = new System.Drawing.Size(673, 45);
             this.labelVers.TabIndex = 1;
+            this.labelVers.Text = "Тест";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(87, 138);
+            this.label9.Location = new System.Drawing.Point(67, 140);
             this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(130, 32);
+            this.label9.Size = new System.Drawing.Size(176, 45);
             this.label9.TabIndex = 4;
             this.label9.Text = "Пройдена:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 94);
+            this.label8.Location = new System.Drawing.Point(83, 95);
             this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(198, 32);
+            this.label8.Size = new System.Drawing.Size(160, 45);
             this.label8.TabIndex = 2;
-            this.label8.Text = "Доп. материалы:";
+            this.label8.Text = "Доп. мат.:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(115, 49);
+            this.label7.Location = new System.Drawing.Point(109, 50);
             this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(99, 32);
+            this.label7.Size = new System.Drawing.Size(134, 45);
             this.label7.TabIndex = 0;
             this.label7.Text = "Версии:";
             // 
@@ -724,11 +740,11 @@
             this.tabPagePurchases.Controls.Add(this.panelVersion);
             this.tabPagePurchases.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabPagePurchases.ImageIndex = 0;
-            this.tabPagePurchases.Location = new System.Drawing.Point(8, 32);
+            this.tabPagePurchases.Location = new System.Drawing.Point(8, 56);
             this.tabPagePurchases.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tabPagePurchases.Name = "tabPagePurchases";
             this.tabPagePurchases.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.tabPagePurchases.Size = new System.Drawing.Size(1631, 1210);
+            this.tabPagePurchases.Size = new System.Drawing.Size(1631, 1135);
             this.tabPagePurchases.TabIndex = 1;
             this.tabPagePurchases.Text = "Покупки";
             this.tabPagePurchases.UseVisualStyleBackColor = true;
@@ -741,7 +757,7 @@
             this.panelDLCs.Location = new System.Drawing.Point(6, 625);
             this.panelDLCs.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.panelDLCs.Name = "panelDLCs";
-            this.panelDLCs.Size = new System.Drawing.Size(1619, 578);
+            this.panelDLCs.Size = new System.Drawing.Size(1619, 503);
             this.panelDLCs.TabIndex = 6;
             // 
             // groupBoxDLCs
@@ -753,23 +769,25 @@
             this.groupBoxDLCs.Controls.Add(this.buttonDelDLC);
             this.groupBoxDLCs.Controls.Add(this.buttonChangeDLC);
             this.groupBoxDLCs.Controls.Add(this.listViewDLCs);
+            this.groupBoxDLCs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBoxDLCs.Location = new System.Drawing.Point(6, 15);
             this.groupBoxDLCs.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.groupBoxDLCs.Name = "groupBoxDLCs";
             this.groupBoxDLCs.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.groupBoxDLCs.Size = new System.Drawing.Size(1606, 556);
+            this.groupBoxDLCs.Size = new System.Drawing.Size(1606, 481);
             this.groupBoxDLCs.TabIndex = 14;
             this.groupBoxDLCs.TabStop = false;
             this.groupBoxDLCs.Text = "Дополнительные материалы";
             // 
             // buttonAddDLC
             // 
-            this.buttonAddDLC.Image = global::My_Games.Properties.Resources.add_big;
+            this.buttonAddDLC.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonAddDLC.Image = global::My_Games.Properties.Resources.add;
             this.buttonAddDLC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAddDLC.Location = new System.Drawing.Point(13, 47);
             this.buttonAddDLC.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonAddDLC.Name = "buttonAddDLC";
-            this.buttonAddDLC.Size = new System.Drawing.Size(173, 57);
+            this.buttonAddDLC.Size = new System.Drawing.Size(220, 57);
             this.buttonAddDLC.TabIndex = 10;
             this.buttonAddDLC.Text = "Добавить";
             this.buttonAddDLC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -779,24 +797,32 @@
             // buttonDelDLC
             // 
             this.buttonDelDLC.Enabled = false;
-            this.buttonDelDLC.Location = new System.Drawing.Point(375, 47);
+            this.buttonDelDLC.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonDelDLC.Image = global::My_Games.Properties.Resources.remove;
+            this.buttonDelDLC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDelDLC.Location = new System.Drawing.Point(477, 47);
             this.buttonDelDLC.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonDelDLC.Name = "buttonDelDLC";
-            this.buttonDelDLC.Size = new System.Drawing.Size(162, 57);
+            this.buttonDelDLC.Size = new System.Drawing.Size(200, 57);
             this.buttonDelDLC.TabIndex = 12;
             this.buttonDelDLC.Text = "Удалить";
+            this.buttonDelDLC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDelDLC.UseVisualStyleBackColor = true;
             this.buttonDelDLC.Click += new System.EventHandler(this.buttonDelDLC_Click);
             // 
             // buttonChangeDLC
             // 
             this.buttonChangeDLC.Enabled = false;
-            this.buttonChangeDLC.Location = new System.Drawing.Point(199, 47);
+            this.buttonChangeDLC.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonChangeDLC.Image = global::My_Games.Properties.Resources.edit;
+            this.buttonChangeDLC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonChangeDLC.Location = new System.Drawing.Point(245, 47);
             this.buttonChangeDLC.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonChangeDLC.Name = "buttonChangeDLC";
-            this.buttonChangeDLC.Size = new System.Drawing.Size(162, 57);
+            this.buttonChangeDLC.Size = new System.Drawing.Size(220, 57);
             this.buttonChangeDLC.TabIndex = 11;
             this.buttonChangeDLC.Text = "Изменить";
+            this.buttonChangeDLC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonChangeDLC.UseVisualStyleBackColor = true;
             this.buttonChangeDLC.Click += new System.EventHandler(this.buttonChangeDLC_Click);
             // 
@@ -818,7 +844,7 @@
             this.listViewDLCs.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.listViewDLCs.MultiSelect = false;
             this.listViewDLCs.Name = "listViewDLCs";
-            this.listViewDLCs.Size = new System.Drawing.Size(1576, 417);
+            this.listViewDLCs.Size = new System.Drawing.Size(1576, 342);
             this.listViewDLCs.TabIndex = 13;
             this.listViewDLCs.UseCompatibleStateImageBehavior = false;
             this.listViewDLCs.View = System.Windows.Forms.View.Details;
@@ -880,6 +906,7 @@
             this.groupBoxVersion.Controls.Add(this.buttonDelVersion);
             this.groupBoxVersion.Controls.Add(this.listViewVersions);
             this.groupBoxVersion.Controls.Add(this.buttonChangeVersion);
+            this.groupBoxVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBoxVersion.Location = new System.Drawing.Point(6, 7);
             this.groupBoxVersion.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.groupBoxVersion.Name = "groupBoxVersion";
@@ -893,11 +920,11 @@
             // 
             this.tabPageHistory.Controls.Add(this.groupBoxHistory);
             this.tabPageHistory.ImageIndex = 1;
-            this.tabPageHistory.Location = new System.Drawing.Point(8, 32);
+            this.tabPageHistory.Location = new System.Drawing.Point(8, 56);
             this.tabPageHistory.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tabPageHistory.Name = "tabPageHistory";
             this.tabPageHistory.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.tabPageHistory.Size = new System.Drawing.Size(1631, 1210);
+            this.tabPageHistory.Size = new System.Drawing.Size(1631, 1135);
             this.tabPageHistory.TabIndex = 3;
             this.tabPageHistory.Text = "История";
             this.tabPageHistory.UseVisualStyleBackColor = true;
@@ -915,7 +942,7 @@
             this.groupBoxHistory.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.groupBoxHistory.Name = "groupBoxHistory";
             this.groupBoxHistory.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.groupBoxHistory.Size = new System.Drawing.Size(1603, 1157);
+            this.groupBoxHistory.Size = new System.Drawing.Size(1603, 1108);
             this.groupBoxHistory.TabIndex = 4;
             this.groupBoxHistory.TabStop = false;
             this.groupBoxHistory.Text = "История прохождения";
@@ -924,11 +951,11 @@
             // 
             this.tabPageNotes.Controls.Add(this.groupBoxNotes);
             this.tabPageNotes.ImageIndex = 2;
-            this.tabPageNotes.Location = new System.Drawing.Point(8, 32);
+            this.tabPageNotes.Location = new System.Drawing.Point(8, 56);
             this.tabPageNotes.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tabPageNotes.Name = "tabPageNotes";
             this.tabPageNotes.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.tabPageNotes.Size = new System.Drawing.Size(1631, 1210);
+            this.tabPageNotes.Size = new System.Drawing.Size(1631, 1135);
             this.tabPageNotes.TabIndex = 4;
             this.tabPageNotes.Text = "Заметки";
             this.tabPageNotes.UseVisualStyleBackColor = true;
@@ -950,7 +977,7 @@
             this.groupBoxNotes.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.groupBoxNotes.Name = "groupBoxNotes";
             this.groupBoxNotes.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.groupBoxNotes.Size = new System.Drawing.Size(1603, 1142);
+            this.groupBoxNotes.Size = new System.Drawing.Size(1603, 1093);
             this.groupBoxNotes.TabIndex = 11;
             this.groupBoxNotes.TabStop = false;
             this.groupBoxNotes.Text = "Заметки";
@@ -958,31 +985,31 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(644, 59);
+            this.label10.Location = new System.Drawing.Point(674, 62);
             this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(70, 32);
+            this.label10.Size = new System.Drawing.Size(94, 45);
             this.label10.TabIndex = 7;
             this.label10.Text = "Дата:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(583, 123);
+            this.label2.Location = new System.Drawing.Point(589, 119);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 32);
+            this.label2.Size = new System.Drawing.Size(179, 45);
             this.label2.TabIndex = 6;
             this.label2.Text = "Заголовок:";
             // 
             // buttonNoteAdd
             // 
-            this.buttonNoteAdd.Image = global::My_Games.Properties.Resources.add_big;
+            this.buttonNoteAdd.Image = global::My_Games.Properties.Resources.add;
             this.buttonNoteAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonNoteAdd.Location = new System.Drawing.Point(13, 47);
             this.buttonNoteAdd.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonNoteAdd.Name = "buttonNoteAdd";
-            this.buttonNoteAdd.Size = new System.Drawing.Size(173, 57);
+            this.buttonNoteAdd.Size = new System.Drawing.Size(220, 57);
             this.buttonNoteAdd.TabIndex = 0;
             this.buttonNoteAdd.Text = "Добавить";
             this.buttonNoteAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -994,10 +1021,10 @@
             this.textBoxNoteName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxNoteName.Enabled = false;
-            this.textBoxNoteName.Location = new System.Drawing.Point(734, 116);
+            this.textBoxNoteName.Location = new System.Drawing.Point(780, 116);
             this.textBoxNoteName.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.textBoxNoteName.Name = "textBoxNoteName";
-            this.textBoxNoteName.Size = new System.Drawing.Size(851, 39);
+            this.textBoxNoteName.Size = new System.Drawing.Size(805, 50);
             this.textBoxNoteName.TabIndex = 4;
             this.textBoxNoteName.TextChanged += new System.EventHandler(this.TextBoxNoteName_TextChanged);
             // 
@@ -1015,7 +1042,7 @@
             this.listViewNotes.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.listViewNotes.MultiSelect = false;
             this.listViewNotes.Name = "listViewNotes";
-            this.listViewNotes.Size = new System.Drawing.Size(559, 1003);
+            this.listViewNotes.Size = new System.Drawing.Size(559, 954);
             this.listViewNotes.TabIndex = 2;
             this.listViewNotes.UseCompatibleStateImageBehavior = false;
             this.listViewNotes.View = System.Windows.Forms.View.Details;
@@ -1034,22 +1061,25 @@
             // dateTimeNote
             // 
             this.dateTimeNote.Enabled = false;
-            this.dateTimeNote.Location = new System.Drawing.Point(734, 52);
+            this.dateTimeNote.Location = new System.Drawing.Point(780, 57);
             this.dateTimeNote.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.dateTimeNote.Name = "dateTimeNote";
-            this.dateTimeNote.Size = new System.Drawing.Size(299, 39);
+            this.dateTimeNote.Size = new System.Drawing.Size(322, 50);
             this.dateTimeNote.TabIndex = 3;
             this.dateTimeNote.ValueChanged += new System.EventHandler(this.DateTimeNote_ValueChanged);
             // 
             // buttonNoteDel
             // 
             this.buttonNoteDel.Enabled = false;
-            this.buttonNoteDel.Location = new System.Drawing.Point(199, 47);
+            this.buttonNoteDel.Image = global::My_Games.Properties.Resources.remove;
+            this.buttonNoteDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonNoteDel.Location = new System.Drawing.Point(245, 47);
             this.buttonNoteDel.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonNoteDel.Name = "buttonNoteDel";
-            this.buttonNoteDel.Size = new System.Drawing.Size(162, 57);
+            this.buttonNoteDel.Size = new System.Drawing.Size(200, 57);
             this.buttonNoteDel.TabIndex = 1;
             this.buttonNoteDel.Text = "Удалить";
+            this.buttonNoteDel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonNoteDel.UseVisualStyleBackColor = true;
             this.buttonNoteDel.Click += new System.EventHandler(this.ButtonNoteDel_Click);
             // 
@@ -1059,22 +1089,22 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxNote.Enabled = false;
-            this.textBoxNote.Location = new System.Drawing.Point(589, 187);
+            this.textBoxNote.Location = new System.Drawing.Point(584, 180);
             this.textBoxNote.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.textBoxNote.Multiline = true;
             this.textBoxNote.Name = "textBoxNote";
-            this.textBoxNote.Size = new System.Drawing.Size(996, 934);
+            this.textBoxNote.Size = new System.Drawing.Size(1001, 892);
             this.textBoxNote.TabIndex = 5;
             this.textBoxNote.TextChanged += new System.EventHandler(this.TextBoxNote_TextChanged);
             // 
             // tabPageOthers
             // 
             this.tabPageOthers.Controls.Add(this.labelInfo);
-            this.tabPageOthers.Location = new System.Drawing.Point(8, 32);
+            this.tabPageOthers.Location = new System.Drawing.Point(8, 56);
             this.tabPageOthers.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tabPageOthers.Name = "tabPageOthers";
             this.tabPageOthers.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.tabPageOthers.Size = new System.Drawing.Size(1631, 1210);
+            this.tabPageOthers.Size = new System.Drawing.Size(1631, 1135);
             this.tabPageOthers.TabIndex = 5;
             this.tabPageOthers.Text = "Прочее";
             this.tabPageOthers.UseVisualStyleBackColor = true;
@@ -1085,8 +1115,6 @@
             this.imageListTabs.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListTabs.ImageStream")));
             this.imageListTabs.TransparentColor = System.Drawing.Color.Transparent;
             this.imageListTabs.Images.SetKeyName(0, "purchase.png");
-            this.imageListTabs.Images.SetKeyName(1, "winner.png");
-            this.imageListTabs.Images.SetKeyName(2, "notes.png");
             // 
             // FormGame
             // 
@@ -1094,7 +1122,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(1699, 1381);
+            this.ClientSize = new System.Drawing.Size(1677, 1302);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
@@ -1112,7 +1140,6 @@
             this.groupBoxComment.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tabPageMain.ResumeLayout(false);
-            this.tabPageMain.PerformLayout();
             this.groupBoxInfo.ResumeLayout(false);
             this.groupBoxInfo.PerformLayout();
             this.tabPagePurchases.ResumeLayout(false);
