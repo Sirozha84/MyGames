@@ -47,10 +47,11 @@
             // 
             // textBoxHours
             // 
-            this.textBoxHours.Location = new System.Drawing.Point(190, 177);
-            this.textBoxHours.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.textBoxHours.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxHours.Location = new System.Drawing.Point(237, 237);
+            this.textBoxHours.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.textBoxHours.Name = "textBoxHours";
-            this.textBoxHours.Size = new System.Drawing.Size(124, 31);
+            this.textBoxHours.Size = new System.Drawing.Size(134, 50);
             this.textBoxHours.TabIndex = 3;
             this.textBoxHours.Text = "0";
             // 
@@ -58,10 +59,11 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(550, 362);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCancel.Location = new System.Drawing.Point(709, 456);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(150, 44);
+            this.buttonCancel.Size = new System.Drawing.Size(200, 56);
             this.buttonCancel.TabIndex = 6;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -69,10 +71,11 @@
             // buttonOK
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Location = new System.Drawing.Point(388, 362);
-            this.buttonOK.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonOK.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonOK.Location = new System.Drawing.Point(497, 456);
+            this.buttonOK.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(150, 44);
+            this.buttonOK.Size = new System.Drawing.Size(200, 56);
             this.buttonOK.TabIndex = 5;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
@@ -81,68 +84,75 @@
             // comboBoxEvent
             // 
             this.comboBoxEvent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEvent.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxEvent.FormattingEnabled = true;
-            this.comboBoxEvent.Location = new System.Drawing.Point(190, 125);
-            this.comboBoxEvent.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.comboBoxEvent.Location = new System.Drawing.Point(237, 168);
+            this.comboBoxEvent.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.comboBoxEvent.Name = "comboBoxEvent";
-            this.comboBoxEvent.Size = new System.Drawing.Size(296, 33);
+            this.comboBoxEvent.Size = new System.Drawing.Size(360, 53);
             this.comboBoxEvent.TabIndex = 2;
             // 
             // date
             // 
-            this.date.Location = new System.Drawing.Point(190, 23);
-            this.date.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.date.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.date.Location = new System.Drawing.Point(237, 33);
+            this.date.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(236, 31);
+            this.date.Size = new System.Drawing.Size(360, 50);
             this.date.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(102, 183);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(123, 240);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 25);
+            this.label3.Size = new System.Drawing.Size(102, 45);
             this.label3.TabIndex = 11;
             this.label3.Text = "Часы:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(70, 131);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(68, 171);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 25);
+            this.label2.Size = new System.Drawing.Size(157, 45);
             this.label2.TabIndex = 9;
             this.label2.Text = "Событие:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(106, 29);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(131, 38);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 25);
+            this.label1.Size = new System.Drawing.Size(94, 45);
             this.label1.TabIndex = 7;
             this.label1.Text = "Дата:";
             // 
             // comboBoxPlatform
             // 
             this.comboBoxPlatform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPlatform.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxPlatform.FormattingEnabled = true;
-            this.comboBoxPlatform.Location = new System.Drawing.Point(190, 73);
-            this.comboBoxPlatform.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.comboBoxPlatform.Location = new System.Drawing.Point(237, 99);
+            this.comboBoxPlatform.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.comboBoxPlatform.Name = "comboBoxPlatform";
-            this.comboBoxPlatform.Size = new System.Drawing.Size(296, 33);
+            this.comboBoxPlatform.Size = new System.Drawing.Size(360, 53);
             this.comboBoxPlatform.TabIndex = 1;
             // 
             // linkLabelPlatform
             // 
             this.linkLabelPlatform.AutoSize = true;
-            this.linkLabelPlatform.Location = new System.Drawing.Point(40, 79);
+            this.linkLabelPlatform.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkLabelPlatform.Location = new System.Drawing.Point(31, 102);
             this.linkLabelPlatform.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.linkLabelPlatform.Name = "linkLabelPlatform";
-            this.linkLabelPlatform.Size = new System.Drawing.Size(135, 25);
+            this.linkLabelPlatform.Size = new System.Drawing.Size(194, 45);
             this.linkLabelPlatform.TabIndex = 7;
             this.linkLabelPlatform.TabStop = true;
             this.linkLabelPlatform.Text = "Платформа:";
@@ -153,30 +163,33 @@
             this.textBoxComment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxComment.Location = new System.Drawing.Point(190, 227);
-            this.textBoxComment.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.textBoxComment.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxComment.Location = new System.Drawing.Point(237, 303);
+            this.textBoxComment.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.textBoxComment.Multiline = true;
             this.textBoxComment.Name = "textBoxComment";
-            this.textBoxComment.Size = new System.Drawing.Size(506, 119);
+            this.textBoxComment.Size = new System.Drawing.Size(672, 137);
             this.textBoxComment.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 233);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(-5, 306);
             this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(156, 25);
+            this.label4.Size = new System.Drawing.Size(230, 45);
             this.label4.TabIndex = 16;
             this.label4.Text = "Комментарий:";
             // 
             // checkBoxAll
             // 
             this.checkBoxAll.AutoSize = true;
-            this.checkBoxAll.Location = new System.Drawing.Point(502, 77);
-            this.checkBoxAll.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.checkBoxAll.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBoxAll.Location = new System.Drawing.Point(609, 101);
+            this.checkBoxAll.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.checkBoxAll.Name = "checkBoxAll";
-            this.checkBoxAll.Size = new System.Drawing.Size(204, 29);
+            this.checkBoxAll.Size = new System.Drawing.Size(283, 49);
             this.checkBoxAll.TabIndex = 18;
             this.checkBoxAll.Text = "Показывать все";
             this.toolTipAll.SetToolTip(this.checkBoxAll, "Показать полный список платформ, иначе будут только те, версии игры для которых и" +
@@ -187,10 +200,10 @@
             // FormEvent
             // 
             this.AcceptButton = this.buttonOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(724, 429);
+            this.ClientSize = new System.Drawing.Size(924, 529);
             this.Controls.Add(this.checkBoxAll);
             this.Controls.Add(this.textBoxComment);
             this.Controls.Add(this.label4);
@@ -204,10 +217,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(750, 420);
+            this.MinimumSize = new System.Drawing.Size(900, 500);
             this.Name = "FormEvent";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

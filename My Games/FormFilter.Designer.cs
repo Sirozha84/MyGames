@@ -46,9 +46,11 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(173, 154);
+            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCancel.Location = new System.Drawing.Point(425, 364);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(200, 57);
             this.buttonCancel.TabIndex = 8;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -56,9 +58,11 @@
             // buttonOK
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Location = new System.Drawing.Point(92, 154);
+            this.buttonOK.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonOK.Location = new System.Drawing.Point(213, 364);
+            this.buttonOK.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(75, 23);
+            this.buttonOK.Size = new System.Drawing.Size(200, 57);
             this.buttonOK.TabIndex = 7;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
@@ -67,35 +71,43 @@
             // checkBoxStart
             // 
             this.checkBoxStart.AutoSize = true;
-            this.checkBoxStart.Location = new System.Drawing.Point(17, 14);
+            this.checkBoxStart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBoxStart.Location = new System.Drawing.Point(37, 34);
+            this.checkBoxStart.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.checkBoxStart.Name = "checkBoxStart";
-            this.checkBoxStart.Size = new System.Drawing.Size(66, 17);
+            this.checkBoxStart.Size = new System.Drawing.Size(160, 49);
             this.checkBoxStart.TabIndex = 9;
             this.checkBoxStart.Text = "Дата от";
             this.checkBoxStart.UseVisualStyleBackColor = true;
             // 
             // dateTimeStart
             // 
-            this.dateTimeStart.Location = new System.Drawing.Point(108, 12);
+            this.dateTimeStart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimeStart.Location = new System.Drawing.Point(263, 30);
+            this.dateTimeStart.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.dateTimeStart.Name = "dateTimeStart";
-            this.dateTimeStart.Size = new System.Drawing.Size(140, 20);
+            this.dateTimeStart.Size = new System.Drawing.Size(360, 50);
             this.dateTimeStart.TabIndex = 10;
             this.dateTimeStart.ValueChanged += new System.EventHandler(this.dateTimeStart_ValueChanged);
             // 
             // dateTimeEnd
             // 
-            this.dateTimeEnd.Location = new System.Drawing.Point(108, 38);
+            this.dateTimeEnd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimeEnd.Location = new System.Drawing.Point(263, 94);
+            this.dateTimeEnd.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.dateTimeEnd.Name = "dateTimeEnd";
-            this.dateTimeEnd.Size = new System.Drawing.Size(140, 20);
+            this.dateTimeEnd.Size = new System.Drawing.Size(360, 50);
             this.dateTimeEnd.TabIndex = 12;
             this.dateTimeEnd.ValueChanged += new System.EventHandler(this.dateTimeEnd_ValueChanged);
             // 
             // checkBoxEnd
             // 
             this.checkBoxEnd.AutoSize = true;
-            this.checkBoxEnd.Location = new System.Drawing.Point(17, 40);
+            this.checkBoxEnd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBoxEnd.Location = new System.Drawing.Point(37, 98);
+            this.checkBoxEnd.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.checkBoxEnd.Name = "checkBoxEnd";
-            this.checkBoxEnd.Size = new System.Drawing.Size(67, 17);
+            this.checkBoxEnd.Size = new System.Drawing.Size(165, 49);
             this.checkBoxEnd.TabIndex = 11;
             this.checkBoxEnd.Text = "Дата до";
             this.checkBoxEnd.UseVisualStyleBackColor = true;
@@ -103,9 +115,11 @@
             // checkBoxPlatform
             // 
             this.checkBoxPlatform.AutoSize = true;
-            this.checkBoxPlatform.Location = new System.Drawing.Point(17, 66);
+            this.checkBoxPlatform.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBoxPlatform.Location = new System.Drawing.Point(37, 160);
+            this.checkBoxPlatform.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.checkBoxPlatform.Name = "checkBoxPlatform";
-            this.checkBoxPlatform.Size = new System.Drawing.Size(85, 17);
+            this.checkBoxPlatform.Size = new System.Drawing.Size(219, 49);
             this.checkBoxPlatform.TabIndex = 13;
             this.checkBoxPlatform.Text = "Платформа";
             this.checkBoxPlatform.UseVisualStyleBackColor = true;
@@ -113,29 +127,35 @@
             // comboBoxPlatform
             // 
             this.comboBoxPlatform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPlatform.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxPlatform.FormattingEnabled = true;
-            this.comboBoxPlatform.Location = new System.Drawing.Point(108, 64);
+            this.comboBoxPlatform.Location = new System.Drawing.Point(263, 158);
+            this.comboBoxPlatform.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.comboBoxPlatform.Name = "comboBoxPlatform";
-            this.comboBoxPlatform.Size = new System.Drawing.Size(140, 21);
+            this.comboBoxPlatform.Size = new System.Drawing.Size(360, 53);
             this.comboBoxPlatform.TabIndex = 14;
             this.comboBoxPlatform.SelectedIndexChanged += new System.EventHandler(this.comboBoxPlatform_SelectedIndexChanged);
             // 
             // comboBoxMedium
             // 
             this.comboBoxMedium.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMedium.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxMedium.FormattingEnabled = true;
-            this.comboBoxMedium.Location = new System.Drawing.Point(108, 91);
+            this.comboBoxMedium.Location = new System.Drawing.Point(263, 225);
+            this.comboBoxMedium.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.comboBoxMedium.Name = "comboBoxMedium";
-            this.comboBoxMedium.Size = new System.Drawing.Size(140, 21);
+            this.comboBoxMedium.Size = new System.Drawing.Size(360, 53);
             this.comboBoxMedium.TabIndex = 16;
             this.comboBoxMedium.SelectedIndexChanged += new System.EventHandler(this.comboBoxMedium_SelectedIndexChanged);
             // 
             // checkBoxMedium
             // 
             this.checkBoxMedium.AutoSize = true;
-            this.checkBoxMedium.Location = new System.Drawing.Point(17, 93);
+            this.checkBoxMedium.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBoxMedium.Location = new System.Drawing.Point(37, 227);
+            this.checkBoxMedium.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.checkBoxMedium.Name = "checkBoxMedium";
-            this.checkBoxMedium.Size = new System.Drawing.Size(75, 17);
+            this.checkBoxMedium.Size = new System.Drawing.Size(191, 49);
             this.checkBoxMedium.TabIndex = 15;
             this.checkBoxMedium.Text = "Носитель";
             this.checkBoxMedium.UseVisualStyleBackColor = true;
@@ -143,19 +163,23 @@
             // comboBoxGenre
             // 
             this.comboBoxGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGenre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxGenre.FormattingEnabled = true;
-            this.comboBoxGenre.Location = new System.Drawing.Point(108, 118);
+            this.comboBoxGenre.Location = new System.Drawing.Point(263, 292);
+            this.comboBoxGenre.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.comboBoxGenre.Name = "comboBoxGenre";
-            this.comboBoxGenre.Size = new System.Drawing.Size(140, 21);
+            this.comboBoxGenre.Size = new System.Drawing.Size(360, 53);
             this.comboBoxGenre.TabIndex = 18;
             this.comboBoxGenre.SelectedIndexChanged += new System.EventHandler(this.comboBoxGenre_SelectedIndexChanged);
             // 
             // checkBoxGenre
             // 
             this.checkBoxGenre.AutoSize = true;
-            this.checkBoxGenre.Location = new System.Drawing.Point(17, 120);
+            this.checkBoxGenre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBoxGenre.Location = new System.Drawing.Point(37, 294);
+            this.checkBoxGenre.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.checkBoxGenre.Name = "checkBoxGenre";
-            this.checkBoxGenre.Size = new System.Drawing.Size(55, 17);
+            this.checkBoxGenre.Size = new System.Drawing.Size(133, 49);
             this.checkBoxGenre.TabIndex = 17;
             this.checkBoxGenre.Text = "Жанр";
             this.checkBoxGenre.UseVisualStyleBackColor = true;
@@ -163,10 +187,10 @@
             // FormFilter
             // 
             this.AcceptButton = this.buttonOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(260, 189);
+            this.ClientSize = new System.Drawing.Size(640, 437);
             this.Controls.Add(this.comboBoxGenre);
             this.Controls.Add(this.checkBoxGenre);
             this.Controls.Add(this.comboBoxMedium);
@@ -180,6 +204,7 @@
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormFilter";

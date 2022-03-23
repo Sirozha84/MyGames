@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGame));
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.comboBoxGenre = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
+            this.textName = new System.Windows.Forms.TextBox();
+            this.comboGenre = new System.Windows.Forms.ComboBox();
+            this.labelPublisher = new System.Windows.Forms.Label();
+            this.labelYear = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelRating = new System.Windows.Forms.Label();
             this.listViewVersions = new System.Windows.Forms.ListView();
             this.columnVerDate = new System.Windows.Forms.ColumnHeader();
             this.columnVerPlatform = new System.Windows.Forms.ColumnHeader();
@@ -50,16 +50,15 @@
             this.columnEvent = new System.Windows.Forms.ColumnHeader();
             this.columnEventHours = new System.Windows.Forms.ColumnHeader();
             this.columnEventComment = new System.Windows.Forms.ColumnHeader();
-            this.textBoxComment = new System.Windows.Forms.TextBox();
-            this.groupBoxMain = new System.Windows.Forms.GroupBox();
-            this.textBoxPublisher = new System.Windows.Forms.TextBox();
-            this.textBoxDeveloper = new System.Windows.Forms.TextBox();
-            this.linkLabelSite = new System.Windows.Forms.LinkLabel();
+            this.textComment = new System.Windows.Forms.TextBox();
+            this.groupMain = new System.Windows.Forms.GroupBox();
+            this.textPublisher = new System.Windows.Forms.TextBox();
+            this.textDeveloper = new System.Windows.Forms.TextBox();
             this.textBoxSite = new System.Windows.Forms.TextBox();
-            this.linkLabelGenre = new System.Windows.Forms.LinkLabel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBoxRate = new System.Windows.Forms.ComboBox();
-            this.textBoxYear = new System.Windows.Forms.TextBox();
+            this.linkGenre = new System.Windows.Forms.LinkLabel();
+            this.labelDeveloper = new System.Windows.Forms.Label();
+            this.comboRating = new System.Windows.Forms.ComboBox();
+            this.textYear = new System.Windows.Forms.TextBox();
             this.labelCover = new System.Windows.Forms.Label();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.выбратьОбложкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,17 +70,17 @@
             this.buttonDelEvent = new System.Windows.Forms.Button();
             this.buttonChangeEvent = new System.Windows.Forms.Button();
             this.buttonAddEvent = new System.Windows.Forms.Button();
-            this.groupBoxComment = new System.Windows.Forms.GroupBox();
+            this.groupComment = new System.Windows.Forms.GroupBox();
             this.labelInfo = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageMain = new System.Windows.Forms.TabPage();
-            this.groupBoxInfo = new System.Windows.Forms.GroupBox();
-            this.labelHis = new System.Windows.Forms.Label();
+            this.groupInfo = new System.Windows.Forms.GroupBox();
+            this.labelPlayed = new System.Windows.Forms.Label();
             this.labelDLCs = new System.Windows.Forms.Label();
-            this.labelVers = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelVersions = new System.Windows.Forms.Label();
+            this.labelPlayedL = new System.Windows.Forms.Label();
+            this.labelDLCsL = new System.Windows.Forms.Label();
+            this.labelVersionsL = new System.Windows.Forms.Label();
             this.tabPagePurchases = new System.Windows.Forms.TabPage();
             this.panelDLCs = new System.Windows.Forms.Panel();
             this.groupBoxDLCs = new System.Windows.Forms.GroupBox();
@@ -113,13 +112,14 @@
             this.textBoxNote = new System.Windows.Forms.TextBox();
             this.tabPageOthers = new System.Windows.Forms.TabPage();
             this.imageListTabs = new System.Windows.Forms.ImageList(this.components);
-            this.groupBoxMain.SuspendLayout();
+            this.labelSite = new System.Windows.Forms.Label();
+            this.groupMain.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
-            this.groupBoxComment.SuspendLayout();
+            this.groupComment.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageMain.SuspendLayout();
-            this.groupBoxInfo.SuspendLayout();
+            this.groupInfo.SuspendLayout();
             this.tabPagePurchases.SuspendLayout();
             this.panelDLCs.SuspendLayout();
             this.groupBoxDLCs.SuspendLayout();
@@ -132,66 +132,67 @@
             this.tabPageOthers.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // labelName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(145, 60);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 45);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Игра:";
+            this.labelName.AutoSize = true;
+            this.labelName.Location = new System.Drawing.Point(145, 60);
+            this.labelName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(98, 45);
+            this.labelName.TabIndex = 0;
+            this.labelName.Text = "Игра:";
             // 
-            // textBoxName
+            // textName
             // 
-            this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxName.Location = new System.Drawing.Point(255, 57);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(673, 50);
-            this.textBoxName.TabIndex = 0;
-            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
+            this.textName.Location = new System.Drawing.Point(255, 57);
+            this.textName.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.textName.Name = "textName";
+            this.textName.Size = new System.Drawing.Size(673, 50);
+            this.textName.TabIndex = 0;
+            this.textName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
-            // comboBoxGenre
+            // comboGenre
             // 
-            this.comboBoxGenre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.comboGenre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxGenre.FormattingEnabled = true;
-            this.comboBoxGenre.Location = new System.Drawing.Point(255, 318);
-            this.comboBoxGenre.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.comboBoxGenre.Name = "comboBoxGenre";
-            this.comboBoxGenre.Size = new System.Drawing.Size(673, 53);
-            this.comboBoxGenre.TabIndex = 9;
+            this.comboGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboGenre.FormattingEnabled = true;
+            this.comboGenre.Location = new System.Drawing.Point(255, 318);
+            this.comboGenre.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.comboGenre.Name = "comboGenre";
+            this.comboGenre.Size = new System.Drawing.Size(673, 53);
+            this.comboGenre.TabIndex = 9;
             // 
-            // label3
+            // labelPublisher
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(81, 190);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 45);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Издатель:";
+            this.labelPublisher.AutoSize = true;
+            this.labelPublisher.Location = new System.Drawing.Point(81, 190);
+            this.labelPublisher.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelPublisher.Name = "labelPublisher";
+            this.labelPublisher.Size = new System.Drawing.Size(162, 45);
+            this.labelPublisher.TabIndex = 4;
+            this.labelPublisher.Text = "Издатель:";
             // 
-            // label4
+            // labelYear
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(47, 257);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(196, 45);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Год выхода:";
+            this.labelYear.AutoSize = true;
+            this.labelYear.Location = new System.Drawing.Point(47, 257);
+            this.labelYear.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelYear.Name = "labelYear";
+            this.labelYear.Size = new System.Drawing.Size(196, 45);
+            this.labelYear.TabIndex = 6;
+            this.labelYear.Text = "Год выхода:";
             // 
             // buttonOK
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Location = new System.Drawing.Point(1325, 1229);
+            this.buttonOK.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonOK.Location = new System.Drawing.Point(1250, 1229);
             this.buttonOK.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(162, 57);
+            this.buttonOK.Size = new System.Drawing.Size(200, 57);
             this.buttonOK.TabIndex = 1;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
@@ -201,23 +202,24 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(1500, 1229);
+            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCancel.Location = new System.Drawing.Point(1462, 1229);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(162, 57);
+            this.buttonCancel.Size = new System.Drawing.Size(200, 57);
             this.buttonCancel.TabIndex = 2;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // labelRating
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(106, 387);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(137, 45);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Оценка:";
+            this.labelRating.AutoSize = true;
+            this.labelRating.Location = new System.Drawing.Point(106, 387);
+            this.labelRating.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelRating.Name = "labelRating";
+            this.labelRating.Size = new System.Drawing.Size(137, 45);
+            this.labelRating.TabIndex = 10;
+            this.labelRating.Text = "Оценка:";
             // 
             // listViewVersions
             // 
@@ -288,7 +290,7 @@
             this.listViewHistory.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.listViewHistory.MultiSelect = false;
             this.listViewHistory.Name = "listViewHistory";
-            this.listViewHistory.Size = new System.Drawing.Size(1573, 969);
+            this.listViewHistory.Size = new System.Drawing.Size(1573, 953);
             this.listViewHistory.TabIndex = 3;
             this.listViewHistory.UseCompatibleStateImageBehavior = false;
             this.listViewHistory.View = System.Windows.Forms.View.Details;
@@ -321,75 +323,64 @@
             this.columnEventComment.Text = "Комментарий";
             this.columnEventComment.Width = 400;
             // 
-            // textBoxComment
+            // textComment
             // 
-            this.textBoxComment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.textComment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxComment.Location = new System.Drawing.Point(13, 57);
-            this.textBoxComment.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.textBoxComment.Multiline = true;
-            this.textBoxComment.Name = "textBoxComment";
-            this.textBoxComment.Size = new System.Drawing.Size(1579, 281);
-            this.textBoxComment.TabIndex = 0;
+            this.textComment.Location = new System.Drawing.Point(13, 57);
+            this.textComment.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.textComment.Multiline = true;
+            this.textComment.Name = "textComment";
+            this.textComment.Size = new System.Drawing.Size(1579, 265);
+            this.textComment.TabIndex = 0;
             // 
-            // groupBoxMain
+            // groupMain
             // 
-            this.groupBoxMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxMain.Controls.Add(this.textBoxPublisher);
-            this.groupBoxMain.Controls.Add(this.textBoxDeveloper);
-            this.groupBoxMain.Controls.Add(this.linkLabelSite);
-            this.groupBoxMain.Controls.Add(this.textBoxSite);
-            this.groupBoxMain.Controls.Add(this.linkLabelGenre);
-            this.groupBoxMain.Controls.Add(this.label6);
-            this.groupBoxMain.Controls.Add(this.comboBoxRate);
-            this.groupBoxMain.Controls.Add(this.textBoxYear);
-            this.groupBoxMain.Controls.Add(this.textBoxName);
-            this.groupBoxMain.Controls.Add(this.label1);
-            this.groupBoxMain.Controls.Add(this.comboBoxGenre);
-            this.groupBoxMain.Controls.Add(this.label3);
-            this.groupBoxMain.Controls.Add(this.label4);
-            this.groupBoxMain.Controls.Add(this.label5);
-            this.groupBoxMain.Location = new System.Drawing.Point(676, 15);
-            this.groupBoxMain.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.groupBoxMain.Name = "groupBoxMain";
-            this.groupBoxMain.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.groupBoxMain.Size = new System.Drawing.Size(940, 517);
-            this.groupBoxMain.TabIndex = 1;
-            this.groupBoxMain.TabStop = false;
-            this.groupBoxMain.Text = "Общие сведения";
+            this.groupMain.Controls.Add(this.labelName);
+            this.groupMain.Controls.Add(this.textName);
+            this.groupMain.Controls.Add(this.labelDeveloper);
+            this.groupMain.Controls.Add(this.textDeveloper);
+            this.groupMain.Controls.Add(this.labelPublisher);
+            this.groupMain.Controls.Add(this.textPublisher);
+            this.groupMain.Controls.Add(this.labelYear);
+            this.groupMain.Controls.Add(this.textYear);
+            this.groupMain.Controls.Add(this.linkGenre);
+            this.groupMain.Controls.Add(this.comboGenre);
+            this.groupMain.Controls.Add(this.labelRating);
+            this.groupMain.Controls.Add(this.comboRating);
+            this.groupMain.Controls.Add(this.labelSite);
+            this.groupMain.Controls.Add(this.textBoxSite);
+            this.groupMain.Location = new System.Drawing.Point(676, 15);
+            this.groupMain.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.groupMain.Name = "groupMain";
+            this.groupMain.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.groupMain.Size = new System.Drawing.Size(940, 517);
+            this.groupMain.TabIndex = 1;
+            this.groupMain.TabStop = false;
+            this.groupMain.Text = "Общие сведения";
             // 
-            // textBoxPublisher
+            // textPublisher
             // 
-            this.textBoxPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPublisher.Location = new System.Drawing.Point(255, 187);
-            this.textBoxPublisher.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.textBoxPublisher.Name = "textBoxPublisher";
-            this.textBoxPublisher.Size = new System.Drawing.Size(673, 50);
-            this.textBoxPublisher.TabIndex = 5;
+            this.textPublisher.Location = new System.Drawing.Point(255, 187);
+            this.textPublisher.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.textPublisher.Name = "textPublisher";
+            this.textPublisher.Size = new System.Drawing.Size(673, 50);
+            this.textPublisher.TabIndex = 5;
             // 
-            // textBoxDeveloper
+            // textDeveloper
             // 
-            this.textBoxDeveloper.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textDeveloper.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDeveloper.Location = new System.Drawing.Point(255, 121);
-            this.textBoxDeveloper.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.textBoxDeveloper.Name = "textBoxDeveloper";
-            this.textBoxDeveloper.Size = new System.Drawing.Size(673, 50);
-            this.textBoxDeveloper.TabIndex = 3;
-            // 
-            // linkLabelSite
-            // 
-            this.linkLabelSite.AutoSize = true;
-            this.linkLabelSite.Location = new System.Drawing.Point(148, 454);
-            this.linkLabelSite.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.linkLabelSite.Name = "linkLabelSite";
-            this.linkLabelSite.Size = new System.Drawing.Size(95, 45);
-            this.linkLabelSite.TabIndex = 12;
-            this.linkLabelSite.TabStop = true;
-            this.linkLabelSite.Text = "Сайт:";
+            this.textDeveloper.Location = new System.Drawing.Point(255, 121);
+            this.textDeveloper.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.textDeveloper.Name = "textDeveloper";
+            this.textDeveloper.Size = new System.Drawing.Size(673, 50);
+            this.textDeveloper.TabIndex = 3;
             // 
             // textBoxSite
             // 
@@ -401,45 +392,45 @@
             this.textBoxSite.Size = new System.Drawing.Size(673, 50);
             this.textBoxSite.TabIndex = 13;
             // 
-            // linkLabelGenre
+            // linkGenre
             // 
-            this.linkLabelGenre.AutoSize = true;
-            this.linkLabelGenre.Location = new System.Drawing.Point(135, 321);
-            this.linkLabelGenre.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.linkLabelGenre.Name = "linkLabelGenre";
-            this.linkLabelGenre.Size = new System.Drawing.Size(108, 45);
-            this.linkLabelGenre.TabIndex = 8;
-            this.linkLabelGenre.TabStop = true;
-            this.linkLabelGenre.Text = "Жанр:";
-            this.linkLabelGenre.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linkGenre.AutoSize = true;
+            this.linkGenre.Location = new System.Drawing.Point(135, 321);
+            this.linkGenre.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.linkGenre.Name = "linkGenre";
+            this.linkGenre.Size = new System.Drawing.Size(108, 45);
+            this.linkGenre.TabIndex = 8;
+            this.linkGenre.TabStop = true;
+            this.linkGenre.Text = "Жанр:";
+            this.linkGenre.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // label6
+            // labelDeveloper
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(29, 124);
-            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(214, 45);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Разработчик:";
+            this.labelDeveloper.AutoSize = true;
+            this.labelDeveloper.Location = new System.Drawing.Point(29, 124);
+            this.labelDeveloper.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelDeveloper.Name = "labelDeveloper";
+            this.labelDeveloper.Size = new System.Drawing.Size(214, 45);
+            this.labelDeveloper.TabIndex = 2;
+            this.labelDeveloper.Text = "Разработчик:";
             // 
-            // comboBoxRate
+            // comboRating
             // 
-            this.comboBoxRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxRate.FormattingEnabled = true;
-            this.comboBoxRate.Location = new System.Drawing.Point(255, 384);
-            this.comboBoxRate.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.comboBoxRate.Name = "comboBoxRate";
-            this.comboBoxRate.Size = new System.Drawing.Size(172, 53);
-            this.comboBoxRate.TabIndex = 11;
+            this.comboRating.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboRating.FormattingEnabled = true;
+            this.comboRating.Location = new System.Drawing.Point(255, 384);
+            this.comboRating.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.comboRating.Name = "comboRating";
+            this.comboRating.Size = new System.Drawing.Size(172, 53);
+            this.comboRating.TabIndex = 11;
             // 
-            // textBoxYear
+            // textYear
             // 
-            this.textBoxYear.Location = new System.Drawing.Point(255, 254);
-            this.textBoxYear.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.textBoxYear.Name = "textBoxYear";
-            this.textBoxYear.Size = new System.Drawing.Size(172, 50);
-            this.textBoxYear.TabIndex = 7;
+            this.textYear.Location = new System.Drawing.Point(255, 254);
+            this.textYear.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.textYear.Name = "textYear";
+            this.textYear.Size = new System.Drawing.Size(172, 50);
+            this.textYear.TabIndex = 7;
             // 
             // labelCover
             // 
@@ -586,20 +577,20 @@
             this.buttonAddEvent.UseVisualStyleBackColor = true;
             this.buttonAddEvent.Click += new System.EventHandler(this.buttonAddEvent_Click);
             // 
-            // groupBoxComment
+            // groupComment
             // 
-            this.groupBoxComment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.groupComment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxComment.Controls.Add(this.textBoxComment);
-            this.groupBoxComment.Location = new System.Drawing.Point(12, 769);
-            this.groupBoxComment.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.groupBoxComment.Name = "groupBoxComment";
-            this.groupBoxComment.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.groupBoxComment.Size = new System.Drawing.Size(1604, 352);
-            this.groupBoxComment.TabIndex = 3;
-            this.groupBoxComment.TabStop = false;
-            this.groupBoxComment.Text = "Описание";
+            this.groupComment.Controls.Add(this.textComment);
+            this.groupComment.Location = new System.Drawing.Point(12, 769);
+            this.groupComment.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.groupComment.Name = "groupComment";
+            this.groupComment.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.groupComment.Size = new System.Drawing.Size(1604, 336);
+            this.groupComment.TabIndex = 3;
+            this.groupComment.TabStop = false;
+            this.groupComment.Text = "Описание";
             // 
             // labelInfo
             // 
@@ -623,7 +614,7 @@
             this.tabControl.Controls.Add(this.tabPageOthers);
             this.tabControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl.ImageList = this.imageListTabs;
-            this.tabControl.ItemSize = new System.Drawing.Size(240, 48);
+            this.tabControl.ItemSize = new System.Drawing.Size(300, 64);
             this.tabControl.Location = new System.Drawing.Point(15, 16);
             this.tabControl.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tabControl.Name = "tabControl";
@@ -636,50 +627,50 @@
             // tabPageMain
             // 
             this.tabPageMain.AllowDrop = true;
-            this.tabPageMain.Controls.Add(this.groupBoxInfo);
-            this.tabPageMain.Controls.Add(this.groupBoxMain);
-            this.tabPageMain.Controls.Add(this.labelCover);
-            this.tabPageMain.Controls.Add(this.groupBoxComment);
             this.tabPageMain.Controls.Add(this.pictureBoxCover);
-            this.tabPageMain.Location = new System.Drawing.Point(8, 56);
+            this.tabPageMain.Controls.Add(this.labelCover);
+            this.tabPageMain.Controls.Add(this.groupMain);
+            this.tabPageMain.Controls.Add(this.groupInfo);
+            this.tabPageMain.Controls.Add(this.groupComment);
+            this.tabPageMain.Location = new System.Drawing.Point(8, 72);
             this.tabPageMain.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tabPageMain.Name = "tabPageMain";
             this.tabPageMain.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.tabPageMain.Size = new System.Drawing.Size(1631, 1135);
+            this.tabPageMain.Size = new System.Drawing.Size(1631, 1119);
             this.tabPageMain.TabIndex = 0;
             this.tabPageMain.Text = "Общие";
             this.tabPageMain.UseVisualStyleBackColor = true;
             this.tabPageMain.DragDrop += new System.Windows.Forms.DragEventHandler(this.TabPageMain_DragDrop);
             this.tabPageMain.DragEnter += new System.Windows.Forms.DragEventHandler(this.TabPageMain_DragEnter);
             // 
-            // groupBoxInfo
+            // groupInfo
             // 
-            this.groupBoxInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxInfo.Controls.Add(this.labelHis);
-            this.groupBoxInfo.Controls.Add(this.labelDLCs);
-            this.groupBoxInfo.Controls.Add(this.labelVers);
-            this.groupBoxInfo.Controls.Add(this.label9);
-            this.groupBoxInfo.Controls.Add(this.label8);
-            this.groupBoxInfo.Controls.Add(this.label7);
-            this.groupBoxInfo.Location = new System.Drawing.Point(676, 546);
-            this.groupBoxInfo.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.groupBoxInfo.Name = "groupBoxInfo";
-            this.groupBoxInfo.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.groupBoxInfo.Size = new System.Drawing.Size(940, 209);
-            this.groupBoxInfo.TabIndex = 2;
-            this.groupBoxInfo.TabStop = false;
-            this.groupBoxInfo.Text = "Информация о коллекции";
+            this.groupInfo.Controls.Add(this.labelVersionsL);
+            this.groupInfo.Controls.Add(this.labelVersions);
+            this.groupInfo.Controls.Add(this.labelDLCsL);
+            this.groupInfo.Controls.Add(this.labelDLCs);
+            this.groupInfo.Controls.Add(this.labelPlayedL);
+            this.groupInfo.Controls.Add(this.labelPlayed);
+            this.groupInfo.Location = new System.Drawing.Point(676, 546);
+            this.groupInfo.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.groupInfo.Name = "groupInfo";
+            this.groupInfo.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.groupInfo.Size = new System.Drawing.Size(940, 209);
+            this.groupInfo.TabIndex = 2;
+            this.groupInfo.TabStop = false;
+            this.groupInfo.Text = "Информация о коллекции";
             // 
-            // labelHis
+            // labelPlayed
             // 
-            this.labelHis.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.labelPlayed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelHis.Location = new System.Drawing.Point(255, 140);
-            this.labelHis.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.labelHis.Name = "labelHis";
-            this.labelHis.Size = new System.Drawing.Size(673, 45);
-            this.labelHis.TabIndex = 5;
+            this.labelPlayed.Location = new System.Drawing.Point(255, 140);
+            this.labelPlayed.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelPlayed.Name = "labelPlayed";
+            this.labelPlayed.Size = new System.Drawing.Size(673, 45);
+            this.labelPlayed.TabIndex = 5;
             // 
             // labelDLCs
             // 
@@ -691,46 +682,46 @@
             this.labelDLCs.Size = new System.Drawing.Size(673, 45);
             this.labelDLCs.TabIndex = 3;
             // 
-            // labelVers
+            // labelVersions
             // 
-            this.labelVers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.labelVersions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelVers.Location = new System.Drawing.Point(255, 50);
-            this.labelVers.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.labelVers.Name = "labelVers";
-            this.labelVers.Size = new System.Drawing.Size(673, 45);
-            this.labelVers.TabIndex = 1;
-            this.labelVers.Text = "Тест";
+            this.labelVersions.Location = new System.Drawing.Point(255, 50);
+            this.labelVersions.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelVersions.Name = "labelVersions";
+            this.labelVersions.Size = new System.Drawing.Size(673, 45);
+            this.labelVersions.TabIndex = 1;
+            this.labelVersions.Text = "Тест";
             // 
-            // label9
+            // labelPlayedL
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(67, 140);
-            this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(176, 45);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Пройдена:";
+            this.labelPlayedL.AutoSize = true;
+            this.labelPlayedL.Location = new System.Drawing.Point(67, 140);
+            this.labelPlayedL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelPlayedL.Name = "labelPlayedL";
+            this.labelPlayedL.Size = new System.Drawing.Size(176, 45);
+            this.labelPlayedL.TabIndex = 4;
+            this.labelPlayedL.Text = "Пройдена:";
             // 
-            // label8
+            // labelDLCsL
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(83, 95);
-            this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(160, 45);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Доп. мат.:";
+            this.labelDLCsL.AutoSize = true;
+            this.labelDLCsL.Location = new System.Drawing.Point(83, 95);
+            this.labelDLCsL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelDLCsL.Name = "labelDLCsL";
+            this.labelDLCsL.Size = new System.Drawing.Size(160, 45);
+            this.labelDLCsL.TabIndex = 2;
+            this.labelDLCsL.Text = "Доп. мат.:";
             // 
-            // label7
+            // labelVersionsL
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(109, 50);
-            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(134, 45);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Версии:";
+            this.labelVersionsL.AutoSize = true;
+            this.labelVersionsL.Location = new System.Drawing.Point(109, 50);
+            this.labelVersionsL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelVersionsL.Name = "labelVersionsL";
+            this.labelVersionsL.Size = new System.Drawing.Size(134, 45);
+            this.labelVersionsL.TabIndex = 0;
+            this.labelVersionsL.Text = "Версии:";
             // 
             // tabPagePurchases
             // 
@@ -740,11 +731,11 @@
             this.tabPagePurchases.Controls.Add(this.panelVersion);
             this.tabPagePurchases.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabPagePurchases.ImageIndex = 0;
-            this.tabPagePurchases.Location = new System.Drawing.Point(8, 56);
+            this.tabPagePurchases.Location = new System.Drawing.Point(8, 72);
             this.tabPagePurchases.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tabPagePurchases.Name = "tabPagePurchases";
             this.tabPagePurchases.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.tabPagePurchases.Size = new System.Drawing.Size(1631, 1135);
+            this.tabPagePurchases.Size = new System.Drawing.Size(1631, 1119);
             this.tabPagePurchases.TabIndex = 1;
             this.tabPagePurchases.Text = "Покупки";
             this.tabPagePurchases.UseVisualStyleBackColor = true;
@@ -757,7 +748,7 @@
             this.panelDLCs.Location = new System.Drawing.Point(6, 625);
             this.panelDLCs.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.panelDLCs.Name = "panelDLCs";
-            this.panelDLCs.Size = new System.Drawing.Size(1619, 503);
+            this.panelDLCs.Size = new System.Drawing.Size(1619, 487);
             this.panelDLCs.TabIndex = 6;
             // 
             // groupBoxDLCs
@@ -769,12 +760,12 @@
             this.groupBoxDLCs.Controls.Add(this.buttonDelDLC);
             this.groupBoxDLCs.Controls.Add(this.buttonChangeDLC);
             this.groupBoxDLCs.Controls.Add(this.listViewDLCs);
-            this.groupBoxDLCs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBoxDLCs.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBoxDLCs.Location = new System.Drawing.Point(6, 15);
             this.groupBoxDLCs.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.groupBoxDLCs.Name = "groupBoxDLCs";
             this.groupBoxDLCs.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.groupBoxDLCs.Size = new System.Drawing.Size(1606, 481);
+            this.groupBoxDLCs.Size = new System.Drawing.Size(1606, 465);
             this.groupBoxDLCs.TabIndex = 14;
             this.groupBoxDLCs.TabStop = false;
             this.groupBoxDLCs.Text = "Дополнительные материалы";
@@ -844,7 +835,7 @@
             this.listViewDLCs.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.listViewDLCs.MultiSelect = false;
             this.listViewDLCs.Name = "listViewDLCs";
-            this.listViewDLCs.Size = new System.Drawing.Size(1576, 342);
+            this.listViewDLCs.Size = new System.Drawing.Size(1576, 326);
             this.listViewDLCs.TabIndex = 13;
             this.listViewDLCs.UseCompatibleStateImageBehavior = false;
             this.listViewDLCs.View = System.Windows.Forms.View.Details;
@@ -906,7 +897,7 @@
             this.groupBoxVersion.Controls.Add(this.buttonDelVersion);
             this.groupBoxVersion.Controls.Add(this.listViewVersions);
             this.groupBoxVersion.Controls.Add(this.buttonChangeVersion);
-            this.groupBoxVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBoxVersion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBoxVersion.Location = new System.Drawing.Point(6, 7);
             this.groupBoxVersion.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.groupBoxVersion.Name = "groupBoxVersion";
@@ -920,11 +911,11 @@
             // 
             this.tabPageHistory.Controls.Add(this.groupBoxHistory);
             this.tabPageHistory.ImageIndex = 1;
-            this.tabPageHistory.Location = new System.Drawing.Point(8, 56);
+            this.tabPageHistory.Location = new System.Drawing.Point(8, 72);
             this.tabPageHistory.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tabPageHistory.Name = "tabPageHistory";
             this.tabPageHistory.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.tabPageHistory.Size = new System.Drawing.Size(1631, 1135);
+            this.tabPageHistory.Size = new System.Drawing.Size(1631, 1119);
             this.tabPageHistory.TabIndex = 3;
             this.tabPageHistory.Text = "История";
             this.tabPageHistory.UseVisualStyleBackColor = true;
@@ -942,7 +933,7 @@
             this.groupBoxHistory.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.groupBoxHistory.Name = "groupBoxHistory";
             this.groupBoxHistory.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.groupBoxHistory.Size = new System.Drawing.Size(1603, 1108);
+            this.groupBoxHistory.Size = new System.Drawing.Size(1603, 1092);
             this.groupBoxHistory.TabIndex = 4;
             this.groupBoxHistory.TabStop = false;
             this.groupBoxHistory.Text = "История прохождения";
@@ -951,11 +942,11 @@
             // 
             this.tabPageNotes.Controls.Add(this.groupBoxNotes);
             this.tabPageNotes.ImageIndex = 2;
-            this.tabPageNotes.Location = new System.Drawing.Point(8, 56);
+            this.tabPageNotes.Location = new System.Drawing.Point(8, 72);
             this.tabPageNotes.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tabPageNotes.Name = "tabPageNotes";
             this.tabPageNotes.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.tabPageNotes.Size = new System.Drawing.Size(1631, 1135);
+            this.tabPageNotes.Size = new System.Drawing.Size(1631, 1119);
             this.tabPageNotes.TabIndex = 4;
             this.tabPageNotes.Text = "Заметки";
             this.tabPageNotes.UseVisualStyleBackColor = true;
@@ -1100,11 +1091,11 @@
             // tabPageOthers
             // 
             this.tabPageOthers.Controls.Add(this.labelInfo);
-            this.tabPageOthers.Location = new System.Drawing.Point(8, 56);
+            this.tabPageOthers.Location = new System.Drawing.Point(8, 72);
             this.tabPageOthers.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tabPageOthers.Name = "tabPageOthers";
             this.tabPageOthers.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.tabPageOthers.Size = new System.Drawing.Size(1631, 1135);
+            this.tabPageOthers.Size = new System.Drawing.Size(1631, 1119);
             this.tabPageOthers.TabIndex = 5;
             this.tabPageOthers.Text = "Прочее";
             this.tabPageOthers.UseVisualStyleBackColor = true;
@@ -1115,6 +1106,16 @@
             this.imageListTabs.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListTabs.ImageStream")));
             this.imageListTabs.TransparentColor = System.Drawing.Color.Transparent;
             this.imageListTabs.Images.SetKeyName(0, "purchase.png");
+            // 
+            // labelSite
+            // 
+            this.labelSite.AutoSize = true;
+            this.labelSite.Location = new System.Drawing.Point(148, 454);
+            this.labelSite.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelSite.Name = "labelSite";
+            this.labelSite.Size = new System.Drawing.Size(95, 45);
+            this.labelSite.TabIndex = 14;
+            this.labelSite.Text = "Сайт:";
             // 
             // FormGame
             // 
@@ -1132,16 +1133,16 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.groupBoxMain.ResumeLayout(false);
-            this.groupBoxMain.PerformLayout();
+            this.groupMain.ResumeLayout(false);
+            this.groupMain.PerformLayout();
             this.contextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).EndInit();
-            this.groupBoxComment.ResumeLayout(false);
-            this.groupBoxComment.PerformLayout();
+            this.groupComment.ResumeLayout(false);
+            this.groupComment.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tabPageMain.ResumeLayout(false);
-            this.groupBoxInfo.ResumeLayout(false);
-            this.groupBoxInfo.PerformLayout();
+            this.groupInfo.ResumeLayout(false);
+            this.groupInfo.PerformLayout();
             this.tabPagePurchases.ResumeLayout(false);
             this.panelDLCs.ResumeLayout(false);
             this.groupBoxDLCs.ResumeLayout(false);
@@ -1160,14 +1161,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.ComboBox comboBoxGenre;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.TextBox textName;
+        private System.Windows.Forms.ComboBox comboGenre;
+        private System.Windows.Forms.Label labelPublisher;
+        private System.Windows.Forms.Label labelYear;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelRating;
         private System.Windows.Forms.ListView listViewVersions;
         private System.Windows.Forms.ColumnHeader columnVerDate;
         private System.Windows.Forms.ColumnHeader columnVerPlatform;
@@ -1178,39 +1179,38 @@
         private System.Windows.Forms.ColumnHeader columnEvent;
         private System.Windows.Forms.ColumnHeader columnEventComment;
         private System.Windows.Forms.PictureBox pictureBoxCover;
-        private System.Windows.Forms.TextBox textBoxComment;
-        private System.Windows.Forms.GroupBox groupBoxMain;
+        private System.Windows.Forms.TextBox textComment;
+        private System.Windows.Forms.GroupBox groupMain;
         private System.Windows.Forms.Button buttonAddVersion;
         private System.Windows.Forms.Button buttonDelEvent;
         private System.Windows.Forms.Button buttonChangeEvent;
         private System.Windows.Forms.Button buttonAddEvent;
-        private System.Windows.Forms.GroupBox groupBoxComment;
+        private System.Windows.Forms.GroupBox groupComment;
         private System.Windows.Forms.Button buttonChangeVersion;
         private System.Windows.Forms.Button buttonDelVersion;
         private System.Windows.Forms.ColumnHeader columnEventHours;
         private System.Windows.Forms.ColumnHeader columnEventPlatform;
-        private System.Windows.Forms.TextBox textBoxYear;
-        private System.Windows.Forms.ComboBox comboBoxRate;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.LinkLabel linkLabelGenre;
+        private System.Windows.Forms.TextBox textYear;
+        private System.Windows.Forms.ComboBox comboRating;
+        private System.Windows.Forms.Label labelDeveloper;
+        private System.Windows.Forms.LinkLabel linkGenre;
         private System.Windows.Forms.Label labelCover;
         private System.Windows.Forms.Label labelInfo;
         private System.Windows.Forms.TextBox textBoxSite;
-        private System.Windows.Forms.LinkLabel linkLabelSite;
         private System.Windows.Forms.ColumnHeader columnVerComment;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPageMain;
         private System.Windows.Forms.TabPage tabPagePurchases;
         private System.Windows.Forms.TabPage tabPageHistory;
         private System.Windows.Forms.TabPage tabPageNotes;
-        private System.Windows.Forms.GroupBox groupBoxInfo;
+        private System.Windows.Forms.GroupBox groupInfo;
         private System.Windows.Forms.TabPage tabPageOthers;
-        private System.Windows.Forms.Label labelHis;
+        private System.Windows.Forms.Label labelPlayed;
         private System.Windows.Forms.Label labelDLCs;
-        private System.Windows.Forms.Label labelVers;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelVersions;
+        private System.Windows.Forms.Label labelPlayedL;
+        private System.Windows.Forms.Label labelDLCsL;
+        private System.Windows.Forms.Label labelVersionsL;
         private System.Windows.Forms.TextBox textBoxNote;
         private System.Windows.Forms.Button buttonNoteDel;
         private System.Windows.Forms.Button buttonNoteAdd;
@@ -1235,13 +1235,14 @@
         private System.Windows.Forms.GroupBox groupBoxVersion;
         private System.Windows.Forms.GroupBox groupBoxHistory;
         private System.Windows.Forms.GroupBox groupBoxNotes;
-        private System.Windows.Forms.TextBox textBoxPublisher;
-        private System.Windows.Forms.TextBox textBoxDeveloper;
+        private System.Windows.Forms.TextBox textPublisher;
+        private System.Windows.Forms.TextBox textDeveloper;
         private System.Windows.Forms.ImageList imageListTabs;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem выбратьОбложкуToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private Label labelSite;
     }
 }

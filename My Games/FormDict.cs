@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-
-namespace My_Games
+﻿namespace My_Games
 {
     public partial class FormDict : Form
     {
@@ -27,23 +23,23 @@ namespace My_Games
             listViewCat.BeginUpdate();
             if (type == 1)
             {
-                listViewCat.Columns.Add("Платформа", 170);
-                listViewCat.Columns.Add("Компания", 110);
+                listViewCat.Columns.Add("Платформа", (int)(175 * Program.scale));
+                listViewCat.Columns.Add("Компания", (int)(175 * Program.scale));
                 ((List<Platform>)list).Sort();
                 foreach (Platform item in (List<Platform>)list)
                     listViewCat.Items.Add(item.GetListViewItem());
             }
             if (type == 2)
             {
-                listViewCat.Columns.Add("Носитель", 140);
-                listViewCat.Columns.Add("Тип носителя", 140);
+                listViewCat.Columns.Add("Носитель", (int)(175 * Program.scale));
+                listViewCat.Columns.Add("Тип носителя", (int)(175 * Program.scale));
                 ((List<Medium>)list).Sort();
                 foreach (Medium item in (List<Medium>)list)
                     listViewCat.Items.Add(item.GetListViewItem());
             }
             if (type == 3)
             {
-                listViewCat.Columns.Add("Жанр", 280);
+                listViewCat.Columns.Add("Жанр", (int)(350 * Program.scale));
                 ((List<Genre>)list).Sort();
                 foreach (Genre item in (List<Genre>)list)
                     listViewCat.Items.Add(item.GetListViewItem());

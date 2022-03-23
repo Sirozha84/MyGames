@@ -1,8 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-using System.Collections.Generic;
-
-namespace My_Games
+﻿namespace My_Games
 {
     public partial class FormDLC : Form
     {

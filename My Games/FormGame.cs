@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Drawing;
-using System.IO;
-
-namespace My_Games
+﻿namespace My_Games
 {
     public partial class FormGame : Form
     {
@@ -22,12 +16,12 @@ namespace My_Games
         {
             InitializeComponent();
             this.game = game;
-            comboBoxRate.DataSource = Game.stars;
+            comboRating.DataSource = Game.stars;
             RefreshData();
-            textBoxName.Focus();
+            textName.Focus();
 
             Size = MinimumSize = new Size((int)(1000 * Program.scale), (int)(700 * Program.scale));
-            tabControl.ItemSize = new Size((int)(120 * Program.scale), (int)(24 * Program.scale));
+            tabControl.ItemSize = new Size((int)(160 * Program.scale), (int)(32 * Program.scale));
             imageListTabs.ImageSize = new Size((int)(16 * Program.scale), (int)(16 * Program.scale));
             imageListTabs.Images.Add(Properties.Resources.purchase);
             imageListTabs.Images.Add(Properties.Resources.game);
@@ -56,14 +50,14 @@ namespace My_Games
         {
             //Вкладка общих сведений
             Text = game.name;
-            textBoxName.Text = game.name;
-            textBoxDeveloper.Text = game.developer;
-            textBoxPublisher.Text = game.publisher;
-            textBoxYear.Text = game.year;
-            Genre.FillCombobox(comboBoxGenre, game.genre);
-            comboBoxRate.SelectedIndex = game.rate - 1;
+            textName.Text = game.name;
+            textDeveloper.Text = game.developer;
+            textPublisher.Text = game.publisher;
+            textYear.Text = game.year;
+            Genre.FillCombobox(comboGenre, game.genre);
+            comboRating.SelectedIndex = game.rate - 1;
             textBoxSite.Text = game.website;
-            textBoxComment.Text = game.comment != null ? game.comment.Replace("☺", "\r\n") : "";
+            textComment.Text = game.comment != null ? game.comment.Replace("☺", "\r\n") : "";
             if (game.cover != null)
                 OpenCover("Covers\\" + game.cover);
 
@@ -117,17 +111,17 @@ namespace My_Games
 
             //Вкладка общих сведений
             game.change = DateTime.Now;
-            game.name = textBoxName.Text;
+            game.name = textName.Text;
             if (versions.Count > 0) game.date = versions[0].date;
-            game.developer = textBoxDeveloper.Text;
-            game.publisher = textBoxPublisher.Text;
-            game.year = textBoxYear.Text;
-            game.genre = Data.GenreNameToID(comboBoxGenre.Text);
-            game.rate = comboBoxRate.SelectedIndex + 1;
+            game.developer = textDeveloper.Text;
+            game.publisher = textPublisher.Text;
+            game.year = textYear.Text;
+            game.genre = Data.GenreNameToID(comboGenre.Text);
+            game.rate = comboRating.SelectedIndex + 1;
             textBoxSite.Text = textBoxSite.Text.Replace("http://", "");
             textBoxSite.Text = textBoxSite.Text.Replace("https://", "");
             game.website = textBoxSite.Text;
-            game.comment = textBoxComment.Text.Replace("\r\n", "☺");
+            game.comment = textComment.Text.Replace("\r\n", "☺");
             if (changePicture)
             {
                 if (newCover == "") game.cover = null;
@@ -193,16 +187,16 @@ namespace My_Games
         #region Main
         private void textBoxName_TextChanged(object sender, EventArgs e) 
         {
-            Text = textBoxName.Text;
-            if (textBoxName.Text == "") Text = "Новая игра";
-            buttonOK.Enabled = textBoxName.Text != "";
+            Text = textName.Text;
+            if (textName.Text == "") Text = "Новая игра";
+            buttonOK.Enabled = textName.Text != "";
         }
         
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormDict form = new FormDict(3, Data.data.genres);
             form.ShowDialog();
-            Genre.FillCombobox(comboBoxGenre, game.genre);
+            Genre.FillCombobox(comboGenre, game.genre);
         }
         
         private void TabPageMain_DragEnter(object sender, DragEventArgs e)
@@ -304,7 +298,7 @@ namespace My_Games
             listViewVersions.Items.Clear();
             foreach (Version v in versions)
                 listViewVersions.Items.Add(v.listItem());
-            labelVers.Text = Data.StringVersions(versions);
+            labelVersions.Text = Data.StringVersions(versions);
             listViewVersions.EndUpdate();
             tabPagePurchases.Text = versions.Count + dlcs.Count > 0 ? "Покупки: " + (versions.Count + dlcs.Count).ToString() : "Покупки";
         }
@@ -428,7 +422,7 @@ namespace My_Games
             listViewHistory.Items.Clear();
             foreach (Event e in history)
                 listViewHistory.Items.Add(e.listItem());
-            labelHis.Text = Data.StringHistory(history); //Event.events[max] + ", общее время в игре: " + hours.ToString() + " ч.";
+            labelPlayed.Text = Data.StringHistory(history); //Event.events[max] + ", общее время в игре: " + hours.ToString() + " ч.";
             listViewHistory.EndUpdate();
             tabPageHistory.Text = history.Count > 0 ? "История: " + (history.Count).ToString() : "История";
         }
