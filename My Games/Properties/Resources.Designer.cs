@@ -143,9 +143,9 @@ namespace My_Games.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap My_Games {
+        internal static System.Drawing.Bitmap logo {
             get {
-                object obj = ResourceManager.GetObject("My_Games", resourceCulture);
+                object obj = ResourceManager.GetObject("logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

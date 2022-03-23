@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace My_Games
+﻿namespace My_Games
 {
     public partial class FormMedium : Form
     {

@@ -42,9 +42,11 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(106, 12);
+            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxName.Location = new System.Drawing.Point(286, 34);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(166, 20);
+            this.textBoxName.Size = new System.Drawing.Size(360, 50);
             this.textBoxName.TabIndex = 0;
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
@@ -52,9 +54,11 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(197, 143);
+            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCancel.Location = new System.Drawing.Point(459, 366);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(200, 57);
             this.buttonCancel.TabIndex = 99;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -62,9 +66,11 @@
             // buttonOK
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Location = new System.Drawing.Point(116, 143);
+            this.buttonOK.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonOK.Location = new System.Drawing.Point(247, 366);
+            this.buttonOK.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(75, 23);
+            this.buttonOK.Size = new System.Drawing.Size(200, 57);
             this.buttonOK.TabIndex = 98;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
@@ -73,18 +79,22 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 15);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(26, 37);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 13);
+            this.label4.Size = new System.Drawing.Size(248, 45);
             this.label4.TabIndex = 17;
             this.label4.Text = "Наименование:";
             // 
             // radioButtonPh
             // 
             this.radioButtonPh.AutoSize = true;
-            this.radioButtonPh.Location = new System.Drawing.Point(106, 38);
+            this.radioButtonPh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonPh.Location = new System.Drawing.Point(286, 98);
+            this.radioButtonPh.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.radioButtonPh.Name = "radioButtonPh";
-            this.radioButtonPh.Size = new System.Drawing.Size(139, 17);
+            this.radioButtonPh.Size = new System.Drawing.Size(373, 49);
             this.radioButtonPh.TabIndex = 100;
             this.radioButtonPh.TabStop = true;
             this.radioButtonPh.Text = "Физический носитель";
@@ -93,9 +103,11 @@
             // radioButtonEl
             // 
             this.radioButtonEl.AutoSize = true;
-            this.radioButtonEl.Location = new System.Drawing.Point(106, 61);
+            this.radioButtonEl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonEl.Location = new System.Drawing.Point(283, 161);
+            this.radioButtonEl.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.radioButtonEl.Name = "radioButtonEl";
-            this.radioButtonEl.Size = new System.Drawing.Size(139, 17);
+            this.radioButtonEl.Size = new System.Drawing.Size(376, 49);
             this.radioButtonEl.TabIndex = 101;
             this.radioButtonEl.TabStop = true;
             this.radioButtonEl.Text = "Электронный магазин";
@@ -104,18 +116,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 40);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(50, 100);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.Size = new System.Drawing.Size(224, 45);
             this.label1.TabIndex = 102;
             this.label1.Text = "Тип носителя:";
             // 
             // radioButtonSb
             // 
             this.radioButtonSb.AutoSize = true;
-            this.radioButtonSb.Location = new System.Drawing.Point(106, 84);
+            this.radioButtonSb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonSb.Location = new System.Drawing.Point(283, 224);
+            this.radioButtonSb.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.radioButtonSb.Name = "radioButtonSb";
-            this.radioButtonSb.Size = new System.Drawing.Size(75, 17);
+            this.radioButtonSb.Size = new System.Drawing.Size(195, 49);
             this.radioButtonSb.TabIndex = 103;
             this.radioButtonSb.TabStop = true;
             this.radioButtonSb.Text = "Подписка";
@@ -124,18 +140,22 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(65, 111);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(176, 290);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(98, 45);
             this.label3.TabIndex = 105;
             this.label3.Text = "Цвет:";
             // 
             // buttonCol
             // 
             this.buttonCol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCol.Location = new System.Drawing.Point(106, 107);
+            this.buttonCol.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCol.Location = new System.Drawing.Point(286, 287);
+            this.buttonCol.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonCol.Name = "buttonCol";
-            this.buttonCol.Size = new System.Drawing.Size(20, 20);
+            this.buttonCol.Size = new System.Drawing.Size(50, 50);
             this.buttonCol.TabIndex = 104;
             this.buttonCol.UseVisualStyleBackColor = true;
             this.buttonCol.Click += new System.EventHandler(this.buttonCol_Click);
@@ -143,10 +163,10 @@
             // FormMedium
             // 
             this.AcceptButton = this.buttonOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(284, 178);
+            this.ClientSize = new System.Drawing.Size(674, 439);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonCol);
             this.Controls.Add(this.radioButtonSb);
@@ -158,9 +178,10 @@
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(300, 39);
+            this.MinimumSize = new System.Drawing.Size(700, 510);
             this.Name = "FormMedium";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
