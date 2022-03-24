@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-
-namespace My_Games
+﻿namespace My_Games
 {
     public partial class FormHistory : Form
     {
@@ -12,6 +8,15 @@ namespace My_Games
         public FormHistory()
         {
             InitializeComponent();
+
+            Size = MinimumSize = new Size((int)(1000 * Program.scale), (int)(700 * Program.scale));
+            listViewHistory.Columns[0].Width = (int)(100 * Program.scale);
+            listViewHistory.Columns[1].Width = (int)(200 * Program.scale);
+            listViewHistory.Columns[2].Width = (int)(150 * Program.scale);
+            listViewHistory.Columns[3].Width = (int)(150 * Program.scale);
+            listViewHistory.Columns[4].Width = (int)(125 * Program.scale);
+            listViewHistory.Columns[5].Width = (int)(50 * Program.scale);
+            listViewHistory.Columns[6].Width = (int)(175 * Program.scale);
 
             //Заполняем выпадающме списки и выбираем первый пункт
 
@@ -55,8 +60,8 @@ namespace My_Games
                 }
             }
             listViewHistory.EndUpdate();
-            toolStripStatusLabel1.Text = "Количество: " + count.ToString();
-            toolStripStatusLabel2.Text = "Часы: " + hours.ToString();
+            toolStripStatusLabel1.Text = "Количество: " + count.ToString(Program.num);
+            toolStripStatusLabel2.Text = "Часы: " + hours.ToString(Program.num);
             isUser = true;
         }
 
@@ -93,7 +98,7 @@ namespace My_Games
 
         public ListViewItem GetListViewItem()
         {
-            string[] item = { time.ToString("dd.MM.yyyy"), name, platform, genre, even, hours.ToString(), comment };
+            string[] item = { time.ToString("dd.MM.yyyy"), name, platform, genre, even, hours.ToString(Program.num), comment };
             return new ListViewItem(item);
         }
     }
