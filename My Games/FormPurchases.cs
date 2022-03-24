@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-
-namespace My_Games
+﻿namespace My_Games
 {
     public partial class FormPurchases : Form
     {
@@ -12,7 +8,15 @@ namespace My_Games
         public FormPurchases()
         {
             InitializeComponent();
-
+            
+            Size = MinimumSize = new Size((int)(1000 * Program.scale), (int)(700 * Program.scale));
+            listViewHistory.Columns[0].Width = (int)(100 * Program.scale);
+            listViewHistory.Columns[1].Width = (int)(225 * Program.scale);
+            listViewHistory.Columns[2].Width = (int)(100 * Program.scale);
+            listViewHistory.Columns[3].Width = (int)(150 * Program.scale);
+            listViewHistory.Columns[4].Width = (int)(125 * Program.scale);
+            listViewHistory.Columns[5].Width = (int)(150 * Program.scale);
+            listViewHistory.Columns[6].Width = (int)(100 * Program.scale);
             //Заполняем выпадающме списки и выбираем первый пункт
             comboBoxType.Items.Add("Все");
             comboBoxType.Items.Add("Игра");
@@ -67,8 +71,8 @@ namespace My_Games
                 }
             }
             listViewHistory.EndUpdate();
-            toolStripStatusLabelCount.Text = "Количество: " + count.ToString();
-            toolStripStatusLabelSpent.Text = "Потрачено: " + price.ToString();
+            toolStripStatusLabelCount.Text = "Количество: " + count.ToString(Program.num);
+            toolStripStatusLabelSpent.Text = "Потрачено: " + price.ToString(Program.num);
             isUser = true;
         }
 
@@ -110,7 +114,7 @@ namespace My_Games
 
         public ListViewItem GetListViewItem()
         {
-            string[] item = { time.ToString("dd.MM.yyyy"), name, type, platform, medium, genre, price.ToString() };
+            string[] item = { time.ToString("dd.MM.yyyy"), name, type, platform, medium, genre, price.ToString(Program.num) };
             return new ListViewItem(item);
         }
     }
