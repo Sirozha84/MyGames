@@ -2,7 +2,7 @@ namespace My_Games
 {
     internal static class Program
     {
-        public static string version = "3.0 (14.03.2022)";
+        public static string version = "3.0 (25.03.2022)";
         public static string num = "### ### ##0";
         public static float scale = 1;
 

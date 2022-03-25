@@ -15,6 +15,10 @@
             if (type == 3) Text = "Справочник \"Жанры\"";
             DrawList();
         }
+        private bool ThumbnailCallback()
+        {
+            return false;
+        }
 
         void DrawList()
         {

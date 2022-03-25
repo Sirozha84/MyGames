@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-
-namespace My_Games
+﻿namespace My_Games
 {
     public class Event
     {
@@ -35,7 +31,7 @@ namespace My_Games
         public ListViewItem listItem()
         {
             string[] labels = {date.ToString("dd.MM.yyyy"),
-                Data.PlatformIDToName(platform), events[even], hoursAll.ToString(Program.num), hours.ToString(Program.num), comment};
+                Data.PlatformIDToName(platform), events[even], hours.ToString(Program.num), hoursAll.ToString(Program.num), comment};
             return new ListViewItem(labels) { Tag = this };
         }
     }
