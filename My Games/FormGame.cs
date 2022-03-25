@@ -40,11 +40,11 @@
             listViewHistory.Columns[1].Width = (int)(150 * Program.scale);
             listViewHistory.Columns[2].Width = (int)(125 * Program.scale);
             listViewHistory.Columns[3].Width = (int)(75 * Program.scale);
-            listViewHistory.Columns[4].Width = (int)(450 * Program.scale);
+            listViewHistory.Columns[4].Width = (int)(75 * Program.scale);
+            listViewHistory.Columns[5].Width = (int)(450 * Program.scale);
             listViewNotes.Columns[0].Width = (int)(100 * Program.scale);
             listViewNotes.Columns[1].Width = (int)(150 * Program.scale);
         }
-
 
         void RefreshData()
         {
@@ -285,7 +285,6 @@
                 Version version = (Version)listViewVersions.SelectedItems[0].Tag;
                 versions.Remove(version);
                 DrawVersions();
-                listViewVersions_SelectedIndexChanged(null, null);
                 RefreshOthers();
             }
         }
@@ -301,6 +300,7 @@
             labelVersions.Text = Data.StringVersions(versions);
             listViewVersions.EndUpdate();
             tabPagePurchases.Text = versions.Count + dlcs.Count > 0 ? "Покупки: " + (versions.Count + dlcs.Count).ToString() : "Покупки";
+            listViewVersions_SelectedIndexChanged(null, null);
         }
 
         private void listViewVersions_SelectedIndexChanged(object sender, EventArgs e)
@@ -348,7 +348,6 @@
                 DLC dlc = (DLC)listViewDLCs.SelectedItems[0].Tag;
                 dlcs.Remove(dlc);
                 DrawDLCs();
-                ListViewDLCs_SelectedIndexChanged(null, null);
                 RefreshOthers();
             }
         }
@@ -364,6 +363,7 @@
             labelDLCs.Text = Data.StringDLCs(dlcs);
             listViewDLCs.EndUpdate();
             tabPagePurchases.Text = versions.Count + dlcs.Count > 0 ? "Покупки: " + (versions.Count + dlcs.Count).ToString() : "Покупки";
+            ListViewDLCs_SelectedIndexChanged(null, null);
         }
 
         private void ListViewDLCs_SelectedIndexChanged(object sender, EventArgs e)
@@ -378,7 +378,7 @@
         private void buttonAddEvent_Click(object sender, EventArgs e)
         {
             Event ev = new Event();
-            FormEvent form = new FormEvent(ev, versions);
+            FormEvent form = new FormEvent(ev, versions, history);
             if (form.ShowDialog() == DialogResult.OK)
             {
                 history.Add(ev);
@@ -393,7 +393,7 @@
             if (listViewHistory.SelectedIndices.Count == 1)
             {
                 Event ev = (Event)listViewHistory.SelectedItems[0].Tag;
-                FormEvent form = new FormEvent(ev, versions);
+                FormEvent form = new FormEvent(ev, versions, history);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     DrawHistory();
@@ -409,7 +409,6 @@
                 Event ev = (Event)listViewHistory.SelectedItems[0].Tag;
                 history.Remove(ev);
                 DrawHistory();
-                listViewHistory_SelectedIndexChanged(null, null);
                 RefreshOthers();
             }
         }
@@ -422,9 +421,10 @@
             listViewHistory.Items.Clear();
             foreach (Event e in history)
                 listViewHistory.Items.Add(e.listItem());
-            labelPlayed.Text = Data.StringHistory(history); //Event.events[max] + ", общее время в игре: " + hours.ToString() + " ч.";
+            labelPlayed.Text = Data.StringHistory(history);
             listViewHistory.EndUpdate();
             tabPageHistory.Text = history.Count > 0 ? "История: " + (history.Count).ToString() : "История";
+            listViewHistory_SelectedIndexChanged(null, null);
         }
 
         private void listViewHistory_SelectedIndexChanged(object sender, EventArgs e)
@@ -539,7 +539,6 @@
                 "\n\nПрошло времени с последней игры: " + timeFromLastPlay;
         }
         #endregion
-
 
     }
 }

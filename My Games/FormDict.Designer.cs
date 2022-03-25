@@ -37,48 +37,42 @@
             // 
             // buttonNew
             // 
+            this.buttonNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonNew.Image = global::My_Games.Properties.Resources.add;
-            this.buttonNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonNew.Location = new System.Drawing.Point(15, 16);
             this.buttonNew.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(220, 57);
+            this.buttonNew.Size = new System.Drawing.Size(200, 57);
             this.buttonNew.TabIndex = 1;
             this.buttonNew.Text = "Добавить";
-            this.buttonNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonNew.UseVisualStyleBackColor = true;
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // buttonEdit
             // 
+            this.buttonEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonEdit.Enabled = false;
             this.buttonEdit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonEdit.Image = global::My_Games.Properties.Resources.edit;
-            this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEdit.Location = new System.Drawing.Point(247, 16);
+            this.buttonEdit.Location = new System.Drawing.Point(227, 16);
             this.buttonEdit.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(220, 57);
+            this.buttonEdit.Size = new System.Drawing.Size(200, 57);
             this.buttonEdit.TabIndex = 2;
             this.buttonEdit.Text = "Изменить";
-            this.buttonEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // buttonDel
             // 
+            this.buttonDel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonDel.Enabled = false;
             this.buttonDel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonDel.Image = global::My_Games.Properties.Resources.remove;
-            this.buttonDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDel.Location = new System.Drawing.Point(479, 16);
+            this.buttonDel.Location = new System.Drawing.Point(439, 16);
             this.buttonDel.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(200, 57);
             this.buttonDel.TabIndex = 3;
             this.buttonDel.Text = "Удалить";
-            this.buttonDel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDel.UseVisualStyleBackColor = true;
             this.buttonDel.Click += new System.EventHandler(this.buttonDel_Click);
             // 

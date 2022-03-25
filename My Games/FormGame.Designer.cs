@@ -49,16 +49,18 @@
             this.columnEventPlatform = new System.Windows.Forms.ColumnHeader();
             this.columnEvent = new System.Windows.Forms.ColumnHeader();
             this.columnEventHours = new System.Windows.Forms.ColumnHeader();
+            this.columnEventHoursAll = new System.Windows.Forms.ColumnHeader();
             this.columnEventComment = new System.Windows.Forms.ColumnHeader();
             this.textComment = new System.Windows.Forms.TextBox();
             this.groupMain = new System.Windows.Forms.GroupBox();
-            this.textPublisher = new System.Windows.Forms.TextBox();
-            this.textDeveloper = new System.Windows.Forms.TextBox();
-            this.textBoxSite = new System.Windows.Forms.TextBox();
-            this.linkGenre = new System.Windows.Forms.LinkLabel();
             this.labelDeveloper = new System.Windows.Forms.Label();
-            this.comboRating = new System.Windows.Forms.ComboBox();
+            this.textDeveloper = new System.Windows.Forms.TextBox();
+            this.textPublisher = new System.Windows.Forms.TextBox();
             this.textYear = new System.Windows.Forms.TextBox();
+            this.linkGenre = new System.Windows.Forms.LinkLabel();
+            this.comboRating = new System.Windows.Forms.ComboBox();
+            this.labelSite = new System.Windows.Forms.Label();
+            this.textBoxSite = new System.Windows.Forms.TextBox();
             this.labelCover = new System.Windows.Forms.Label();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.выбратьОбложкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,12 +77,12 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageMain = new System.Windows.Forms.TabPage();
             this.groupInfo = new System.Windows.Forms.GroupBox();
-            this.labelPlayed = new System.Windows.Forms.Label();
-            this.labelDLCs = new System.Windows.Forms.Label();
-            this.labelVersions = new System.Windows.Forms.Label();
-            this.labelPlayedL = new System.Windows.Forms.Label();
-            this.labelDLCsL = new System.Windows.Forms.Label();
             this.labelVersionsL = new System.Windows.Forms.Label();
+            this.labelVersions = new System.Windows.Forms.Label();
+            this.labelDLCsL = new System.Windows.Forms.Label();
+            this.labelDLCs = new System.Windows.Forms.Label();
+            this.labelPlayedL = new System.Windows.Forms.Label();
+            this.labelPlayed = new System.Windows.Forms.Label();
             this.tabPagePurchases = new System.Windows.Forms.TabPage();
             this.panelDLCs = new System.Windows.Forms.Panel();
             this.groupBoxDLCs = new System.Windows.Forms.GroupBox();
@@ -112,7 +114,6 @@
             this.textBoxNote = new System.Windows.Forms.TextBox();
             this.tabPageOthers = new System.Windows.Forms.TabPage();
             this.imageListTabs = new System.Windows.Forms.ImageList(this.components);
-            this.labelSite = new System.Windows.Forms.Label();
             this.groupMain.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
@@ -282,6 +283,7 @@
             this.columnEventPlatform,
             this.columnEvent,
             this.columnEventHours,
+            this.columnEventHoursAll,
             this.columnEventComment});
             this.listViewHistory.FullRowSelect = true;
             this.listViewHistory.GridLines = true;
@@ -300,28 +302,28 @@
             // columnEventDate
             // 
             this.columnEventDate.Text = "Дата";
-            this.columnEventDate.Width = 70;
             // 
             // columnEventPlatform
             // 
             this.columnEventPlatform.Text = "Платформа";
-            this.columnEventPlatform.Width = 100;
             // 
             // columnEvent
             // 
             this.columnEvent.Text = "Событие";
-            this.columnEvent.Width = 100;
             // 
             // columnEventHours
             // 
             this.columnEventHours.Text = "Часы";
             this.columnEventHours.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnEventHours.Width = 45;
+            // 
+            // columnEventHoursAll
+            // 
+            this.columnEventHoursAll.Text = "Счётчик";
+            this.columnEventHoursAll.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // columnEventComment
             // 
             this.columnEventComment.Text = "Комментарий";
-            this.columnEventComment.Width = 400;
             // 
             // textComment
             // 
@@ -362,15 +364,15 @@
             this.groupMain.TabStop = false;
             this.groupMain.Text = "Общие сведения";
             // 
-            // textPublisher
+            // labelDeveloper
             // 
-            this.textPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textPublisher.Location = new System.Drawing.Point(255, 187);
-            this.textPublisher.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.textPublisher.Name = "textPublisher";
-            this.textPublisher.Size = new System.Drawing.Size(673, 50);
-            this.textPublisher.TabIndex = 5;
+            this.labelDeveloper.AutoSize = true;
+            this.labelDeveloper.Location = new System.Drawing.Point(29, 124);
+            this.labelDeveloper.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelDeveloper.Name = "labelDeveloper";
+            this.labelDeveloper.Size = new System.Drawing.Size(214, 45);
+            this.labelDeveloper.TabIndex = 2;
+            this.labelDeveloper.Text = "Разработчик:";
             // 
             // textDeveloper
             // 
@@ -382,15 +384,23 @@
             this.textDeveloper.Size = new System.Drawing.Size(673, 50);
             this.textDeveloper.TabIndex = 3;
             // 
-            // textBoxSite
+            // textPublisher
             // 
-            this.textBoxSite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSite.Location = new System.Drawing.Point(255, 451);
-            this.textBoxSite.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.textBoxSite.Name = "textBoxSite";
-            this.textBoxSite.Size = new System.Drawing.Size(673, 50);
-            this.textBoxSite.TabIndex = 13;
+            this.textPublisher.Location = new System.Drawing.Point(255, 187);
+            this.textPublisher.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.textPublisher.Name = "textPublisher";
+            this.textPublisher.Size = new System.Drawing.Size(673, 50);
+            this.textPublisher.TabIndex = 5;
+            // 
+            // textYear
+            // 
+            this.textYear.Location = new System.Drawing.Point(255, 254);
+            this.textYear.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.textYear.Name = "textYear";
+            this.textYear.Size = new System.Drawing.Size(172, 50);
+            this.textYear.TabIndex = 7;
             // 
             // linkGenre
             // 
@@ -404,16 +414,6 @@
             this.linkGenre.Text = "Жанр:";
             this.linkGenre.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // labelDeveloper
-            // 
-            this.labelDeveloper.AutoSize = true;
-            this.labelDeveloper.Location = new System.Drawing.Point(29, 124);
-            this.labelDeveloper.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.labelDeveloper.Name = "labelDeveloper";
-            this.labelDeveloper.Size = new System.Drawing.Size(214, 45);
-            this.labelDeveloper.TabIndex = 2;
-            this.labelDeveloper.Text = "Разработчик:";
-            // 
             // comboRating
             // 
             this.comboRating.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -424,13 +424,25 @@
             this.comboRating.Size = new System.Drawing.Size(172, 53);
             this.comboRating.TabIndex = 11;
             // 
-            // textYear
+            // labelSite
             // 
-            this.textYear.Location = new System.Drawing.Point(255, 254);
-            this.textYear.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.textYear.Name = "textYear";
-            this.textYear.Size = new System.Drawing.Size(172, 50);
-            this.textYear.TabIndex = 7;
+            this.labelSite.AutoSize = true;
+            this.labelSite.Location = new System.Drawing.Point(148, 454);
+            this.labelSite.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelSite.Name = "labelSite";
+            this.labelSite.Size = new System.Drawing.Size(95, 45);
+            this.labelSite.TabIndex = 14;
+            this.labelSite.Text = "Сайт:";
+            // 
+            // textBoxSite
+            // 
+            this.textBoxSite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSite.Location = new System.Drawing.Point(255, 451);
+            this.textBoxSite.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.textBoxSite.Name = "textBoxSite";
+            this.textBoxSite.Size = new System.Drawing.Size(673, 50);
+            this.textBoxSite.TabIndex = 13;
             // 
             // labelCover
             // 
@@ -490,15 +502,12 @@
             // 
             this.buttonChangeVersion.Enabled = false;
             this.buttonChangeVersion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonChangeVersion.Image = global::My_Games.Properties.Resources.edit;
-            this.buttonChangeVersion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonChangeVersion.Location = new System.Drawing.Point(245, 47);
+            this.buttonChangeVersion.Location = new System.Drawing.Point(225, 47);
             this.buttonChangeVersion.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonChangeVersion.Name = "buttonChangeVersion";
-            this.buttonChangeVersion.Size = new System.Drawing.Size(220, 57);
+            this.buttonChangeVersion.Size = new System.Drawing.Size(200, 57);
             this.buttonChangeVersion.TabIndex = 1;
             this.buttonChangeVersion.Text = "Изменить";
-            this.buttonChangeVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonChangeVersion.UseVisualStyleBackColor = true;
             this.buttonChangeVersion.Click += new System.EventHandler(this.buttonChangeVersion_Click);
             // 
@@ -506,74 +515,59 @@
             // 
             this.buttonDelVersion.Enabled = false;
             this.buttonDelVersion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonDelVersion.Image = global::My_Games.Properties.Resources.remove;
-            this.buttonDelVersion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelVersion.Location = new System.Drawing.Point(477, 47);
+            this.buttonDelVersion.Location = new System.Drawing.Point(437, 47);
             this.buttonDelVersion.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonDelVersion.Name = "buttonDelVersion";
             this.buttonDelVersion.Size = new System.Drawing.Size(200, 57);
             this.buttonDelVersion.TabIndex = 2;
             this.buttonDelVersion.Text = "Удалить";
-            this.buttonDelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDelVersion.UseVisualStyleBackColor = true;
             this.buttonDelVersion.Click += new System.EventHandler(this.buttonDelVersion_Click);
             // 
             // buttonAddVersion
             // 
             this.buttonAddVersion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonAddVersion.Image = global::My_Games.Properties.Resources.add;
-            this.buttonAddVersion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAddVersion.Location = new System.Drawing.Point(13, 47);
             this.buttonAddVersion.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonAddVersion.Name = "buttonAddVersion";
-            this.buttonAddVersion.Size = new System.Drawing.Size(220, 57);
+            this.buttonAddVersion.Size = new System.Drawing.Size(200, 57);
             this.buttonAddVersion.TabIndex = 0;
             this.buttonAddVersion.Text = "Добавить";
-            this.buttonAddVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAddVersion.UseVisualStyleBackColor = true;
             this.buttonAddVersion.Click += new System.EventHandler(this.buttonAddVersion_Click);
             // 
             // buttonDelEvent
             // 
             this.buttonDelEvent.Enabled = false;
-            this.buttonDelEvent.Image = global::My_Games.Properties.Resources.remove;
-            this.buttonDelEvent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelEvent.Location = new System.Drawing.Point(477, 47);
+            this.buttonDelEvent.Location = new System.Drawing.Point(437, 47);
             this.buttonDelEvent.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonDelEvent.Name = "buttonDelEvent";
             this.buttonDelEvent.Size = new System.Drawing.Size(200, 57);
             this.buttonDelEvent.TabIndex = 2;
             this.buttonDelEvent.Text = "Удалить";
-            this.buttonDelEvent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDelEvent.UseVisualStyleBackColor = true;
             this.buttonDelEvent.Click += new System.EventHandler(this.buttonDelEvent_Click);
             // 
             // buttonChangeEvent
             // 
             this.buttonChangeEvent.Enabled = false;
-            this.buttonChangeEvent.Image = global::My_Games.Properties.Resources.edit;
-            this.buttonChangeEvent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonChangeEvent.Location = new System.Drawing.Point(245, 47);
+            this.buttonChangeEvent.Location = new System.Drawing.Point(225, 47);
             this.buttonChangeEvent.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonChangeEvent.Name = "buttonChangeEvent";
-            this.buttonChangeEvent.Size = new System.Drawing.Size(220, 57);
+            this.buttonChangeEvent.Size = new System.Drawing.Size(200, 57);
             this.buttonChangeEvent.TabIndex = 1;
             this.buttonChangeEvent.Text = "Изменить";
-            this.buttonChangeEvent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonChangeEvent.UseVisualStyleBackColor = true;
             this.buttonChangeEvent.Click += new System.EventHandler(this.buttonChangeEvent_Click);
             // 
             // buttonAddEvent
             // 
-            this.buttonAddEvent.Image = global::My_Games.Properties.Resources.add;
-            this.buttonAddEvent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAddEvent.Location = new System.Drawing.Point(13, 47);
             this.buttonAddEvent.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonAddEvent.Name = "buttonAddEvent";
-            this.buttonAddEvent.Size = new System.Drawing.Size(220, 57);
+            this.buttonAddEvent.Size = new System.Drawing.Size(200, 57);
             this.buttonAddEvent.TabIndex = 0;
             this.buttonAddEvent.Text = "Добавить";
-            this.buttonAddEvent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAddEvent.UseVisualStyleBackColor = true;
             this.buttonAddEvent.Click += new System.EventHandler(this.buttonAddEvent_Click);
             // 
@@ -662,25 +656,15 @@
             this.groupInfo.TabStop = false;
             this.groupInfo.Text = "Информация о коллекции";
             // 
-            // labelPlayed
+            // labelVersionsL
             // 
-            this.labelPlayed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelPlayed.Location = new System.Drawing.Point(255, 140);
-            this.labelPlayed.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.labelPlayed.Name = "labelPlayed";
-            this.labelPlayed.Size = new System.Drawing.Size(673, 45);
-            this.labelPlayed.TabIndex = 5;
-            // 
-            // labelDLCs
-            // 
-            this.labelDLCs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelDLCs.Location = new System.Drawing.Point(255, 95);
-            this.labelDLCs.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.labelDLCs.Name = "labelDLCs";
-            this.labelDLCs.Size = new System.Drawing.Size(673, 45);
-            this.labelDLCs.TabIndex = 3;
+            this.labelVersionsL.AutoSize = true;
+            this.labelVersionsL.Location = new System.Drawing.Point(109, 50);
+            this.labelVersionsL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelVersionsL.Name = "labelVersionsL";
+            this.labelVersionsL.Size = new System.Drawing.Size(134, 45);
+            this.labelVersionsL.TabIndex = 0;
+            this.labelVersionsL.Text = "Версии:";
             // 
             // labelVersions
             // 
@@ -693,16 +677,6 @@
             this.labelVersions.TabIndex = 1;
             this.labelVersions.Text = "Тест";
             // 
-            // labelPlayedL
-            // 
-            this.labelPlayedL.AutoSize = true;
-            this.labelPlayedL.Location = new System.Drawing.Point(67, 140);
-            this.labelPlayedL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.labelPlayedL.Name = "labelPlayedL";
-            this.labelPlayedL.Size = new System.Drawing.Size(176, 45);
-            this.labelPlayedL.TabIndex = 4;
-            this.labelPlayedL.Text = "Пройдена:";
-            // 
             // labelDLCsL
             // 
             this.labelDLCsL.AutoSize = true;
@@ -713,15 +687,35 @@
             this.labelDLCsL.TabIndex = 2;
             this.labelDLCsL.Text = "Доп. мат.:";
             // 
-            // labelVersionsL
+            // labelDLCs
             // 
-            this.labelVersionsL.AutoSize = true;
-            this.labelVersionsL.Location = new System.Drawing.Point(109, 50);
-            this.labelVersionsL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.labelVersionsL.Name = "labelVersionsL";
-            this.labelVersionsL.Size = new System.Drawing.Size(134, 45);
-            this.labelVersionsL.TabIndex = 0;
-            this.labelVersionsL.Text = "Версии:";
+            this.labelDLCs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelDLCs.Location = new System.Drawing.Point(255, 95);
+            this.labelDLCs.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelDLCs.Name = "labelDLCs";
+            this.labelDLCs.Size = new System.Drawing.Size(673, 45);
+            this.labelDLCs.TabIndex = 3;
+            // 
+            // labelPlayedL
+            // 
+            this.labelPlayedL.AutoSize = true;
+            this.labelPlayedL.Location = new System.Drawing.Point(67, 140);
+            this.labelPlayedL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelPlayedL.Name = "labelPlayedL";
+            this.labelPlayedL.Size = new System.Drawing.Size(176, 45);
+            this.labelPlayedL.TabIndex = 4;
+            this.labelPlayedL.Text = "Пройдена:";
+            // 
+            // labelPlayed
+            // 
+            this.labelPlayed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPlayed.Location = new System.Drawing.Point(255, 140);
+            this.labelPlayed.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelPlayed.Name = "labelPlayed";
+            this.labelPlayed.Size = new System.Drawing.Size(673, 45);
+            this.labelPlayed.TabIndex = 5;
             // 
             // tabPagePurchases
             // 
@@ -773,15 +767,12 @@
             // buttonAddDLC
             // 
             this.buttonAddDLC.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonAddDLC.Image = global::My_Games.Properties.Resources.add;
-            this.buttonAddDLC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAddDLC.Location = new System.Drawing.Point(13, 47);
             this.buttonAddDLC.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonAddDLC.Name = "buttonAddDLC";
-            this.buttonAddDLC.Size = new System.Drawing.Size(220, 57);
+            this.buttonAddDLC.Size = new System.Drawing.Size(200, 57);
             this.buttonAddDLC.TabIndex = 10;
             this.buttonAddDLC.Text = "Добавить";
-            this.buttonAddDLC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAddDLC.UseVisualStyleBackColor = true;
             this.buttonAddDLC.Click += new System.EventHandler(this.buttonAddDLC_Click);
             // 
@@ -789,15 +780,12 @@
             // 
             this.buttonDelDLC.Enabled = false;
             this.buttonDelDLC.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonDelDLC.Image = global::My_Games.Properties.Resources.remove;
-            this.buttonDelDLC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelDLC.Location = new System.Drawing.Point(477, 47);
+            this.buttonDelDLC.Location = new System.Drawing.Point(437, 47);
             this.buttonDelDLC.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonDelDLC.Name = "buttonDelDLC";
             this.buttonDelDLC.Size = new System.Drawing.Size(200, 57);
             this.buttonDelDLC.TabIndex = 12;
             this.buttonDelDLC.Text = "Удалить";
-            this.buttonDelDLC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDelDLC.UseVisualStyleBackColor = true;
             this.buttonDelDLC.Click += new System.EventHandler(this.buttonDelDLC_Click);
             // 
@@ -805,15 +793,12 @@
             // 
             this.buttonChangeDLC.Enabled = false;
             this.buttonChangeDLC.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonChangeDLC.Image = global::My_Games.Properties.Resources.edit;
-            this.buttonChangeDLC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonChangeDLC.Location = new System.Drawing.Point(245, 47);
+            this.buttonChangeDLC.Location = new System.Drawing.Point(225, 47);
             this.buttonChangeDLC.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonChangeDLC.Name = "buttonChangeDLC";
-            this.buttonChangeDLC.Size = new System.Drawing.Size(220, 57);
+            this.buttonChangeDLC.Size = new System.Drawing.Size(200, 57);
             this.buttonChangeDLC.TabIndex = 11;
             this.buttonChangeDLC.Text = "Изменить";
-            this.buttonChangeDLC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonChangeDLC.UseVisualStyleBackColor = true;
             this.buttonChangeDLC.Click += new System.EventHandler(this.buttonChangeDLC_Click);
             // 
@@ -995,15 +980,12 @@
             // 
             // buttonNoteAdd
             // 
-            this.buttonNoteAdd.Image = global::My_Games.Properties.Resources.add;
-            this.buttonNoteAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonNoteAdd.Location = new System.Drawing.Point(13, 47);
             this.buttonNoteAdd.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonNoteAdd.Name = "buttonNoteAdd";
-            this.buttonNoteAdd.Size = new System.Drawing.Size(220, 57);
+            this.buttonNoteAdd.Size = new System.Drawing.Size(200, 57);
             this.buttonNoteAdd.TabIndex = 0;
             this.buttonNoteAdd.Text = "Добавить";
-            this.buttonNoteAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonNoteAdd.UseVisualStyleBackColor = true;
             this.buttonNoteAdd.Click += new System.EventHandler(this.ButtonNoteAdd_Click);
             // 
@@ -1062,15 +1044,12 @@
             // buttonNoteDel
             // 
             this.buttonNoteDel.Enabled = false;
-            this.buttonNoteDel.Image = global::My_Games.Properties.Resources.remove;
-            this.buttonNoteDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonNoteDel.Location = new System.Drawing.Point(245, 47);
+            this.buttonNoteDel.Location = new System.Drawing.Point(225, 47);
             this.buttonNoteDel.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.buttonNoteDel.Name = "buttonNoteDel";
             this.buttonNoteDel.Size = new System.Drawing.Size(200, 57);
             this.buttonNoteDel.TabIndex = 1;
             this.buttonNoteDel.Text = "Удалить";
-            this.buttonNoteDel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonNoteDel.UseVisualStyleBackColor = true;
             this.buttonNoteDel.Click += new System.EventHandler(this.ButtonNoteDel_Click);
             // 
@@ -1106,16 +1085,6 @@
             this.imageListTabs.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListTabs.ImageStream")));
             this.imageListTabs.TransparentColor = System.Drawing.Color.Transparent;
             this.imageListTabs.Images.SetKeyName(0, "purchase.png");
-            // 
-            // labelSite
-            // 
-            this.labelSite.AutoSize = true;
-            this.labelSite.Location = new System.Drawing.Point(148, 454);
-            this.labelSite.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.labelSite.Name = "labelSite";
-            this.labelSite.Size = new System.Drawing.Size(95, 45);
-            this.labelSite.TabIndex = 14;
-            this.labelSite.Text = "Сайт:";
             // 
             // FormGame
             // 
@@ -1244,5 +1213,6 @@
         private System.Windows.Forms.ToolStripMenuItem выбратьОбложкуToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
         private Label labelSite;
+        private ColumnHeader columnEventHoursAll;
     }
 }
