@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Xml;
 using System.Xml.Serialization;
 using System.Windows.Forms;
 
@@ -48,8 +49,10 @@ namespace My_Games
             try
             {
                 var serializer = new XmlSerializer(typeof(Data));
-                using (var writer = new StreamWriter("Data.xml"))
-                    serializer.Serialize(writer, Data.data);
+                XmlWriterSettings settings = new XmlWriterSettings();
+                settings.Indent = true;
+                var writer = XmlWriter.Create("Data.xml", settings);
+                serializer.Serialize(writer, Data.data);
             }
             catch
             {
