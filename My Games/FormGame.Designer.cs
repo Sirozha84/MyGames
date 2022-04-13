@@ -465,7 +465,6 @@
             this.pictureBoxCover.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.pictureBoxCover.ContextMenuStrip = this.contextMenuStrip;
             this.pictureBoxCover.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxCover.Enabled = false;
             this.pictureBoxCover.Location = new System.Drawing.Point(6, 6);
             this.pictureBoxCover.Name = "pictureBoxCover";
             this.pictureBoxCover.Size = new System.Drawing.Size(300, 300);

@@ -55,8 +55,8 @@ namespace My_Games
                 }
             }
             listViewHistory.EndUpdate();
-            toolStripStatusLabel1.Text = "Количество: " + count.ToString();
-            toolStripStatusLabel2.Text = "Часы: " + hours.ToString();
+            toolStripStatusLabel1.Text = "Количество: " + count.ToString(Program.num);
+            toolStripStatusLabel2.Text = "Часы: " + hours.ToString(Program.num);
             isUser = true;
         }
 
@@ -93,7 +93,7 @@ namespace My_Games
 
         public ListViewItem GetListViewItem()
         {
-            string[] item = { time.ToString("dd.MM.yyyy"), name, platform, genre, even, hours.ToString(), comment };
+            string[] item = { time.ToString("dd.MM.yyyy"), name, platform, genre, even, hours.ToString(Program.num), comment };
             return new ListViewItem(item);
         }
     }

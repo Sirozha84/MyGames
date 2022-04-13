@@ -15,7 +15,8 @@ namespace My_Games
             history.SelectionFont = fontB;
             history.AppendText("Версия 2.4+ (14.05.2021)\n\n");
             history.SelectionFont = fontR;
-            history.AppendText("• Исправлено автоматическое скрытие платформ в выпадающем списке события, "+
+            history.AppendText("• Исправлена пропавшая возможность удалить обложку у игры" +
+                "• Исправлено автоматическое скрытие платформ в выпадающем списке события, "+
                 "а также, эта функция добавлена в окно дополнительных материалов\n\n");
 
             history.SelectionFont = fontB;
@@ -117,7 +118,7 @@ namespace My_Games
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.sg-software.ru");
+            System.Diagnostics.Process.Start("http://sg-software.ru");
         }
     }
 }

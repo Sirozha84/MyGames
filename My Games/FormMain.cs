@@ -341,7 +341,7 @@ namespace My_Games
 
         private void menuPage_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.sg-software.ru/windows/programs/mygames");
+            System.Diagnostics.Process.Start("http://sg-software.ru/mygames");
         }
 
         private void menuAbout_Click(object sender, EventArgs e)

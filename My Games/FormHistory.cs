@@ -67,8 +67,8 @@ namespace My_Games
                 }
             }
             listViewHistory.EndUpdate();
-            toolStripStatusLabelCount.Text = "Количество: " + count.ToString();
-            toolStripStatusLabelSpent.Text = "Потрачено: " + price.ToString();
+            toolStripStatusLabelCount.Text = "Количество: " + count.ToString(Program.num);
+            toolStripStatusLabelSpent.Text = "Потрачено: " + price.ToString(Program.num);
             isUser = true;
         }
 
@@ -110,7 +110,7 @@ namespace My_Games
 
         public ListViewItem GetListViewItem()
         {
-            string[] item = { time.ToString("dd.MM.yyyy"), name, type, platform, medium, genre, price.ToString() };
+            string[] item = { time.ToString("dd.MM.yyyy"), name, type, platform, medium, genre, price.ToString(Program.num) };
             return new ListViewItem(item);
         }
     }
