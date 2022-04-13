@@ -268,7 +268,6 @@ namespace My_Games
                 Version version = (Version)listViewVersions.SelectedItems[0].Tag;
                 versions.Remove(version);
                 DrawVersions();
-                listViewVersions_SelectedIndexChanged(null, null);
                 RefreshOthers();
             }
         }
@@ -284,6 +283,7 @@ namespace My_Games
             labelVers.Text = Data.StringVersions(versions);
             listViewVersions.EndUpdate();
             tabPagePurchases.Text = versions.Count + dlcs.Count > 0 ? "Покупки: " + (versions.Count + dlcs.Count).ToString() : "Покупки";
+            listViewVersions_SelectedIndexChanged(null, null);
         }
 
         private void listViewVersions_SelectedIndexChanged(object sender, EventArgs e)
@@ -331,7 +331,6 @@ namespace My_Games
                 DLC dlc = (DLC)listViewDLCs.SelectedItems[0].Tag;
                 dlcs.Remove(dlc);
                 DrawDLCs();
-                ListViewDLCs_SelectedIndexChanged(null, null);
                 RefreshOthers();
             }
         }
@@ -347,6 +346,7 @@ namespace My_Games
             labelDLCs.Text = Data.StringDLCs(dlcs);
             listViewDLCs.EndUpdate();
             tabPagePurchases.Text = versions.Count + dlcs.Count > 0 ? "Покупки: " + (versions.Count + dlcs.Count).ToString() : "Покупки";
+            ListViewDLCs_SelectedIndexChanged(null, null);
         }
 
         private void ListViewDLCs_SelectedIndexChanged(object sender, EventArgs e)
@@ -361,7 +361,7 @@ namespace My_Games
         private void buttonAddEvent_Click(object sender, EventArgs e)
         {
             Event ev = new Event();
-            FormEvent form = new FormEvent(ev, versions);
+            FormEvent form = new FormEvent(ev, versions, history);
             if (form.ShowDialog() == DialogResult.OK)
             {
                 history.Add(ev);
@@ -376,7 +376,7 @@ namespace My_Games
             if (listViewHistory.SelectedIndices.Count == 1)
             {
                 Event ev = (Event)listViewHistory.SelectedItems[0].Tag;
-                FormEvent form = new FormEvent(ev, versions);
+                FormEvent form = new FormEvent(ev, versions, history);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     DrawHistory();
@@ -392,7 +392,6 @@ namespace My_Games
                 Event ev = (Event)listViewHistory.SelectedItems[0].Tag;
                 history.Remove(ev);
                 DrawHistory();
-                listViewHistory_SelectedIndexChanged(null, null);
                 RefreshOthers();
             }
         }
@@ -408,6 +407,7 @@ namespace My_Games
             labelHis.Text = Data.StringHistory(history); //Event.events[max] + ", общее время в игре: " + hours.ToString() + " ч.";
             listViewHistory.EndUpdate();
             tabPageHistory.Text = history.Count > 0 ? "История: " + (history.Count).ToString() : "История";
+            listViewHistory_SelectedIndexChanged(null, null);
         }
 
         private void listViewHistory_SelectedIndexChanged(object sender, EventArgs e)

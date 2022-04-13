@@ -13,6 +13,7 @@ namespace My_Games
         public int platform;
         public int even;
         public int hours;
+        public int hoursAll;
         public string comment;
 
         public Event()
@@ -27,13 +28,14 @@ namespace My_Games
             platform = ev.platform;
             even = ev.even;
             hours = ev.hours;
+            hoursAll = ev.hoursAll;
             comment = ev.comment;
         }
 
         public ListViewItem listItem()
         {
             string[] labels = {date.ToString("dd.MM.yyyy"),
-                Data.PlatformIDToName(platform), events[even], hours.ToString(Program.num), comment};
+                Data.PlatformIDToName(platform), events[even], hoursAll.ToString(Program.num), hours.ToString(Program.num), comment};
             return new ListViewItem(labels) { Tag = this };
         }
     }
