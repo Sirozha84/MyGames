@@ -26,32 +26,7 @@ namespace My_Games
             comboBoxRate.DataSource = Game.stars;
             RefreshData();
             textBoxName.Focus();
-
-            Size = MinimumSize = new Size((int)(1000 * Program.scale), (int)(700 * Program.scale));
-            tabControl.ItemSize = new Size((int)(120 * Program.scale), (int)(24 * Program.scale));
-            imageListTabs.ImageSize = new Size((int)(16 * Program.scale), (int)(16 * Program.scale));
-            imageListTabs.Images.Add(Properties.Resources.purchase);
-            imageListTabs.Images.Add(Properties.Resources.game);
-            imageListTabs.Images.Add(Properties.Resources.note);
-            listViewVersions.Columns[0].Width = (int)(100 * Program.scale);
-            listViewVersions.Columns[1].Width = (int)(150 * Program.scale);
-            listViewVersions.Columns[2].Width = (int)(125 * Program.scale);
-            listViewVersions.Columns[3].Width = (int)(75 * Program.scale);
-            listViewVersions.Columns[4].Width = (int)(450 * Program.scale);
-            listViewDLCs.Columns[0].Width = (int)(100 * Program.scale);
-            listViewDLCs.Columns[1].Width = (int)(150 * Program.scale);
-            listViewDLCs.Columns[2].Width = (int)(200 * Program.scale);
-            listViewDLCs.Columns[3].Width = (int)(75 * Program.scale);
-            listViewDLCs.Columns[4].Width = (int)(375 * Program.scale);
-            listViewHistory.Columns[0].Width = (int)(100 * Program.scale);
-            listViewHistory.Columns[1].Width = (int)(150 * Program.scale);
-            listViewHistory.Columns[2].Width = (int)(125 * Program.scale);
-            listViewHistory.Columns[3].Width = (int)(75 * Program.scale);
-            listViewHistory.Columns[4].Width = (int)(450 * Program.scale);
-            listViewNotes.Columns[0].Width = (int)(100 * Program.scale);
-            listViewNotes.Columns[1].Width = (int)(150 * Program.scale);
         }
-
 
         void RefreshData()
         {
@@ -182,7 +157,7 @@ namespace My_Games
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormDict form = new FormDict(3, Data.data.genres);
+            FormCats form = new FormCats(3, Data.data.genres);
             form.ShowDialog();
             Genre.FillCombobox(comboBoxGenre, game.genre);
         }
@@ -531,7 +506,6 @@ namespace My_Games
                 "\n\nПрошло времени с последней игры: " + timeFromLastPlay;
         }
         #endregion
-
 
     }
 }

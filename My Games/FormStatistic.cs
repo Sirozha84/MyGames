@@ -1,4 +1,8 @@
-﻿namespace My_Games
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace My_Games
 {
     public partial class FormStatistic : Form
     {
@@ -20,9 +24,6 @@
         public FormStatistic()
         {
             InitializeComponent();
-            Size = MinimumSize = new Size((int)(1000 * Program.scale), (int)(700 * Program.scale));
-            listView.Columns[0].Width = (int)(120 * Program.scale);
-            listView.Columns[1].Width = (int)(80 * Program.scale);
             graph = pictureBox.CreateGraphics();
             CalcGames(null, null);
         }
@@ -453,14 +454,12 @@
             fullHeight = pictureBox.Height;
             bmp = new Bitmap(fullWidth, fullHeight);
             graph = Graphics.FromImage(bmp);
-            int left = (int)(60 * Program.scale);
-            int bottom = (int)(40 * Program.scale);
+            int left = 60;
+            int bottom = 40;
             int width = fullWidth - left;
             int space = width / 50;
             int height = fullHeight - bottom;
-            Font title = new Font(new FontFamily("Arial"), (int)(12 * Program.scale), FontStyle.Regular, GraphicsUnit.Pixel);
-            int textTop = (int)(20 * Program.scale);        //Расстояние от нижней части до ректангла с текстом
-            int textHeight = (int)(15 * Program.scale);     //Высота ректангла с текстом
+            Font title = new Font(new FontFamily("Arial"), 12, FontStyle.Regular, GraphicsUnit.Pixel);
             StringFormat formatR = new StringFormat();
             formatR.Alignment = StringAlignment.Far;
             formatR.LineAlignment = StringAlignment.Center;
@@ -480,7 +479,7 @@
 
             //Горизонтальные полоски
             if (heightColumns == 0) { pictureBox.Image = bmp; return; }
-            float k = (float)(height - (int)(30 * Program.scale)) / heightColumns;
+            float k = (float)(height - 20) / heightColumns;
             int inc = heightColumns / 4;
             if (inc == 0) inc = 1;
             for (int i = 0; i <= heightColumns; i += inc)
@@ -507,7 +506,7 @@
                         if (j == listView.SelectedItems[0].Index && m[c, j] != 0)
                         {
                             graph.DrawRectangle(Pens.Black, left + space + cWidth * i - 3, height - (s + m[c, j]) * k - 3, cWidthS + 5, m[c, j] * k + 5);
-                            graph.DrawString(m[c, j].ToString(Program.num), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, (int)(height - (s + m[c, j]) * k - textTop), cWidth, textHeight), formatC);
+                            graph.DrawString(m[c, j].ToString(Program.num), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, (int)(height - (s + m[c, j]) * k - 20), cWidth, 15), formatC);
                         }
                         s += m[c, j];
                     }
@@ -516,7 +515,7 @@
                     int sum = 0;
                     for (int j = 0; j < ctCount; j++)
                         sum += m[c, j];
-                    graph.DrawString(sum.ToString(Program.num), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, (int)(height - (s + sum) * k - textTop), cWidth, textHeight), formatC);
+                    graph.DrawString(sum.ToString(Program.num), title, Brushes.Black, new Rectangle(left + cWidth * i - 4, (int)(height - (s + sum) * k - 20), cWidth, 15), formatC);
                 }
 
                 //Подписи столбиков

@@ -1,4 +1,8 @@
-﻿namespace My_Games
+﻿using System;
+using System.Windows.Forms;
+using System.Collections.Generic;
+
+namespace My_Games
 {
     public partial class FormDLC : Form
     {
@@ -37,7 +41,7 @@
 
         private void linkLabelPlatform_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormDict form = new FormDict(1, Data.data.platforms);
+            FormCats form = new FormCats(1, Data.data.platforms);
             form.ShowDialog();
             Platform.FillCombobox(comboBoxPlatform, dlc.platform, checkBoxAll.Checked, versions);
         }

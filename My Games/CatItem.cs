@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace My_Games
 {
-    public abstract class DictItem : IComparable
+    public abstract class CatItem : IComparable
     {
         public int ID;
         protected int Counter = 1;

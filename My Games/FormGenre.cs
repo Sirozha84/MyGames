@@ -1,4 +1,7 @@
-﻿namespace My_Games
+﻿using System;
+using System.Windows.Forms;
+
+namespace My_Games
 {
     public partial class FormGenre : Form
     {

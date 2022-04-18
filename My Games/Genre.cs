@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace My_Games
 {
-    public class Genre : DictItem
+    public class Genre : CatItem
     {
         public Genre() { }
 
@@ -11,7 +11,7 @@ namespace My_Games
         {
             ID = lastID;
         }
-
+        
         public ListViewItem GetListViewItem()
         {
             string[] strings = { name };

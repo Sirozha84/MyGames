@@ -10,15 +10,13 @@ namespace My_Games
             InitializeComponent();
             Font fontR = new Font(history.Font.FontFamily, history.Font.Size, FontStyle.Regular);
             Font fontB = new Font(history.Font.FontFamily, history.Font.Size, FontStyle.Bold);
-            labelVersion.Text = "Версия: " + Program.version;
+            labelVersion.Text = "Версия: " + Program.Version;
 
             history.SelectionFont = fontB;
-            history.AppendText("Версия 3.0 (25.03.2022)\n\n");
+            history.AppendText("Версия 2.5 (13.04.2022)\n\n");
             history.SelectionFont = fontR;
-            history.AppendText("• Обновлённый внешний вид с поддержкой масштабирования\n" +
-                "• Добавлено автоматическое вычисления часов события по данным счётчика\n" +
-                "• Исправлена доступность кнопок после добавления данных в игре\n" +
-                "• Исправлено удаление обложки\n" +
+            history.AppendText("• Добавлено автоматическое вычисления часов события по данным счётчика\n" +
+                "• Исправлена пропавшая возможность удалить обложку у игры\n" +
                 "• Исправлено автоматическое скрытие платформ в выпадающем списке события, "+
                 "а также, эта функция добавлена в окно дополнительных материалов\n\n");
 
@@ -121,7 +119,7 @@ namespace My_Games
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.sg-software.ru");
+            System.Diagnostics.Process.Start("http://sg-software.ru");
         }
     }
 }

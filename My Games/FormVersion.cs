@@ -1,4 +1,7 @@
-﻿namespace My_Games
+﻿using System;
+using System.Windows.Forms;
+
+namespace My_Games
 {
     public partial class FormVersion : Form
     {
@@ -33,14 +36,14 @@
 
         private void linkLabelPlatform_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormDict form = new FormDict(1, Data.data.platforms);
+            FormCats form = new FormCats(1, Data.data.platforms);
             form.ShowDialog();
             Platform.FillCombobox(comboBoxPlatform, version.platform, true, null);
         }
 
         private void linkLabelMedium_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormDict form = new FormDict(2, Data.data.mediums);
+            FormCats form = new FormCats(2, Data.data.mediums);
             form.ShowDialog();
             Medium.FillCombobox(comboBoxMedium, version.medium, comboBoxPlatform.Text);
         }

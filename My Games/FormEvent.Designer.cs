@@ -29,224 +29,193 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.textHours = new System.Windows.Forms.TextBox();
+            this.textBoxHours = new System.Windows.Forms.TextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
             this.comboBoxEvent = new System.Windows.Forms.ComboBox();
             this.date = new System.Windows.Forms.DateTimePicker();
-            this.labelHours = new System.Windows.Forms.Label();
-            this.labelEvent = new System.Windows.Forms.Label();
-            this.labelDate = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.comboBoxPlatform = new System.Windows.Forms.ComboBox();
-            this.linkPlatform = new System.Windows.Forms.LinkLabel();
-            this.textComment = new System.Windows.Forms.TextBox();
-            this.labelComment = new System.Windows.Forms.Label();
+            this.linkLabelPlatform = new System.Windows.Forms.LinkLabel();
+            this.textBoxComment = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.checkBoxAll = new System.Windows.Forms.CheckBox();
             this.toolTipAll = new System.Windows.Forms.ToolTip(this.components);
-            this.textHoursAll = new System.Windows.Forms.TextBox();
-            this.labelHoursAll = new System.Windows.Forms.Label();
+            this.textBoxHoursAll = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textHours
+            // textBoxHours
             // 
-            this.textHours.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textHours.Location = new System.Drawing.Point(256, 237);
-            this.textHours.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.textHours.Name = "textHours";
-            this.textHours.Size = new System.Drawing.Size(134, 50);
-            this.textHours.TabIndex = 3;
-            this.textHours.Text = "0";
+            this.textBoxHours.Location = new System.Drawing.Point(95, 118);
+            this.textBoxHours.Name = "textBoxHours";
+            this.textBoxHours.Size = new System.Drawing.Size(64, 20);
+            this.textBoxHours.TabIndex = 4;
+            this.textBoxHours.Text = "0";
             // 
             // buttonCancel
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonCancel.Location = new System.Drawing.Point(699, 456);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.buttonCancel.Location = new System.Drawing.Point(275, 175);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(200, 56);
-            this.buttonCancel.TabIndex = 6;
+            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.TabIndex = 7;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // buttonOK
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonOK.Location = new System.Drawing.Point(487, 456);
-            this.buttonOK.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.buttonOK.Location = new System.Drawing.Point(194, 175);
             this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(200, 56);
-            this.buttonOK.TabIndex = 5;
+            this.buttonOK.Size = new System.Drawing.Size(75, 23);
+            this.buttonOK.TabIndex = 6;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
-            this.buttonOK.Click += new System.EventHandler(this.OK);
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // comboBoxEvent
             // 
             this.comboBoxEvent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxEvent.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxEvent.FormattingEnabled = true;
-            this.comboBoxEvent.Location = new System.Drawing.Point(256, 168);
-            this.comboBoxEvent.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.comboBoxEvent.Location = new System.Drawing.Point(95, 65);
             this.comboBoxEvent.Name = "comboBoxEvent";
-            this.comboBoxEvent.Size = new System.Drawing.Size(360, 53);
+            this.comboBoxEvent.Size = new System.Drawing.Size(150, 21);
             this.comboBoxEvent.TabIndex = 2;
             // 
             // date
             // 
-            this.date.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.date.Location = new System.Drawing.Point(256, 33);
-            this.date.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.date.Location = new System.Drawing.Point(95, 12);
             this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(360, 50);
+            this.date.Size = new System.Drawing.Size(120, 20);
             this.date.TabIndex = 0;
             // 
-            // labelHours
+            // label3
             // 
-            this.labelHours.AutoSize = true;
-            this.labelHours.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelHours.Location = new System.Drawing.Point(142, 240);
-            this.labelHours.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.labelHours.Name = "labelHours";
-            this.labelHours.Size = new System.Drawing.Size(102, 45);
-            this.labelHours.TabIndex = 11;
-            this.labelHours.Text = "Часы:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(51, 121);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Часы:";
             // 
-            // labelEvent
+            // label2
             // 
-            this.labelEvent.AutoSize = true;
-            this.labelEvent.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelEvent.Location = new System.Drawing.Point(87, 171);
-            this.labelEvent.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.labelEvent.Name = "labelEvent";
-            this.labelEvent.Size = new System.Drawing.Size(157, 45);
-            this.labelEvent.TabIndex = 9;
-            this.labelEvent.Text = "Событие:";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(35, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Событие:";
             // 
-            // labelDate
+            // label1
             // 
-            this.labelDate.AutoSize = true;
-            this.labelDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelDate.Location = new System.Drawing.Point(150, 34);
-            this.labelDate.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(94, 45);
-            this.labelDate.TabIndex = 7;
-            this.labelDate.Text = "Дата:";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(53, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Дата:";
             // 
             // comboBoxPlatform
             // 
             this.comboBoxPlatform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPlatform.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxPlatform.FormattingEnabled = true;
-            this.comboBoxPlatform.Location = new System.Drawing.Point(256, 99);
-            this.comboBoxPlatform.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.comboBoxPlatform.Location = new System.Drawing.Point(95, 38);
             this.comboBoxPlatform.Name = "comboBoxPlatform";
-            this.comboBoxPlatform.Size = new System.Drawing.Size(360, 53);
+            this.comboBoxPlatform.Size = new System.Drawing.Size(150, 21);
             this.comboBoxPlatform.TabIndex = 1;
             // 
-            // linkPlatform
+            // linkLabelPlatform
             // 
-            this.linkPlatform.AutoSize = true;
-            this.linkPlatform.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linkPlatform.Location = new System.Drawing.Point(50, 102);
-            this.linkPlatform.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.linkPlatform.Name = "linkPlatform";
-            this.linkPlatform.Size = new System.Drawing.Size(194, 45);
-            this.linkPlatform.TabIndex = 7;
-            this.linkPlatform.TabStop = true;
-            this.linkPlatform.Text = "Платформа:";
-            this.linkPlatform.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelPlatform_LinkClicked);
+            this.linkLabelPlatform.AutoSize = true;
+            this.linkLabelPlatform.Location = new System.Drawing.Point(20, 41);
+            this.linkLabelPlatform.Name = "linkLabelPlatform";
+            this.linkLabelPlatform.Size = new System.Drawing.Size(69, 13);
+            this.linkLabelPlatform.TabIndex = 8;
+            this.linkLabelPlatform.TabStop = true;
+            this.linkLabelPlatform.Text = "Платформа:";
+            this.linkLabelPlatform.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelPlatform_LinkClicked);
             // 
-            // textComment
+            // textBoxComment
             // 
-            this.textComment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.textBoxComment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textComment.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textComment.Location = new System.Drawing.Point(256, 303);
-            this.textComment.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.textComment.Multiline = true;
-            this.textComment.Name = "textComment";
-            this.textComment.Size = new System.Drawing.Size(643, 137);
-            this.textComment.TabIndex = 4;
+            this.textBoxComment.Location = new System.Drawing.Point(95, 147);
+            this.textBoxComment.Multiline = true;
+            this.textBoxComment.Name = "textBoxComment";
+            this.textBoxComment.Size = new System.Drawing.Size(255, 22);
+            this.textBoxComment.TabIndex = 5;
             // 
-            // labelComment
+            // label4
             // 
-            this.labelComment.AutoSize = true;
-            this.labelComment.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelComment.Location = new System.Drawing.Point(14, 306);
-            this.labelComment.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.labelComment.Name = "labelComment";
-            this.labelComment.Size = new System.Drawing.Size(230, 45);
-            this.labelComment.TabIndex = 16;
-            this.labelComment.Text = "Комментарий:";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 150);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Комментарий:";
             // 
             // checkBoxAll
             // 
             this.checkBoxAll.AutoSize = true;
-            this.checkBoxAll.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkBoxAll.Location = new System.Drawing.Point(628, 101);
-            this.checkBoxAll.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.checkBoxAll.Location = new System.Drawing.Point(251, 40);
             this.checkBoxAll.Name = "checkBoxAll";
-            this.checkBoxAll.Size = new System.Drawing.Size(283, 49);
-            this.checkBoxAll.TabIndex = 18;
+            this.checkBoxAll.Size = new System.Drawing.Size(110, 17);
+            this.checkBoxAll.TabIndex = 9;
             this.checkBoxAll.Text = "Показывать все";
             this.toolTipAll.SetToolTip(this.checkBoxAll, "Показать полный список платформ, иначе будут только те, версии игры для которых и" +
         "меются в коллекции");
             this.checkBoxAll.UseVisualStyleBackColor = true;
             this.checkBoxAll.CheckedChanged += new System.EventHandler(this.checkBoxAll_CheckedChanged);
             // 
-            // textHoursAll
+            // textBoxHoursAll
             // 
-            this.textHoursAll.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textHoursAll.Location = new System.Drawing.Point(623, 237);
-            this.textHoursAll.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.textHoursAll.Name = "textHoursAll";
-            this.textHoursAll.Size = new System.Drawing.Size(134, 50);
-            this.textHoursAll.TabIndex = 19;
-            this.textHoursAll.Text = "0";
-            this.textHoursAll.TextChanged += new System.EventHandler(this.textHoursAll_TextChanged);
+            this.textBoxHoursAll.Location = new System.Drawing.Point(95, 92);
+            this.textBoxHoursAll.Name = "textBoxHoursAll";
+            this.textBoxHoursAll.Size = new System.Drawing.Size(64, 20);
+            this.textBoxHoursAll.TabIndex = 3;
+            this.textBoxHoursAll.Text = "0";
+            this.textBoxHoursAll.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // labelHoursAll
+            // label5
             // 
-            this.labelHoursAll.AutoSize = true;
-            this.labelHoursAll.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelHoursAll.Location = new System.Drawing.Point(402, 240);
-            this.labelHoursAll.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.labelHoursAll.Name = "labelHoursAll";
-            this.labelHoursAll.Size = new System.Drawing.Size(209, 45);
-            this.labelHoursAll.TabIndex = 20;
-            this.labelHoursAll.Text = "По счётчику:";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(39, 95);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Счётчик:";
             // 
             // FormEvent
             // 
             this.AcceptButton = this.buttonOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(914, 529);
-            this.Controls.Add(this.labelDate);
+            this.ClientSize = new System.Drawing.Size(367, 210);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.date);
-            this.Controls.Add(this.linkPlatform);
+            this.Controls.Add(this.linkLabelPlatform);
             this.Controls.Add(this.comboBoxPlatform);
             this.Controls.Add(this.checkBoxAll);
-            this.Controls.Add(this.labelEvent);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxEvent);
-            this.Controls.Add(this.labelHours);
-            this.Controls.Add(this.textHours);
-            this.Controls.Add(this.labelHoursAll);
-            this.Controls.Add(this.textHoursAll);
-            this.Controls.Add(this.labelComment);
-            this.Controls.Add(this.textComment);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBoxHours);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBoxHoursAll);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBoxComment);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.buttonCancel);
-            this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(940, 500);
+            this.MinimumSize = new System.Drawing.Size(383, 249);
             this.Name = "FormEvent";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -259,21 +228,21 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textHours;
+        private System.Windows.Forms.TextBox textBoxHours;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.ComboBox comboBoxEvent;
         private System.Windows.Forms.DateTimePicker date;
-        private System.Windows.Forms.Label labelHours;
-        private System.Windows.Forms.Label labelEvent;
-        private System.Windows.Forms.Label labelDate;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxPlatform;
-        private System.Windows.Forms.LinkLabel linkPlatform;
-        private System.Windows.Forms.TextBox textComment;
-        private System.Windows.Forms.Label labelComment;
+        private System.Windows.Forms.LinkLabel linkLabelPlatform;
+        private System.Windows.Forms.TextBox textBoxComment;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox checkBoxAll;
         private System.Windows.Forms.ToolTip toolTipAll;
-        private TextBox textHoursAll;
-        private Label labelHoursAll;
+        private System.Windows.Forms.TextBox textBoxHoursAll;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -1,20 +1,20 @@
+﻿using System;
+using System.Windows.Forms;
+
 namespace My_Games
 {
-    internal static class Program
+    static class Program
     {
-        public static string version = "3.0 (25.03.2022)";
+        public static string Version = "2.5 (13.04.2022)";
         public static string num = "### ### ##0";
-        public static float scale = 1;
-
         /// <summary>
-        ///  The main entry point for the application.
+        /// Главная точка входа для приложения.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain());
         }
     }
