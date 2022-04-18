@@ -443,6 +443,7 @@
             // 
             this.toolSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolSearch.Name = "toolSearch";
             this.toolSearch.Size = new System.Drawing.Size(160, 25);
             this.toolSearch.TextChanged += new System.EventHandler(this.toolSearch_TextChanged);
@@ -532,14 +533,14 @@
             this.menuGoToSite,
             this.menuDelC});
             this.contextMenu.Name = "contextMenuStrip1";
-            this.contextMenu.Size = new System.Drawing.Size(165, 70);
+            this.contextMenu.Size = new System.Drawing.Size(181, 92);
             // 
             // menuOpen
             // 
             this.menuOpen.Enabled = false;
             this.menuOpen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.menuOpen.Name = "menuOpen";
-            this.menuOpen.Size = new System.Drawing.Size(164, 22);
+            this.menuOpen.Size = new System.Drawing.Size(180, 22);
             this.menuOpen.Text = "Открыть";
             this.menuOpen.Click += new System.EventHandler(this.menuOpen_Click);
             // 
@@ -547,15 +548,16 @@
             // 
             this.menuGoToSite.Enabled = false;
             this.menuGoToSite.Name = "menuGoToSite";
-            this.menuGoToSite.Size = new System.Drawing.Size(164, 22);
+            this.menuGoToSite.Size = new System.Drawing.Size(180, 22);
             this.menuGoToSite.Text = "Перейти на сайт";
             this.menuGoToSite.Click += new System.EventHandler(this.menuGoToSite_Click);
             // 
             // menuDelC
             // 
             this.menuDelC.Enabled = false;
+            this.menuDelC.Image = global::My_Games.Properties.Resources.remove;
             this.menuDelC.Name = "menuDelC";
-            this.menuDelC.Size = new System.Drawing.Size(164, 22);
+            this.menuDelC.Size = new System.Drawing.Size(180, 22);
             this.menuDelC.Text = "Удалить";
             this.menuDelC.Click += new System.EventHandler(this.menuDelC_Click);
             // 

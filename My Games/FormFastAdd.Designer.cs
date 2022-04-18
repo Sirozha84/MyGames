@@ -56,7 +56,7 @@
             this.buttonOK.TabIndex = 8;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
-            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+            this.buttonOK.Click += new System.EventHandler(this.OK);
             // 
             // buttonCancel
             // 
@@ -207,7 +207,7 @@
             this.buttonEdit.TabIndex = 7;
             this.buttonEdit.Text = "Все параметры";
             this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            this.buttonEdit.Click += new System.EventHandler(this.Edit);
             // 
             // FormFastAdd
             // 

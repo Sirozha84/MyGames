@@ -31,7 +31,7 @@ namespace My_Games
         public int win;
         public int hours;
         public int price;
-        
+
         //Данные документа, не относящиеся к игре
         public DateTime create = DateTime.Now;
         public DateTime change = DateTime.Now;
@@ -49,6 +49,33 @@ namespace My_Games
                 item.BackColor = Color.FromArgb(Data.data.winColR[win], Data.data.winColG[win], Data.data.winColB[win]);
             return item;
         }
+
+        /// <summary>
+        /// Фиксация данных для быстрого доступа. Что-то типа проведения документа.
+        /// </summary>
+        public void Hold()
+        {
+            //Дата
+            if (versions.Count > 0) date = versions[0].date;
+
+            //Цена
+            price = 0;
+            foreach (Version v in versions)
+                price += v.price;
+            foreach (DLC d in DLCs)
+                price += d.price;
+            
+            //Прохождение
+            hours = 0;
+            win = 0;
+            foreach (Event ev in history)
+            {
+                hours += ev.hours;
+                if (win < ev.even) win = ev.even;
+            }
+
+        }
+
     }
 
     class GameDateComparer : IComparer<Game>

@@ -82,7 +82,7 @@ namespace My_Games
             return ((int)(days / 365.25)).ToString() + " (лет)";
         }
 
-        private void buttonOK_Click(object sender, EventArgs e)
+        private void OK(object sender, EventArgs e)
         {
             //ID
             if (game.ID == 0)
@@ -91,10 +91,9 @@ namespace My_Games
                 Data.Save();
             }
 
-            //Вкладка общих сведений
+            //Общие сведения
             game.change = DateTime.Now;
             game.name = textBoxName.Text;
-            if (versions.Count > 0) game.date = versions[0].date;
             game.developer = textBoxDeveloper.Text;
             game.publisher = textBoxPublisher.Text;
             game.year = textBoxYear.Text;
@@ -117,33 +116,17 @@ namespace My_Games
                     }
                     catch { }
             }
-            //Итоговые данные
-            game.price = 0;
-            game.win = 0;
-            game.hours = 0;
 
-            //Вкладка покупок
+            //Внутренние таблицы
             game.versions.Clear();
             foreach (Version v in versions)
-            {
                 game.versions.Add(new Version(v));
-                game.price += v.price;
-            }
             game.DLCs.Clear();
             foreach (DLC d in dlcs)
-            {
                 game.DLCs.Add(new DLC(d));
-                game.price += d.price;
-            }
-
-            //Вкладка истории прохождений
             game.history.Clear();
             foreach (Event ev in history)
-            {
                 game.history.Add(new Event(ev));
-                game.hours += ev.hours;
-                if (game.win < ev.even) game.win = ev.even;
-            }
             
             //Вкладка заметок
             notes.Sort((o1, o2) => o1.date.CompareTo(o2.date));
@@ -155,6 +138,7 @@ namespace My_Games
                 game.notes.Add(nn);
             }
 
+            game.Hold();
             DialogResult = DialogResult.OK;
             Close();
         }

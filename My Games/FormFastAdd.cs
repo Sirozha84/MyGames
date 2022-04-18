@@ -25,28 +25,27 @@ namespace My_Games
         void Create()
         {
             game.ID = ++Data.data.gameLastID;
-            game.date = date.Value;
             game.change = DateTime.Now;
             game.name = textBoxName.Text;
             game.genre = Data.GenreNameToID(comboBoxGenre.Text);
             game.rate = comboBoxRate.SelectedIndex + 1;
-            game.price = Convert.ToInt32(textBoxPrice.Text);
             Version version = new Version();
             version.date = date.Value;
             version.platform = Data.PlatformNameToID(comboBoxPlatform.Text);
             version.medium = Data.MediumNameToID(comboBoxMedium.Text);
-            version.price = game.price;
+            version.price = Convert.ToInt32(textBoxPrice.Text);
             game.versions.Add(version);
+            game.Hold();
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
+        private void Edit(object sender, EventArgs e)
         {
             Create();
             DialogResult = DialogResult.Retry;
             Close();
         }
 
-        private void buttonOK_Click(object sender, EventArgs e)
+        private void OK(object sender, EventArgs e)
         {
             Create();
             DialogResult = DialogResult.OK;
