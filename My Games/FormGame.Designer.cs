@@ -78,9 +78,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.pictureBoxCover = new System.Windows.Forms.PictureBox();
             this.tabPagePurchases = new System.Windows.Forms.TabPage();
             this.panelDLCs = new System.Windows.Forms.Panel();
             this.groupBoxDLCs = new System.Windows.Forms.GroupBox();
+            this.buttonAddDLC = new System.Windows.Forms.Button();
+            this.buttonDelDLC = new System.Windows.Forms.Button();
+            this.buttonChangeDLC = new System.Windows.Forms.Button();
             this.listViewDLCs = new System.Windows.Forms.ListView();
             this.columnDLCDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDLCPlatform = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -90,12 +94,17 @@
             this.splitter = new System.Windows.Forms.Splitter();
             this.panelVersion = new System.Windows.Forms.Panel();
             this.groupBoxVersion = new System.Windows.Forms.GroupBox();
+            this.buttonAddVersion = new System.Windows.Forms.Button();
+            this.buttonDelVersion = new System.Windows.Forms.Button();
+            this.buttonChangeVersion = new System.Windows.Forms.Button();
             this.tabPageHistory = new System.Windows.Forms.TabPage();
             this.groupBoxHistory = new System.Windows.Forms.GroupBox();
+            this.buttonAddEvent = new System.Windows.Forms.Button();
             this.tabPageNotes = new System.Windows.Forms.TabPage();
             this.groupBoxNotes = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonNoteAdd = new System.Windows.Forms.Button();
             this.textBoxNoteName = new System.Windows.Forms.TextBox();
             this.listViewNotes = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -105,21 +114,13 @@
             this.textBoxNote = new System.Windows.Forms.TextBox();
             this.tabPageOthers = new System.Windows.Forms.TabPage();
             this.imageListTabs = new System.Windows.Forms.ImageList(this.components);
-            this.pictureBoxCover = new System.Windows.Forms.PictureBox();
-            this.buttonAddDLC = new System.Windows.Forms.Button();
-            this.buttonDelDLC = new System.Windows.Forms.Button();
-            this.buttonChangeDLC = new System.Windows.Forms.Button();
-            this.buttonAddVersion = new System.Windows.Forms.Button();
-            this.buttonDelVersion = new System.Windows.Forms.Button();
-            this.buttonChangeVersion = new System.Windows.Forms.Button();
-            this.buttonAddEvent = new System.Windows.Forms.Button();
-            this.buttonNoteAdd = new System.Windows.Forms.Button();
             this.groupBoxMain.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             this.groupBoxComment.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageMain.SuspendLayout();
             this.groupBoxInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             this.tabPagePurchases.SuspendLayout();
             this.panelDLCs.SuspendLayout();
             this.groupBoxDLCs.SuspendLayout();
@@ -130,7 +131,6 @@
             this.tabPageNotes.SuspendLayout();
             this.groupBoxNotes.SuspendLayout();
             this.tabPageOthers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -184,7 +184,7 @@
             // buttonOK
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Location = new System.Drawing.Point(616, 526);
+            this.buttonOK.Location = new System.Drawing.Point(616, 535);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
             this.buttonOK.TabIndex = 1;
@@ -196,7 +196,7 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(697, 526);
+            this.buttonCancel.Location = new System.Drawing.Point(697, 535);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 2;
@@ -328,7 +328,7 @@
             this.textBoxComment.Location = new System.Drawing.Point(6, 19);
             this.textBoxComment.Multiline = true;
             this.textBoxComment.Name = "textBoxComment";
-            this.textBoxComment.Size = new System.Drawing.Size(728, 139);
+            this.textBoxComment.Size = new System.Drawing.Size(728, 148);
             this.textBoxComment.TabIndex = 0;
             // 
             // groupBoxMain
@@ -504,7 +504,7 @@
             this.groupBoxComment.Controls.Add(this.textBoxComment);
             this.groupBoxComment.Location = new System.Drawing.Point(6, 312);
             this.groupBoxComment.Name = "groupBoxComment";
-            this.groupBoxComment.Size = new System.Drawing.Size(740, 164);
+            this.groupBoxComment.Size = new System.Drawing.Size(740, 173);
             this.groupBoxComment.TabIndex = 3;
             this.groupBoxComment.TabStop = false;
             this.groupBoxComment.Text = "Описание";
@@ -533,7 +533,7 @@
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(760, 508);
+            this.tabControl.Size = new System.Drawing.Size(760, 517);
             this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl.TabIndex = 0;
             this.tabControl.TabStop = false;
@@ -548,8 +548,8 @@
             this.tabPageMain.Controls.Add(this.pictureBoxCover);
             this.tabPageMain.Location = new System.Drawing.Point(4, 28);
             this.tabPageMain.Name = "tabPageMain";
-            this.tabPageMain.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPageMain.Size = new System.Drawing.Size(752, 476);
+            this.tabPageMain.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageMain.Size = new System.Drawing.Size(752, 485);
             this.tabPageMain.TabIndex = 0;
             this.tabPageMain.Text = "Общие";
             this.tabPageMain.UseVisualStyleBackColor = true;
@@ -627,6 +627,19 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Версии:";
             // 
+            // pictureBoxCover
+            // 
+            this.pictureBoxCover.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pictureBoxCover.ContextMenuStrip = this.contextMenuStrip;
+            this.pictureBoxCover.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxCover.Location = new System.Drawing.Point(6, 6);
+            this.pictureBoxCover.Name = "pictureBoxCover";
+            this.pictureBoxCover.Size = new System.Drawing.Size(300, 300);
+            this.pictureBoxCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxCover.TabIndex = 19;
+            this.pictureBoxCover.TabStop = false;
+            this.pictureBoxCover.Click += new System.EventHandler(this.PictureBoxCover_Click);
+            // 
             // tabPagePurchases
             // 
             this.tabPagePurchases.BackColor = System.Drawing.Color.Transparent;
@@ -637,7 +650,7 @@
             this.tabPagePurchases.ImageIndex = 0;
             this.tabPagePurchases.Location = new System.Drawing.Point(4, 28);
             this.tabPagePurchases.Name = "tabPagePurchases";
-            this.tabPagePurchases.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPagePurchases.Padding = new System.Windows.Forms.Padding(3);
             this.tabPagePurchases.Size = new System.Drawing.Size(752, 476);
             this.tabPagePurchases.TabIndex = 1;
             this.tabPagePurchases.Text = "Покупки";
@@ -668,6 +681,47 @@
             this.groupBoxDLCs.TabIndex = 14;
             this.groupBoxDLCs.TabStop = false;
             this.groupBoxDLCs.Text = "Дополнительные материалы";
+            // 
+            // buttonAddDLC
+            // 
+            this.buttonAddDLC.Image = global::My_Games.Properties.Resources.add;
+            this.buttonAddDLC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAddDLC.Location = new System.Drawing.Point(6, 19);
+            this.buttonAddDLC.Name = "buttonAddDLC";
+            this.buttonAddDLC.Size = new System.Drawing.Size(80, 23);
+            this.buttonAddDLC.TabIndex = 10;
+            this.buttonAddDLC.Text = "Добавить";
+            this.buttonAddDLC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAddDLC.UseVisualStyleBackColor = true;
+            this.buttonAddDLC.Click += new System.EventHandler(this.buttonAddDLC_Click);
+            // 
+            // buttonDelDLC
+            // 
+            this.buttonDelDLC.Enabled = false;
+            this.buttonDelDLC.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelDLC.Image")));
+            this.buttonDelDLC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDelDLC.Location = new System.Drawing.Point(178, 19);
+            this.buttonDelDLC.Name = "buttonDelDLC";
+            this.buttonDelDLC.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelDLC.TabIndex = 12;
+            this.buttonDelDLC.Text = "Удалить";
+            this.buttonDelDLC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonDelDLC.UseVisualStyleBackColor = true;
+            this.buttonDelDLC.Click += new System.EventHandler(this.buttonDelDLC_Click);
+            // 
+            // buttonChangeDLC
+            // 
+            this.buttonChangeDLC.Enabled = false;
+            this.buttonChangeDLC.Image = ((System.Drawing.Image)(resources.GetObject("buttonChangeDLC.Image")));
+            this.buttonChangeDLC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonChangeDLC.Location = new System.Drawing.Point(92, 19);
+            this.buttonChangeDLC.Name = "buttonChangeDLC";
+            this.buttonChangeDLC.Size = new System.Drawing.Size(80, 23);
+            this.buttonChangeDLC.TabIndex = 11;
+            this.buttonChangeDLC.Text = "Изменить";
+            this.buttonChangeDLC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonChangeDLC.UseVisualStyleBackColor = true;
+            this.buttonChangeDLC.Click += new System.EventHandler(this.buttonChangeDLC_Click);
             // 
             // listViewDLCs
             // 
@@ -754,13 +808,54 @@
             this.groupBoxVersion.TabStop = false;
             this.groupBoxVersion.Text = "Версии";
             // 
+            // buttonAddVersion
+            // 
+            this.buttonAddVersion.Image = global::My_Games.Properties.Resources.add;
+            this.buttonAddVersion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAddVersion.Location = new System.Drawing.Point(6, 19);
+            this.buttonAddVersion.Name = "buttonAddVersion";
+            this.buttonAddVersion.Size = new System.Drawing.Size(80, 23);
+            this.buttonAddVersion.TabIndex = 0;
+            this.buttonAddVersion.Text = "Добавить";
+            this.buttonAddVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAddVersion.UseVisualStyleBackColor = true;
+            this.buttonAddVersion.Click += new System.EventHandler(this.buttonAddVersion_Click);
+            // 
+            // buttonDelVersion
+            // 
+            this.buttonDelVersion.Enabled = false;
+            this.buttonDelVersion.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelVersion.Image")));
+            this.buttonDelVersion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDelVersion.Location = new System.Drawing.Point(178, 19);
+            this.buttonDelVersion.Name = "buttonDelVersion";
+            this.buttonDelVersion.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelVersion.TabIndex = 2;
+            this.buttonDelVersion.Text = "Удалить";
+            this.buttonDelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonDelVersion.UseVisualStyleBackColor = true;
+            this.buttonDelVersion.Click += new System.EventHandler(this.buttonDelVersion_Click);
+            // 
+            // buttonChangeVersion
+            // 
+            this.buttonChangeVersion.Enabled = false;
+            this.buttonChangeVersion.Image = ((System.Drawing.Image)(resources.GetObject("buttonChangeVersion.Image")));
+            this.buttonChangeVersion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonChangeVersion.Location = new System.Drawing.Point(92, 19);
+            this.buttonChangeVersion.Name = "buttonChangeVersion";
+            this.buttonChangeVersion.Size = new System.Drawing.Size(80, 23);
+            this.buttonChangeVersion.TabIndex = 1;
+            this.buttonChangeVersion.Text = "Изменить";
+            this.buttonChangeVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonChangeVersion.UseVisualStyleBackColor = true;
+            this.buttonChangeVersion.Click += new System.EventHandler(this.buttonChangeVersion_Click);
+            // 
             // tabPageHistory
             // 
             this.tabPageHistory.Controls.Add(this.groupBoxHistory);
             this.tabPageHistory.ImageIndex = 1;
             this.tabPageHistory.Location = new System.Drawing.Point(4, 28);
             this.tabPageHistory.Name = "tabPageHistory";
-            this.tabPageHistory.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageHistory.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageHistory.Size = new System.Drawing.Size(752, 476);
             this.tabPageHistory.TabIndex = 3;
             this.tabPageHistory.Text = "История";
@@ -782,13 +877,26 @@
             this.groupBoxHistory.TabStop = false;
             this.groupBoxHistory.Text = "История прохождения";
             // 
+            // buttonAddEvent
+            // 
+            this.buttonAddEvent.Image = global::My_Games.Properties.Resources.add;
+            this.buttonAddEvent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAddEvent.Location = new System.Drawing.Point(6, 19);
+            this.buttonAddEvent.Name = "buttonAddEvent";
+            this.buttonAddEvent.Size = new System.Drawing.Size(80, 23);
+            this.buttonAddEvent.TabIndex = 0;
+            this.buttonAddEvent.Text = "Добавить";
+            this.buttonAddEvent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAddEvent.UseVisualStyleBackColor = true;
+            this.buttonAddEvent.Click += new System.EventHandler(this.buttonAddEvent_Click);
+            // 
             // tabPageNotes
             // 
             this.tabPageNotes.Controls.Add(this.groupBoxNotes);
             this.tabPageNotes.ImageIndex = 2;
             this.tabPageNotes.Location = new System.Drawing.Point(4, 28);
             this.tabPageNotes.Name = "tabPageNotes";
-            this.tabPageNotes.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageNotes.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageNotes.Size = new System.Drawing.Size(752, 476);
             this.tabPageNotes.TabIndex = 4;
             this.tabPageNotes.Text = "Заметки";
@@ -831,6 +939,19 @@
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Заголовок:";
+            // 
+            // buttonNoteAdd
+            // 
+            this.buttonNoteAdd.Image = global::My_Games.Properties.Resources.add;
+            this.buttonNoteAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonNoteAdd.Location = new System.Drawing.Point(6, 19);
+            this.buttonNoteAdd.Name = "buttonNoteAdd";
+            this.buttonNoteAdd.Size = new System.Drawing.Size(80, 23);
+            this.buttonNoteAdd.TabIndex = 0;
+            this.buttonNoteAdd.Text = "Добавить";
+            this.buttonNoteAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonNoteAdd.UseVisualStyleBackColor = true;
+            this.buttonNoteAdd.Click += new System.EventHandler(this.ButtonNoteAdd_Click);
             // 
             // textBoxNoteName
             // 
@@ -914,7 +1035,7 @@
             this.tabPageOthers.Controls.Add(this.labelInfo);
             this.tabPageOthers.Location = new System.Drawing.Point(4, 28);
             this.tabPageOthers.Name = "tabPageOthers";
-            this.tabPageOthers.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageOthers.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageOthers.Size = new System.Drawing.Size(752, 476);
             this.tabPageOthers.TabIndex = 5;
             this.tabPageOthers.Text = "Прочее";
@@ -928,138 +1049,17 @@
             this.imageListTabs.Images.SetKeyName(1, "winner.png");
             this.imageListTabs.Images.SetKeyName(2, "notes.png");
             // 
-            // pictureBoxCover
-            // 
-            this.pictureBoxCover.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.pictureBoxCover.ContextMenuStrip = this.contextMenuStrip;
-            this.pictureBoxCover.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxCover.Location = new System.Drawing.Point(6, 6);
-            this.pictureBoxCover.Name = "pictureBoxCover";
-            this.pictureBoxCover.Size = new System.Drawing.Size(300, 300);
-            this.pictureBoxCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxCover.TabIndex = 19;
-            this.pictureBoxCover.TabStop = false;
-            this.pictureBoxCover.Click += new System.EventHandler(this.PictureBoxCover_Click);
-            // 
-            // buttonAddDLC
-            // 
-            this.buttonAddDLC.Image = global::My_Games.Properties.Resources.add;
-            this.buttonAddDLC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddDLC.Location = new System.Drawing.Point(6, 19);
-            this.buttonAddDLC.Name = "buttonAddDLC";
-            this.buttonAddDLC.Size = new System.Drawing.Size(80, 23);
-            this.buttonAddDLC.TabIndex = 10;
-            this.buttonAddDLC.Text = "Добавить";
-            this.buttonAddDLC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonAddDLC.UseVisualStyleBackColor = true;
-            this.buttonAddDLC.Click += new System.EventHandler(this.buttonAddDLC_Click);
-            // 
-            // buttonDelDLC
-            // 
-            this.buttonDelDLC.Enabled = false;
-            this.buttonDelDLC.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelDLC.Image")));
-            this.buttonDelDLC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelDLC.Location = new System.Drawing.Point(178, 19);
-            this.buttonDelDLC.Name = "buttonDelDLC";
-            this.buttonDelDLC.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelDLC.TabIndex = 12;
-            this.buttonDelDLC.Text = "Удалить";
-            this.buttonDelDLC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonDelDLC.UseVisualStyleBackColor = true;
-            this.buttonDelDLC.Click += new System.EventHandler(this.buttonDelDLC_Click);
-            // 
-            // buttonChangeDLC
-            // 
-            this.buttonChangeDLC.Enabled = false;
-            this.buttonChangeDLC.Image = ((System.Drawing.Image)(resources.GetObject("buttonChangeDLC.Image")));
-            this.buttonChangeDLC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonChangeDLC.Location = new System.Drawing.Point(92, 19);
-            this.buttonChangeDLC.Name = "buttonChangeDLC";
-            this.buttonChangeDLC.Size = new System.Drawing.Size(80, 23);
-            this.buttonChangeDLC.TabIndex = 11;
-            this.buttonChangeDLC.Text = "Изменить";
-            this.buttonChangeDLC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonChangeDLC.UseVisualStyleBackColor = true;
-            this.buttonChangeDLC.Click += new System.EventHandler(this.buttonChangeDLC_Click);
-            // 
-            // buttonAddVersion
-            // 
-            this.buttonAddVersion.Image = global::My_Games.Properties.Resources.add;
-            this.buttonAddVersion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddVersion.Location = new System.Drawing.Point(6, 19);
-            this.buttonAddVersion.Name = "buttonAddVersion";
-            this.buttonAddVersion.Size = new System.Drawing.Size(80, 23);
-            this.buttonAddVersion.TabIndex = 0;
-            this.buttonAddVersion.Text = "Добавить";
-            this.buttonAddVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonAddVersion.UseVisualStyleBackColor = true;
-            this.buttonAddVersion.Click += new System.EventHandler(this.buttonAddVersion_Click);
-            // 
-            // buttonDelVersion
-            // 
-            this.buttonDelVersion.Enabled = false;
-            this.buttonDelVersion.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelVersion.Image")));
-            this.buttonDelVersion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelVersion.Location = new System.Drawing.Point(178, 19);
-            this.buttonDelVersion.Name = "buttonDelVersion";
-            this.buttonDelVersion.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelVersion.TabIndex = 2;
-            this.buttonDelVersion.Text = "Удалить";
-            this.buttonDelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonDelVersion.UseVisualStyleBackColor = true;
-            this.buttonDelVersion.Click += new System.EventHandler(this.buttonDelVersion_Click);
-            // 
-            // buttonChangeVersion
-            // 
-            this.buttonChangeVersion.Enabled = false;
-            this.buttonChangeVersion.Image = ((System.Drawing.Image)(resources.GetObject("buttonChangeVersion.Image")));
-            this.buttonChangeVersion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonChangeVersion.Location = new System.Drawing.Point(92, 19);
-            this.buttonChangeVersion.Name = "buttonChangeVersion";
-            this.buttonChangeVersion.Size = new System.Drawing.Size(80, 23);
-            this.buttonChangeVersion.TabIndex = 1;
-            this.buttonChangeVersion.Text = "Изменить";
-            this.buttonChangeVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonChangeVersion.UseVisualStyleBackColor = true;
-            this.buttonChangeVersion.Click += new System.EventHandler(this.buttonChangeVersion_Click);
-            // 
-            // buttonAddEvent
-            // 
-            this.buttonAddEvent.Image = global::My_Games.Properties.Resources.add;
-            this.buttonAddEvent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddEvent.Location = new System.Drawing.Point(6, 19);
-            this.buttonAddEvent.Name = "buttonAddEvent";
-            this.buttonAddEvent.Size = new System.Drawing.Size(80, 23);
-            this.buttonAddEvent.TabIndex = 0;
-            this.buttonAddEvent.Text = "Добавить";
-            this.buttonAddEvent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonAddEvent.UseVisualStyleBackColor = true;
-            this.buttonAddEvent.Click += new System.EventHandler(this.buttonAddEvent_Click);
-            // 
-            // buttonNoteAdd
-            // 
-            this.buttonNoteAdd.Image = global::My_Games.Properties.Resources.add;
-            this.buttonNoteAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonNoteAdd.Location = new System.Drawing.Point(6, 19);
-            this.buttonNoteAdd.Name = "buttonNoteAdd";
-            this.buttonNoteAdd.Size = new System.Drawing.Size(80, 23);
-            this.buttonNoteAdd.TabIndex = 0;
-            this.buttonNoteAdd.Text = "Добавить";
-            this.buttonNoteAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonNoteAdd.UseVisualStyleBackColor = true;
-            this.buttonNoteAdd.Click += new System.EventHandler(this.ButtonNoteAdd_Click);
-            // 
             // FormGame
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(784, 552);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
-            this.MinimumSize = new System.Drawing.Size(795, 554);
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "FormGame";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -1074,6 +1074,7 @@
             this.tabPageMain.PerformLayout();
             this.groupBoxInfo.ResumeLayout(false);
             this.groupBoxInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).EndInit();
             this.tabPagePurchases.ResumeLayout(false);
             this.panelDLCs.ResumeLayout(false);
             this.groupBoxDLCs.ResumeLayout(false);
@@ -1086,7 +1087,6 @@
             this.groupBoxNotes.PerformLayout();
             this.tabPageOthers.ResumeLayout(false);
             this.tabPageOthers.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).EndInit();
             this.ResumeLayout(false);
 
         }

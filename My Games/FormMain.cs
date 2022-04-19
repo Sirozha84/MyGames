@@ -15,6 +15,7 @@ namespace My_Games
         public FormMain()
         {
             InitializeComponent();
+            Settings.Init();
             Data.Load();
             listViewGames.ListViewItemSorter = itemComparer;
             RefreshData();
@@ -323,7 +324,7 @@ namespace My_Games
         {
             menuCol0.Checked = true;
             menuCol1.Checked = false;
-            Properties.Settings.Default.colorMode = 0;
+            Settings.colorMode = 0;
             RefreshData();
         }
 
@@ -331,7 +332,7 @@ namespace My_Games
         {
             menuCol0.Checked = false;
             menuCol1.Checked = true;
-            Properties.Settings.Default.colorMode = 1;
+            Settings.colorMode = 1;
             RefreshData();
         }
 
@@ -376,27 +377,26 @@ namespace My_Games
         #region Параметры программы
         private void FormMain_Load(object sender, EventArgs e)
         {
-            Left = Properties.Settings.Default.Left;
-            Top = Properties.Settings.Default.Top;
-            Width = Properties.Settings.Default.Width;
-            Height = Properties.Settings.Default.Height;
+            Left = Settings.left;
+            Top = Settings.top;
+            Width = Settings.width;
+            Height = Settings.height;
             menuFilter.Checked = Data.data.filter.enable;
             toolFilter.Checked = Data.data.filter.enable;
-            menuInfoPanel.Checked = Properties.Settings.Default.InfoView;
-            toolInfoPanel.Checked = Properties.Settings.Default.InfoView;
-            menuCol0.Checked = Properties.Settings.Default.colorMode == 0;
-            menuCol1.Checked = Properties.Settings.Default.colorMode == 1;
+            menuInfoPanel.Checked = toolInfoPanel.Checked=Settings.infoPanel;
+            menuCol0.Checked = Settings.colorMode == 0;
+            menuCol1.Checked = Settings.colorMode == 1;
             ShowHideInfoView(false);
         }
 
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Properties.Settings.Default.Left = Left;
-            Properties.Settings.Default.Top = Top;
-            Properties.Settings.Default.Width = Width;
-            Properties.Settings.Default.Height = Height;
-            Properties.Settings.Default.InfoView = menuInfoPanel.Checked;
-            Properties.Settings.Default.Save();
+            Settings.left = Left;
+            Settings.top = Top;
+            Settings.width = Width;
+            Settings.height = Height;
+            Settings.infoPanel = menuInfoPanel.Checked;
+            Settings.Save();
             Data.Save();
         }
 

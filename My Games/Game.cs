@@ -45,7 +45,7 @@ namespace My_Games
                 Event.events[win], hours.ToString(Program.num), versions.Count().ToString(Program.num), price.ToString(Program.num)};
             ListViewItem item = new ListViewItem(labels);
             item.Tag = this;
-            if (Properties.Settings.Default.colorMode == 1)
+            if (Settings.colorMode == 1)
                 item.BackColor = Color.FromArgb(Data.data.winColR[win], Data.data.winColG[win], Data.data.winColB[win]);
             return item;
         }
