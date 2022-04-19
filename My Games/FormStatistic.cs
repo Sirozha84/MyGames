@@ -46,6 +46,7 @@ namespace My_Games
                 foreach (Version v in g.versions)
                     if (last < v.date) last = v.date;
             ctCount = Data.data.platforms.Count;
+            if (ctCount < 1) return;
             ColumnsCalc();
 
             //Создадим табличку с рейтингом по платформам
@@ -106,6 +107,7 @@ namespace My_Games
                 foreach (DLC d in g.DLCs) if (last < d.date) last = d.date;
             }
             ctCount = Data.data.platforms.Count;
+            if (ctCount < 1) return;
             ColumnsCalc();
 
             //Создадим табличку с рейтингом по платформам
@@ -190,6 +192,7 @@ namespace My_Games
                 foreach (Event ev in g.history)
                     if (last < ev.date) last = ev.date;
             ctCount = Data.data.platforms.Count;
+            if (ctCount < 1) return;
             ColumnsCalc();
 
             //Создадим табличку с рейтингом по платформам
