@@ -38,6 +38,12 @@ namespace My_Games
             {
                 data = new Data();
             }
+            ReHold();
+        }
+        public static void ReHold()
+        {
+            foreach (Game g in data.games)
+                g.Hold();
         }
 
         /// <summary>

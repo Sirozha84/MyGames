@@ -44,6 +44,10 @@
             this.menuSep2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuCol0 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCol1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSep3 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuDateType0 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDateType1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDateType2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCats = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPlatforms = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMediums = new System.Windows.Forms.ToolStripMenuItem();
@@ -156,10 +160,11 @@
             // menuDel
             // 
             this.menuDel.Enabled = false;
+            this.menuDel.Image = global::My_Games.Properties.Resources.remove;
             this.menuDel.Name = "menuDel";
             this.menuDel.Size = new System.Drawing.Size(273, 22);
             this.menuDel.Text = "Удалить";
-            this.menuDel.Click += new System.EventHandler(this.menuDel_Click);
+            this.menuDel.Click += new System.EventHandler(this.Delete);
             // 
             // menuSep1
             // 
@@ -172,7 +177,7 @@
             this.menuExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.menuExit.Size = new System.Drawing.Size(273, 22);
             this.menuExit.Text = "Выход";
-            this.menuExit.Click += new System.EventHandler(this.menuExit_Click);
+            this.menuExit.Click += new System.EventHandler(this.Exit);
             // 
             // menuView
             // 
@@ -182,7 +187,11 @@
             this.menuInfoPanel,
             this.menuSep2,
             this.menuCol0,
-            this.menuCol1});
+            this.menuCol1,
+            this.menuSep3,
+            this.menuDateType0,
+            this.menuDateType1,
+            this.menuDateType2});
             this.menuView.Name = "menuView";
             this.menuView.Size = new System.Drawing.Size(39, 20);
             this.menuView.Text = "Вид";
@@ -225,7 +234,7 @@
             this.menuCol0.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.menuCol0.Size = new System.Drawing.Size(248, 22);
             this.menuCol0.Text = "Раскраска отключена";
-            this.menuCol0.Click += new System.EventHandler(this.menuCol0_Click);
+            this.menuCol0.Click += new System.EventHandler(this.SelectColorMode);
             // 
             // menuCol1
             // 
@@ -233,7 +242,33 @@
             this.menuCol1.ShortcutKeys = System.Windows.Forms.Keys.F6;
             this.menuCol1.Size = new System.Drawing.Size(248, 22);
             this.menuCol1.Text = "Раскраска по прохождению";
-            this.menuCol1.Click += new System.EventHandler(this.menuCol1_Click);
+            this.menuCol1.Click += new System.EventHandler(this.SelectColorMode);
+            // 
+            // menuSep3
+            // 
+            this.menuSep3.Name = "menuSep3";
+            this.menuSep3.Size = new System.Drawing.Size(245, 6);
+            // 
+            // menuDateType0
+            // 
+            this.menuDateType0.Name = "menuDateType0";
+            this.menuDateType0.Size = new System.Drawing.Size(248, 22);
+            this.menuDateType0.Text = "Дата: Первая покупка";
+            this.menuDateType0.Click += new System.EventHandler(this.SelectDateType);
+            // 
+            // menuDateType1
+            // 
+            this.menuDateType1.Name = "menuDateType1";
+            this.menuDateType1.Size = new System.Drawing.Size(248, 22);
+            this.menuDateType1.Text = "Дата: Последняя покупка";
+            this.menuDateType1.Click += new System.EventHandler(this.SelectDateType);
+            // 
+            // menuDateType2
+            // 
+            this.menuDateType2.Name = "menuDateType2";
+            this.menuDateType2.Size = new System.Drawing.Size(248, 22);
+            this.menuDateType2.Text = "Дата: Последняя игра";
+            this.menuDateType2.Click += new System.EventHandler(this.SelectDateType);
             // 
             // menuCats
             // 
@@ -248,14 +283,14 @@
             // menuPlatforms
             // 
             this.menuPlatforms.Name = "menuPlatforms";
-            this.menuPlatforms.Size = new System.Drawing.Size(142, 22);
+            this.menuPlatforms.Size = new System.Drawing.Size(180, 22);
             this.menuPlatforms.Text = "Платформы";
             this.menuPlatforms.Click += new System.EventHandler(this.menuPlatforms_Click);
             // 
             // menuMediums
             // 
             this.menuMediums.Name = "menuMediums";
-            this.menuMediums.Size = new System.Drawing.Size(142, 22);
+            this.menuMediums.Size = new System.Drawing.Size(180, 22);
             this.menuMediums.Text = "Носители";
             this.menuMediums.ToolTipText = "Носители, электронные магазины, подписки";
             this.menuMediums.Click += new System.EventHandler(this.menuMediums_Click);
@@ -263,7 +298,7 @@
             // menuGenres
             // 
             this.menuGenres.Name = "menuGenres";
-            this.menuGenres.Size = new System.Drawing.Size(142, 22);
+            this.menuGenres.Size = new System.Drawing.Size(180, 22);
             this.menuGenres.Text = "Жанры";
             this.menuGenres.Click += new System.EventHandler(this.menuGenres_Click);
             // 
@@ -481,10 +516,10 @@
             this.listViewGames.TabIndex = 2;
             this.listViewGames.UseCompatibleStateImageBehavior = false;
             this.listViewGames.View = System.Windows.Forms.View.Details;
-            this.listViewGames.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewGames_ColumnClick);
-            this.listViewGames.SelectedIndexChanged += new System.EventHandler(this.listViewGames_SelectedIndexChanged);
+            this.listViewGames.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.Sort);
+            this.listViewGames.SelectedIndexChanged += new System.EventHandler(this.SelectChange);
             this.listViewGames.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listViewGames_KeyDown);
-            this.listViewGames.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewGames_MouseDoubleClick);
+            this.listViewGames.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Open);
             // 
             // columnHeaderDate
             // 
@@ -533,33 +568,33 @@
             this.menuGoToSite,
             this.menuDelC});
             this.contextMenu.Name = "contextMenuStrip1";
-            this.contextMenu.Size = new System.Drawing.Size(181, 92);
+            this.contextMenu.Size = new System.Drawing.Size(165, 70);
             // 
             // menuOpen
             // 
             this.menuOpen.Enabled = false;
             this.menuOpen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.menuOpen.Name = "menuOpen";
-            this.menuOpen.Size = new System.Drawing.Size(180, 22);
+            this.menuOpen.Size = new System.Drawing.Size(164, 22);
             this.menuOpen.Text = "Открыть";
-            this.menuOpen.Click += new System.EventHandler(this.menuOpen_Click);
+            this.menuOpen.Click += new System.EventHandler(this.Open);
             // 
             // menuGoToSite
             // 
             this.menuGoToSite.Enabled = false;
             this.menuGoToSite.Name = "menuGoToSite";
-            this.menuGoToSite.Size = new System.Drawing.Size(180, 22);
+            this.menuGoToSite.Size = new System.Drawing.Size(164, 22);
             this.menuGoToSite.Text = "Перейти на сайт";
-            this.menuGoToSite.Click += new System.EventHandler(this.menuGoToSite_Click);
+            this.menuGoToSite.Click += new System.EventHandler(this.GoToSite);
             // 
             // menuDelC
             // 
             this.menuDelC.Enabled = false;
             this.menuDelC.Image = global::My_Games.Properties.Resources.remove;
             this.menuDelC.Name = "menuDelC";
-            this.menuDelC.Size = new System.Drawing.Size(180, 22);
+            this.menuDelC.Size = new System.Drawing.Size(164, 22);
             this.menuDelC.Text = "Удалить";
-            this.menuDelC.Click += new System.EventHandler(this.menuDelC_Click);
+            this.menuDelC.Click += new System.EventHandler(this.Delete);
             // 
             // statusStrip
             // 
@@ -848,6 +883,10 @@
         private System.Windows.Forms.Label labelDLCL;
         private System.Windows.Forms.Label labelHistory;
         private System.Windows.Forms.Label labelHistoryL;
+        private System.Windows.Forms.ToolStripSeparator menuSep3;
+        private System.Windows.Forms.ToolStripMenuItem menuDateType0;
+        private System.Windows.Forms.ToolStripMenuItem menuDateType1;
+        private System.Windows.Forms.ToolStripMenuItem menuDateType2;
     }
 }
 

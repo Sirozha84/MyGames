@@ -22,73 +22,28 @@ namespace My_Games
             listViewGames.Columns[lastColumn].Text += " ▲";
         }
 
-        void Open()
+        private void FormMain_Load(object sender, EventArgs e)
         {
-            if (listViewGames.SelectedItems.Count == 1)
-            {
-                Game game = (Game)listViewGames.SelectedItems[0].Tag;
-                FormGame form = new FormGame(game);
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-                    Data.Save();
-                    RefreshData();
-                }
-            }
+            Left = Settings.left;
+            Top = Settings.top;
+            Width = Settings.width;
+            Height = Settings.height;
+            Checks();
+            ShowHideInfoView(false);
         }
 
-        void GoToSite()
+        private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Game game = (Game)listViewGames.SelectedItems[0].Tag;
-            System.Diagnostics.Process.Start("http:" + game.website);
+            Settings.left = Left;
+            Settings.top = Top;
+            Settings.width = Width;
+            Settings.height = Height;
+            Settings.infoPanel = menuInfoPanel.Checked;
+            Settings.Save();
+            Data.Save();
         }
 
-        private void listViewGames_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter) listViewGames_MouseDoubleClick(null, null);
-        }
-
-        private void listViewGames_MouseDoubleClick(object sender, MouseEventArgs e) { Open(); }
-
-        private void listViewGames_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            bool selected = listViewGames.SelectedIndices.Count > 0;
-            bool enableSite = false;
-            menuDel.Enabled = selected;
-            menuOpen.Enabled = selected;
-            menuDelC.Enabled = selected;
-
-            Game game = selected? (Game)listViewGames.SelectedItems[0].Tag : new Game();
-
-            //Инфопанель
-            if (game.cover != null)
-                try
-                {
-                    using (var File = new FileStream("Covers\\" + game.cover, FileMode.Open, FileAccess.Read, FileShare.Inheritable))
-                        pictureBoxCover.Image = Image.FromStream(File);
-                }
-                catch { }
-            else
-                pictureBoxCover.Image = null;
-
-            labelName.Text = selected ? game.name : "";
-            labelDevelopers.Text = selected ? game.developer : "";
-            labelPublishers.Text = selected ? game.publisher : "";
-            labelYear.Text = selected ? game.year : "";
-            labelVersions.Text = selected ? Data.StringVersions(game.versions) : "";
-            labelDLCs.Text = selected ? Data.StringDLCs(game.DLCs) : "";
-            labelHistory.Text = selected ? Data.StringHistory(game.history) : "";
-
-            int selectC = listViewGames.SelectedIndices.Count;
-            if (selectC == 1)
-                enableSite = game.website != null & game.website != "";
-            menuGoToSite.Enabled = enableSite;
-            if (selectC == 0)
-                statusSelected.Text = "";
-            else
-                statusSelected.Text = "Выделено: " + selectC.ToString();
-        }
-
-        #region Вид приложения, обновление, сортировка
+        #region Действия на форме (обновление, выбор, открытие, сортировка)
         void RefreshData()
         {
             GameDateComparer dc = new GameDateComparer();
@@ -109,7 +64,7 @@ namespace My_Games
                         match = false;
                         foreach (Version ver in g.versions)
                         {
-                            bool min = fl.startEnable? ver.date >= fl.start : true;
+                            bool min = fl.startEnable ? ver.date >= fl.start : true;
                             bool max = fl.endEnable ? ver.date <= fl.end : true;
                             match = min & max;
                         }
@@ -142,11 +97,6 @@ namespace My_Games
             //listViewGames.Items[30].Selected = true;
             //listViewGames.Items[30].Focused = true;
             //Подумать как после обновления списка оставить выделенным элемент который уже был выделен до обновления
-            StatusBas(showed);
-        }
-
-        void StatusBas(int showed)
-        {
             statusAll.Text = "Всего игр: " + Data.data.games.Count;
             if (showed == Data.data.games.Count)
                 statusShowed.Text = "";
@@ -155,29 +105,76 @@ namespace My_Games
             statusSelected.Text = "";
         }
 
-        /// <summary>
-        /// Показ или скрытие панели информации
-        /// </summary>
-        /// <param name="resize"></param>
-        void ShowHideInfoView(bool resize)
+        private void SelectChange(object sender, EventArgs e)
         {
-            //Порядок не нарушаем - иначе моргает из-за перерисовок.
-            if (menuInfoPanel.Checked)
-            {
-                if (resize) Width += infoView.Width;
-                listViewGames.Width = menuStrip.Width - infoView.Width;
-                infoView.Left = menuStrip.Width - infoView.Width;
-            }
+            bool selected = listViewGames.SelectedIndices.Count > 0;
+            bool enableSite = false;
+            menuDel.Enabled = selected;
+            menuOpen.Enabled = selected;
+            menuDelC.Enabled = selected;
+
+            Game game = selected ? (Game)listViewGames.SelectedItems[0].Tag : new Game();
+
+            //Инфопанель
+            if (game.cover != null)
+                try
+                {
+                    using (var File = new FileStream("Covers\\" + game.cover, FileMode.Open, FileAccess.Read, FileShare.Inheritable))
+                        pictureBoxCover.Image = Image.FromStream(File);
+                }
+                catch { }
             else
+                pictureBoxCover.Image = null;
+
+            labelName.Text = selected ? game.name : "";
+            labelDevelopers.Text = selected ? game.developer : "";
+            labelPublishers.Text = selected ? game.publisher : "";
+            labelYear.Text = selected ? game.year : "";
+            labelVersions.Text = selected ? Data.StringVersions(game.versions) : "";
+            labelDLCs.Text = selected ? Data.StringDLCs(game.DLCs) : "";
+            labelHistory.Text = selected ? Data.StringHistory(game.history) : "";
+
+            int selectC = listViewGames.SelectedIndices.Count;
+            if (selectC == 1)
+                enableSite = game.website != null & game.website != "";
+            menuGoToSite.Enabled = enableSite;
+            if (selectC == 0)
+                statusSelected.Text = "";
+            else
+                statusSelected.Text = "Выделено: " + selectC.ToString();
+        }
+
+        void Open(object sender, EventArgs e)
+        {
+            if (listViewGames.SelectedItems.Count == 1)
             {
-                listViewGames.Width = menuStrip.Width;
-                infoView.Left = menuStrip.Width;
-                if (resize) Width -= infoView.Width;
+                Game game = (Game)listViewGames.SelectedItems[0].Tag;
+                FormGame form = new FormGame(game);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    Data.Save();
+                    RefreshData();
+                }
             }
         }
 
-        //Сортировка колонок
-        private void listViewGames_ColumnClick(object sender, ColumnClickEventArgs e)
+        private void listViewGames_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) Open(null, null);
+        }
+
+        void GoToSite(object sender, EventArgs e)
+        {
+            Game game = (Game)listViewGames.SelectedItems[0].Tag;
+            System.Diagnostics.Process.Start("http:" + game.website);
+        }
+
+
+
+        /// <summary>
+        /// Сортировка по выбранной колонке
+        /// </summary>
+        private void Sort(object sender, ColumnClickEventArgs e)
         {
             itemComparer.ColumnIndex = e.Column;
             ((ListView)sender).Sort();
@@ -229,7 +226,7 @@ namespace My_Games
             }
         }
 
-        private void menuDel_Click(object sender, EventArgs e)
+        private void Delete(object sender, EventArgs e)
         {
             int count = listViewGames.SelectedIndices.Count;
             if (count < 1) return; //Хотя до этого и не должно дойти, но мало ли
@@ -245,7 +242,7 @@ namespace My_Games
             }
         }
 
-        private void menuExit_Click(object sender, EventArgs e)
+        private void Exit(object sender, EventArgs e)
         {
             Close();
         }
@@ -273,7 +270,22 @@ namespace My_Games
             toolInfoPanel.Checked = menuInfoPanel.Checked;
             ShowHideInfoView(true);
         }
-
+        private void SelectColorMode(object sender, EventArgs e)
+        {
+            if (((ToolStripMenuItem)sender).Name == "menuCol0") Settings.colorMode = 0;
+            if (((ToolStripMenuItem)sender).Name == "menuCol1") Settings.colorMode = 1;
+            Checks();
+            RefreshData();
+        }
+        private void SelectDateType(object sender, EventArgs e)
+        {
+            if (((ToolStripMenuItem)sender).Name == "menuDateType0") Settings.dateType = 0;
+            if (((ToolStripMenuItem)sender).Name == "menuDateType1") Settings.dateType = 1;
+            if (((ToolStripMenuItem)sender).Name == "menuDateType2") Settings.dateType = 2;
+            Checks();
+            Data.ReHold();
+            RefreshData();
+        }
 
         #endregion
 
@@ -319,23 +331,6 @@ namespace My_Games
         {
             using (FormPlayHistory form = new FormPlayHistory()) form.ShowDialog();
         }
-
-        private void menuCol0_Click(object sender, EventArgs e)
-        {
-            menuCol0.Checked = true;
-            menuCol1.Checked = false;
-            Settings.colorMode = 0;
-            RefreshData();
-        }
-
-        private void menuCol1_Click(object sender, EventArgs e)
-        {
-            menuCol0.Checked = false;
-            menuCol1.Checked = true;
-            Settings.colorMode = 1;
-            RefreshData();
-        }
-
         #endregion
 
         #region Меню "Справка"
@@ -357,50 +352,41 @@ namespace My_Games
         private void toolReset_Click(object sender, EventArgs e) { toolSearch.Text = ""; }
         #endregion
 
-        #region Контекстное меню
-        private void menuOpen_Click(object sender, EventArgs e)
-        {
-            Open();
-        }
-
-        private void menuDelC_Click(object sender, EventArgs e)
-        {
-            menuDel_Click(null, null);
-        }
-
-        private void menuGoToSite_Click(object sender, EventArgs e)
-        {
-            GoToSite();
-        }
-        #endregion
-
         #region Параметры программы
-        private void FormMain_Load(object sender, EventArgs e)
+
+        /// <summary>
+        /// Обновление чекбоксов в меню
+        /// </summary>
+        void Checks()
         {
-            Left = Settings.left;
-            Top = Settings.top;
-            Width = Settings.width;
-            Height = Settings.height;
-            menuFilter.Checked = Data.data.filter.enable;
-            toolFilter.Checked = Data.data.filter.enable;
-            menuInfoPanel.Checked = toolInfoPanel.Checked=Settings.infoPanel;
+            menuFilter.Checked = toolFilter.Checked = Data.data.filter.enable;
+            menuInfoPanel.Checked = toolInfoPanel.Checked = Settings.infoPanel;
             menuCol0.Checked = Settings.colorMode == 0;
             menuCol1.Checked = Settings.colorMode == 1;
-            ShowHideInfoView(false);
+            menuDateType0.Checked = Settings.dateType == 0;
+            menuDateType1.Checked = Settings.dateType == 1;
+            menuDateType2.Checked = Settings.dateType == 2;
         }
 
-        private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
+        /// <summary>
+        /// Показ или скрытие панели информации
+        /// </summary>
+        void ShowHideInfoView(bool resize)
         {
-            Settings.left = Left;
-            Settings.top = Top;
-            Settings.width = Width;
-            Settings.height = Height;
-            Settings.infoPanel = menuInfoPanel.Checked;
-            Settings.Save();
-            Data.Save();
+            //Порядок не нарушаем - иначе моргает из-за перерисовок.
+            if (menuInfoPanel.Checked)
+            {
+                if (resize) Width += infoView.Width;
+                listViewGames.Width = menuStrip.Width - infoView.Width;
+                infoView.Left = menuStrip.Width - infoView.Width;
+            }
+            else
+            {
+                listViewGames.Width = menuStrip.Width;
+                infoView.Left = menuStrip.Width;
+                if (resize) Width -= infoView.Width;
+            }
         }
-
-
         #endregion
 
     }
