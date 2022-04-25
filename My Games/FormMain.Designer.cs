@@ -283,14 +283,14 @@
             // menuPlatforms
             // 
             this.menuPlatforms.Name = "menuPlatforms";
-            this.menuPlatforms.Size = new System.Drawing.Size(180, 22);
+            this.menuPlatforms.Size = new System.Drawing.Size(142, 22);
             this.menuPlatforms.Text = "Платформы";
             this.menuPlatforms.Click += new System.EventHandler(this.menuPlatforms_Click);
             // 
             // menuMediums
             // 
             this.menuMediums.Name = "menuMediums";
-            this.menuMediums.Size = new System.Drawing.Size(180, 22);
+            this.menuMediums.Size = new System.Drawing.Size(142, 22);
             this.menuMediums.Text = "Носители";
             this.menuMediums.ToolTipText = "Носители, электронные магазины, подписки";
             this.menuMediums.Click += new System.EventHandler(this.menuMediums_Click);
@@ -298,7 +298,7 @@
             // menuGenres
             // 
             this.menuGenres.Name = "menuGenres";
-            this.menuGenres.Size = new System.Drawing.Size(180, 22);
+            this.menuGenres.Size = new System.Drawing.Size(142, 22);
             this.menuGenres.Text = "Жанры";
             this.menuGenres.Click += new System.EventHandler(this.menuGenres_Click);
             // 
@@ -529,12 +529,12 @@
             // columnHeaderGame
             // 
             this.columnHeaderGame.Text = "Игра";
-            this.columnHeaderGame.Width = 180;
+            this.columnHeaderGame.Width = 210;
             // 
             // columnHeaderGenre
             // 
             this.columnHeaderGenre.Text = "Жанр";
-            this.columnHeaderGenre.Width = 80;
+            this.columnHeaderGenre.Width = 100;
             // 
             // columnHeaderRating
             // 

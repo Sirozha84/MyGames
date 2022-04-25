@@ -245,7 +245,6 @@
     <None Include="Resources\new.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\My Games.png" />
     <None Include="Resources\add.png" />
     <None Include="Resources\add fast.png" />
     <None Include="Resources\info.png" />
@@ -269,6 +268,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="My Games.ico" />
+    <None Include="Resources\logo.png" />
     <None Include="Resources\edit.png" />
     <None Include="Resources\remove.png" />
   </ItemGroup>

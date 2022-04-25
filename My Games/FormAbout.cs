@@ -13,9 +13,11 @@ namespace My_Games
             labelVersion.Text = "Версия: " + Program.Version;
 
             history.SelectionFont = fontB;
-            history.AppendText("Версия 2.5 (13.04.2022)\n\n");
+            history.AppendText("Версия 2.5 (30.04.2022)\n\n");
             history.SelectionFont = fontR;
             history.AppendText("• Добавлено автоматическое вычисления часов события по данным счётчика\n" +
+                "• Переключение между тремя режимами представления даты игры\n" +
+                "• Настройки программы теперь не будут сбрасываться при обновлении\n" +
                 "• Исправлена пропавшая возможность удалить обложку у игры\n" +
                 "• Исправлено автоматическое скрытие платформ в выпадающем списке события, "+
                 "а также, эта функция добавлена в окно дополнительных материалов\n\n");
@@ -117,7 +119,7 @@ namespace My_Games
                 "• Быстрое добавление игры с основными полями");
         }
 
-        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void GotoSite(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("http://sg-software.ru");
         }

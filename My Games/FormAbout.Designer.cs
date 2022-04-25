@@ -28,88 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabAbout = new System.Windows.Forms.TabPage();
+            this.linkSite = new System.Windows.Forms.LinkLabel();
+            this.labelSite = new System.Windows.Forms.Label();
+            this.labelAutor = new System.Windows.Forms.Label();
             this.labelVersion = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.labelName = new System.Windows.Forms.Label();
+            this.pictureLogo = new System.Windows.Forms.PictureBox();
+            this.tabHistory = new System.Windows.Forms.TabPage();
             this.history = new System.Windows.Forms.RichTextBox();
             this.buttonClose = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.tabAbout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
+            this.tabHistory.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // tabControl
             // 
-            this.pictureBox1.Image = global::My_Games.Properties.Resources.My_Games;
-            this.pictureBox1.Location = new System.Drawing.Point(32, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(460, 208);
-            this.tabControl1.TabIndex = 1;
+            this.tabControl.Controls.Add(this.tabAbout);
+            this.tabControl.Controls.Add(this.tabHistory);
+            this.tabControl.Location = new System.Drawing.Point(12, 12);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(460, 208);
+            this.tabControl.TabIndex = 1;
             // 
-            // tabPage1
+            // tabAbout
             // 
-            this.tabPage1.Controls.Add(this.linkLabel1);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.labelVersion);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.pictureBox1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(452, 182);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "О программе";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabAbout.Controls.Add(this.pictureLogo);
+            this.tabAbout.Controls.Add(this.labelName);
+            this.tabAbout.Controls.Add(this.labelVersion);
+            this.tabAbout.Controls.Add(this.labelAutor);
+            this.tabAbout.Controls.Add(this.labelSite);
+            this.tabAbout.Controls.Add(this.linkSite);
+            this.tabAbout.Location = new System.Drawing.Point(4, 22);
+            this.tabAbout.Name = "tabAbout";
+            this.tabAbout.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAbout.Size = new System.Drawing.Size(452, 182);
+            this.tabAbout.TabIndex = 0;
+            this.tabAbout.Text = "О программе";
+            this.tabAbout.UseVisualStyleBackColor = true;
             // 
-            // linkLabel1
+            // linkSite
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(182, 144);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(73, 13);
-            this.linkLabel1.TabIndex = 6;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "sg-software.ru";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1_LinkClicked);
+            this.linkSite.AutoSize = true;
+            this.linkSite.Location = new System.Drawing.Point(182, 144);
+            this.linkSite.Name = "linkSite";
+            this.linkSite.Size = new System.Drawing.Size(73, 13);
+            this.linkSite.TabIndex = 6;
+            this.linkSite.TabStop = true;
+            this.linkSite.Text = "sg-software.ru";
+            this.linkSite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GotoSite);
             // 
-            // label4
+            // labelSite
             // 
-            this.label4.Location = new System.Drawing.Point(182, 118);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(226, 30);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Новую версию этой и других моих программ Вы можете загрузить на сайте";
+            this.labelSite.Location = new System.Drawing.Point(182, 118);
+            this.labelSite.Name = "labelSite";
+            this.labelSite.Size = new System.Drawing.Size(226, 30);
+            this.labelSite.TabIndex = 5;
+            this.labelSite.Text = "Новую версию этой и других моих программ Вы можете загрузить на сайте";
             // 
-            // label3
+            // labelAutor
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(182, 92);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Автор: Сергей Гордеев";
+            this.labelAutor.AutoSize = true;
+            this.labelAutor.Location = new System.Drawing.Point(182, 92);
+            this.labelAutor.Name = "labelAutor";
+            this.labelAutor.Size = new System.Drawing.Size(124, 13);
+            this.labelAutor.TabIndex = 4;
+            this.labelAutor.Text = "Автор: Сергей Гордеев";
             // 
             // labelVersion
             // 
@@ -120,26 +111,35 @@
             this.labelVersion.TabIndex = 3;
             this.labelVersion.Text = "Версия";
             // 
-            // label1
+            // labelName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(180, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 25);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "My Games";
+            this.labelName.AutoSize = true;
+            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelName.Location = new System.Drawing.Point(180, 32);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(115, 25);
+            this.labelName.TabIndex = 2;
+            this.labelName.Text = "My Games";
             // 
-            // tabPage2
+            // pictureLogo
             // 
-            this.tabPage2.Controls.Add(this.history);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(452, 182);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "История версий";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.pictureLogo.Image = global::My_Games.Properties.Resources.logo;
+            this.pictureLogo.Location = new System.Drawing.Point(32, 32);
+            this.pictureLogo.Name = "pictureLogo";
+            this.pictureLogo.Size = new System.Drawing.Size(128, 128);
+            this.pictureLogo.TabIndex = 0;
+            this.pictureLogo.TabStop = false;
+            // 
+            // tabHistory
+            // 
+            this.tabHistory.Controls.Add(this.history);
+            this.tabHistory.Location = new System.Drawing.Point(4, 22);
+            this.tabHistory.Name = "tabHistory";
+            this.tabHistory.Padding = new System.Windows.Forms.Padding(3);
+            this.tabHistory.Size = new System.Drawing.Size(452, 182);
+            this.tabHistory.TabIndex = 1;
+            this.tabHistory.Text = "История версий";
+            this.tabHistory.UseVisualStyleBackColor = true;
             // 
             // history
             // 
@@ -171,7 +171,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonClose;
             this.ClientSize = new System.Drawing.Size(484, 261);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.buttonClose);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -181,27 +181,27 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "О программе";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
+            this.tabAbout.ResumeLayout(false);
+            this.tabAbout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).EndInit();
+            this.tabHistory.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.PictureBox pictureLogo;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabAbout;
         private System.Windows.Forms.Button buttonClose;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabHistory;
         private System.Windows.Forms.Label labelVersion;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.LinkLabel linkSite;
+        private System.Windows.Forms.Label labelSite;
+        private System.Windows.Forms.Label labelAutor;
         private System.Windows.Forms.RichTextBox history;
     }
 }

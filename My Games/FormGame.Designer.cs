@@ -184,7 +184,7 @@
             // buttonOK
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Location = new System.Drawing.Point(616, 535);
+            this.buttonOK.Location = new System.Drawing.Point(616, 526);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
             this.buttonOK.TabIndex = 1;
@@ -196,7 +196,7 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(697, 535);
+            this.buttonCancel.Location = new System.Drawing.Point(697, 526);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 2;
@@ -328,7 +328,7 @@
             this.textBoxComment.Location = new System.Drawing.Point(6, 19);
             this.textBoxComment.Multiline = true;
             this.textBoxComment.Name = "textBoxComment";
-            this.textBoxComment.Size = new System.Drawing.Size(728, 148);
+            this.textBoxComment.Size = new System.Drawing.Size(728, 139);
             this.textBoxComment.TabIndex = 0;
             // 
             // groupBoxMain
@@ -504,7 +504,7 @@
             this.groupBoxComment.Controls.Add(this.textBoxComment);
             this.groupBoxComment.Location = new System.Drawing.Point(6, 312);
             this.groupBoxComment.Name = "groupBoxComment";
-            this.groupBoxComment.Size = new System.Drawing.Size(740, 173);
+            this.groupBoxComment.Size = new System.Drawing.Size(740, 164);
             this.groupBoxComment.TabIndex = 3;
             this.groupBoxComment.TabStop = false;
             this.groupBoxComment.Text = "Описание";
@@ -533,7 +533,7 @@
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(760, 517);
+            this.tabControl.Size = new System.Drawing.Size(760, 508);
             this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl.TabIndex = 0;
             this.tabControl.TabStop = false;
@@ -549,7 +549,7 @@
             this.tabPageMain.Location = new System.Drawing.Point(4, 28);
             this.tabPageMain.Name = "tabPageMain";
             this.tabPageMain.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMain.Size = new System.Drawing.Size(752, 485);
+            this.tabPageMain.Size = new System.Drawing.Size(752, 476);
             this.tabPageMain.TabIndex = 0;
             this.tabPageMain.Text = "Общие";
             this.tabPageMain.UseVisualStyleBackColor = true;
@@ -651,7 +651,7 @@
             this.tabPagePurchases.Location = new System.Drawing.Point(4, 28);
             this.tabPagePurchases.Name = "tabPagePurchases";
             this.tabPagePurchases.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePurchases.Size = new System.Drawing.Size(752, 476);
+            this.tabPagePurchases.Size = new System.Drawing.Size(752, 485);
             this.tabPagePurchases.TabIndex = 1;
             this.tabPagePurchases.Text = "Покупки";
             this.tabPagePurchases.UseVisualStyleBackColor = true;
@@ -663,7 +663,7 @@
             this.panelDLCs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDLCs.Location = new System.Drawing.Point(3, 254);
             this.panelDLCs.Name = "panelDLCs";
-            this.panelDLCs.Size = new System.Drawing.Size(746, 219);
+            this.panelDLCs.Size = new System.Drawing.Size(746, 228);
             this.panelDLCs.TabIndex = 6;
             // 
             // groupBoxDLCs
@@ -677,7 +677,7 @@
             this.groupBoxDLCs.Controls.Add(this.listViewDLCs);
             this.groupBoxDLCs.Location = new System.Drawing.Point(3, 6);
             this.groupBoxDLCs.Name = "groupBoxDLCs";
-            this.groupBoxDLCs.Size = new System.Drawing.Size(740, 211);
+            this.groupBoxDLCs.Size = new System.Drawing.Size(740, 220);
             this.groupBoxDLCs.TabIndex = 14;
             this.groupBoxDLCs.TabStop = false;
             this.groupBoxDLCs.Text = "Дополнительные материалы";
@@ -741,7 +741,7 @@
             this.listViewDLCs.Location = new System.Drawing.Point(6, 48);
             this.listViewDLCs.MultiSelect = false;
             this.listViewDLCs.Name = "listViewDLCs";
-            this.listViewDLCs.Size = new System.Drawing.Size(728, 156);
+            this.listViewDLCs.Size = new System.Drawing.Size(728, 165);
             this.listViewDLCs.TabIndex = 13;
             this.listViewDLCs.UseCompatibleStateImageBehavior = false;
             this.listViewDLCs.View = System.Windows.Forms.View.Details;
@@ -856,7 +856,7 @@
             this.tabPageHistory.Location = new System.Drawing.Point(4, 28);
             this.tabPageHistory.Name = "tabPageHistory";
             this.tabPageHistory.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageHistory.Size = new System.Drawing.Size(752, 476);
+            this.tabPageHistory.Size = new System.Drawing.Size(752, 485);
             this.tabPageHistory.TabIndex = 3;
             this.tabPageHistory.Text = "История";
             this.tabPageHistory.UseVisualStyleBackColor = true;
@@ -897,7 +897,7 @@
             this.tabPageNotes.Location = new System.Drawing.Point(4, 28);
             this.tabPageNotes.Name = "tabPageNotes";
             this.tabPageNotes.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageNotes.Size = new System.Drawing.Size(752, 476);
+            this.tabPageNotes.Size = new System.Drawing.Size(752, 485);
             this.tabPageNotes.TabIndex = 4;
             this.tabPageNotes.Text = "Заметки";
             this.tabPageNotes.UseVisualStyleBackColor = true;
@@ -1036,7 +1036,7 @@
             this.tabPageOthers.Location = new System.Drawing.Point(4, 28);
             this.tabPageOthers.Name = "tabPageOthers";
             this.tabPageOthers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageOthers.Size = new System.Drawing.Size(752, 476);
+            this.tabPageOthers.Size = new System.Drawing.Size(752, 485);
             this.tabPageOthers.TabIndex = 5;
             this.tabPageOthers.Text = "Прочее";
             this.tabPageOthers.UseVisualStyleBackColor = true;

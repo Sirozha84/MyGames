@@ -18,8 +18,8 @@ namespace My_Games
             Settings.Init();
             Data.Load();
             listViewGames.ListViewItemSorter = itemComparer;
-            RefreshData();
             listViewGames.Columns[lastColumn].Text += " ▲";
+            RefreshData();
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -46,8 +46,6 @@ namespace My_Games
         #region Действия на форме (обновление, выбор, открытие, сортировка)
         void RefreshData()
         {
-            GameDateComparer dc = new GameDateComparer();
-            Data.data.games.Sort(dc);
             listViewGames.BeginUpdate();
             listViewGames.Items.Clear();
             int showed = 0;

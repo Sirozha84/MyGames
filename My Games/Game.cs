@@ -56,7 +56,23 @@ namespace My_Games
         public void Hold()
         {
             //Дата
-            if (versions.Count > 0) date = versions[0].date;
+            switch (Settings.dateType)
+            {
+                //Тип даты: Первая покупка
+                case 0:
+                    if (versions.Count > 0) date = versions[0].date;
+                    if (DLCs.Count > 0 && date > DLCs[0].date) date = DLCs[0].date;
+                    break;
+                //Тип даты: Последняя покупка
+                case 1:
+                    if (versions.Count > 0) date = versions[versions.Count - 1].date;
+                    if (DLCs.Count > 0 && date < DLCs[DLCs.Count-1].date) date = DLCs[DLCs.Count - 1].date;
+                    break;
+                //Тип даты: Последняя игра
+                case 2:
+                    if (history.Count > 0) date = history[history.Count - 1].date;
+                    break;
+            }
 
             //Цена
             price = 0;
@@ -76,13 +92,5 @@ namespace My_Games
 
         }
 
-    }
-
-    class GameDateComparer : IComparer<Game>
-    {
-        public int Compare(Game o1, Game o2)
-        {
-            return o1.date > o2.date ? 1 : -1;
-        }
     }
 }
