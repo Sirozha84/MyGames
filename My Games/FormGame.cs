@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
-using System.Drawing.Imaging;
 
 namespace My_Games
 {
@@ -23,22 +22,23 @@ namespace My_Games
         {
             InitializeComponent();
             this.game = game;
-            comboBoxRate.DataSource = Game.stars;
+            comboRate.DataSource = Game.stars;
             RefreshData();
-            textBoxName.Focus();
+            textName.Focus();
         }
 
         void RefreshData()
         {
             //Вкладка общих сведений
             Text = game.name;
-            textBoxName.Text = game.name;
-            textBoxDeveloper.Text = game.developer;
-            textBoxPublisher.Text = game.publisher;
-            textBoxYear.Text = game.year;
-            Genre.FillCombobox(comboBoxGenre, game.genre);
-            comboBoxRate.SelectedIndex = game.rate - 1;
-            textBoxSite.Text = game.website;
+            textName.Text = game.name;
+            textDeveloper.Text = game.developer;
+            textPublisher.Text = game.publisher;
+            textYear.Text = game.year;
+            Genre.FillCombobox(comboGenre, game.genre);
+            comboRate.SelectedIndex = game.rate - 1;
+            textSite.Text = game.website;
+            textSF.Text = game.scrFolder;
             textBoxComment.Text = game.comment != null ? game.comment.Replace("☺", "\r\n") : "";
             if (game.cover != null)
                 OpenCover("Covers\\" + game.cover);
@@ -93,15 +93,16 @@ namespace My_Games
 
             //Общие сведения
             game.change = DateTime.Now;
-            game.name = textBoxName.Text;
-            game.developer = textBoxDeveloper.Text;
-            game.publisher = textBoxPublisher.Text;
-            game.year = textBoxYear.Text;
-            game.genre = Data.GenreNameToID(comboBoxGenre.Text);
-            game.rate = comboBoxRate.SelectedIndex + 1;
-            textBoxSite.Text = textBoxSite.Text.Replace("http://", "");
-            textBoxSite.Text = textBoxSite.Text.Replace("https://", "");
-            game.website = textBoxSite.Text;
+            game.name = textName.Text;
+            game.developer = textDeveloper.Text;
+            game.publisher = textPublisher.Text;
+            game.year = textYear.Text;
+            game.genre = Data.GenreNameToID(comboGenre.Text);
+            game.rate = comboRate.SelectedIndex + 1;
+            textSite.Text = textSite.Text.Replace("http://", "");
+            textSite.Text = textSite.Text.Replace("https://", "");
+            game.website = textSite.Text;
+            game.scrFolder = textSF.Text;
             game.comment = textBoxComment.Text.Replace("\r\n", "☺");
             if (changePicture)
             {
@@ -142,25 +143,47 @@ namespace My_Games
             DialogResult = DialogResult.OK;
             Close();
         }
+
         private void TabPageVersions_SizeChanged(object sender, EventArgs e)
         {
             panelVersion.Height = (tabPagePurchases.Height - 10) / 2;
         }
 
-
         #region Main
         private void textBoxName_TextChanged(object sender, EventArgs e) 
         {
-            Text = textBoxName.Text;
-            if (textBoxName.Text == "") Text = "Новая игра";
-            buttonOK.Enabled = textBoxName.Text != "";
+            Text = textName.Text;
+            if (textName.Text == "") Text = "Новая игра";
+            buttonOK.Enabled = textName.Text != "";
         }
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+        private void GenreCat(object sender, EventArgs e)
         {
             FormCats form = new FormCats(3, Data.data.genres);
             form.ShowDialog();
-            Genre.FillCombobox(comboBoxGenre, game.genre);
+            Genre.FillCombobox(comboGenre, game.genre);
         }
+
+        private void GotoWebsite(object sender, EventArgs e)
+        {
+            if (textSite.Text == "") return;
+            System.Diagnostics.Process.Start("http:" + textSite.Text);
+        }
+
+        private void OpenScrFolder(object sender, EventArgs e)
+        {
+            if (textSF.Text == "") return;
+            game.scrFolder = textSF.Text;
+            game.OpenScrFolder();
+        }
+
+        private void BrowseScrFolder(object sender, EventArgs e)
+        {
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+                textSF.Text = dialog.SelectedPath;
+        }
+
         private void TabPageMain_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop, false))
@@ -176,7 +199,7 @@ namespace My_Games
             changePicture = OpenCover(file);
         }
 
-        private void PictureBoxCover_Click(object sender, EventArgs e)
+        private void SelectCover(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "Изображения (*.jpg; *.jpeg; *.png; *.gif; *.bmp)|" +
@@ -187,19 +210,14 @@ namespace My_Games
                 OpenCover(dialog.FileName);
             }
         }
-        private void labelCover_Click(object sender, EventArgs e) { PictureBoxCover_Click(null, null); }
-        private void выбратьОбложкуToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PictureBoxCover_Click(null, null);
-        }
-        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void RemoveCover(object sender, EventArgs e)
         {
             changePicture = true;
             newCover = "";
             pictureBoxCover.Image = null;
             pictureBoxCover.BackColor = SystemColors.AppWorkspace;
             labelCover.Visible = true;
-            //game.cover = "";
         }
 
         bool OpenCover(string file)
@@ -218,7 +236,7 @@ namespace My_Games
         #endregion
 
         #region Versions
-        private void buttonAddVersion_Click(object sender, EventArgs e)
+        private void AddVersion(object sender, EventArgs e)
         {
             Version version = new Version();
             FormVersion form = new FormVersion(version);
@@ -230,8 +248,7 @@ namespace My_Games
             }
         }
 
-        private void listViewVersions_MouseDoubleClick(object sender, MouseEventArgs e) { buttonChangeVersion_Click(null, null); }
-        private void buttonChangeVersion_Click(object sender, EventArgs e)
+        private void EditVersion(object sender, EventArgs e)
         {
             if (listViewVersions.SelectedIndices.Count == 1)
             {
@@ -245,7 +262,7 @@ namespace My_Games
             }
         }
 
-        private void buttonDelVersion_Click(object sender, EventArgs e)
+        private void removeVersion(object sender, EventArgs e)
         {
             if (listViewVersions.SelectedIndices.Count == 1)
             {
@@ -280,7 +297,7 @@ namespace My_Games
         #endregion
 
         #region DLC
-        private void buttonAddDLC_Click(object sender, EventArgs e)
+        private void AddDLC(object sender, EventArgs e)
         {
             DLC dlc = new DLC();
             FormDLC form = new FormDLC(dlc, versions);
@@ -292,9 +309,7 @@ namespace My_Games
             }
         }
 
-        private void ListViewDLCs_DoubleClick(object sender, EventArgs e) { buttonChangeDLC_Click(null, null); }
-
-        private void buttonChangeDLC_Click(object sender, EventArgs e)
+        private void EditDLC(object sender, EventArgs e)
         {
             if (listViewDLCs.SelectedIndices.Count == 1)
             {
@@ -308,7 +323,7 @@ namespace My_Games
             }
         }
 
-        private void buttonDelDLC_Click(object sender, EventArgs e)
+        private void RemoveDLC(object sender, EventArgs e)
         {
             if (listViewDLCs.SelectedIndices.Count == 1)
             {
@@ -342,7 +357,7 @@ namespace My_Games
         #endregion
 
         #region History
-        private void buttonAddEvent_Click(object sender, EventArgs e)
+        private void AddEvent(object sender, EventArgs e)
         {
             Event ev = new Event();
             FormEvent form = new FormEvent(ev, versions, history);
@@ -354,8 +369,7 @@ namespace My_Games
             }
         }
 
-        private void listViewHistory_DoubleClick(object sender, EventArgs e) { buttonChangeEvent_Click(null, null); }
-        private void buttonChangeEvent_Click(object sender, EventArgs e)
+        private void EditEvent(object sender, EventArgs e)
         {
             if (listViewHistory.SelectedIndices.Count == 1)
             {
@@ -369,7 +383,7 @@ namespace My_Games
             }
         }
 
-        private void buttonDelEvent_Click(object sender, EventArgs e)
+        private void RemoveEvent(object sender, EventArgs e)
         {
             if (listViewHistory.SelectedIndices.Count == 1)
             {
@@ -415,7 +429,7 @@ namespace My_Games
         }
 
 
-        private void ButtonNoteAdd_Click(object sender, EventArgs e)
+        private void AddNote(object sender, EventArgs e)
         {
             notes.Add(new Note());
             DrawNotes(true);
@@ -469,7 +483,7 @@ namespace My_Games
             note.note = textBoxNote.Text;
         }
 
-        private void ButtonNoteDel_Click(object sender, EventArgs e)
+        private void RemoveNote(object sender, EventArgs e)
         {
             if (listViewNotes.SelectedItems.Count == 0) return;
             Note note = (Note)listViewNotes.SelectedItems[0].Tag;

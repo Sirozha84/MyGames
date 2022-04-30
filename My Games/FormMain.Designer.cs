@@ -34,6 +34,8 @@
             this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAddFast = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuGotoSite = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuOpenSF = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDel = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSep1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,9 +84,10 @@
             this.columnHeaderVersions = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.menuOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuGoToSite = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuDelC = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmGoToSite = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmOpenSF = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmDelC = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusAll = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusShowed = new System.Windows.Forms.ToolStripStatusLabel();
@@ -131,6 +134,8 @@
             this.menuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuAdd,
             this.menuAddFast,
+            this.menuGotoSite,
+            this.menuOpenSF,
             this.menuDel,
             this.menuSep1,
             this.menuExit});
@@ -156,6 +161,26 @@
             this.menuAddFast.Size = new System.Drawing.Size(273, 22);
             this.menuAddFast.Text = "Добавить игру быстро";
             this.menuAddFast.Click += new System.EventHandler(this.addGameFast);
+            // 
+            // menuGotoSite
+            // 
+            this.menuGotoSite.Enabled = false;
+            this.menuGotoSite.Image = ((System.Drawing.Image)(resources.GetObject("menuGotoSite.Image")));
+            this.menuGotoSite.Name = "menuGotoSite";
+            this.menuGotoSite.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
+            this.menuGotoSite.Size = new System.Drawing.Size(273, 22);
+            this.menuGotoSite.Text = "Перейти на сайт";
+            this.menuGotoSite.Click += new System.EventHandler(this.GoToSite);
+            // 
+            // menuOpenSF
+            // 
+            this.menuOpenSF.Enabled = false;
+            this.menuOpenSF.Image = global::My_Games.Properties.Resources.puctures;
+            this.menuOpenSF.Name = "menuOpenSF";
+            this.menuOpenSF.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.menuOpenSF.Size = new System.Drawing.Size(273, 22);
+            this.menuOpenSF.Text = "Скриншоты";
+            this.menuOpenSF.Click += new System.EventHandler(this.OpenScrFolder);
             // 
             // menuDel
             // 
@@ -478,9 +503,8 @@
             // 
             this.toolSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolSearch.Name = "toolSearch";
-            this.toolSearch.Size = new System.Drawing.Size(160, 25);
+            this.toolSearch.Size = new System.Drawing.Size(200, 25);
             this.toolSearch.TextChanged += new System.EventHandler(this.toolSearch_TextChanged);
             // 
             // toolStripLabelFind
@@ -564,37 +588,48 @@
             // contextMenu
             // 
             this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuOpen,
-            this.menuGoToSite,
-            this.menuDelC});
+            this.cmOpen,
+            this.cmGoToSite,
+            this.cmOpenSF,
+            this.cmDelC});
             this.contextMenu.Name = "contextMenuStrip1";
-            this.contextMenu.Size = new System.Drawing.Size(165, 70);
+            this.contextMenu.Size = new System.Drawing.Size(165, 92);
             // 
-            // menuOpen
+            // cmOpen
             // 
-            this.menuOpen.Enabled = false;
-            this.menuOpen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.menuOpen.Name = "menuOpen";
-            this.menuOpen.Size = new System.Drawing.Size(164, 22);
-            this.menuOpen.Text = "Открыть";
-            this.menuOpen.Click += new System.EventHandler(this.Open);
+            this.cmOpen.Enabled = false;
+            this.cmOpen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cmOpen.Name = "cmOpen";
+            this.cmOpen.Size = new System.Drawing.Size(164, 22);
+            this.cmOpen.Text = "Открыть";
+            this.cmOpen.Click += new System.EventHandler(this.Open);
             // 
-            // menuGoToSite
+            // cmGoToSite
             // 
-            this.menuGoToSite.Enabled = false;
-            this.menuGoToSite.Name = "menuGoToSite";
-            this.menuGoToSite.Size = new System.Drawing.Size(164, 22);
-            this.menuGoToSite.Text = "Перейти на сайт";
-            this.menuGoToSite.Click += new System.EventHandler(this.GoToSite);
+            this.cmGoToSite.Enabled = false;
+            this.cmGoToSite.Image = ((System.Drawing.Image)(resources.GetObject("cmGoToSite.Image")));
+            this.cmGoToSite.Name = "cmGoToSite";
+            this.cmGoToSite.Size = new System.Drawing.Size(164, 22);
+            this.cmGoToSite.Text = "Перейти на сайт";
+            this.cmGoToSite.Click += new System.EventHandler(this.GoToSite);
             // 
-            // menuDelC
+            // cmOpenSF
             // 
-            this.menuDelC.Enabled = false;
-            this.menuDelC.Image = global::My_Games.Properties.Resources.remove;
-            this.menuDelC.Name = "menuDelC";
-            this.menuDelC.Size = new System.Drawing.Size(164, 22);
-            this.menuDelC.Text = "Удалить";
-            this.menuDelC.Click += new System.EventHandler(this.Delete);
+            this.cmOpenSF.Enabled = false;
+            this.cmOpenSF.Image = global::My_Games.Properties.Resources.puctures;
+            this.cmOpenSF.Name = "cmOpenSF";
+            this.cmOpenSF.Size = new System.Drawing.Size(164, 22);
+            this.cmOpenSF.Text = "Скриншоты";
+            this.cmOpenSF.Click += new System.EventHandler(this.OpenScrFolder);
+            // 
+            // cmDelC
+            // 
+            this.cmDelC.Enabled = false;
+            this.cmDelC.Image = global::My_Games.Properties.Resources.remove;
+            this.cmDelC.Name = "cmDelC";
+            this.cmDelC.Size = new System.Drawing.Size(164, 22);
+            this.cmDelC.Text = "Удалить";
+            this.cmDelC.Click += new System.EventHandler(this.Delete);
             // 
             // statusStrip
             // 
@@ -839,8 +874,8 @@
         private System.Windows.Forms.ToolStripMenuItem menuAddFast;
         private System.Windows.Forms.ToolStripMenuItem menuDel;
         private System.Windows.Forms.ContextMenuStrip contextMenu;
-        private System.Windows.Forms.ToolStripMenuItem menuOpen;
-        private System.Windows.Forms.ToolStripMenuItem menuDelC;
+        private System.Windows.Forms.ToolStripMenuItem cmOpen;
+        private System.Windows.Forms.ToolStripMenuItem cmDelC;
         private System.Windows.Forms.ToolStripMenuItem menuView;
         private System.Windows.Forms.ToolStripMenuItem menuInfoPanel;
         private System.Windows.Forms.Panel infoView;
@@ -856,7 +891,7 @@
         private System.Windows.Forms.Label labelYear;
         private System.Windows.Forms.ToolStripStatusLabel statusAll;
         private System.Windows.Forms.ToolStripMenuItem menuPurchases;
-        private System.Windows.Forms.ToolStripMenuItem menuGoToSite;
+        private System.Windows.Forms.ToolStripMenuItem cmGoToSite;
         private System.Windows.Forms.ToolStripSeparator menuSep1;
         private System.Windows.Forms.ToolStripMenuItem menuExit;
         private System.Windows.Forms.ToolStripMenuItem menuPage;
@@ -887,6 +922,9 @@
         private System.Windows.Forms.ToolStripMenuItem menuDateType0;
         private System.Windows.Forms.ToolStripMenuItem menuDateType1;
         private System.Windows.Forms.ToolStripMenuItem menuDateType2;
+        private System.Windows.Forms.ToolStripMenuItem cmOpenSF;
+        private System.Windows.Forms.ToolStripMenuItem menuGotoSite;
+        private System.Windows.Forms.ToolStripMenuItem menuOpenSF;
     }
 }
 

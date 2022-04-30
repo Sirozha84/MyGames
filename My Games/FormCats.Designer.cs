@@ -37,36 +37,42 @@
             // 
             // buttonNew
             // 
-            this.buttonNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonNew.Location = new System.Drawing.Point(347, 12);
+            this.buttonNew.Image = global::My_Games.Properties.Resources.add;
+            this.buttonNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonNew.Location = new System.Drawing.Point(12, 12);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(75, 23);
+            this.buttonNew.Size = new System.Drawing.Size(80, 23);
             this.buttonNew.TabIndex = 1;
-            this.buttonNew.Text = "Создать";
+            this.buttonNew.Text = "Добавить";
+            this.buttonNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonNew.UseVisualStyleBackColor = true;
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonEdit.Enabled = false;
-            this.buttonEdit.Location = new System.Drawing.Point(347, 41);
+            this.buttonEdit.Image = global::My_Games.Properties.Resources.edit;
+            this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEdit.Location = new System.Drawing.Point(98, 12);
             this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(75, 23);
+            this.buttonEdit.Size = new System.Drawing.Size(80, 23);
             this.buttonEdit.TabIndex = 2;
             this.buttonEdit.Text = "Изменить";
+            this.buttonEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // buttonDel
             // 
-            this.buttonDel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDel.Enabled = false;
-            this.buttonDel.Location = new System.Drawing.Point(347, 70);
+            this.buttonDel.Image = global::My_Games.Properties.Resources.remove;
+            this.buttonDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDel.Location = new System.Drawing.Point(184, 12);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(75, 23);
             this.buttonDel.TabIndex = 3;
             this.buttonDel.Text = "Удалить";
+            this.buttonDel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDel.UseVisualStyleBackColor = true;
             this.buttonDel.Click += new System.EventHandler(this.buttonDel_Click);
             // 
@@ -74,7 +80,7 @@
             // 
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonClose.Location = new System.Drawing.Point(347, 276);
+            this.buttonClose.Location = new System.Drawing.Point(247, 326);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(75, 23);
             this.buttonClose.TabIndex = 4;
@@ -88,10 +94,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewCat.FullRowSelect = true;
             this.listViewCat.GridLines = true;
-            this.listViewCat.Location = new System.Drawing.Point(13, 13);
+            this.listViewCat.HideSelection = false;
+            this.listViewCat.Location = new System.Drawing.Point(12, 41);
             this.listViewCat.MultiSelect = false;
             this.listViewCat.Name = "listViewCat";
-            this.listViewCat.Size = new System.Drawing.Size(328, 286);
+            this.listViewCat.Size = new System.Drawing.Size(310, 279);
             this.listViewCat.TabIndex = 0;
             this.listViewCat.UseCompatibleStateImageBehavior = false;
             this.listViewCat.View = System.Windows.Forms.View.Details;
@@ -104,7 +111,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonClose;
-            this.ClientSize = new System.Drawing.Size(434, 311);
+            this.ClientSize = new System.Drawing.Size(334, 361);
             this.Controls.Add(this.listViewCat);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonDel);
@@ -112,7 +119,7 @@
             this.Controls.Add(this.buttonNew);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(450, 350);
+            this.MinimumSize = new System.Drawing.Size(350, 400);
             this.Name = "FormCats";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

@@ -128,6 +128,14 @@
         YgMQEhCMqQEdEwDILiJKAzoYeAMQGsk0gD6AgQEAlyZ8M0bJckkAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="menuGotoSite.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAAGxJREFUOE/djFEOgDAIQ7n/t/edMchaWHH660uWNLRv9sAo7zUuHAMy5w0+DqHL
+        DVpQN/EJF3mcJXSeJ3lYBb7x7gbHOqpPbf/xwcU68hKPO/STVYphFtB5TuRxZHUTctALnDdAUPkDLDWi
+        2Qnu918MBGBCwAAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="toolStripPanel.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
   </metadata>
@@ -142,6 +150,14 @@
   <metadata name="contextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>353, 17</value>
   </metadata>
+  <data name="cmGoToSite.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wQAADsEBuJFr7QAAAGxJREFUOE/djFEOgDAIQ7n/t/edMchaWHH660uWNLRv9sAo7zUuHAMy5w0+DqHL
+        DVpQN/EJF3mcJXSeJ3lYBb7x7gbHOqpPbf/xwcU68hKPO/STVYphFtB5TuRxZHUTctALnDdAUPkDLDWi
+        2Qnu918MBGBCwAAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>237, 17</value>
   </metadata>

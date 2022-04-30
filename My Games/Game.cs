@@ -18,8 +18,9 @@ namespace My_Games
         public string year;
         public int genre;
         public int rate = 3;
-        public string website;
         public string cover;
+        public string website;
+        public string scrFolder;
         public string comment;
         public List<Version> versions = new List<Version>();
         public List<DLC> DLCs = new List<DLC>();
@@ -90,6 +91,18 @@ namespace My_Games
                 if (win < ev.even) win = ev.even;
             }
 
+        }
+
+        public void OpenScrFolder()
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(scrFolder);
+            }
+            catch
+            {
+                MessageBox.Show("Указанный путь не существует:\n"+scrFolder);
+            }
         }
 
     }

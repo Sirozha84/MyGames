@@ -106,10 +106,7 @@ namespace My_Games
         private void SelectChange(object sender, EventArgs e)
         {
             bool selected = listViewGames.SelectedIndices.Count > 0;
-            bool enableSite = false;
-            menuDel.Enabled = selected;
-            menuOpen.Enabled = selected;
-            menuDelC.Enabled = selected;
+            menuDel.Enabled = cmOpen.Enabled = cmDelC.Enabled = selected;
 
             Game game = selected ? (Game)listViewGames.SelectedItems[0].Tag : new Game();
 
@@ -133,9 +130,8 @@ namespace My_Games
             labelHistory.Text = selected ? Data.StringHistory(game.history) : "";
 
             int selectC = listViewGames.SelectedIndices.Count;
-            if (selectC == 1)
-                enableSite = game.website != null & game.website != "";
-            menuGoToSite.Enabled = enableSite;
+            menuGotoSite.Enabled = cmGoToSite.Enabled = selectC == 1 && game.website != null && game.website != "";
+            menuOpenSF.Enabled = cmOpenSF.Enabled = selectC == 1 && game.scrFolder != null && game.scrFolder != "";
             if (selectC == 0)
                 statusSelected.Text = "";
             else
@@ -167,7 +163,11 @@ namespace My_Games
             System.Diagnostics.Process.Start("http:" + game.website);
         }
 
-
+        void OpenScrFolder(object sender, EventArgs e)
+        {
+            Game game = (Game)listViewGames.SelectedItems[0].Tag;
+            game.OpenScrFolder();
+        }
 
         /// <summary>
         /// Сортировка по выбранной колонке
