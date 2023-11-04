@@ -117,6 +117,7 @@
             this.textBoxNote = new System.Windows.Forms.TextBox();
             this.tabPageOthers = new System.Windows.Forms.TabPage();
             this.imageListTabs = new System.Windows.Forms.ImageList(this.components);
+            this.checkHidden = new System.Windows.Forms.CheckBox();
             this.groupBoxMain.SuspendLayout();
             this.cmCover.SuspendLayout();
             this.groupBoxComment.SuspendLayout();
@@ -1070,6 +1071,7 @@
             // tabPageOthers
             // 
             this.tabPageOthers.Controls.Add(this.labelInfo);
+            this.tabPageOthers.Controls.Add(this.checkHidden);
             this.tabPageOthers.Location = new System.Drawing.Point(4, 28);
             this.tabPageOthers.Name = "tabPageOthers";
             this.tabPageOthers.Padding = new System.Windows.Forms.Padding(3);
@@ -1085,6 +1087,16 @@
             this.imageListTabs.Images.SetKeyName(0, "purchase.png");
             this.imageListTabs.Images.SetKeyName(1, "winner.png");
             this.imageListTabs.Images.SetKeyName(2, "notes.png");
+            // 
+            // checkHidden
+            // 
+            this.checkHidden.AutoSize = true;
+            this.checkHidden.Location = new System.Drawing.Point(44, 283);
+            this.checkHidden.Name = "checkHidden";
+            this.checkHidden.Size = new System.Drawing.Size(89, 17);
+            this.checkHidden.TabIndex = 26;
+            this.checkHidden.Text = "Скрыть игру";
+            this.checkHidden.UseVisualStyleBackColor = true;
             // 
             // FormGame
             // 
@@ -1217,5 +1229,6 @@
         private System.Windows.Forms.Button buttonBrowseSF;
         private System.Windows.Forms.LinkLabel linkSF;
         private System.Windows.Forms.TextBox textSF;
+        private System.Windows.Forms.CheckBox checkHidden;
     }
 }

@@ -6,6 +6,8 @@ namespace My_Games
 {
     public partial class FormStatistic : Form
     {
+        int zoomMode = 2;                           //Режим увеличения: 0 - всё, 1 - годы, 2 - месяцы
+        const int zoomMax = 2;                      //Максимальный зум
         DateTime first;                             //Дата первого события
         DateTime last;                              //Дата последнего события
         int ctCount;                                //Количество строк ленегды
@@ -25,16 +27,87 @@ namespace My_Games
         {
             InitializeComponent();
             graph = pictureBox.CreateGraphics();
-            CalcGames(null, null);
+            Calc(null, null);
         }
 
         #region Расчёты данных (выбор вида диаграммы)
-        /// <summary>
-        /// Игр куплено
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CalcGames(object sender, EventArgs e)
+        private void Calc(object sender, EventArgs e)
+        {
+            if (radioButtonCS.Checked) CalcColCount();
+            if (radioButtonGames.Checked) CalcGames();
+            if (radioButtonMoney.Checked) CalcMoney();
+            if (radioButtonTime.Checked) CalcTime();
+        }
+
+        void CalcColCount()
+        {
+            ctCount = 7;
+
+            //Сканируем базу и узнаём крайние даты (минимум и максимум)
+            first = DateTime.Now;
+            foreach (Game g in Data.data.games)
+                foreach (Version v in g.versions)
+                    if (first > v.date) first = v.date;
+            last = DateTime.Now;
+            ColumnsCalc();
+
+            //И заполняем их
+            for (int i = 0; i < monthCount; i++)
+            {
+                DateTime date = new DateTime(first.Year + i / 12, i % 12 + 1, 1);
+                date = date.AddMonths(1);
+                foreach (Game game in Data.data.games)
+                {
+                    int max = 0;
+                    if (game.versions.Find(o => o.date <= date) != null)
+                    {
+                        foreach (Event ev in game.history)
+                            if (ev.date <= date && ev.even > max) max = ev.even;
+                        months[monthCount - i - 1, max]++;
+                        //if (date <= last.AddMonths(1)) - это даёт не заполнятся будущим месяцам, но тогда и года не заполняются
+                    }
+                }
+            }
+            //Берём последние значения для срезов по годам
+            for (int j = 0; j < ctCount; j++)
+            {
+                for (int i = 0; i < yearCount; i++)
+                {
+                    int m = i * 12;
+                    if (m < monthCount) years[i, j] = months[m, j];
+                }
+                for (int i = 0; i < 10; i++)
+                {
+                    int m = i * 12 * yearsInColumn;
+                    if (m < monthCount) all[i, j] = months[i * 12 * yearsInColumn, j];
+                }
+            }
+            //Очищаем остальные месяца, оставляя текущий последним заполненным
+            int empty = 12 - last.Month;
+            for (int j = 0; j < ctCount; j++)
+                for (int i = 0; i < empty; i++)
+                    months[i, j] = 0;
+
+            //Рисовка легенды
+            columnHeader.Text = "Статус";
+            listView.BeginUpdate();
+            listView.Items.Clear();
+            plBrushes = new SolidBrush[ctCount];
+            for (int i = 0; i < ctCount; i++)
+            {
+                ListViewItem item = new ListViewItem(Event.events[i]);
+                item.SubItems.Add(all[0, i].ToString(Program.num));
+                item.BackColor = Color.FromArgb(Data.data.winColR[i], Data.data.winColG[i], Data.data.winColB[i]);
+                plBrushes[i] = new SolidBrush(item.BackColor);
+                listView.Items.Add(item);
+            }
+            listView.EndUpdate();
+
+            FindMaximumHeight();
+            Zoom();
+        }
+
+        void CalcGames()
         {
             //Сканируем базу и узнаём крайние даты (минимум и максимум)
             first = DateTime.Now;
@@ -86,12 +159,7 @@ namespace My_Games
             Zoom();
         }
 
-        /// <summary>
-        /// Денег потрачено
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CalcMoney(object sender, EventArgs e)
+        void CalcMoney()
         {
             //Сканируем базу и узнаём крайние даты (минимум и максимум)
             first = DateTime.Now;
@@ -175,12 +243,7 @@ namespace My_Games
             Zoom();
         }
 
-        /// <summary>
-        /// Время наиграно
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CalcTime(object sender, EventArgs e)
+        void CalcTime()
         {
             //Сканируем базу и узнаём крайние даты (минимум и максимум)
             first = DateTime.Now;
@@ -227,79 +290,6 @@ namespace My_Games
                     months[last.Year * 12 - ev.date.Year * 12 + 12 - ev.date.Month, p] += ev.hours;
                     all[(last.Year - ev.date.Year) / yearsInColumn, p] += ev.hours;
                 }
-
-            FindMaximumHeight();
-            Zoom();
-        }
-
-        /// <summary>
-        /// Размер коллекции
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CalcColCount(object sender, EventArgs e)
-        {
-            ctCount = 7;
-
-            //Сканируем базу и узнаём крайние даты (минимум и максимум)
-            first = DateTime.Now;
-            foreach (Game g in Data.data.games)
-                foreach (Version v in g.versions)
-                    if (first > v.date) first = v.date;
-            last = DateTime.Now;
-            ColumnsCalc();
-
-            //И заполняем их
-            for (int i = 0; i < monthCount; i++)
-            {
-                DateTime date = new DateTime(first.Year + i / 12, i % 12 + 1, 1);
-                date = date.AddMonths(1);
-                foreach (Game game in Data.data.games)
-                {
-                    int max = 0;
-                    if (game.versions.Find(o => o.date <= date) != null)
-                    {
-                        foreach (Event ev in game.history)
-                            if (ev.date <= date && ev.even > max) max = ev.even;
-                        months[monthCount - i - 1, max]++;
-                        //if (date <= last.AddMonths(1)) - это даёт не заполнятся будущим месяцам, но тогда и года не заполняются
-                    }
-                }
-            }
-            //Берём последние значения для срезов по годам
-            for (int j = 0; j < ctCount; j++)
-            {
-                for (int i = 0; i < yearCount; i++)
-                {
-                    int m = i * 12;
-                    if (m < monthCount) years[i, j] = months[m, j];
-                }
-                for (int i = 0; i < 10; i++)
-                {
-                    int m = i * 12* yearsInColumn;
-                    if (m < monthCount) all[i, j] = months[i * 12 * yearsInColumn, j];
-                }
-            }
-            //Очищаем остальные месяца, оставляя текущий последним заполненным
-            int empty = 12 - last.Month;
-            for (int j = 0; j < ctCount; j++)
-                for (int i = 0; i < empty; i++)
-                    months[i, j] = 0;
-
-            //Рисовка легенды
-            columnHeader.Text = "Статус";
-            listView.BeginUpdate();
-            listView.Items.Clear();
-            plBrushes = new SolidBrush[ctCount];
-            for (int i = 0; i < ctCount; i++)
-            {
-                ListViewItem item = new ListViewItem(Event.events[i]);
-                item.SubItems.Add(all[0, i].ToString(Program.num));
-                item.BackColor = Color.FromArgb(Data.data.winColR[i], Data.data.winColG[i], Data.data.winColB[i]);
-                plBrushes[i] = new SolidBrush(item.BackColor);
-                listView.Items.Add(item);
-            }
-            listView.EndUpdate();
 
             FindMaximumHeight();
             Zoom();
@@ -361,36 +351,53 @@ namespace My_Games
         #endregion
 
         #region Выбор масштаба
-        private void ScaleMonths(object sender, EventArgs e) { Zoom(); }
-        private void ScaleYears(object sender, EventArgs e) { Zoom(); }
-        private void ScaleAll(object sender, EventArgs e) { Zoom(); }
-        
+        private void ZoomIn(object sender, EventArgs e)
+        {
+            if (zoomMode < zoomMax)
+            {
+                zoomMode++;
+                Zoom();
+            }
+        }
+        private void ZoomOut(object sender, EventArgs e)
+        {
+            if (zoomMode > 0)
+            {
+                zoomMode--;
+                Zoom();
+            }
+        }
         /// <summary>
         /// Изменение масштаба, настройка скролл-баров и последующая перерисовка диаграмм
         /// </summary>
         void Zoom()
         {
             isUser = false;
-            if (radioButtonMounts.Checked)
+            if (zoomMode == 0)
             {
-                scrollBar.Maximum = monthCount - 1;
-                scrollBar.Value = scrollBar.Maximum - 11;
-                scrollBar.LargeChange = 12;
-                scrollBar.Enabled = true;
+                labelZoom.Text = "Все";
+                scrollBar.Maximum = 0;
+                scrollBar.Enabled = false;
             }
-            if (radioButtonYears.Checked)
+            if (zoomMode == 1)
             {
+                labelZoom.Text = "Годы";
                 scrollBar.Maximum = yearCount - 1;
                 scrollBar.Value = scrollBar.Maximum - 9;
                 scrollBar.LargeChange = 10;
                 scrollBar.Enabled = true;
             }
-            if (radioButtonEverytime.Checked)
+            if (zoomMode == 2)
             {
-                scrollBar.Maximum = 0;
-                scrollBar.Enabled = false;
+                labelZoom.Text = "Месяцы";
+                scrollBar.Maximum = monthCount - 1;
+                scrollBar.Value = scrollBar.Maximum - 11;
+                scrollBar.LargeChange = 12;
+                scrollBar.Enabled = true;
             }
             isUser = true;
+            buttonZoomOut.Enabled = zoomMode > 0;
+            buttonZoomIn.Enabled = zoomMode < zoomMax;
             Scrolling(null, null);
         }
         #endregion
@@ -400,8 +407,8 @@ namespace My_Games
         {
             if (!isUser) return;
             scrollVal = 0;
-            if (radioButtonMounts.Checked) scrollVal = scrollBar.Maximum - scrollBar.Value - 11;
-            if (radioButtonYears.Checked) scrollVal = scrollBar.Maximum - scrollBar.Value - 9;
+            if (zoomMode == 1) scrollVal = scrollBar.Maximum - scrollBar.Value - 9;
+            if (zoomMode == 2) scrollVal = scrollBar.Maximum - scrollBar.Value - 11;
             DrawGraph();
         }
 
@@ -474,9 +481,9 @@ namespace My_Games
             int scroll = 0;
             int columns = 0;
             int heightColumns = 0;
-            if (radioButtonMounts.Checked) { m = months; scroll = scrollVal + 11; columns = 12; heightColumns = heightMounts; }
-            if (radioButtonYears.Checked) { m = years; scroll = scrollVal + 9; columns = 10; heightColumns = heightYears; }
-            if (radioButtonEverytime.Checked) { m = all; scroll = 9; columns = 10; heightColumns = heightAll; }
+            if (zoomMode == 0) { m = all; scroll = 9; columns = 10; heightColumns = heightAll; }
+            if (zoomMode == 1) { m = years; scroll = scrollVal + 9; columns = 10; heightColumns = heightYears; }
+            if (zoomMode == 2) { m = months; scroll = scrollVal + 11; columns = 12; heightColumns = heightMounts; }
             int cWidth = width / columns;
             int cWidthS = width / columns - space * 2;
 
@@ -522,18 +529,18 @@ namespace My_Games
                 }
 
                 //Подписи столбиков
-                if (radioButtonMounts.Checked)
+                if (zoomMode == 0)
+                {
+                    graph.DrawString((last.Year - c * yearsInColumn - yearsInColumn + 1).ToString(), title, Brushes.Black, new Rectangle(left + cWidth * i, height, cWidth, bottom / 2), formatC);
+                    graph.DrawString((last.Year - c * yearsInColumn).ToString(), title, Brushes.Black, new Rectangle(left + cWidth * i, height + bottom / 2, cWidth, bottom / 2), formatC);
+                }
+                if (zoomMode == 1)
+                    graph.DrawString((last.Year - c).ToString(), title, Brushes.Black, new Rectangle(left + cWidth * i, height, cWidth, bottom), formatC);
+                if (zoomMode == 2)
                 {
                     if (i == 0 | c % 12 == 11)
                         graph.DrawString((last.Year - c / 12).ToString(), title, Brushes.Black, new Rectangle(left + cWidth * i, height, cWidth, bottom / 2), formatC);
                     graph.DrawString(mount[11 - c % 12], title, Brushes.Black, new Rectangle(left + cWidth * i, height + bottom / 2, cWidth, bottom / 2), formatC);
-                }
-                if (radioButtonYears.Checked)
-                    graph.DrawString((last.Year - c).ToString(), title, Brushes.Black, new Rectangle(left + cWidth * i, height, cWidth, bottom), formatC);
-                if (radioButtonEverytime.Checked)
-                {
-                    graph.DrawString((last.Year - c * yearsInColumn - yearsInColumn + 1).ToString(), title, Brushes.Black, new Rectangle(left + cWidth * i, height, cWidth, bottom / 2), formatC);
-                    graph.DrawString((last.Year - c * yearsInColumn).ToString(), title, Brushes.Black, new Rectangle(left + cWidth * i, height + bottom / 2, cWidth, bottom / 2), formatC);
                 }
             }
             pictureBox.Image = bmp;

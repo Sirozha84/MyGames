@@ -71,6 +71,7 @@ namespace My_Games
 
             //Вкладка прочего
             RefreshOthers();
+            checkHidden.Checked = game.hidden;
 
             textBoxName_TextChanged(null, null); //Это чтоб обновить кнопку ОК
         }
@@ -138,6 +139,9 @@ namespace My_Games
                 nn.note = nn.note.Replace("\r\n", "☺");
                 game.notes.Add(nn);
             }
+
+            //Вкладка прочего
+            game.hidden = checkHidden.Checked;
 
             game.Hold();
             DialogResult = DialogResult.OK;

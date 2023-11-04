@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Collections;
 using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace My_Games
 {
@@ -48,10 +49,12 @@ namespace My_Games
         {
             listViewGames.BeginUpdate();
             listViewGames.Items.Clear();
+            int count = 0;
             int showed = 0;
             foreach (Game g in Data.data.games)
             {
                 bool draw = true;
+                bool hide = false;
                 bool match;
                 Filter fl = Data.data.filter;
                 if (!g.name.ToLower().Contains(toolSearch.Text.ToLower())) draw = false;
@@ -85,18 +88,20 @@ namespace My_Games
                     }
                     if (fl.genreEnable && g.genre != fl.genre) draw = false;
                 }
+                if (g.hidden && !Settings.showHidden) { draw = false; hide = true; }
                 if (draw)
                 {
                     listViewGames.Items.Add(g.listItem());
                     showed++;
                 }
+                if (!hide) count++;
             }
             listViewGames.EndUpdate();
             //listViewGames.Items[30].Selected = true;
             //listViewGames.Items[30].Focused = true;
             //Подумать как после обновления списка оставить выделенным элемент который уже был выделен до обновления
-            statusAll.Text = "Всего игр: " + Data.data.games.Count;
-            if (showed == Data.data.games.Count)
+            statusAll.Text = "Всего игр: " + count.ToString();
+            if (showed == count)
                 statusShowed.Text = "";
             else
                 statusShowed.Text = "Показано: " + showed.ToString();
@@ -284,7 +289,12 @@ namespace My_Games
             Data.ReHold();
             RefreshData();
         }
-
+        private void ShowHidden(object sender, EventArgs e)
+        {
+            Settings.showHidden ^= true;
+            Checks();
+            RefreshData();
+        }
         #endregion
 
         #region Меню "Справочники"
@@ -364,6 +374,7 @@ namespace My_Games
             menuDateType0.Checked = Settings.dateType == 0;
             menuDateType1.Checked = Settings.dateType == 1;
             menuDateType2.Checked = Settings.dateType == 2;
+            menuShowHidden.Checked = Settings.showHidden;
         }
 
         /// <summary>

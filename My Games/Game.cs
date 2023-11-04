@@ -26,6 +26,7 @@ namespace My_Games
         public List<DLC> DLCs = new List<DLC>();
         public List<Event> history = new List<Event>();
         public List<Note> notes = new List<Note>();
+        public bool hidden;
 
         //Итоговые данные для быстрого доступа
         public DateTime date = DateTime.Now;
@@ -48,6 +49,7 @@ namespace My_Games
             item.Tag = this;
             if (Settings.colorMode == 1)
                 item.BackColor = Color.FromArgb(Data.data.winColR[win], Data.data.winColG[win], Data.data.winColB[win]);
+            if (hidden) item.ForeColor = Color.Gray;
             return item;
         }
 

@@ -13,6 +13,11 @@ namespace My_Games
             labelVersion.Text = "Версия: " + Program.Version;
 
             history.SelectionFont = fontB;
+            history.AppendText("Версия 2.6 (04.11.2023)\n\n");
+            history.SelectionFont = fontR;
+            history.AppendText("• Возможность скрывать игры из списка и статистики\n\n");
+
+            history.SelectionFont = fontB;
             history.AppendText("Версия 2.5 (30.04.2022)\n\n");
             history.SelectionFont = fontR;
             history.AppendText("• Добавлено автоматическое вычисления часов события по данным счётчика\n" +
