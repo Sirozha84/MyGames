@@ -56,12 +56,12 @@ namespace My_Games
             {
                 DateTime date = new DateTime(first.Year + i / 12, i % 12 + 1, 1);
                 date = date.AddMonths(1);
-                foreach (Game game in Data.data.games)
+                foreach (Game g in Data.data.games)
                 {
                     int max = 0;
-                    if (game.versions.Find(o => o.date <= date) != null)
+                    if ((!g.hidden | checkSeeAll.Checked) && g.versions.Find(o => o.date <= date) != null)
                     {
-                        foreach (Event ev in game.history)
+                        foreach (Event ev in g.history)
                             if (ev.date <= date && ev.even > max) max = ev.even;
                         months[monthCount - i - 1, max]++;
                         //if (date <= last.AddMonths(1)) - это даёт не заполнятся будущим месяцам, но тогда и года не заполняются
@@ -125,35 +125,45 @@ namespace My_Games
             //Создадим табличку с рейтингом по платформам
             categories = new int[ctCount, 2];
             foreach (Game g in Data.data.games)
-                foreach (Version v in g.versions)
+            {
+                if (!g.hidden | checkSeeAll.Checked)
                 {
-                    for (int i = 0; i < ctCount; i++)
+                    foreach (Version v in g.versions)
                     {
-                        if (categories[i, 0] == 0) categories[i, 0] = v.platform;
-                        if (categories[i, 0] == v.platform)
+                        for (int i = 0; i < ctCount; i++)
                         {
-                            categories[i, 1]++;
-                            i = ctCount;
+                            if (categories[i, 0] == 0) categories[i, 0] = v.platform;
+                            if (categories[i, 0] == v.platform)
+                            {
+                                categories[i, 1]++;
+                                i = ctCount;
+                            }
                         }
                     }
                 }
+            }
             DrawCatList();
 
             //Заполняем массивы
             foreach (Game g in Data.data.games)
-                foreach (Version v in g.versions)
+            {
+                if (!g.hidden | checkSeeAll.Checked)
                 {
-                    int p = 0;
-                    for (int i = 0; i < ctCount; i++)
-                        if (categories[i, 0] == v.platform)
-                        {
-                            p = i;
-                            break;
-                        }                   
-                    years[last.Year - v.date.Year, p]++;
-                    months[last.Year * 12 - v.date.Year * 12 + 12 - v.date.Month, p]++;
-                    all[(last.Year - v.date.Year) / yearsInColumn, p]++;
+                    foreach (Version v in g.versions)
+                    {
+                        int p = 0;
+                        for (int i = 0; i < ctCount; i++)
+                            if (categories[i, 0] == v.platform)
+                            {
+                                p = i;
+                                break;
+                            }
+                        years[last.Year - v.date.Year, p]++;
+                        months[last.Year * 12 - v.date.Year * 12 + 12 - v.date.Month, p]++;
+                        all[(last.Year - v.date.Year) / yearsInColumn, p]++;
+                    }
                 }
+            }
 
             FindMaximumHeight();
             Zoom();
@@ -182,27 +192,30 @@ namespace My_Games
             categories = new int[ctCount, 2];
             foreach (Game g in Data.data.games)
             {
-                foreach (Version v in g.versions)
+                if (!g.hidden | checkSeeAll.Checked)
                 {
-                    for (int i = 0; i < ctCount; i++)
+                    foreach (Version v in g.versions)
                     {
-                        if (categories[i, 0] == 0) categories[i, 0] = v.platform;
-                        if (categories[i, 0] == v.platform)
+                        for (int i = 0; i < ctCount; i++)
                         {
-                            categories[i, 1] += v.price;
-                            i = ctCount;
+                            if (categories[i, 0] == 0) categories[i, 0] = v.platform;
+                            if (categories[i, 0] == v.platform)
+                            {
+                                categories[i, 1] += v.price;
+                                i = ctCount;
+                            }
                         }
                     }
-                }
-                foreach (DLC d in g.DLCs)
-                {
-                    for (int i = 0; i < ctCount; i++)
+                    foreach (DLC d in g.DLCs)
                     {
-                        if (categories[i, 0] == 0) categories[i, 0] = d.platform;
-                        if (categories[i, 0] == d.platform)
+                        for (int i = 0; i < ctCount; i++)
                         {
-                            categories[i, 1] += d.price;
-                            i = ctCount;
+                            if (categories[i, 0] == 0) categories[i, 0] = d.platform;
+                            if (categories[i, 0] == d.platform)
+                            {
+                                categories[i, 1] += d.price;
+                                i = ctCount;
+                            }
                         }
                     }
                 }
@@ -212,31 +225,34 @@ namespace My_Games
             //Заполняем массивы
             foreach (Game g in Data.data.games)
             {
-                foreach (Version v in g.versions)
+                if (!g.hidden | checkSeeAll.Checked)
                 {
-                    int p = 0;
-                    for (int i = 0; i < ctCount; i++)
-                        if (categories[i, 0] == v.platform)
-                        {
-                            p = i;
-                            break;
-                        }
-                    years[last.Year - v.date.Year, p] += v.price;
-                    months[last.Year * 12 - v.date.Year * 12 + 12 - v.date.Month, p] += v.price;
-                    all[(last.Year - v.date.Year) / yearsInColumn, p] += v.price;
-                }
-                foreach (DLC d in g.DLCs)
-                {
-                    int p = 0;
-                    for (int i = 0; i < ctCount; i++)
-                        if (categories[i, 0] == d.platform)
-                        {
-                            p = i;
-                            break;
-                        }
-                    years[last.Year - d.date.Year, p] += d.price;
-                    months[last.Year * 12 - d.date.Year * 12 + 12 - d.date.Month, p] += d.price;
-                    all[(last.Year - d.date.Year) / yearsInColumn, p] += d.price;
+                    foreach (Version v in g.versions)
+                    {
+                        int p = 0;
+                        for (int i = 0; i < ctCount; i++)
+                            if (categories[i, 0] == v.platform)
+                            {
+                                p = i;
+                                break;
+                            }
+                        years[last.Year - v.date.Year, p] += v.price;
+                        months[last.Year * 12 - v.date.Year * 12 + 12 - v.date.Month, p] += v.price;
+                        all[(last.Year - v.date.Year) / yearsInColumn, p] += v.price;
+                    }
+                    foreach (DLC d in g.DLCs)
+                    {
+                        int p = 0;
+                        for (int i = 0; i < ctCount; i++)
+                            if (categories[i, 0] == d.platform)
+                            {
+                                p = i;
+                                break;
+                            }
+                        years[last.Year - d.date.Year, p] += d.price;
+                        months[last.Year * 12 - d.date.Year * 12 + 12 - d.date.Month, p] += d.price;
+                        all[(last.Year - d.date.Year) / yearsInColumn, p] += d.price;
+                    }
                 }
             }
             FindMaximumHeight();
@@ -261,34 +277,42 @@ namespace My_Games
             //Создадим табличку с рейтингом по платформам
             categories = new int[ctCount, 2];
             foreach (Game g in Data.data.games)
-                foreach (Event ev in g.history)
+            {
+                if (!g.hidden | checkSeeAll.Checked)
                 {
-                    for (int i = 0; i < ctCount; i++)
+                    foreach (Event ev in g.history)
                     {
-                        if (categories[i, 0] == 0) categories[i, 0] = ev.platform;
-                        if (categories[i, 0] == ev.platform)
+                        for (int i = 0; i < ctCount; i++)
                         {
-                            categories[i, 1] += ev.hours;
-                            i = ctCount;
+                            if (categories[i, 0] == 0) categories[i, 0] = ev.platform;
+                            if (categories[i, 0] == ev.platform)
+                            {
+                                categories[i, 1] += ev.hours;
+                                i = ctCount;
+                            }
                         }
                     }
                 }
+            }
             DrawCatList();
 
             //Заполняем массивы
             foreach (Game g in Data.data.games)
-                foreach (Event ev in g.history)
+                if (!g.hidden | checkSeeAll.Checked)
                 {
-                    int p = 0;
-                    for (int i = 0; i < ctCount; i++)
-                        if (categories[i, 0] == ev.platform)
-                        {
-                            p = i;
-                            break;
-                        }
-                    years[last.Year - ev.date.Year, p] += ev.hours;
-                    months[last.Year * 12 - ev.date.Year * 12 + 12 - ev.date.Month, p] += ev.hours;
-                    all[(last.Year - ev.date.Year) / yearsInColumn, p] += ev.hours;
+                    foreach (Event ev in g.history)
+                    {
+                        int p = 0;
+                        for (int i = 0; i < ctCount; i++)
+                            if (categories[i, 0] == ev.platform)
+                            {
+                                p = i;
+                                break;
+                            }
+                        years[last.Year - ev.date.Year, p] += ev.hours;
+                        months[last.Year * 12 - ev.date.Year * 12 + 12 - ev.date.Month, p] += ev.hours;
+                        all[(last.Year - ev.date.Year) / yearsInColumn, p] += ev.hours;
+                    }
                 }
 
             FindMaximumHeight();

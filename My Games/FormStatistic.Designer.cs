@@ -36,13 +36,13 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.radioButtonCS = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.listView = new System.Windows.Forms.ListView();
-            this.columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelZoom = new System.Windows.Forms.Label();
             this.buttonZoomOut = new System.Windows.Forms.Button();
             this.buttonZoomIn = new System.Windows.Forms.Button();
             this.checkSeeAll = new System.Windows.Forms.CheckBox();
+            this.listView = new System.Windows.Forms.ListView();
+            this.columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -166,33 +166,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(760, 32);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
-            // listView
-            // 
-            this.listView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader,
-            this.columnValue});
-            this.listView.FullRowSelect = true;
-            this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(570, 50);
-            this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(202, 444);
-            this.listView.TabIndex = 0;
-            this.listView.UseCompatibleStateImageBehavior = false;
-            this.listView.View = System.Windows.Forms.View.Details;
-            this.listView.SelectedIndexChanged += new System.EventHandler(this.LegendChange);
-            // 
-            // columnHeader
-            // 
-            this.columnHeader.Text = "Платформа";
-            this.columnHeader.Width = 120;
-            // 
-            // columnValue
-            // 
-            this.columnValue.Text = "Значение";
-            this.columnValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // labelZoom
             // 
             this.labelZoom.AutoSize = true;
@@ -235,6 +208,34 @@
             this.checkSeeAll.TabIndex = 6;
             this.checkSeeAll.Text = "Учитывать скрытые";
             this.checkSeeAll.UseVisualStyleBackColor = true;
+            this.checkSeeAll.Click += new System.EventHandler(this.Calc);
+            // 
+            // listView
+            // 
+            this.listView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader,
+            this.columnValue});
+            this.listView.FullRowSelect = true;
+            this.listView.HideSelection = false;
+            this.listView.Location = new System.Drawing.Point(570, 50);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(202, 444);
+            this.listView.TabIndex = 0;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.View = System.Windows.Forms.View.Details;
+            this.listView.SelectedIndexChanged += new System.EventHandler(this.LegendChange);
+            // 
+            // columnHeader
+            // 
+            this.columnHeader.Text = "Платформа";
+            this.columnHeader.Width = 120;
+            // 
+            // columnValue
+            // 
+            this.columnValue.Text = "Значение";
+            this.columnValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // FormStatistic
             // 
