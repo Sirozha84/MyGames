@@ -15,6 +15,8 @@ namespace My_Games
             this.p = p;
             textBoxName.Text = p.name;
             textBoxCompany.Text = p.company;
+            radioGame.Checked = p.type == 0;
+            radioVideo.Checked = p.type == 1;
             buttonCol.BackColor = p.color;
             foreach (int m in p.mediums)
                 checkedListBox.SetItemChecked(checkedListBox.FindString(Data.MediumIDToName(m)), true);
@@ -26,6 +28,8 @@ namespace My_Games
             DialogResult = DialogResult.OK;
             p.name = textBoxName.Text;
             p.company = textBoxCompany.Text;
+            if (radioGame.Checked) p.type = 0;
+            if (radioVideo.Checked) p.type = 1;
             p.color = buttonCol.BackColor;
             p.mediums.Clear();
             foreach (object o in checkedListBox.CheckedItems)

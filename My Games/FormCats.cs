@@ -27,8 +27,9 @@ namespace My_Games
             listViewCat.BeginUpdate();
             if (type == 1)
             {
-                listViewCat.Columns.Add("Платформа", 170);
-                listViewCat.Columns.Add("Компания", 110);
+                listViewCat.Columns.Add("Платформа", 160);
+                listViewCat.Columns.Add("Компания", 60);
+                listViewCat.Columns.Add("Тип", 60);
                 ((List<Platform>)list).Sort();
                 foreach (Platform item in (List<Platform>)list)
                     listViewCat.Items.Add(item.GetListViewItem());

@@ -31,13 +31,16 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
             this.textBoxCompany = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.checkedListBox = new System.Windows.Forms.CheckedListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonCol = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.labelType = new System.Windows.Forms.Label();
+            this.radioVideo = new System.Windows.Forms.RadioButton();
+            this.radioGame = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // textBoxName
@@ -57,7 +60,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(197, 326);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 5;
+            this.buttonCancel.TabIndex = 7;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
@@ -67,19 +70,19 @@
             this.buttonOK.Location = new System.Drawing.Point(116, 326);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
-            this.buttonOK.TabIndex = 4;
+            this.buttonOK.TabIndex = 6;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
-            // label4
+            // labelName
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 13);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Наименование:";
+            this.labelName.AutoSize = true;
+            this.labelName.Location = new System.Drawing.Point(14, 15);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(86, 13);
+            this.labelName.TabIndex = 17;
+            this.labelName.Text = "Наименование:";
             // 
             // textBoxCompany
             // 
@@ -106,15 +109,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkedListBox.CheckOnClick = true;
             this.checkedListBox.FormattingEnabled = true;
-            this.checkedListBox.Location = new System.Drawing.Point(12, 107);
+            this.checkedListBox.Location = new System.Drawing.Point(12, 152);
             this.checkedListBox.Name = "checkedListBox";
-            this.checkedListBox.Size = new System.Drawing.Size(260, 199);
-            this.checkedListBox.TabIndex = 3;
+            this.checkedListBox.Size = new System.Drawing.Size(260, 154);
+            this.checkedListBox.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 91);
+            this.label2.Location = new System.Drawing.Point(9, 133);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(142, 13);
             this.label2.TabIndex = 101;
@@ -123,21 +126,52 @@
             // buttonCol
             // 
             this.buttonCol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCol.Location = new System.Drawing.Point(106, 63);
+            this.buttonCol.Location = new System.Drawing.Point(106, 110);
             this.buttonCol.Name = "buttonCol";
             this.buttonCol.Size = new System.Drawing.Size(20, 20);
-            this.buttonCol.TabIndex = 2;
+            this.buttonCol.TabIndex = 4;
             this.buttonCol.UseVisualStyleBackColor = true;
             this.buttonCol.Click += new System.EventHandler(this.ButtonCol_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(65, 67);
+            this.label3.Location = new System.Drawing.Point(65, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 103;
             this.label3.Text = "Цвет:";
+            // 
+            // labelType
+            // 
+            this.labelType.AutoSize = true;
+            this.labelType.Location = new System.Drawing.Point(9, 66);
+            this.labelType.Name = "labelType";
+            this.labelType.Size = new System.Drawing.Size(91, 13);
+            this.labelType.TabIndex = 106;
+            this.labelType.Text = "Тип платформы:";
+            // 
+            // radioVideo
+            // 
+            this.radioVideo.AutoSize = true;
+            this.radioVideo.Location = new System.Drawing.Point(106, 87);
+            this.radioVideo.Name = "radioVideo";
+            this.radioVideo.Size = new System.Drawing.Size(56, 17);
+            this.radioVideo.TabIndex = 3;
+            this.radioVideo.TabStop = true;
+            this.radioVideo.Text = "Видео";
+            this.radioVideo.UseVisualStyleBackColor = true;
+            // 
+            // radioGame
+            // 
+            this.radioGame.AutoSize = true;
+            this.radioGame.Location = new System.Drawing.Point(106, 64);
+            this.radioGame.Name = "radioGame";
+            this.radioGame.Size = new System.Drawing.Size(68, 17);
+            this.radioGame.TabIndex = 2;
+            this.radioGame.TabStop = true;
+            this.radioGame.Text = "Игровая";
+            this.radioGame.UseVisualStyleBackColor = true;
             // 
             // FormPlatform
             // 
@@ -146,16 +180,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(284, 361);
+            this.Controls.Add(this.labelName);
+            this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxCompany);
+            this.Controls.Add(this.labelType);
+            this.Controls.Add(this.radioGame);
+            this.Controls.Add(this.radioVideo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonCol);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.checkedListBox);
-            this.Controls.Add(this.textBoxCompany);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxName);
-            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.buttonCancel);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(300, 400);
@@ -174,12 +211,15 @@
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonOK;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.TextBox textBoxCompany;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckedListBox checkedListBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonCol;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelType;
+        private System.Windows.Forms.RadioButton radioVideo;
+        private System.Windows.Forms.RadioButton radioGame;
     }
 }

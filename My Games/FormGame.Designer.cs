@@ -116,8 +116,9 @@
             this.buttonNoteDel = new System.Windows.Forms.Button();
             this.textBoxNote = new System.Windows.Forms.TextBox();
             this.tabPageOthers = new System.Windows.Forms.TabPage();
-            this.imageListTabs = new System.Windows.Forms.ImageList(this.components);
             this.checkHidden = new System.Windows.Forms.CheckBox();
+            this.imageListTabs = new System.Windows.Forms.ImageList(this.components);
+            this.columnEventMethod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBoxMain.SuspendLayout();
             this.cmCover.SuspendLayout();
             this.groupBoxComment.SuspendLayout();
@@ -276,6 +277,7 @@
             this.columnEventDate,
             this.columnEventPlatform,
             this.columnEvent,
+            this.columnEventMethod,
             this.columnEventHoursAll,
             this.columnEventHours,
             this.columnEventComment});
@@ -322,7 +324,7 @@
             // columnEventComment
             // 
             this.columnEventComment.Text = "Комментарий";
-            this.columnEventComment.Width = 340;
+            this.columnEventComment.Width = 280;
             // 
             // textBoxComment
             // 
@@ -1080,14 +1082,6 @@
             this.tabPageOthers.Text = "Прочее";
             this.tabPageOthers.UseVisualStyleBackColor = true;
             // 
-            // imageListTabs
-            // 
-            this.imageListTabs.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListTabs.ImageStream")));
-            this.imageListTabs.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListTabs.Images.SetKeyName(0, "purchase.png");
-            this.imageListTabs.Images.SetKeyName(1, "winner.png");
-            this.imageListTabs.Images.SetKeyName(2, "notes.png");
-            // 
             // checkHidden
             // 
             this.checkHidden.AutoSize = true;
@@ -1097,6 +1091,18 @@
             this.checkHidden.TabIndex = 26;
             this.checkHidden.Text = "Скрыть игру";
             this.checkHidden.UseVisualStyleBackColor = true;
+            // 
+            // imageListTabs
+            // 
+            this.imageListTabs.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListTabs.ImageStream")));
+            this.imageListTabs.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListTabs.Images.SetKeyName(0, "purchase.png");
+            this.imageListTabs.Images.SetKeyName(1, "winner.png");
+            this.imageListTabs.Images.SetKeyName(2, "notes.png");
+            // 
+            // columnEventMethod
+            // 
+            this.columnEventMethod.Text = "Метод";
             // 
             // FormGame
             // 
@@ -1230,5 +1236,6 @@
         private System.Windows.Forms.LinkLabel linkSF;
         private System.Windows.Forms.TextBox textSF;
         private System.Windows.Forms.CheckBox checkHidden;
+        private System.Windows.Forms.ColumnHeader columnEventMethod;
     }
 }

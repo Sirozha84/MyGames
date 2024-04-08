@@ -14,6 +14,7 @@ namespace My_Games
         public FormEvent(Event ev, List<Version> versions, List<Event> history)
         {
             InitializeComponent();
+            comboMethod.DataSource = Event.methods;
             comboBoxEvent.DataSource = Event.events;
             this.ev = ev;
             this.versions = versions;
@@ -25,7 +26,8 @@ namespace My_Games
         {
             isUser = false;
             date.Value = ev.date;
-            Platform.FillCombobox(comboBoxPlatform, ev.platform, checkBoxAll.Checked, versions);
+            comboMethod.SelectedIndex = ev.method;
+            Platform.FillCombobox(comboBoxPlatform, comboMethod.SelectedIndex, ev.platform, checkBoxAll.Checked, versions);
             comboBoxEvent.SelectedIndex = ev.even;
             textBoxHours.Text = ev.hours.ToString();
             textBoxHoursAll.Text = ev.hoursAll.ToString();
@@ -39,6 +41,7 @@ namespace My_Games
         private void buttonOK_Click(object sender, EventArgs e)
         {
             ev.date = date.Value;
+            ev.method = comboMethod.SelectedIndex;
             ev.platform = Data.PlatformNameToID(comboBoxPlatform.Text);
             ev.even = comboBoxEvent.SelectedIndex;
             ev.hours = Data.TextToInt(textBoxHours.Text);
@@ -69,6 +72,16 @@ namespace My_Games
                 if (ev.platform == pl & ev.date < date.Value)
                     all -= ev.hours;
             if (all >= 0) textBoxHours.Text = all.ToString();
+        }
+
+        private void comboMethod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ev == null) return;
+            if (lastmethod < 2 & comboMethod.SelectedIndex < 2) return;
+            if (lastmethod == 2 & comboMethod.SelectedIndex == 2) return;
+            lastmethod = comboMethod.SelectedIndex;
+            checkBoxAll.Enabled = comboMethod.SelectedIndex != 2;
+            Platform.FillCombobox(comboBoxPlatform, comboMethod.SelectedIndex, ev.platform, checkBoxAll.Checked, versions);
         }
     }
 }

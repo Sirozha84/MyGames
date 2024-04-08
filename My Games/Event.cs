@@ -8,10 +8,12 @@ namespace My_Games
     {
         public static string[] events = { "Не запускалась", "Начата", "Половина",
                                           "Большая часть", "Пройдена", "На \"100%\"", "Бесконечная" };
+        public static string[] methods = { "Честно", "С читами", "Просмотр" };
 
         public DateTime date;
         public int platform;
         public int even;
+        public int method;
         public int hours;
         public int hoursAll;
         public string comment;
@@ -27,6 +29,7 @@ namespace My_Games
             date = ev.date;
             platform = ev.platform;
             even = ev.even;
+            method = ev.method;
             hours = ev.hours;
             hoursAll = ev.hoursAll;
             comment = ev.comment;
@@ -34,8 +37,8 @@ namespace My_Games
 
         public ListViewItem listItem()
         {
-            string[] labels = {date.ToString("dd.MM.yyyy"),
-                Data.PlatformIDToName(platform), events[even], hoursAll.ToString(Program.num), hours.ToString(Program.num), comment};
+            string[] labels = {date.ToString("dd.MM.yyyy"), Data.PlatformIDToName(platform), events[even],
+                methods[method], hoursAll.ToString(Program.num), hours.ToString(Program.num), comment};
             return new ListViewItem(labels) { Tag = this };
         }
     }
