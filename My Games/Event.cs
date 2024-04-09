@@ -19,9 +19,14 @@ namespace My_Games
         public string comment;
 
         public Event()
+        { }
+    
+        public Event(List<Event> history)
         {
             date = DateTime.Now;
             even = 4;               //Действие по умолчанию сделаем "Пройдена"
+            foreach (Event ev in history)
+                if (even < ev.even) even = ev.even; //Но, если в истории было действие старше - выбираем его
         }
 
         public Event(Event ev)

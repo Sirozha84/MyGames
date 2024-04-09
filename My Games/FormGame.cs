@@ -363,7 +363,7 @@ namespace My_Games
         #region History
         private void AddEvent(object sender, EventArgs e)
         {
-            Event ev = new Event();
+            Event ev = new Event(history);
             FormEvent form = new FormEvent(ev, versions, history);
             if (form.ShowDialog() == DialogResult.OK)
             {

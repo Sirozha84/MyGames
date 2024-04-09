@@ -10,6 +10,7 @@ namespace My_Games
         List<Version> versions;
         List<Event> history;
         bool isUser;
+        int lastmethod;
 
         public FormEvent(Event ev, List<Version> versions, List<Event> history)
         {
