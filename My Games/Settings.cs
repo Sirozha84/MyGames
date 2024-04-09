@@ -12,7 +12,6 @@ namespace My_Games
         public static int height = 600;
         public static bool infoPanel = false;
         public static int colorMode = 0;
-        public static int dateType = 0;
         public static bool showHidden = false;
 
         /// <summary>
@@ -32,7 +31,6 @@ namespace My_Games
                     if (s[0] == "Height") height = Convert.ToInt32(s[1]);
                     if (s[0] == "InfoPanel") infoPanel = s[1] == "True";
                     if (s[0] == "ColorMode") colorMode = Convert.ToInt32(s[1]);
-                    if (s[0] == "DateType") dateType = Convert.ToInt32(s[1]);
                     if (s[0] == "ShowHidden") showHidden = s[1] == "True";
                 }
             }
@@ -54,7 +52,6 @@ namespace My_Games
                     file.WriteLine("Height=" + height.ToString());
                     file.WriteLine("InfoPanel=" + infoPanel.ToString());
                     file.WriteLine("ColorMode=" + colorMode.ToString());
-                    file.WriteLine("DateType=" + dateType.ToString());
                     file.WriteLine("ShowHidden=" + showHidden.ToString());
                 }
             }

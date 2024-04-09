@@ -47,10 +47,6 @@
             this.menuCol0 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCol1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSep3 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuDateType0 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuDateType1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuDateType2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSep4 = new System.Windows.Forms.ToolStripSeparator();
             this.menuShowHidden = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCats = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPlatforms = new System.Windows.Forms.ToolStripMenuItem();
@@ -216,10 +212,6 @@
             this.menuCol0,
             this.menuCol1,
             this.menuSep3,
-            this.menuDateType0,
-            this.menuDateType1,
-            this.menuDateType2,
-            this.menuSep4,
             this.menuShowHidden});
             this.menuView.Name = "menuView";
             this.menuView.Size = new System.Drawing.Size(39, 20);
@@ -277,32 +269,6 @@
             // 
             this.menuSep3.Name = "menuSep3";
             this.menuSep3.Size = new System.Drawing.Size(245, 6);
-            // 
-            // menuDateType0
-            // 
-            this.menuDateType0.Name = "menuDateType0";
-            this.menuDateType0.Size = new System.Drawing.Size(248, 22);
-            this.menuDateType0.Text = "Дата: Первая покупка";
-            this.menuDateType0.Click += new System.EventHandler(this.SelectDateType);
-            // 
-            // menuDateType1
-            // 
-            this.menuDateType1.Name = "menuDateType1";
-            this.menuDateType1.Size = new System.Drawing.Size(248, 22);
-            this.menuDateType1.Text = "Дата: Последняя покупка";
-            this.menuDateType1.Click += new System.EventHandler(this.SelectDateType);
-            // 
-            // menuDateType2
-            // 
-            this.menuDateType2.Name = "menuDateType2";
-            this.menuDateType2.Size = new System.Drawing.Size(248, 22);
-            this.menuDateType2.Text = "Дата: Последняя игра";
-            this.menuDateType2.Click += new System.EventHandler(this.SelectDateType);
-            // 
-            // menuSep4
-            // 
-            this.menuSep4.Name = "menuSep4";
-            this.menuSep4.Size = new System.Drawing.Size(245, 6);
             // 
             // menuShowHidden
             // 
@@ -936,13 +902,9 @@
         private System.Windows.Forms.Label labelHistory;
         private System.Windows.Forms.Label labelHistoryL;
         private System.Windows.Forms.ToolStripSeparator menuSep3;
-        private System.Windows.Forms.ToolStripMenuItem menuDateType0;
-        private System.Windows.Forms.ToolStripMenuItem menuDateType1;
-        private System.Windows.Forms.ToolStripMenuItem menuDateType2;
         private System.Windows.Forms.ToolStripMenuItem cmOpenSF;
         private System.Windows.Forms.ToolStripMenuItem menuGotoSite;
         private System.Windows.Forms.ToolStripMenuItem menuOpenSF;
-        private System.Windows.Forms.ToolStripSeparator menuSep4;
         private System.Windows.Forms.ToolStripMenuItem menuShowHidden;
     }
 }

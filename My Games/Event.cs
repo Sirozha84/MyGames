@@ -18,9 +18,7 @@ namespace My_Games
         public int hoursAll;
         public string comment;
 
-        public Event()
-        { }
-    
+        public Event() { }    
         public Event(List<Event> history)
         {
             date = DateTime.Now;

@@ -280,15 +280,6 @@ namespace My_Games
             Checks();
             RefreshData();
         }
-        private void SelectDateType(object sender, EventArgs e)
-        {
-            if (((ToolStripMenuItem)sender).Name == "menuDateType0") Settings.dateType = 0;
-            if (((ToolStripMenuItem)sender).Name == "menuDateType1") Settings.dateType = 1;
-            if (((ToolStripMenuItem)sender).Name == "menuDateType2") Settings.dateType = 2;
-            Checks();
-            Data.ReHold();
-            RefreshData();
-        }
         private void ShowHidden(object sender, EventArgs e)
         {
             Settings.showHidden ^= true;
@@ -371,9 +362,6 @@ namespace My_Games
             menuInfoPanel.Checked = toolInfoPanel.Checked = Settings.infoPanel;
             menuCol0.Checked = Settings.colorMode == 0;
             menuCol1.Checked = Settings.colorMode == 1;
-            menuDateType0.Checked = Settings.dateType == 0;
-            menuDateType1.Checked = Settings.dateType == 1;
-            menuDateType2.Checked = Settings.dateType == 2;
             menuShowHidden.Checked = Settings.showHidden;
         }
 
