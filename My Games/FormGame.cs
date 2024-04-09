@@ -131,7 +131,7 @@ namespace My_Games
                 game.history.Add(new Event(ev));
             
             //Вкладка заметок
-            notes.Sort((o1, o2) => o1.date.CompareTo(o2.date));
+            notes.Sort((o1, o2) => o2.date.CompareTo(o1.date));
             game.notes.Clear();
             foreach (Note n in notes)
             {
@@ -279,8 +279,7 @@ namespace My_Games
 
         void DrawVersions()
         {
-            VersionDateComparer dc = new VersionDateComparer();
-            versions.Sort(dc);
+            versions.Sort((o1, o2) => o1.date < o2.date ? 1 : -1);
             listViewVersions.BeginUpdate();
             listViewVersions.Items.Clear();
             foreach (Version v in versions)
@@ -340,8 +339,7 @@ namespace My_Games
 
         void DrawDLCs()
         {
-            DLCDateComparer dc = new DLCDateComparer();
-            dlcs.Sort(dc);
+            dlcs.Sort((o1, o2) => o1.date < o2.date ? 1 : -1);
             listViewDLCs.BeginUpdate();
             listViewDLCs.Items.Clear();
             foreach (DLC d in dlcs)
@@ -400,8 +398,7 @@ namespace My_Games
 
         void DrawHistory()
         {
-            EventDateComparer dc = new EventDateComparer();
-            history.Sort(dc);
+            history.Sort((o1, o2) => o1.date < o2.date ? 1 : -1);
             listViewHistory.BeginUpdate();
             listViewHistory.Items.Clear();
             foreach (Event e in history)

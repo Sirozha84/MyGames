@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Collections;
 using System.IO;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace My_Games
 {
@@ -97,9 +96,6 @@ namespace My_Games
                 if (!hide) count++;
             }
             listViewGames.EndUpdate();
-            //listViewGames.Items[30].Selected = true;
-            //listViewGames.Items[30].Focused = true;
-            //Подумать как после обновления списка оставить выделенным элемент который уже был выделен до обновления
             statusAll.Text = "Всего игр: " + count.ToString();
             if (showed == count)
                 statusShowed.Text = "";
@@ -414,7 +410,7 @@ namespace My_Games
             Game game2 = (Game)((ListViewItem)g2).Tag;
             int res = 0;
             if (columnIndex == 0)
-                res = game1.date > game2.date ? 1 : -1;
+                res = game1.date < game2.date ? 1 : -1;
             if (columnIndex == 1)
                 res = String.Compare(game1.name, game2.name);
             if (columnIndex == 2) //и это будет невероятно тормозить с большой базой, пока оставлю это так, оптимизирую потом!

@@ -45,12 +45,4 @@ namespace My_Games
             return new ListViewItem(labels) { Tag = this };
         }
     }
-
-    class EventDateComparer : IComparer<Event>
-    {
-        public int Compare(Event o1, Event o2)
-        {
-            return o1.date > o2.date ? 1 : -1;
-        }
-    }
 }

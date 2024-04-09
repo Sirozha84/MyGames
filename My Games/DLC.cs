@@ -35,12 +35,4 @@ namespace My_Games
             return new ListViewItem(labels) { Tag = this };
         }
     }
-
-    class DLCDateComparer : IComparer<DLC>
-    {
-        public int Compare(DLC o1, DLC o2)
-        {
-            return o1.date > o2.date ? 1 : -1;
-        }
-    }
 }

@@ -35,12 +35,4 @@ namespace My_Games
             return new ListViewItem(labels) { Tag = this };
         }
     }
-    
-    class VersionDateComparer : IComparer<Version>
-    {
-        public int Compare(Version o1, Version o2)
-        {
-            return o1.date > o2.date ? 1 : -1;
-        }
-    }
 }
