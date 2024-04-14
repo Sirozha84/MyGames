@@ -30,6 +30,11 @@ namespace My_Games
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
+            if (comboBoxPlatform.Text == "")
+            {
+                MessageBox.Show("Не выбрана платформа");
+                return;
+            }
             dlc.date = date.Value;
             dlc.platform = Data.PlatformNameToID(comboBoxPlatform.Text);
             dlc.name = textBoxName.Text;

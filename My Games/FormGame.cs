@@ -85,6 +85,12 @@ namespace My_Games
 
         private void OK(object sender, EventArgs e)
         {
+            if (versions.Count < 1)
+            {
+                tabControl.SelectTab(1);
+                MessageBox.Show("Должна быть хотя бы одна версия игры.");
+                return;
+            }
             //ID
             if (game.ID == 0)
             {

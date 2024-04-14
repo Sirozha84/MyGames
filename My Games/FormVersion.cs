@@ -25,6 +25,16 @@ namespace My_Games
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
+            if (comboBoxPlatform.Text == "")
+            {
+                MessageBox.Show("Не выбрана платформа");
+                return;
+            }
+            if (comboBoxMedium.Text == "")
+            {
+                MessageBox.Show("Не выбран носитель");
+                return;
+            }
             version.date = date.Value;
             version.platform = Data.PlatformNameToID(comboBoxPlatform.Text);
             version.medium = Data.MediumNameToID(comboBoxMedium.Text);
