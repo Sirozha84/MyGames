@@ -41,7 +41,7 @@ namespace My_Games
                 foreach (DLC dlc in game.DLCs)
                     list.Add(new HistoryString(dlc.date, game.name, "DLC", dlc.platform, 0, game.genre, dlc.price));
             }
-            list.Sort((o1, o2) => o1.time.CompareTo(o2.time));
+            list.Sort((o1, o2) => o2.time.CompareTo(o1.time));
 
             Refresh();
         }

@@ -30,10 +30,9 @@ namespace My_Games
                 foreach (Event ev in game.history)
                     list.Add(new PlayHistoryString(ev.date, game.name, ev.platform, game.genre, ev.even, ev.hours, ev.comment));
             }
-            list.Sort((o1, o2) => o1.time.CompareTo(o2.time));
+            list.Sort((o1, o2) => o2.time.CompareTo(o1.time));
 
             Refresh();
-
         }
 
         void Refresh()
