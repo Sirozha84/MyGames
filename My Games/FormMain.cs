@@ -266,8 +266,8 @@ namespace My_Games
 
         private void infoPanelOnOff(object sender, EventArgs e)
         {
-            menuInfoPanel.Checked = !menuInfoPanel.Checked;
-            toolInfoPanel.Checked = menuInfoPanel.Checked;
+            Settings.infoPanel ^= true;
+            Checks();
             ShowHideInfoView(true);
         }
         private void SelectColorMode(object sender, EventArgs e)
