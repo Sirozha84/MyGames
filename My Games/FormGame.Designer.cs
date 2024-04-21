@@ -401,7 +401,7 @@
             // 
             this.textYear.Location = new System.Drawing.Point(89, 99);
             this.textYear.Name = "textYear";
-            this.textYear.Size = new System.Drawing.Size(57, 20);
+            this.textYear.Size = new System.Drawing.Size(60, 20);
             this.textYear.TabIndex = 7;
             // 
             // linkGenre

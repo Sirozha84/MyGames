@@ -40,26 +40,28 @@
             this.checkBoxMedium = new System.Windows.Forms.CheckBox();
             this.comboBoxGenre = new System.Windows.Forms.ComboBox();
             this.checkBoxGenre = new System.Windows.Forms.CheckBox();
+            this.checkBoxYear = new System.Windows.Forms.CheckBox();
+            this.textBoxYear = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonCancel
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(173, 154);
+            this.buttonCancel.Location = new System.Drawing.Point(173, 178);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 8;
+            this.buttonCancel.TabIndex = 7;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // buttonOK
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Location = new System.Drawing.Point(92, 154);
+            this.buttonOK.Location = new System.Drawing.Point(92, 178);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
-            this.buttonOK.TabIndex = 7;
+            this.buttonOK.TabIndex = 6;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
@@ -79,7 +81,7 @@
             this.dateTimeStart.Location = new System.Drawing.Point(108, 12);
             this.dateTimeStart.Name = "dateTimeStart";
             this.dateTimeStart.Size = new System.Drawing.Size(140, 20);
-            this.dateTimeStart.TabIndex = 10;
+            this.dateTimeStart.TabIndex = 0;
             this.dateTimeStart.ValueChanged += new System.EventHandler(this.dateTimeStart_ValueChanged);
             // 
             // dateTimeEnd
@@ -87,7 +89,7 @@
             this.dateTimeEnd.Location = new System.Drawing.Point(108, 38);
             this.dateTimeEnd.Name = "dateTimeEnd";
             this.dateTimeEnd.Size = new System.Drawing.Size(140, 20);
-            this.dateTimeEnd.TabIndex = 12;
+            this.dateTimeEnd.TabIndex = 1;
             this.dateTimeEnd.ValueChanged += new System.EventHandler(this.dateTimeEnd_ValueChanged);
             // 
             // checkBoxEnd
@@ -117,7 +119,7 @@
             this.comboBoxPlatform.Location = new System.Drawing.Point(108, 64);
             this.comboBoxPlatform.Name = "comboBoxPlatform";
             this.comboBoxPlatform.Size = new System.Drawing.Size(140, 21);
-            this.comboBoxPlatform.TabIndex = 14;
+            this.comboBoxPlatform.TabIndex = 2;
             this.comboBoxPlatform.SelectedIndexChanged += new System.EventHandler(this.comboBoxPlatform_SelectedIndexChanged);
             // 
             // comboBoxMedium
@@ -127,7 +129,7 @@
             this.comboBoxMedium.Location = new System.Drawing.Point(108, 91);
             this.comboBoxMedium.Name = "comboBoxMedium";
             this.comboBoxMedium.Size = new System.Drawing.Size(140, 21);
-            this.comboBoxMedium.TabIndex = 16;
+            this.comboBoxMedium.TabIndex = 3;
             this.comboBoxMedium.SelectedIndexChanged += new System.EventHandler(this.comboBoxMedium_SelectedIndexChanged);
             // 
             // checkBoxMedium
@@ -147,7 +149,7 @@
             this.comboBoxGenre.Location = new System.Drawing.Point(108, 118);
             this.comboBoxGenre.Name = "comboBoxGenre";
             this.comboBoxGenre.Size = new System.Drawing.Size(140, 21);
-            this.comboBoxGenre.TabIndex = 18;
+            this.comboBoxGenre.TabIndex = 4;
             this.comboBoxGenre.SelectedIndexChanged += new System.EventHandler(this.comboBoxGenre_SelectedIndexChanged);
             // 
             // checkBoxGenre
@@ -160,25 +162,44 @@
             this.checkBoxGenre.Text = "Жанр";
             this.checkBoxGenre.UseVisualStyleBackColor = true;
             // 
+            // checkBoxYear
+            // 
+            this.checkBoxYear.AutoSize = true;
+            this.checkBoxYear.Location = new System.Drawing.Point(17, 147);
+            this.checkBoxYear.Name = "checkBoxYear";
+            this.checkBoxYear.Size = new System.Drawing.Size(84, 17);
+            this.checkBoxYear.TabIndex = 19;
+            this.checkBoxYear.Text = "Год выхода";
+            this.checkBoxYear.UseVisualStyleBackColor = true;
+            // 
+            // textBoxYear
+            // 
+            this.textBoxYear.Location = new System.Drawing.Point(108, 145);
+            this.textBoxYear.Name = "textBoxYear";
+            this.textBoxYear.Size = new System.Drawing.Size(60, 20);
+            this.textBoxYear.TabIndex = 5;
+            // 
             // FormFilter
             // 
             this.AcceptButton = this.buttonOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(260, 189);
-            this.Controls.Add(this.comboBoxGenre);
-            this.Controls.Add(this.checkBoxGenre);
-            this.Controls.Add(this.comboBoxMedium);
-            this.Controls.Add(this.checkBoxMedium);
-            this.Controls.Add(this.comboBoxPlatform);
-            this.Controls.Add(this.checkBoxPlatform);
-            this.Controls.Add(this.dateTimeEnd);
-            this.Controls.Add(this.checkBoxEnd);
-            this.Controls.Add(this.dateTimeStart);
+            this.ClientSize = new System.Drawing.Size(260, 213);
             this.Controls.Add(this.checkBoxStart);
-            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.dateTimeStart);
+            this.Controls.Add(this.checkBoxEnd);
+            this.Controls.Add(this.dateTimeEnd);
+            this.Controls.Add(this.checkBoxPlatform);
+            this.Controls.Add(this.comboBoxPlatform);
+            this.Controls.Add(this.checkBoxMedium);
+            this.Controls.Add(this.comboBoxMedium);
+            this.Controls.Add(this.checkBoxGenre);
+            this.Controls.Add(this.comboBoxGenre);
+            this.Controls.Add(this.checkBoxYear);
+            this.Controls.Add(this.textBoxYear);
             this.Controls.Add(this.buttonOK);
+            this.Controls.Add(this.buttonCancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -206,5 +227,7 @@
         private System.Windows.Forms.CheckBox checkBoxMedium;
         private System.Windows.Forms.ComboBox comboBoxGenre;
         private System.Windows.Forms.CheckBox checkBoxGenre;
+        private System.Windows.Forms.CheckBox checkBoxYear;
+        private System.Windows.Forms.TextBox textBoxYear;
     }
 }

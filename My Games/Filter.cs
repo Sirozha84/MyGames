@@ -20,5 +20,8 @@ namespace My_Games
         
         public bool genreEnable;
         public int genre;
+
+        public bool yearEnable;
+        public string year;
     }
 }

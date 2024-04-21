@@ -86,6 +86,7 @@ namespace My_Games
                         if (!match) draw = false;
                     }
                     if (fl.genreEnable && g.genre != fl.genre) draw = false;
+                    if (fl.yearEnable && g.year != fl.year) draw = false;
                 }
                 if (g.hidden && !Settings.showHidden) { draw = false; hide = true; }
                 if (draw)

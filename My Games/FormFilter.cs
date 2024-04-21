@@ -30,6 +30,9 @@ namespace My_Games
             comboBoxGenre.SelectedItem = Data.GenreIDToName(fl.genre);
             checkBoxGenre.Checked = fl.genreEnable;
 
+            textBoxYear.Text = fl.year;
+            checkBoxYear.Checked = fl.yearEnable;
+
             isUser = true;
         }
 
@@ -46,11 +49,14 @@ namespace My_Games
             fl.mediumEnable = checkBoxMedium.Checked;
             fl.genre = Data.GenreNameToID(comboBoxGenre.SelectedItem.ToString());
             fl.genreEnable = checkBoxGenre.Checked;
+            fl.year = textBoxYear.Text;
+            fl.yearEnable = checkBoxYear.Checked;
             fl.enable = fl.startEnable | 
                         fl.endEnable | 
                         fl.platformEnable | 
                         fl.mediumEnable | 
-                        fl.genreEnable;
+                        fl.genreEnable |
+                        fl.yearEnable;
             Close();
         }
 
