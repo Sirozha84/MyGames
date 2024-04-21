@@ -32,8 +32,9 @@ namespace My_Games
             if (radioVideo.Checked) p.type = 1;
             p.color = buttonCol.BackColor;
             p.mediums.Clear();
-            foreach (object o in checkedListBox.CheckedItems)
-                p.mediums.Add(Data.MediumNameToID(o.ToString()));
+            if (p.type == 0)
+                foreach (object o in checkedListBox.CheckedItems)
+                    p.mediums.Add(Data.MediumNameToID(o.ToString()));
         }
 
         private void ButtonCol_Click(object sender, EventArgs e)
@@ -46,6 +47,11 @@ namespace My_Games
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
             buttonOK.Enabled = textBoxName.Text != "";
+        }
+
+        private void radioChanged(object sender, EventArgs e)
+        {
+            checkedListBox.Enabled = !radioVideo.Checked;
         }
     }
 }

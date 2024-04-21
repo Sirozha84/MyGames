@@ -32,46 +32,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuAddFast = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuGotoSite = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuOpenSF = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuDel = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSep1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuView = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuFilter = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSearch = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuInfoPanel = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSep2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuCol0 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCol1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSep3 = new System.Windows.Forms.ToolStripSeparator();
             this.menuShowHidden = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCats = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuPlatforms = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuMediums = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuGenres = new System.Windows.Forms.ToolStripMenuItem();
             this.menuService = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStat = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuPurchases = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.menuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPage = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripPanel = new System.Windows.Forms.ToolStrip();
-            this.toolAdd = new System.Windows.Forms.ToolStripSplitButton();
-            this.toolAddFast = new System.Windows.Forms.ToolStripMenuItem();
             this.toolSep1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolFilter = new System.Windows.Forms.ToolStripButton();
-            this.toolInfoPanel = new System.Windows.Forms.ToolStripButton();
             this.toolSep2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStat = new System.Windows.Forms.ToolStripButton();
-            this.toolPurchases = new System.Windows.Forms.ToolStripButton();
-            this.toolHistory = new System.Windows.Forms.ToolStripButton();
-            this.toolReset = new System.Windows.Forms.ToolStripButton();
             this.toolSearch = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripLabelFind = new System.Windows.Forms.ToolStripLabel();
             this.listViewGames = new System.Windows.Forms.ListView();
             this.columnHeaderDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderGame = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -83,9 +60,6 @@
             this.columnHeaderPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmGoToSite = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmOpenSF = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmDelC = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusAll = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusShowed = new System.Windows.Forms.ToolStripStatusLabel();
@@ -97,7 +71,6 @@
             this.labelDLCL = new System.Windows.Forms.Label();
             this.labelVersions = new System.Windows.Forms.Label();
             this.labelVersionsL = new System.Windows.Forms.Label();
-            this.pictureBoxCover = new System.Windows.Forms.PictureBox();
             this.labelYear = new System.Windows.Forms.Label();
             this.labelYearL = new System.Windows.Forms.Label();
             this.labelPublishers = new System.Windows.Forms.Label();
@@ -105,6 +78,33 @@
             this.labelDevelopers = new System.Windows.Forms.Label();
             this.labelDevelopersL = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
+            this.pictureBoxCover = new System.Windows.Forms.PictureBox();
+            this.cmGoToSite = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmOpenSF = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmDelC = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolAdd = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolAddFast = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolFilter = new System.Windows.Forms.ToolStripButton();
+            this.toolInfoPanel = new System.Windows.Forms.ToolStripButton();
+            this.toolStat = new System.Windows.Forms.ToolStripButton();
+            this.toolPurchases = new System.Windows.Forms.ToolStripButton();
+            this.toolHistory = new System.Windows.Forms.ToolStripButton();
+            this.toolReset = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabelFind = new System.Windows.Forms.ToolStripLabel();
+            this.menuAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAddFast = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuGotoSite = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuOpenSF = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDel = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuFilter = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSearch = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuInfoPanel = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuPlatforms = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuMediums = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuGenres = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStat = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuPurchases = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStripPanel.SuspendLayout();
             this.contextMenu.SuspendLayout();
@@ -141,54 +141,6 @@
             this.menuFile.Size = new System.Drawing.Size(48, 20);
             this.menuFile.Text = "Файл";
             // 
-            // menuAdd
-            // 
-            this.menuAdd.Image = ((System.Drawing.Image)(resources.GetObject("menuAdd.Image")));
-            this.menuAdd.Name = "menuAdd";
-            this.menuAdd.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.menuAdd.Size = new System.Drawing.Size(287, 22);
-            this.menuAdd.Text = "Добавить игру";
-            this.menuAdd.Click += new System.EventHandler(this.addGame);
-            // 
-            // menuAddFast
-            // 
-            this.menuAddFast.Image = global::My_Games.Properties.Resources.add_fast;
-            this.menuAddFast.Name = "menuAddFast";
-            this.menuAddFast.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.N)));
-            this.menuAddFast.Size = new System.Drawing.Size(287, 22);
-            this.menuAddFast.Text = "Добавить игру быстро";
-            this.menuAddFast.Click += new System.EventHandler(this.addGameFast);
-            // 
-            // menuGotoSite
-            // 
-            this.menuGotoSite.Enabled = false;
-            this.menuGotoSite.Image = ((System.Drawing.Image)(resources.GetObject("menuGotoSite.Image")));
-            this.menuGotoSite.Name = "menuGotoSite";
-            this.menuGotoSite.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
-            this.menuGotoSite.Size = new System.Drawing.Size(287, 22);
-            this.menuGotoSite.Text = "Перейти на сайт";
-            this.menuGotoSite.Click += new System.EventHandler(this.GoToSite);
-            // 
-            // menuOpenSF
-            // 
-            this.menuOpenSF.Enabled = false;
-            this.menuOpenSF.Image = global::My_Games.Properties.Resources.puctures;
-            this.menuOpenSF.Name = "menuOpenSF";
-            this.menuOpenSF.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.menuOpenSF.Size = new System.Drawing.Size(287, 22);
-            this.menuOpenSF.Text = "Скриншоты";
-            this.menuOpenSF.Click += new System.EventHandler(this.OpenScrFolder);
-            // 
-            // menuDel
-            // 
-            this.menuDel.Enabled = false;
-            this.menuDel.Image = global::My_Games.Properties.Resources.remove;
-            this.menuDel.Name = "menuDel";
-            this.menuDel.Size = new System.Drawing.Size(287, 22);
-            this.menuDel.Text = "Удалить";
-            this.menuDel.Click += new System.EventHandler(this.Delete);
-            // 
             // menuSep1
             // 
             this.menuSep1.Name = "menuSep1";
@@ -217,33 +169,6 @@
             this.menuView.Size = new System.Drawing.Size(39, 20);
             this.menuView.Text = "Вид";
             // 
-            // menuFilter
-            // 
-            this.menuFilter.Image = global::My_Games.Properties.Resources.filter;
-            this.menuFilter.Name = "menuFilter";
-            this.menuFilter.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.menuFilter.Size = new System.Drawing.Size(248, 22);
-            this.menuFilter.Text = "Фильтр";
-            this.menuFilter.Click += new System.EventHandler(this.filterChange);
-            // 
-            // menuSearch
-            // 
-            this.menuSearch.Image = global::My_Games.Properties.Resources.search;
-            this.menuSearch.Name = "menuSearch";
-            this.menuSearch.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.menuSearch.Size = new System.Drawing.Size(248, 22);
-            this.menuSearch.Text = "Поиск";
-            this.menuSearch.Click += new System.EventHandler(this.menuSearch_Click);
-            // 
-            // menuInfoPanel
-            // 
-            this.menuInfoPanel.Image = global::My_Games.Properties.Resources.info;
-            this.menuInfoPanel.Name = "menuInfoPanel";
-            this.menuInfoPanel.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.menuInfoPanel.Size = new System.Drawing.Size(248, 22);
-            this.menuInfoPanel.Text = "Панель информации";
-            this.menuInfoPanel.Click += new System.EventHandler(this.infoPanelOnOff);
-            // 
             // menuSep2
             // 
             this.menuSep2.Name = "menuSep2";
@@ -251,6 +176,7 @@
             // 
             // menuCol0
             // 
+            this.menuCol0.Image = global::My_Games.Properties.Resources.color0;
             this.menuCol0.Name = "menuCol0";
             this.menuCol0.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.menuCol0.Size = new System.Drawing.Size(248, 22);
@@ -259,6 +185,7 @@
             // 
             // menuCol1
             // 
+            this.menuCol1.Image = global::My_Games.Properties.Resources.color1;
             this.menuCol1.Name = "menuCol1";
             this.menuCol1.ShortcutKeys = System.Windows.Forms.Keys.F6;
             this.menuCol1.Size = new System.Drawing.Size(248, 22);
@@ -272,6 +199,7 @@
             // 
             // menuShowHidden
             // 
+            this.menuShowHidden.Image = global::My_Games.Properties.Resources.hidden;
             this.menuShowHidden.Name = "menuShowHidden";
             this.menuShowHidden.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
             this.menuShowHidden.Size = new System.Drawing.Size(248, 22);
@@ -288,28 +216,6 @@
             this.menuCats.Size = new System.Drawing.Size(94, 20);
             this.menuCats.Text = "Справочники";
             // 
-            // menuPlatforms
-            // 
-            this.menuPlatforms.Name = "menuPlatforms";
-            this.menuPlatforms.Size = new System.Drawing.Size(142, 22);
-            this.menuPlatforms.Text = "Платформы";
-            this.menuPlatforms.Click += new System.EventHandler(this.menuPlatforms_Click);
-            // 
-            // menuMediums
-            // 
-            this.menuMediums.Name = "menuMediums";
-            this.menuMediums.Size = new System.Drawing.Size(142, 22);
-            this.menuMediums.Text = "Носители";
-            this.menuMediums.ToolTipText = "Носители, электронные магазины, подписки";
-            this.menuMediums.Click += new System.EventHandler(this.menuMediums_Click);
-            // 
-            // menuGenres
-            // 
-            this.menuGenres.Name = "menuGenres";
-            this.menuGenres.Size = new System.Drawing.Size(142, 22);
-            this.menuGenres.Text = "Жанры";
-            this.menuGenres.Click += new System.EventHandler(this.menuGenres_Click);
-            // 
             // menuService
             // 
             this.menuService.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -319,33 +225,6 @@
             this.menuService.Name = "menuService";
             this.menuService.Size = new System.Drawing.Size(59, 20);
             this.menuService.Text = "Сервис";
-            // 
-            // menuStat
-            // 
-            this.menuStat.Image = global::My_Games.Properties.Resources.stat;
-            this.menuStat.Name = "menuStat";
-            this.menuStat.ShortcutKeys = System.Windows.Forms.Keys.F9;
-            this.menuStat.Size = new System.Drawing.Size(225, 22);
-            this.menuStat.Text = "Статистика";
-            this.menuStat.Click += new System.EventHandler(this.showStat);
-            // 
-            // menuPurchases
-            // 
-            this.menuPurchases.Image = global::My_Games.Properties.Resources.purchase;
-            this.menuPurchases.Name = "menuPurchases";
-            this.menuPurchases.ShortcutKeys = System.Windows.Forms.Keys.F10;
-            this.menuPurchases.Size = new System.Drawing.Size(225, 22);
-            this.menuPurchases.Text = "История покупок";
-            this.menuPurchases.Click += new System.EventHandler(this.showBuyHistory);
-            // 
-            // menuHistory
-            // 
-            this.menuHistory.Image = global::My_Games.Properties.Resources.winner;
-            this.menuHistory.Name = "menuHistory";
-            this.menuHistory.ShortcutKeys = System.Windows.Forms.Keys.F11;
-            this.menuHistory.Size = new System.Drawing.Size(225, 22);
-            this.menuHistory.Text = "История прохождений";
-            this.menuHistory.Click += new System.EventHandler(this.showPlayHistory);
             // 
             // menuHelp
             // 
@@ -390,97 +269,15 @@
             this.toolStripPanel.TabIndex = 1;
             this.toolStripPanel.Text = "toolStrip1";
             // 
-            // toolAdd
-            // 
-            this.toolAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolAdd.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolAddFast});
-            this.toolAdd.Image = ((System.Drawing.Image)(resources.GetObject("toolAdd.Image")));
-            this.toolAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolAdd.Name = "toolAdd";
-            this.toolAdd.Size = new System.Drawing.Size(32, 22);
-            this.toolAdd.Text = "Добавить игру";
-            this.toolAdd.ButtonClick += new System.EventHandler(this.addGame);
-            // 
-            // toolAddFast
-            // 
-            this.toolAddFast.Image = global::My_Games.Properties.Resources.add_fast;
-            this.toolAddFast.Name = "toolAddFast";
-            this.toolAddFast.Size = new System.Drawing.Size(198, 22);
-            this.toolAddFast.Text = "Добавить игру быстро";
-            this.toolAddFast.Click += new System.EventHandler(this.addGameFast);
-            // 
             // toolSep1
             // 
             this.toolSep1.Name = "toolSep1";
             this.toolSep1.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolFilter
-            // 
-            this.toolFilter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolFilter.Image = global::My_Games.Properties.Resources.filter;
-            this.toolFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolFilter.Name = "toolFilter";
-            this.toolFilter.Size = new System.Drawing.Size(23, 22);
-            this.toolFilter.Text = "Фильтр";
-            this.toolFilter.Click += new System.EventHandler(this.filterChange);
-            // 
-            // toolInfoPanel
-            // 
-            this.toolInfoPanel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolInfoPanel.Image = global::My_Games.Properties.Resources.info;
-            this.toolInfoPanel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolInfoPanel.Name = "toolInfoPanel";
-            this.toolInfoPanel.Size = new System.Drawing.Size(23, 22);
-            this.toolInfoPanel.Text = "Панель информации";
-            this.toolInfoPanel.Click += new System.EventHandler(this.infoPanelOnOff);
-            // 
             // toolSep2
             // 
             this.toolSep2.Name = "toolSep2";
             this.toolSep2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStat
-            // 
-            this.toolStat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStat.Image = global::My_Games.Properties.Resources.stat;
-            this.toolStat.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStat.Name = "toolStat";
-            this.toolStat.Size = new System.Drawing.Size(23, 22);
-            this.toolStat.Text = "Статистика";
-            this.toolStat.Click += new System.EventHandler(this.showStat);
-            // 
-            // toolPurchases
-            // 
-            this.toolPurchases.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolPurchases.Image = global::My_Games.Properties.Resources.purchase;
-            this.toolPurchases.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolPurchases.Name = "toolPurchases";
-            this.toolPurchases.Size = new System.Drawing.Size(23, 22);
-            this.toolPurchases.Text = "История покупок";
-            this.toolPurchases.Click += new System.EventHandler(this.showBuyHistory);
-            // 
-            // toolHistory
-            // 
-            this.toolHistory.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolHistory.Image = global::My_Games.Properties.Resources.winner;
-            this.toolHistory.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolHistory.Name = "toolHistory";
-            this.toolHistory.Size = new System.Drawing.Size(23, 22);
-            this.toolHistory.Text = "История прохождений";
-            this.toolHistory.Click += new System.EventHandler(this.showPlayHistory);
-            // 
-            // toolReset
-            // 
-            this.toolReset.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolReset.Enabled = false;
-            this.toolReset.Image = global::My_Games.Properties.Resources.clear;
-            this.toolReset.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolReset.Name = "toolReset";
-            this.toolReset.Size = new System.Drawing.Size(23, 22);
-            this.toolReset.Text = "Сброс";
-            this.toolReset.Click += new System.EventHandler(this.toolReset_Click);
             // 
             // toolSearch
             // 
@@ -489,15 +286,6 @@
             this.toolSearch.Name = "toolSearch";
             this.toolSearch.Size = new System.Drawing.Size(200, 25);
             this.toolSearch.TextChanged += new System.EventHandler(this.toolSearch_TextChanged);
-            // 
-            // toolStripLabelFind
-            // 
-            this.toolStripLabelFind.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripLabelFind.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripLabelFind.Image = global::My_Games.Properties.Resources.search;
-            this.toolStripLabelFind.Name = "toolStripLabelFind";
-            this.toolStripLabelFind.Size = new System.Drawing.Size(16, 22);
-            this.toolStripLabelFind.Text = "Поиск";
             // 
             // listViewGames
             // 
@@ -586,33 +374,6 @@
             this.cmOpen.Size = new System.Drawing.Size(164, 22);
             this.cmOpen.Text = "Открыть";
             this.cmOpen.Click += new System.EventHandler(this.Open);
-            // 
-            // cmGoToSite
-            // 
-            this.cmGoToSite.Enabled = false;
-            this.cmGoToSite.Image = ((System.Drawing.Image)(resources.GetObject("cmGoToSite.Image")));
-            this.cmGoToSite.Name = "cmGoToSite";
-            this.cmGoToSite.Size = new System.Drawing.Size(164, 22);
-            this.cmGoToSite.Text = "Перейти на сайт";
-            this.cmGoToSite.Click += new System.EventHandler(this.GoToSite);
-            // 
-            // cmOpenSF
-            // 
-            this.cmOpenSF.Enabled = false;
-            this.cmOpenSF.Image = global::My_Games.Properties.Resources.puctures;
-            this.cmOpenSF.Name = "cmOpenSF";
-            this.cmOpenSF.Size = new System.Drawing.Size(164, 22);
-            this.cmOpenSF.Text = "Скриншоты";
-            this.cmOpenSF.Click += new System.EventHandler(this.OpenScrFolder);
-            // 
-            // cmDelC
-            // 
-            this.cmDelC.Enabled = false;
-            this.cmDelC.Image = global::My_Games.Properties.Resources.remove;
-            this.cmDelC.Name = "cmDelC";
-            this.cmDelC.Size = new System.Drawing.Size(164, 22);
-            this.cmDelC.Text = "Удалить";
-            this.cmDelC.Click += new System.EventHandler(this.Delete);
             // 
             // statusStrip
             // 
@@ -725,15 +486,6 @@
             this.labelVersionsL.TabIndex = 9;
             this.labelVersionsL.Text = "Версии:";
             // 
-            // pictureBoxCover
-            // 
-            this.pictureBoxCover.Location = new System.Drawing.Point(3, 3);
-            this.pictureBoxCover.Name = "pictureBoxCover";
-            this.pictureBoxCover.Size = new System.Drawing.Size(190, 190);
-            this.pictureBoxCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxCover.TabIndex = 8;
-            this.pictureBoxCover.TabStop = false;
-            // 
             // labelYear
             // 
             this.labelYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -796,6 +548,260 @@
             this.labelName.Size = new System.Drawing.Size(190, 45);
             this.labelName.TabIndex = 1;
             this.labelName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pictureBoxCover
+            // 
+            this.pictureBoxCover.Location = new System.Drawing.Point(3, 3);
+            this.pictureBoxCover.Name = "pictureBoxCover";
+            this.pictureBoxCover.Size = new System.Drawing.Size(190, 190);
+            this.pictureBoxCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxCover.TabIndex = 8;
+            this.pictureBoxCover.TabStop = false;
+            // 
+            // cmGoToSite
+            // 
+            this.cmGoToSite.Enabled = false;
+            this.cmGoToSite.Image = ((System.Drawing.Image)(resources.GetObject("cmGoToSite.Image")));
+            this.cmGoToSite.Name = "cmGoToSite";
+            this.cmGoToSite.Size = new System.Drawing.Size(164, 22);
+            this.cmGoToSite.Text = "Перейти на сайт";
+            this.cmGoToSite.Click += new System.EventHandler(this.GoToSite);
+            // 
+            // cmOpenSF
+            // 
+            this.cmOpenSF.Enabled = false;
+            this.cmOpenSF.Image = global::My_Games.Properties.Resources.puctures;
+            this.cmOpenSF.Name = "cmOpenSF";
+            this.cmOpenSF.Size = new System.Drawing.Size(164, 22);
+            this.cmOpenSF.Text = "Скриншоты";
+            this.cmOpenSF.Click += new System.EventHandler(this.OpenScrFolder);
+            // 
+            // cmDelC
+            // 
+            this.cmDelC.Enabled = false;
+            this.cmDelC.Image = global::My_Games.Properties.Resources.remove;
+            this.cmDelC.Name = "cmDelC";
+            this.cmDelC.Size = new System.Drawing.Size(164, 22);
+            this.cmDelC.Text = "Удалить";
+            this.cmDelC.Click += new System.EventHandler(this.Delete);
+            // 
+            // toolAdd
+            // 
+            this.toolAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolAdd.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolAddFast});
+            this.toolAdd.Image = ((System.Drawing.Image)(resources.GetObject("toolAdd.Image")));
+            this.toolAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolAdd.Name = "toolAdd";
+            this.toolAdd.Size = new System.Drawing.Size(32, 22);
+            this.toolAdd.Text = "Добавить игру";
+            this.toolAdd.ButtonClick += new System.EventHandler(this.addGame);
+            // 
+            // toolAddFast
+            // 
+            this.toolAddFast.Image = global::My_Games.Properties.Resources.add_fast;
+            this.toolAddFast.Name = "toolAddFast";
+            this.toolAddFast.Size = new System.Drawing.Size(198, 22);
+            this.toolAddFast.Text = "Добавить игру быстро";
+            this.toolAddFast.Click += new System.EventHandler(this.addGameFast);
+            // 
+            // toolFilter
+            // 
+            this.toolFilter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolFilter.Image = global::My_Games.Properties.Resources.filter;
+            this.toolFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolFilter.Name = "toolFilter";
+            this.toolFilter.Size = new System.Drawing.Size(23, 22);
+            this.toolFilter.Text = "Фильтр";
+            this.toolFilter.Click += new System.EventHandler(this.filterChange);
+            // 
+            // toolInfoPanel
+            // 
+            this.toolInfoPanel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolInfoPanel.Image = global::My_Games.Properties.Resources.info;
+            this.toolInfoPanel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolInfoPanel.Name = "toolInfoPanel";
+            this.toolInfoPanel.Size = new System.Drawing.Size(23, 22);
+            this.toolInfoPanel.Text = "Панель информации";
+            this.toolInfoPanel.Click += new System.EventHandler(this.infoPanelOnOff);
+            // 
+            // toolStat
+            // 
+            this.toolStat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStat.Image = global::My_Games.Properties.Resources.stat;
+            this.toolStat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStat.Name = "toolStat";
+            this.toolStat.Size = new System.Drawing.Size(23, 22);
+            this.toolStat.Text = "Статистика";
+            this.toolStat.Click += new System.EventHandler(this.showStat);
+            // 
+            // toolPurchases
+            // 
+            this.toolPurchases.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolPurchases.Image = global::My_Games.Properties.Resources.purchase;
+            this.toolPurchases.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolPurchases.Name = "toolPurchases";
+            this.toolPurchases.Size = new System.Drawing.Size(23, 22);
+            this.toolPurchases.Text = "История покупок";
+            this.toolPurchases.Click += new System.EventHandler(this.showBuyHistory);
+            // 
+            // toolHistory
+            // 
+            this.toolHistory.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolHistory.Image = global::My_Games.Properties.Resources.winner;
+            this.toolHistory.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolHistory.Name = "toolHistory";
+            this.toolHistory.Size = new System.Drawing.Size(23, 22);
+            this.toolHistory.Text = "История прохождений";
+            this.toolHistory.Click += new System.EventHandler(this.showPlayHistory);
+            // 
+            // toolReset
+            // 
+            this.toolReset.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolReset.Enabled = false;
+            this.toolReset.Image = global::My_Games.Properties.Resources.clear;
+            this.toolReset.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolReset.Name = "toolReset";
+            this.toolReset.Size = new System.Drawing.Size(23, 22);
+            this.toolReset.Text = "Сброс";
+            this.toolReset.Click += new System.EventHandler(this.toolReset_Click);
+            // 
+            // toolStripLabelFind
+            // 
+            this.toolStripLabelFind.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripLabelFind.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripLabelFind.Image = global::My_Games.Properties.Resources.search;
+            this.toolStripLabelFind.Name = "toolStripLabelFind";
+            this.toolStripLabelFind.Size = new System.Drawing.Size(16, 22);
+            this.toolStripLabelFind.Text = "Поиск";
+            // 
+            // menuAdd
+            // 
+            this.menuAdd.Image = ((System.Drawing.Image)(resources.GetObject("menuAdd.Image")));
+            this.menuAdd.Name = "menuAdd";
+            this.menuAdd.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.menuAdd.Size = new System.Drawing.Size(287, 22);
+            this.menuAdd.Text = "Добавить игру";
+            this.menuAdd.Click += new System.EventHandler(this.addGame);
+            // 
+            // menuAddFast
+            // 
+            this.menuAddFast.Image = global::My_Games.Properties.Resources.add_fast;
+            this.menuAddFast.Name = "menuAddFast";
+            this.menuAddFast.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.N)));
+            this.menuAddFast.Size = new System.Drawing.Size(287, 22);
+            this.menuAddFast.Text = "Добавить игру быстро";
+            this.menuAddFast.Click += new System.EventHandler(this.addGameFast);
+            // 
+            // menuGotoSite
+            // 
+            this.menuGotoSite.Enabled = false;
+            this.menuGotoSite.Image = ((System.Drawing.Image)(resources.GetObject("menuGotoSite.Image")));
+            this.menuGotoSite.Name = "menuGotoSite";
+            this.menuGotoSite.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
+            this.menuGotoSite.Size = new System.Drawing.Size(287, 22);
+            this.menuGotoSite.Text = "Перейти на сайт";
+            this.menuGotoSite.Click += new System.EventHandler(this.GoToSite);
+            // 
+            // menuOpenSF
+            // 
+            this.menuOpenSF.Enabled = false;
+            this.menuOpenSF.Image = global::My_Games.Properties.Resources.puctures;
+            this.menuOpenSF.Name = "menuOpenSF";
+            this.menuOpenSF.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.menuOpenSF.Size = new System.Drawing.Size(287, 22);
+            this.menuOpenSF.Text = "Скриншоты";
+            this.menuOpenSF.Click += new System.EventHandler(this.OpenScrFolder);
+            // 
+            // menuDel
+            // 
+            this.menuDel.Enabled = false;
+            this.menuDel.Image = global::My_Games.Properties.Resources.remove;
+            this.menuDel.Name = "menuDel";
+            this.menuDel.Size = new System.Drawing.Size(287, 22);
+            this.menuDel.Text = "Удалить";
+            this.menuDel.Click += new System.EventHandler(this.Delete);
+            // 
+            // menuFilter
+            // 
+            this.menuFilter.Image = global::My_Games.Properties.Resources.filter;
+            this.menuFilter.Name = "menuFilter";
+            this.menuFilter.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.menuFilter.Size = new System.Drawing.Size(248, 22);
+            this.menuFilter.Text = "Фильтр";
+            this.menuFilter.Click += new System.EventHandler(this.filterChange);
+            // 
+            // menuSearch
+            // 
+            this.menuSearch.Image = global::My_Games.Properties.Resources.search;
+            this.menuSearch.Name = "menuSearch";
+            this.menuSearch.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.menuSearch.Size = new System.Drawing.Size(248, 22);
+            this.menuSearch.Text = "Поиск";
+            this.menuSearch.Click += new System.EventHandler(this.menuSearch_Click);
+            // 
+            // menuInfoPanel
+            // 
+            this.menuInfoPanel.Image = global::My_Games.Properties.Resources.info;
+            this.menuInfoPanel.Name = "menuInfoPanel";
+            this.menuInfoPanel.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.menuInfoPanel.Size = new System.Drawing.Size(248, 22);
+            this.menuInfoPanel.Text = "Панель информации";
+            this.menuInfoPanel.Click += new System.EventHandler(this.infoPanelOnOff);
+            // 
+            // menuPlatforms
+            // 
+            this.menuPlatforms.Image = global::My_Games.Properties.Resources.platform;
+            this.menuPlatforms.Name = "menuPlatforms";
+            this.menuPlatforms.Size = new System.Drawing.Size(180, 22);
+            this.menuPlatforms.Text = "Платформы";
+            this.menuPlatforms.Click += new System.EventHandler(this.menuPlatforms_Click);
+            // 
+            // menuMediums
+            // 
+            this.menuMediums.Image = global::My_Games.Properties.Resources.media;
+            this.menuMediums.Name = "menuMediums";
+            this.menuMediums.Size = new System.Drawing.Size(180, 22);
+            this.menuMediums.Text = "Носители";
+            this.menuMediums.ToolTipText = "Носители, электронные магазины, подписки";
+            this.menuMediums.Click += new System.EventHandler(this.menuMediums_Click);
+            // 
+            // menuGenres
+            // 
+            this.menuGenres.Image = global::My_Games.Properties.Resources.genre;
+            this.menuGenres.Name = "menuGenres";
+            this.menuGenres.Size = new System.Drawing.Size(180, 22);
+            this.menuGenres.Text = "Жанры";
+            this.menuGenres.Click += new System.EventHandler(this.menuGenres_Click);
+            // 
+            // menuStat
+            // 
+            this.menuStat.Image = global::My_Games.Properties.Resources.stat;
+            this.menuStat.Name = "menuStat";
+            this.menuStat.ShortcutKeys = System.Windows.Forms.Keys.F9;
+            this.menuStat.Size = new System.Drawing.Size(225, 22);
+            this.menuStat.Text = "Статистика";
+            this.menuStat.Click += new System.EventHandler(this.showStat);
+            // 
+            // menuPurchases
+            // 
+            this.menuPurchases.Image = global::My_Games.Properties.Resources.purchase;
+            this.menuPurchases.Name = "menuPurchases";
+            this.menuPurchases.ShortcutKeys = System.Windows.Forms.Keys.F10;
+            this.menuPurchases.Size = new System.Drawing.Size(225, 22);
+            this.menuPurchases.Text = "История покупок";
+            this.menuPurchases.Click += new System.EventHandler(this.showBuyHistory);
+            // 
+            // menuHistory
+            // 
+            this.menuHistory.Image = global::My_Games.Properties.Resources.winner;
+            this.menuHistory.Name = "menuHistory";
+            this.menuHistory.ShortcutKeys = System.Windows.Forms.Keys.F11;
+            this.menuHistory.Size = new System.Drawing.Size(225, 22);
+            this.menuHistory.Text = "История прохождений";
+            this.menuHistory.Click += new System.EventHandler(this.showPlayHistory);
             // 
             // FormMain
             // 

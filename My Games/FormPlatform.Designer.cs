@@ -161,6 +161,7 @@
             this.radioVideo.TabStop = true;
             this.radioVideo.Text = "Видео";
             this.radioVideo.UseVisualStyleBackColor = true;
+            this.radioVideo.CheckedChanged += new System.EventHandler(this.radioChanged);
             // 
             // radioGame
             // 
@@ -172,6 +173,7 @@
             this.radioGame.TabStop = true;
             this.radioGame.Text = "Игровая";
             this.radioGame.UseVisualStyleBackColor = true;
+            this.radioGame.CheckedChanged += new System.EventHandler(this.radioChanged);
             // 
             // FormPlatform
             // 
