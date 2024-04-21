@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace My_Games
 {
@@ -16,7 +17,9 @@ namespace My_Games
         {
             InitializeComponent();
             comboMethod.DataSource = Event.methods;
-            comboBoxEvent.DataSource = Event.events;
+            for (int i = 1; i < Event.events.Count(); i++)
+                comboBoxEvent.Items.Add(Event.events[i]);
+            //comboBoxEvent.DataSource = Event.events;
             this.ev = ev;
             this.versions = versions;
             this.history = history;
@@ -29,7 +32,7 @@ namespace My_Games
             date.Value = ev.date;
             comboMethod.SelectedIndex = ev.method;
             Platform.FillCombobox(comboBoxPlatform, comboMethod.SelectedIndex, ev.platform, checkBoxAll.Checked, versions);
-            comboBoxEvent.SelectedIndex = ev.even;
+            comboBoxEvent.SelectedIndex = ev.even - 1;  //Уменьшаем на 1, так как самый первый вариант мы не показываем
             textBoxHours.Text = ev.hours.ToString();
             textBoxHoursAll.Text = ev.hoursAll.ToString();
             textBoxComment.Text = ev.comment;
@@ -49,7 +52,7 @@ namespace My_Games
             ev.date = date.Value;
             ev.method = comboMethod.SelectedIndex;
             ev.platform = Data.PlatformNameToID(comboBoxPlatform.Text);
-            ev.even = comboBoxEvent.SelectedIndex;
+            ev.even = comboBoxEvent.SelectedIndex + 1;  //Увеличиваем на 1, так как самый первый вариант мы не показываем
             ev.hours = Data.TextToInt(textBoxHours.Text);
             ev.hoursAll = Data.TextToInt(textBoxHoursAll.Text);
             ev.comment = textBoxComment.Text;

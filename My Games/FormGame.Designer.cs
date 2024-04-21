@@ -48,6 +48,7 @@
             this.columnEventDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnEventPlatform = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnEvent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnEventMethod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnEventHoursAll = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnEventHours = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnEventComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -118,7 +119,6 @@
             this.tabPageOthers = new System.Windows.Forms.TabPage();
             this.checkHidden = new System.Windows.Forms.CheckBox();
             this.imageListTabs = new System.Windows.Forms.ImageList(this.components);
-            this.columnEventMethod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBoxMain.SuspendLayout();
             this.cmCover.SuspendLayout();
             this.groupBoxComment.SuspendLayout();
@@ -308,12 +308,17 @@
             // columnEvent
             // 
             this.columnEvent.Text = "Событие";
-            this.columnEvent.Width = 100;
+            this.columnEvent.Width = 95;
+            // 
+            // columnEventMethod
+            // 
+            this.columnEventMethod.Text = "Метод";
             // 
             // columnEventHoursAll
             // 
             this.columnEventHoursAll.Text = "Счётчик";
             this.columnEventHoursAll.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnEventHoursAll.Width = 55;
             // 
             // columnEventHours
             // 
@@ -1099,10 +1104,6 @@
             this.imageListTabs.Images.SetKeyName(0, "purchase.png");
             this.imageListTabs.Images.SetKeyName(1, "winner.png");
             this.imageListTabs.Images.SetKeyName(2, "notes.png");
-            // 
-            // columnEventMethod
-            // 
-            this.columnEventMethod.Text = "Метод";
             // 
             // FormGame
             // 

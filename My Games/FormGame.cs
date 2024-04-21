@@ -409,7 +409,7 @@ namespace My_Games
             listViewHistory.Items.Clear();
             foreach (Event e in history)
                 listViewHistory.Items.Add(e.listItem());
-            labelHis.Text = Data.StringHistory(history); //Event.events[max] + ", общее время в игре: " + hours.ToString() + " ч.";
+            labelHis.Text = Data.StringHistory(history);
             listViewHistory.EndUpdate();
             tabPageHistory.Text = history.Count > 0 ? "История: " + (history.Count).ToString() : "История";
             listViewHistory_SelectedIndexChanged(null, null);
