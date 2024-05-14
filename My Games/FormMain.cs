@@ -333,7 +333,7 @@ namespace My_Games
 
         private void menuPage_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://sg-software.ru/mygames");
+            System.Diagnostics.Process.Start("http://sg-software.ru/my-games");
         }
 
         private void menuAbout_Click(object sender, EventArgs e)

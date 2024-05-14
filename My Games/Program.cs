@@ -5,7 +5,7 @@ namespace My_Games
 {
     static class Program
     {
-        public static string Version = "2.6 (04.11.2023)";
+        public static string Version = "2.6 (12.05.2024)";
         public static string num = "### ### ##0";
         /// <summary>
         /// Главная точка входа для приложения.
